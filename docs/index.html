@@ -246,6 +246,23 @@ tbody tr.r3 td:first-child{box-shadow:inset 3px 0 0 #cd7f32}
   .hero{grid-template-columns:1fr} .hfig b,.hfig span{text-align:left} .hname{font-size:26px}
   .picker select{min-width:0;flex:1}
 }
+
+/* ---------- banners por pestana ---------- */
+.scene{position:relative;overflow:hidden;border-radius:22px;margin:0 0 16px;min-height:120px;padding:22px 24px;display:flex;align-items:center;
+ background:radial-gradient(120% 160% at 100% 0%,var(--accent-soft),transparent 60%),linear-gradient(135deg,var(--panel),var(--panel));box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.06))}
+.scene h2{margin:0;font-size:26px;font-weight:700;letter-spacing:-.02em}
+.scene p{margin:4px 0 0;color:var(--muted);font-size:14px;max-width:46ch}
+.scene .art{position:absolute;right:18px;top:50%;width:110px;height:110px;transform:translateY(-50%);color:var(--accent);opacity:.9;animation:bob 4s ease-in-out infinite}
+.scene .art svg{width:100%;height:100%;display:block}
+.scene img.custom{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scene .txt{position:relative;z-index:1}
+.scene.has-img{min-height:clamp(140px,24vw,260px);background:#0a1230}.scene.has-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,10,28,.82),rgba(6,10,28,.35) 45%,transparent 70%)}.scene.has-img .txt{color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.6)} .scene.has-img p{color:#fff}.scene.has-img .art{display:none}
+@keyframes bob{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 6px))}}
+#view.quiet .scene .art{animation:none}
+@media (prefers-reduced-motion:reduce){.scene .art{animation:none}}
+@media (max-width:640px){.scene{padding:18px;min-height:100px}.scene h2{font-size:22px}.scene .art{width:80px;height:80px;right:10px;opacity:.55}}
+.scene .mark{display:none}.scene.has-img.nomascot .mark{display:block;position:absolute;right:22px;top:50%;width:min(130px,26vw);height:auto;transform:translateY(-50%);z-index:1;filter:drop-shadow(0 6px 18px rgba(255,160,0,.45));animation:bob 4s ease-in-out infinite}#view.quiet .scene .mark{animation:none}@media (prefers-reduced-motion:reduce){.scene .mark{animation:none}}
+@media (max-width:640px){.scene.has-img .txt{max-width:52%}.scene.has-img p{font-size:12.5px}.scene.has-img.nomascot .mark{width:84px;right:12px}}
 </style>
 </head>
 <body>
@@ -659,12 +676,34 @@ function bindChart() {
 
 const VIEWS = {resumen: viewResumen, perfil: viewPerfil, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, guia: viewGuia};
 
+
+/* ---------- banners por pestana (ilustraciones propias; opcional: docs/img/banner-<pestana>.jpg) ---------- */
+const SC = {
+  resumen:["Resumen","Quién brilló en la temporada: MVPs, rankings y guerras.",'<path d="M30 14h40v22c0 14-9 24-20 24S30 50 30 36z"/><path d="M30 20H16c0 14 6 22 16 24M70 20h14c0 14-6 22-16 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><rect x="42" y="60" width="16" height="12"/><rect x="30" y="72" width="40" height="10" rx="3"/>'],
+  perfil:["Mi perfil","Tus números, comparados con el clan.",'<path d="M50 10l34 12v26c0 20-14 34-34 42C30 82 16 68 16 48V22z"/><path d="M50 30l5.5 11.5 12.5 1.7-9.2 8.7 2.4 12.4L50 58l-11.2 6.3 2.4-12.4-9.2-8.7 12.5-1.7z" fill="var(--panel)"/>'],
+  jugadores:["Jugadores","Todo el clan, ordenado por rendimiento.",'<circle cx="50" cy="30" r="13"/><path d="M26 78c0-16 10-26 24-26s24 10 24 26z"/><circle cx="22" cy="40" r="9" opacity=".6"/><path d="M4 76c0-11 7-18 18-18 3 0 5 .5 7 1.5-5 5-8 10-8 16.5z" opacity=".6"/><circle cx="78" cy="40" r="9" opacity=".6"/><path d="M96 76c0-11-7-18-18-18-3 0-5 .5-7 1.5 5 5 8 10 8 16.5z" opacity=".6"/>'],
+  guerras:["Guerras","Cada batalla, jugador por jugador.",'<g id="sw"><path d="M80 8l12 12-44 44-8-4-4-8z"/><path d="M34 60l10 10-6 6-10-10z"/><path d="M26 66l8 8-14 14-8-2-2-8z" opacity=".85"/></g><use href="#sw" transform="translate(100 0) scale(-1 1)"/>'],
+  cwl:["CWL","Liga de guerra de clanes: ronda por ronda.",'<path d="M14 40h72v8H14zM20 48h60v34H20z"/><path d="M14 40V24h10v8h8v-8h12v8h8v-8h10v8h8v-8h10v16z"/><path d="M42 82V62a8 8 0 0116 0v20z" fill="var(--panel)"/>'],
+  bonos:["Bonos CWL","Medallas sugeridas según el desempeño.",'<path d="M30 8h16l8 26H38zM70 8H54l-8 26h16z" opacity=".65"/><circle cx="50" cy="58" r="26"/><circle cx="50" cy="58" r="19" fill="none" stroke="var(--panel)" stroke-width="3"/><path d="M50 46l4.2 8.6 9.5 1.4-6.9 6.7 1.6 9.4-8.4-4.4-8.4 4.4 1.6-9.4-6.9-6.7 9.5-1.4z" fill="var(--panel)"/>'],
+  guia:["Guía","Cómo se calculan los puntos y los bonos.",'<path d="M12 20c14-4 28-4 38 4v54c-10-8-24-8-38-4zM88 20c-14-4-28-4-38 4v54c10-8 24-8 38-4z"/>']
+};
+function sceneHTML(tab) {
+  const c = SC[tab]; if (!c) return "";
+  return `<section class="scene" data-scene="${tab}"><img class="custom" src="img/banner-${tab}.jpg" alt="" hidden><div class="txt"><h2>${c[0]}</h2><p>${c[1]}</p></div><img class="mark" src="logo.webp" alt="" width="120" height="120"><div class="art" aria-hidden="true"><svg viewBox="0 0 100 100" fill="currentColor">${c[2]}</svg></div></section>`;
+}
+function bindScene(root) {
+  const sc = root.querySelector(".scene"), im = sc && sc.querySelector("img.custom"); if (!im) return;
+  im.onload = () => { im.hidden = false; sc.classList.add("has-img"); if (["jugadores","cwl","bonos","guia"].includes(sc.dataset.scene)) sc.classList.add("nomascot"); };
+  im.onerror = () => im.remove();
+}
+
 function render(opts = {}) {
   const quiet = !!opts.quiet;
   $("#tabs").innerHTML = TABS.map(([k, t]) => `<button data-tab="${k}" class="${state.tab === k ? "on" : ""}">${t}</button>`).join("");
   const v = $("#view");
   v.classList.toggle("quiet", quiet);
-  v.innerHTML = VIEWS[state.tab]();
+  v.innerHTML = sceneHTML(state.tab) + VIEWS[state.tab]();
+  bindScene(v);
   if (state.tab === "perfil") bindChart();
   if (!quiet) { countUp(v); celebrate(v); }
 }
