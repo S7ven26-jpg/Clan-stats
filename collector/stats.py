@@ -45,6 +45,7 @@ def war_lines(war, W):
     allowed = war.get("attacks_per_member") or 1
     ours, theirs = war["clan"], war["opponent"]
     opp_th = {m["tag"]: m.get("th") or 0 for m in theirs["members"]}
+    opp_pos = {m["tag"]: m.get("pos") or 0 for m in theirs["members"]}
     our_th = {m["tag"]: m.get("th") or 0 for m in ours["members"]}
 
     lines = {}
@@ -53,7 +54,7 @@ def war_lines(war, W):
             "tag": m["tag"], "name": m["name"], "th": m.get("th"), "pos": m.get("pos"),
             "available": allowed, "used": 0, "stars": 0, "new_stars": 0, "three": 0,
             "destruction": 0, "hit_up": 0, "hit_eq": 0, "hit_down": 0,
-            "duration": 0, "duration_n": 0,
+            "duration": 0, "duration_n": 0, "target_pos": 0,
             "def_n": 0, "def_stars": 0, "def_three": 0, "def_destruction": 0,
         }
 
@@ -71,6 +72,7 @@ def war_lines(war, W):
         L["new_stars"] += new
         L["three"] += 1 if a["stars"] == 3 else 0
         L["destruction"] += a["destruction"]
+        L["target_pos"] += opp_pos.get(d, 0)
         dth, ath = opp_th.get(d, 0), our_th.get(tag, 0)
         if dth > ath:
             L["hit_up"] += 1
@@ -97,18 +99,37 @@ def war_lines(war, W):
         L["missed"] = max(0, L["available"] - L["used"]) if ended else 0
         L["score"] = score_line(L, W)
         L["avg_destruction"] = sdiv(L["destruction"], L["used"], 1)
+        L["avg_target_pos"] = sdiv(L["target_pos"], L["used"], 1)
         L["destruction"] = round(L["destruction"], 1)
         out.append(L)
     out.sort(key=lambda L: (-L["score"], -L["destruction"], L["name"].lower()))
     return out
 
 
+def mvp_key(L):
+    """Desempate: puntos > destruccion > estrellas netas > ataques a TH superior
+    > bases mas dificiles (posicion de mapa mas baja). Si todo empata, es empate real."""
+    return (L["score"], round(L["destruction"], 1), L["new_stars"], L["hit_up"], -(L.get("avg_target_pos") or 99))
+
+
 def summarize_war(war, W):
     lines = war_lines(war, W)
     ended = war["state"] == "warEnded"
     ranked = [L for L in lines if L["used"] > 0]
-    ranked.sort(key=lambda L: (-L["score"], -L["destruction"], -L["new_stars"]))
-    podium = [{"tag": L["tag"], "name": L["name"], "score": L["score"]} for L in ranked[:3]] if ended else []
+    ranked.sort(key=mvp_key, reverse=True)
+    podium, mvps = [], []
+    if ended and ranked:
+        rank, prev = 0, None
+        for L in ranked:
+            k = mvp_key(L)
+            if k != prev:
+                rank, prev = rank + 1, k
+            if rank > 3:
+                break
+            entry = {"tag": L["tag"], "name": L["name"], "score": L["score"], "rank": rank}
+            podium.append(entry)
+            if rank == 1:
+                mvps.append(entry)
 
     c, o = war["clan"], war["opponent"]
     if not ended:
@@ -126,7 +147,7 @@ def summarize_war(war, W):
         "opponent": {"tag": o.get("tag"), "name": o.get("name")},
         "stars": c["stars"], "destruction": c["destruction"],
         "opp_stars": o["stars"], "opp_destruction": o["destruction"],
-        "result": result, "mvp": podium[0] if podium else None, "podium": podium,
+        "result": result, "mvp": mvps[0] if mvps else None, "mvps": mvps, "podium": podium,
         "lines": lines,
     }
 
@@ -158,14 +179,14 @@ def aggregate(wars_out):
     """wars_out: guerras terminadas, en orden cronologico."""
     agg = {}
     for w in wars_out:
-        mvp_tag = w["mvp"]["tag"] if w["mvp"] else None
+        mvp_tags = {m["tag"] for m in (w.get("mvps") or ([w["mvp"]] if w.get("mvp") else []))}
         for L in w["lines"]:
             a = agg.setdefault(L["tag"], new_agg(L))
             a["name"], a["th"] = L["name"], L.get("th") or a["th"]
             a["wars"] += 1
             for k in SUM_KEYS:
                 a[k] += L[k]
-            if mvp_tag == L["tag"]:
+            if L["tag"] in mvp_tags:
                 a["mvps"] += 1
     res = [finish(a) for a in agg.values()]
     res.sort(key=lambda a: (-a["score"], a["name"].lower()))
@@ -176,7 +197,7 @@ def top_player(players):
     c = [p for p in players if p["used"] > 0]
     if not c:
         return None
-    p = max(c, key=lambda p: (p["score"], p["destruction"], p["new_stars"]))
+    p = max(c, key=lambda p: (p["score"], p["destruction"], p["new_stars"], p["hit_up"]))
     return {"tag": p["tag"], "name": p["name"], "score": p["score"]}
 
 

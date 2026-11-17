@@ -17,6 +17,7 @@
   --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
   --glow:rgba(255,149,0,.20);
   --radius:20px;
+  --viz-bar:#d4720a; --viz-avg:#898781; --viz-axis:rgba(0,0,0,.22);
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",Roboto,Inter,system-ui,sans-serif;
 }
 @media (prefers-color-scheme:dark){
@@ -28,6 +29,7 @@
     --seg:rgba(118,118,128,.24); --seg-on:#636366;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
     --glow:rgba(255,159,10,.20);
+    --viz-bar:#d17f0a; --viz-avg:#898781; --viz-axis:rgba(255,255,255,.22);
   }
 }
 *{box-sizing:border-box}
@@ -134,6 +136,60 @@ dialog button[data-act=close]{border:0;background:var(--seg);width:30px;height:3
 .actions button:active{transform:scale(.97)}
 .guide dt{font-weight:600;margin-top:14px;color:var(--accent-text)} .guide dd{margin:2px 0 0}
 .guide p{margin:8px 0}
+/* mi perfil */
+.picker{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.picker select{font:inherit;font-weight:500;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:999px;
+  padding:10px 40px 10px 18px;box-shadow:var(--shadow);cursor:pointer;appearance:none;-webkit-appearance:none;min-width:220px;max-width:100%;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%238e8e93' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center}
+.picker button,.plink{border:0;background:var(--accent-soft);color:var(--accent-text);border-radius:999px;padding:9px 16px;font-weight:600;font-size:14px}
+.stack{display:grid;gap:14px}
+.hero{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;background:linear-gradient(155deg,var(--accent-soft),transparent 70%),var(--panel)}
+.hname{font-size:32px;font-weight:700;letter-spacing:-.025em;line-height:1.1;overflow-wrap:anywhere}
+.hfig b{display:block;font-size:56px;line-height:1;font-weight:700;letter-spacing:-.03em;color:var(--accent-text);text-align:right}
+.hfig span{display:block;text-align:right;color:var(--muted);font-size:13px;margin-top:2px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.pill{background:var(--seg);border-radius:99px;padding:3px 12px;font-size:13px;font-weight:500}
+.cmp{padding:12px 0;border-bottom:1px solid var(--line)} .cmp:last-child{border:0;padding-bottom:0}
+.cmp-h{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.cmp-h b{font-size:16px}
+.track{position:relative;height:8px;border-radius:99px;background:var(--seg)}
+.track .fill{position:absolute;inset:0 auto 0 0;border-radius:99px;background:var(--viz-bar)}
+.track .avg{position:absolute;top:-4px;bottom:-4px;width:2px;margin-left:-1px;border-radius:2px;background:var(--text)}
+.cmp-f{margin-top:6px}
+.up{color:var(--green)} .down{color:var(--red)}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.kv{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)} .kv:last-child{border:0;padding-bottom:0}
+.kv span:first-child{color:var(--muted)}
+.bonus-fig{font-size:46px;font-weight:700;color:var(--accent-text);letter-spacing:-.03em;line-height:1;margin:2px 0 8px}
+.bonus-fig small{font-size:15px;font-weight:500;color:var(--muted);letter-spacing:0}
+.chartbox{position:relative;overflow-x:auto;padding-top:4px}
+.chartbox svg{display:block}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-bottom:6px}
+.legend .key{display:inline-flex;align-items:center;gap:7px}
+.sw{display:inline-block}
+.sw.bar{width:10px;height:10px;border-radius:2px;background:var(--viz-bar)}
+.sw.line{width:16px;height:0;border-top:2px solid var(--viz-avg)}
+.grid-line{stroke:var(--line);stroke-width:1}
+.axis-line{stroke:var(--viz-axis);stroke-width:1}
+.ax-text{fill:var(--muted);font-size:11px}
+.val-text{fill:var(--text);font-size:12px;font-weight:600}
+.bar{fill:var(--viz-bar)}
+.avgring{stroke:var(--panel);stroke-width:5;stroke-linecap:round}
+.avgline{stroke:var(--viz-avg);stroke-width:2;stroke-linecap:round}
+.slot{outline:none} .slot .hit{fill:transparent}
+.slot:hover .hit,.slot:focus-visible .hit{fill:var(--hover)}
+.slot:hover .bar,.slot:focus-visible .bar{filter:brightness(1.12)}
+.slot:focus-visible .hit{stroke:var(--accent);stroke-width:1.5}
+.tip{position:absolute;z-index:5;pointer-events:none;background:var(--panel);color:var(--text);border-radius:12px;padding:10px 12px;
+  box-shadow:0 8px 30px rgba(0,0,0,.25),0 0 0 1px var(--line);font-size:13px;min-width:190px;opacity:0;transition:opacity .12s;top:0;left:0}
+.tip.on{opacity:1}
+.tip .t1{color:var(--muted);font-size:12px;margin-bottom:6px}
+.tip .row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:1px 0}
+.tip .row b{font-size:15px} .tip .row span{color:var(--muted)}
+.tip .k{display:inline-block;width:12px;height:0;border-top:3px solid var(--viz-bar);margin-right:7px;vertical-align:middle}
+.tip .k.avg{border-top:2px solid var(--viz-avg)}
+.tip .t2{color:var(--muted);font-size:12px;margin-top:6px}
 footer{margin-top:40px;text-align:center;color:var(--muted);font-size:12.5px}
 @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
@@ -146,6 +202,8 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:12.5px}
   header{padding:22px 0 12px} .brand img{width:68px;height:68px}
   details.war summary{grid-template-columns:1fr 1fr;padding:14px 16px} .wdate{text-align:left}
   .card{padding:16px} th,td{padding:10px 9px}
+  .hero{grid-template-columns:1fr} .hfig b,.hfig span{text-align:left} .hname{font-size:26px}
+  .picker select{min-width:0;flex:1}
 }
 </style>
 </head>
@@ -171,8 +229,8 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmt = (n, d = 1) => n == null ? "–" : Number(n).toLocaleString("es", {minimumFractionDigits: d, maximumFractionDigits: d});
 const int = n => n == null ? "–" : Number(n).toLocaleString("es");
-const TABS = [["resumen","🏆 Resumen"],["jugadores","👥 Jugadores"],["guerras","⚔️ Guerras"],["cwl","🛡️ CWL"],["bonos","🎖️ Bonos CWL"],["guia","❓ Guía"]];
-const state = {season: null, tab: "resumen", mode: "all", sort: {key: "score", dir: -1}};
+const TABS = [["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores","👥 Jugadores"],["guerras","⚔️ Guerras"],["cwl","🛡️ CWL"],["bonos","🎖️ Bonos CWL"],["guia","❓ Guía"]];
+const state = {season: null, tab: "resumen", mode: "all", sort: {key: "score", dir: -1}, player: null};
 let DATA = null;
 
 /* ---------- acceso a datos ---------- */
@@ -187,6 +245,18 @@ const seasonLabel = s => {
   return t.charAt(0).toUpperCase() + t.slice(1);
 };
 const shortDate = iso => iso ? new Date(iso).toLocaleDateString("es", {day: "numeric", month: "short"}) : "";
+const mvpList = w => w.mvps || (w.mvp ? [w.mvp] : []);
+const mvpText = w => {
+  const m = mvpList(w);
+  if (!m.length) return "";
+  return m.length <= 3 ? m.map(x => x.name).join(" · ") : `Empate de ${m.length} jugadores`;
+};
+const mean = arr => { const v = arr.filter(x => x != null && !Number.isNaN(x)); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null; };
+const LS = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* sin almacenamiento */ }
+  },
+};
 
 /* ---------- columnas de la tabla de jugadores ---------- */
 const COLS = [
@@ -216,7 +286,7 @@ function mvpCard(title, name, big, badge) {
 function board(title, list, key, opts = {}) {
   const {min = 3, asc = false, f = v => fmt(v, 1), need = "used", suffix = ""} = opts;
   const rows = list.filter(p => p[need] >= min && p[key] != null)
-    .sort((a, b) => asc ? a[key] - b[key] : b[key] - a[key]).slice(0, 5);
+    .sort((a, b) => ((asc ? a[key] - b[key] : b[key] - a[key]) || (b.score - a.score))).slice(0, 5);
   return `<div class="card"><h3>${esc(title)}</h3>${rows.length ? `<ol class="top">${rows.map((p, i) =>
     `<li><span>${["🥇","🥈","🥉"][i] || (i + 1) + "."} ${esc(p.name)}</span><b>${f(p[key])}${suffix}</b></li>`).join("")}</ol>`
     : `<div class="muted small">Sin datos suficientes (mín. ${min})</div>`}</div>`;
@@ -225,7 +295,7 @@ function board(title, list, key, opts = {}) {
 function warCard(w) {
   const typeLbl = w.type === "cwl" ? `CWL${isAll() ? " " + w.season : ""} · Ronda ${w.round}` : "Guerra";
   const R = {win:["Victoria","win"], lose:["Derrota","lose"], tie:["Empate","tie"], live:["En curso","live"]}[w.result];
-  const medals = Object.fromEntries((w.podium || []).map((p, i) => [p.tag, ["🥇","🥈","🥉"][i]]));
+  const medals = Object.fromEntries((w.podium || []).map((p, i) => [p.tag, ["🥇","🥈","🥉"][(p.rank || i + 1) - 1]]));
   const rows = w.lines.map(L => {
     const defAvg = L.def_n ? fmt(L.def_stars / L.def_n, 1) : "–";
     return `<tr data-tag="${esc(L.tag)}"><td class="l">${medals[L.tag] || ""} ${esc(L.name)}</td><td>${L.th ?? "–"}</td>
@@ -236,7 +306,7 @@ function warCard(w) {
   return `<details class="war"><summary>
     <div><span class="wtype">${esc(typeLbl)}</span><span class="wopp">vs ${esc(w.opponent.name || "?")}</span><span class="chip ${R[1]}">${R[0]}</span></div>
     <div class="wscore"><b>${w.stars}</b>★ <small>${fmt(w.destruction, 1)}%</small><span class="vs">vs</span><b>${w.opp_stars}</b>★ <small>${fmt(w.opp_destruction, 1)}%</small></div>
-    <div class="wmvp">${w.mvp ? `🏆 <b>${esc(w.mvp.name)}</b> · ${fmt(w.mvp.score, 1)} pts` : (w.result === "live" ? '<span class="muted">MVP al terminar</span>' : "")}</div>
+    <div class="wmvp">${w.mvp ? `🏆 <b>${esc(mvpText(w))}</b> · ${fmt(w.mvp.score, 1)} pts` : (w.result === "live" ? '<span class="muted">MVP al terminar</span>' : "")}</div>
     <div class="wdate">${shortDate(w.end)}</div></summary>
     <div class="tablebox"><table><thead><tr><th class="l">Jugador</th><th>TH</th><th title="Ataques usados / disponibles">Atq</th><th>★</th>
     <th title="Estrellas nuevas aportadas">★ netas</th><th title="Destrucción promedio">Destr.</th><th title="Ataques de 3 estrellas">3★</th>
@@ -265,8 +335,8 @@ function viewResumen() {
     const lastW = ws.find(w => w.type === "war" && w.mvp), lastC = ws.find(w => w.type === "cwl" && w.mvp);
     cards += mvpCard("MVP de temporada · Guerras", m.war?.name, m.war ? `${fmt(m.war.score, 1)} puntos` : "Aún sin datos", m.war_final ? "" : "provisional");
     cards += mvpCard("MVP de temporada · CWL", m.cwl?.name, m.cwl ? `${fmt(m.cwl.score, 1)} puntos` : "Aún sin datos", m.cwl_final ? "" : `provisional · ${S().cwl_rounds}/7 rondas`);
-    cards += mvpCard("Último MVP de guerra", lastW?.mvp?.name, lastW ? `vs ${lastW.opponent.name} · ${fmt(lastW.mvp.score, 1)} pts` : "");
-    cards += mvpCard("Último MVP de ronda CWL", lastC?.mvp?.name, lastC ? `Ronda ${lastC.round} · ${fmt(lastC.mvp.score, 1)} pts` : "");
+    cards += mvpCard("Último MVP de guerra", lastW ? mvpText(lastW) : null, lastW ? `vs ${lastW.opponent.name} · ${fmt(lastW.mvp.score, 1)} pts` : "");
+    cards += mvpCard("Último MVP de ronda CWL", lastC ? mvpText(lastC) : null, lastC ? `Ronda ${lastC.round} · ${fmt(lastC.mvp.score, 1)} pts` : "");
   } else {
     const all = players("all");
     const by = f => [...all].sort((a, b) => f(b) - f(a))[0];
@@ -276,17 +346,19 @@ function viewResumen() {
     cards += mvpCard("Más puntos históricos", c?.name, c ? `${fmt(c.score, 1)} puntos` : "");
   }
   const all = players("all");
+  const MIN = Math.max(1, Math.min(3, Math.max(0, ...all.map(p => p.used))));
+  const MIND = Math.max(1, Math.min(3, Math.max(0, ...all.map(p => p.def_n))));
   const boards = [
     board("⭐ Más estrellas", all, "stars", {min: 1, f: int}),
     board("💠 Más ★ netas", all, "new_stars", {min: 1, f: int}),
-    board("🎯 Mejor 3★ %", all, "three_rate", {suffix: "%", f: v => fmt(v, 0)}),
-    board("💥 Mejor destrucción prom.", all, "avg_destruction", {suffix: "%"}),
-    board("🧗 Más ataques a TH superior", all, "hit_up_rate", {suffix: "%", f: v => fmt(v, 0)}),
-    board("🛡️ Mejor defensa (★ conc.)", all, "def_avg_stars", {asc: true, need: "def_n", f: v => fmt(v, 2)}),
+    board("🎯 Mejor 3★ %", all, "three_rate", {min: MIN, suffix: "%", f: v => fmt(v, 0)}),
+    board("💥 Mejor destrucción prom.", all, "avg_destruction", {min: MIN, suffix: "%"}),
+    board("🧗 Más ataques a TH superior", all, "hit_up_rate", {min: MIN, suffix: "%", f: v => fmt(v, 0)}),
+    board("🛡️ Mejor defensa (★ conc.)", all, "def_avg_stars", {min: MIND, asc: true, need: "def_n", f: v => fmt(v, 2)}),
   ].join("");
   const recent = wars().slice(0, 4).map(warCard).join("");
   return `<div class="grid cards">${cards}</div>
-    <h2>Rankings <span class="muted small">mín. 3 ataques en los de porcentaje</span></h2>
+    <h2>Rankings <span class="muted small">mín. ${MIN} ataque${MIN > 1 ? "s" : ""} en los de porcentaje</span></h2>
     <div class="grid boards">${boards}</div>
     <h2>Últimas guerras y rondas</h2>${recent || '<div class="muted">Sin guerras registradas todavía.</div>'}`;
 }
@@ -332,6 +404,7 @@ function viewGuia() {
   const W = DATA.weights;
   return `<div class="card guide"><h3>Cómo se calculan los puntos MVP</h3>
   <p>Cada ataque suma puntos. El jugador con más puntos en una guerra o ronda es el <b>MVP</b>. El MVP de temporada es quien acumula más puntos.</p>
+  <p><b>Desempates:</b> si dos jugadores suman los mismos puntos, gana quien tuvo más destrucción, luego más ★ netas, luego más ataques a TH superior y luego quien atacó las bases más difíciles (las de posición más alta en el mapa). Si aun así empatan, comparten el MVP.</p>
   <p><code>Puntos = ${W.star}×★ + ${W.new_star}×★ netas + ${W.three_star}×(ataques de 3★) + ${W.destruction_per_10pct} por cada 10% de destrucción + ${W.hit_up}×(ataques a TH superior) − ${W.missed_attack_penalty}×(ataques no usados)</code></p>
   <dl>
   <dt>★ netas</dt><dd>Estrellas nuevas que tu ataque aportó. Si la base ya tenía 2★ y tú sacas 3★, aportas 1 neta. Premia atacar bien y no “repetir” estrellas.</dd>
@@ -344,11 +417,205 @@ function viewGuia() {
   <p class="muted small">Todas las reglas (puntos y bonos) se editan en <code>config.json</code>. Las estadísticas empiezan a contarse desde que se activó el colector: el API no entrega guerras antiguas.</p></div>`;
 }
 
-const VIEWS = {resumen: viewResumen, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, guia: viewGuia};
+/* ---------- Mi perfil ---------- */
+function allPlayersList() {
+  const m = new Map();
+  for (const p of DATA.all_time.players.all) m.set(p.tag, p.name);
+  for (const s of DATA.seasons) for (const p of DATA.data[s].players.cwl) if (!m.has(p.tag)) m.set(p.tag, p.name);
+  return [...m].map(([tag, name]) => ({tag, name})).sort((a, b) => a.name.localeCompare(b.name, "es", {sensitivity: "base"}));
+}
+
+function compareRow(label, val, avg, max, f, higherBetter = true) {
+  if (val == null) return "";
+  const pos = v => Math.max(0, Math.min(100, v / max * 100));
+  let delta = "";
+  if (avg != null) {
+    const d = val - avg, good = higherBetter ? d >= 0 : d <= 0;
+    delta = `<span class="${good ? "up" : "down"}">${d >= 0 ? "▲" : "▼"} ${f(Math.abs(d))}</span>`;
+  }
+  return `<div class="cmp"><div class="cmp-h"><span>${esc(label)}</span><span><b>${f(val)}</b> ${delta}</span></div>
+    <div class="track" role="img" aria-label="${esc(label)}: tú ${f(val)}${avg != null ? ", promedio del clan " + f(avg) : ""}">
+      <i class="fill" style="width:${pos(val)}%"></i>${avg != null ? `<i class="avg" style="left:${pos(avg)}%"></i>` : ""}</div>
+    <div class="cmp-f muted small">${avg != null ? "Promedio del clan: " + f(avg) : ""}</div></div>`;
+}
+
+function kvList(rows) { return rows.map(([k, v]) => `<div class="kv"><span>${esc(k)}</span><b>${v}</b></div>`).join(""); }
+
+function viewPerfil() {
+  const list = allPlayersList();
+  if (!list.length) return '<div class="empty"><h2>Aún no hay jugadores</h2>Los perfiles aparecen cuando se registran guerras.</div>';
+  if (state.player && !list.some(p => p.tag === state.player)) state.player = null;
+  const tag = state.player;
+  const picker = `<div class="picker"><select id="playerSel" aria-label="Elige tu nombre"><option value="">Elige tu nombre…</option>${
+    list.map(p => `<option value="${esc(p.tag)}"${p.tag === tag ? " selected" : ""}>${esc(p.name)}</option>`).join("")}</select>${
+    tag ? '<button data-act="link">🔗 Copiar mi enlace</button>' : ""}</div>`;
+  if (!tag) return picker + '<div class="empty"><h2>¿Quién eres?</h2>Elige tu nombre arriba para ver tu rendimiento en guerras y CWL.</div>';
+
+  const name = list.find(x => x.tag === tag).name;
+  const pool = players("all"), idx = pool.findIndex(x => x.tag === tag), p = idx >= 0 ? pool[idx] : null;
+  const hist = wars().flatMap(w => { const L = w.lines.find(l => l.tag === tag); return L ? [[w, L]] : []; });
+  if (!p) {
+    return picker + `<div class="card hero"><div><div class="hname">${esc(name)}</div><div class="muted">${esc(tag)} · ${esc(seasonLabel(state.season))}</div></div></div>
+      <div class="empty">Aún no tienes guerras terminadas en este periodo.${hist.length ? " Tu guerra en curso aparecerá aquí cuando termine." : ""}</div>`;
+  }
+
+  const act = pool.filter(x => x.used > 0), avg = k => mean(act.map(x => x[k]));
+  const maxPts = Math.max(1, ...act.map(x => x.avg_score || 0));
+  const pills = [`#${idx + 1} de ${pool.length} en el clan`, p.mvps ? `🏆 ${p.mvps} MVP` : null, p.th ? `TH${p.th}` : null];
+  if (!isAll()) {
+    const m = S().mvp;
+    if (m.war?.tag === tag) pills.push("👑 MVP de temporada · guerras" + (m.war_final ? "" : " (provisional)"));
+    if (m.cwl?.tag === tag) pills.push("👑 MVP de temporada · CWL" + (m.cwl_final ? "" : " (provisional)"));
+  }
+  const hero = `<div class="card hero"><div><div class="hname">${esc(name)}</div>
+    <div class="muted">${esc(tag)} · ${esc(seasonLabel(state.season))}</div>
+    <div class="pills">${pills.filter(Boolean).map(t => `<span class="pill">${esc(t)}</span>`).join("")}</div></div>
+    <div class="hfig"><b>${fmt(p.score, 1)}</b><span>puntos</span></div></div>`;
+
+  const kpi = [
+    ["Ataques", `${p.used}/${p.available}`], ["★ totales", int(p.stars)], ["★ netas", int(p.new_stars)], ["★/ataque", fmt(p.avg_stars, 2)],
+    ["3★ %", p.three_rate == null ? "–" : fmt(p.three_rate, 0) + "%"], ["Destr. prom.", p.avg_destruction == null ? "–" : fmt(p.avg_destruction, 0) + "%"],
+    ["Hit-up %", p.hit_up_rate == null ? "–" : fmt(p.hit_up_rate, 0) + "%"], ["★ conc.", fmt(p.def_avg_stars, 2)], ["Fallos", p.missed],
+  ].map(([k, v]) => `<div class="kpi"><b>${v}</b><span>${k}</span></div>`).join("");
+
+  const cmp = [
+    compareRow("Puntos por guerra", p.avg_score, avg("avg_score"), maxPts, v => fmt(v, 1)),
+    compareRow("3★ %", p.three_rate, avg("three_rate"), 100, v => fmt(v, 0) + "%"),
+    compareRow("Destrucción promedio", p.avg_destruction, avg("avg_destruction"), 100, v => fmt(v, 0) + "%"),
+    compareRow("Estrellas por ataque", p.avg_stars, avg("avg_stars"), 3, v => fmt(v, 2)),
+    compareRow("Uso de ataques", p.attack_rate, avg("attack_rate"), 100, v => fmt(v, 0) + "%"),
+    compareRow("Estrellas concedidas en defensa (menos es mejor)", p.def_avg_stars, avg("def_avg_stars"), 3, v => fmt(v, 2), false),
+  ].join("");
+
+  const side = (title, mode) => {
+    const q = players(mode).find(x => x.tag === tag);
+    if (!q || !q.wars) return `<div class="card"><h3>${title}</h3><div class="muted">Sin participaciones terminadas.</div></div>`;
+    return `<div class="card"><h3>${title}</h3>${kvList([
+      ["Participaciones", q.wars], ["Ataques", `${q.used}/${q.available}`], ["Estrellas", q.stars],
+      ["3★ %", q.three_rate == null ? "–" : fmt(q.three_rate, 0) + "%"], ["Destrucción prom.", q.avg_destruction == null ? "–" : fmt(q.avg_destruction, 0) + "%"],
+      ["Puntos", fmt(q.score, 1)], ["Veces MVP", q.mvps],
+    ])}</div>`;
+  };
+
+  let bonus = "";
+  if (!isAll()) {
+    const r = S().cwl_bonus.find(x => x.tag === tag);
+    if (r && r.rounds_played > 0) {
+      bonus = `<div class="card"><h3>🎖️ Bono de CWL${S().mvp.cwl_final ? "" : '<span class="badge">provisional</span>'}</h3>
+        <div class="bonus-fig">${r.eligible ? r.bonus : 0}<small> medallas</small></div>${kvList([
+        ["Rondas jugadas", `${r.rounds_played}/${r.rounds_total}`], ["Estrellas", r.stars], ["3★", r.three], ["MVP de ronda", r.round_mvps], ["Ataques no usados", r.missed],
+      ])}</div>`;
+    } else {
+      bonus = '<div class="card"><h3>🎖️ Bono de CWL</h3><div class="muted">Aún no has jugado rondas de CWL en esta temporada.</div></div>';
+    }
+  }
+
+  const rows = hist.map(([w, L]) => `<tr><td class="l">${shortDate(w.end)}</td><td class="l">${w.type === "cwl" ? "CWL R" + w.round : "Guerra"} vs ${esc(w.opponent.name || "?")}</td>
+    <td class="${L.missed ? "bad" : ""}">${L.used}/${L.available}</td><td>${L.stars}</td><td>${L.avg_destruction == null ? "–" : fmt(L.avg_destruction, 0) + "%"}</td>
+    <td class="pts">${fmt(L.score, 1)}</td><td>${mvpList(w).some(m => m.tag === tag) ? "🏆" : (w.result === "live" ? "en curso" : "")}</td></tr>`).join("");
+
+  return `${picker}<div class="stack">${hero}
+    <div class="card"><h3>Tus números</h3><div class="kpis" style="margin:8px 0 0">${kpi}</div></div>
+    <div class="card"><h3>Comparado con el clan</h3><p class="muted small" style="margin:0 0 4px">La barra es tu valor; la marca vertical es el promedio del clan.</p>${cmp}</div>
+    <div class="cols2">${side("⚔️ Guerras", "war")}${side("🛡️ CWL", "cwl")}${bonus}</div>
+    <div class="card"><h3>Evolución de tus puntos</h3>${evolutionChart(tag)}</div>
+    <div><h2 style="margin-top:8px">Historial</h2><div class="tablebox"><table><thead><tr><th class="l">Fecha</th><th class="l">Evento</th><th>Atq</th><th>★</th><th>Destr.</th><th>Pts</th><th></th></tr></thead>
+    <tbody>${rows}</tbody></table></div></div></div>`;
+}
+
+/* gráfico de columnas: puntos por guerra / ronda + marca del promedio del clan */
+let CHART = [];
+function niceScale(min, max) {
+  const span = Math.max(max - min, 1), raw = span / 4;
+  const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= raw) || 10 * mag;
+  return {lo: Math.floor(min / step) * step, hi: Math.ceil(max / step) * step || step, step};
+}
+function barPath(x, y0, y, w, r) {
+  const h = Math.abs(y - y0);
+  if (h < 0.5) return "";
+  const rr = Math.min(r, h, w / 2);
+  return y < y0
+    ? `M${x},${y0}V${y + rr}Q${x},${y} ${x + rr},${y}H${x + w - rr}Q${x + w},${y} ${x + w},${y + rr}V${y0}Z`
+    : `M${x},${y0}V${y - rr}Q${x},${y} ${x + rr},${y}H${x + w - rr}Q${x + w},${y} ${x + w},${y - rr}V${y0}Z`;
+}
+function evolutionChart(tag) {
+  const evs = wars().filter(w => w.state === "warEnded").map(w => {
+    const L = w.lines.find(l => l.tag === tag);
+    return L ? {w, L, avg: mean(w.lines.map(l => l.score))} : null;
+  }).filter(Boolean).sort((a, b) => (a.w.start || "").localeCompare(b.w.start || "")).slice(-24);
+  CHART = evs;
+  if (!evs.length) return '<div class="muted small">Aún no hay guerras terminadas para graficar.</div>';
+
+  const n = evs.length, H = 250, padL = 42, padR = 14, padT = 26, padB = 46;
+  const cw = Math.max(300, Math.min(1040, ($("#view").clientWidth || 700) - 40));
+  const band = Math.max(28, Math.min(56, (cw - padL - padR) / n));
+  const W = Math.max(cw, padL + padR + band * n);
+  const sc = niceScale(Math.min(0, ...evs.flatMap(e => [e.L.score, e.avg])), Math.max(0, ...evs.flatMap(e => [e.L.score, e.avg])));
+  const y = v => padT + (sc.hi - v) / (sc.hi - sc.lo) * (H - padT - padB), y0 = y(0);
+
+  let g = "";
+  for (let i = 0, v = sc.lo; v <= sc.hi + 1e-9; i++, v = sc.lo + i * sc.step) {
+    g += `<line class="${Math.abs(v) < 1e-9 ? "axis-line" : "grid-line"}" x1="${padL}" x2="${W - padR}" y1="${y(v)}" y2="${y(v)}"/>
+      <text class="ax-text" x="${padL - 8}" y="${y(v) + 4}" text-anchor="end">${fmt(v, Number.isInteger(v) ? 0 : 1)}</text>`;
+  }
+  const every = Math.ceil(56 / band);
+  evs.forEach((e, i) => {
+    const x0 = padL + i * band, bw = Math.min(24, band * 0.6), bx = x0 + (band - bw) / 2, cx = x0 + band / 2;
+    const yv = y(e.L.score), ya = y(e.avg), kind = e.w.type === "cwl" ? "CWL R" + e.w.round : "Guerra";
+    const label = `${shortDate(e.w.end)}, ${kind}: ${fmt(e.L.score, 1)} puntos; promedio del clan ${fmt(e.avg, 1)}`;
+    g += `<g class="slot" tabindex="0" role="img" aria-label="${esc(label)}" data-i="${i}">
+      <rect class="hit" x="${x0}" y="${padT - 10}" width="${band}" height="${H - padT - padB + 10}" rx="6"/>
+      <path class="bar" d="${barPath(bx, y0, yv, bw, 4)}"/>
+      <line class="avgring" x1="${cx - bw / 2 - 3}" x2="${cx + bw / 2 + 3}" y1="${ya}" y2="${ya}"/>
+      <line class="avgline" x1="${cx - bw / 2 - 3}" x2="${cx + bw / 2 + 3}" y1="${ya}" y2="${ya}"/></g>`;
+    if ((n - 1 - i) % every === 0) {
+      g += `<text class="ax-text" x="${cx}" y="${H - padB + 17}" text-anchor="middle">${esc(shortDate(e.w.end))}</text>
+        <text class="ax-text" x="${cx}" y="${H - padB + 30}" text-anchor="middle">${esc(kind)}</text>`;
+    }
+  });
+  const last = evs[n - 1], lx = padL + (n - 1) * band + band / 2, ly = last.L.score >= 0 ? y(last.L.score) - 7 : y(last.L.score) + 15;
+  g += `<text class="val-text" x="${lx}" y="${ly}" text-anchor="middle">${fmt(last.L.score, 1)}</text>`;
+
+  return `<div class="legend"><span class="key"><i class="sw bar"></i>Tus puntos</span><span class="key"><i class="sw line"></i>Promedio del clan en esa guerra</span></div>
+    <div class="chartbox"><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="group" aria-label="Puntos por guerra y ronda">${g}</svg><div class="tip" id="tip" role="status"></div></div>
+    <p class="muted small" style="margin:8px 0 0">Mostrando ${n === 24 ? "las últimas 24" : "todas las"} guerras y rondas terminadas. Pasa el cursor o toca una columna para ver el detalle; la tabla de abajo tiene los mismos datos.</p>`;
+}
+function bindChart() {
+  const box = document.querySelector(".chartbox"), tip = $("#tip");
+  if (!box || !tip) return;
+  const mk = (tagName, cls, text) => { const el = document.createElement(tagName); if (cls) el.className = cls; if (text != null) el.textContent = text; return el; };
+  const show = slot => {
+    const e = CHART[+slot.dataset.i];
+    if (!e) return;
+    tip.replaceChildren();
+    tip.append(mk("div", "t1", `${shortDate(e.w.end)} · ${e.w.type === "cwl" ? "CWL ronda " + e.w.round : "Guerra"} vs ${e.w.opponent.name || "?"}`));
+    const r1 = mk("div", "row"), l1 = mk("span"), k1 = mk("i", "k");
+    l1.append(k1, "Tus puntos"); r1.append(l1, mk("b", "", fmt(e.L.score, 1))); tip.append(r1);
+    const r2 = mk("div", "row"), l2 = mk("span"), k2 = mk("i", "k avg");
+    l2.append(k2, "Promedio del clan"); r2.append(l2, mk("b", "", fmt(e.avg, 1))); tip.append(r2);
+    tip.append(mk("div", "t2", `${e.L.used}/${e.L.available} ataques · ${e.L.stars}★ · ${e.L.avg_destruction == null ? "–" : fmt(e.L.avg_destruction, 0) + "%"} destrucción`));
+    const sr = slot.getBoundingClientRect(), br = box.getBoundingClientRect(), tw = tip.offsetWidth, th = tip.offsetHeight;
+    let left = sr.right - br.left + box.scrollLeft + 8;
+    if (left + tw > box.scrollLeft + box.clientWidth) left = sr.left - br.left + box.scrollLeft - tw - 8;
+    left = Math.max(box.scrollLeft, left);
+    tip.style.left = left + "px";
+    tip.style.top = Math.max(0, Math.min(box.clientHeight - th, 24)) + "px";
+    tip.classList.add("on");
+  };
+  const hide = () => tip.classList.remove("on");
+  box.addEventListener("pointerover", ev => { const s = ev.target.closest(".slot"); if (s) show(s); });
+  box.addEventListener("pointerleave", hide);
+  box.addEventListener("focusin", ev => { const s = ev.target.closest(".slot"); if (s) show(s); });
+  box.addEventListener("focusout", hide);
+}
+
+const VIEWS = {resumen: viewResumen, perfil: viewPerfil, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, guia: viewGuia};
 
 function render() {
   $("#tabs").innerHTML = TABS.map(([k, t]) => `<button data-tab="${k}" class="${state.tab === k ? "on" : ""}">${t}</button>`).join("");
   $("#view").innerHTML = VIEWS[state.tab]();
+  if (state.tab === "perfil") bindChart();
 }
 
 /* ---------- detalle de jugador ---------- */
@@ -362,9 +629,9 @@ function showPlayer(tag) {
   ].map(([k, v]) => `<div class="kpi"><b>${v}</b><span>${k}</span></div>`).join("") : "";
   const rows = hist.map(([w, L]) => `<tr><td class="l">${shortDate(w.end)}</td><td class="l">${w.type === "cwl" ? "CWL R" + w.round : "Guerra"} vs ${esc(w.opponent.name || "?")}</td>
     <td class="${L.missed ? "bad" : ""}">${L.used}/${L.available}</td><td>${L.stars}</td><td>${L.avg_destruction == null ? "–" : fmt(L.avg_destruction, 0) + "%"}</td>
-    <td class="pts">${fmt(L.score, 1)}</td><td>${w.mvp && w.mvp.tag === tag ? "🏆" : (w.result === "live" ? "en curso" : "")}</td></tr>`).join("");
+    <td class="pts">${fmt(L.score, 1)}</td><td>${mvpList(w).some(m => m.tag === tag) ? "🏆" : (w.result === "live" ? "en curso" : "")}</td></tr>`).join("");
   $("#dlgBody").innerHTML = `<div style="display:flex;justify-content:space-between;align-items:start"><div><h2>${esc(name)}</h2>
-    <span class="muted small">${esc(tag)}${p?.th ? " · TH" + p.th : ""} · ${esc(seasonLabel(state.season))}</span></div><button data-act="close" aria-label="Cerrar">✕</button></div>
+    <span class="muted small">${esc(tag)}${p?.th ? " · TH" + p.th : ""} · ${esc(seasonLabel(state.season))}</span></div><div style="display:flex;gap:8px;align-items:center"><button data-act="profile" data-tag="${esc(tag)}" class="plink">Ver perfil completo →</button><button data-act="close" aria-label="Cerrar">✕</button></div></div>
     <div class="kpis">${kpi}</div>
     <div class="tablebox"><table><thead><tr><th class="l">Fecha</th><th class="l">Evento</th><th>Atq</th><th>★</th><th>Destr.</th><th>Pts</th><th></th></tr></thead>
     <tbody>${rows || '<tr><td colspan="7" class="muted">Sin participaciones.</td></tr>'}</tbody></table></div>`;
@@ -392,6 +659,16 @@ document.addEventListener("click", e => {
     render();
   }
   else if (t.dataset.act === "close") $("#dlg").close();
+  else if (t.dataset.act === "profile") {
+    state.player = t.dataset.tag; LS.set("coc_player", state.player); state.tab = "perfil";
+    $("#dlg").close(); render(); window.scrollTo({top: 0, behavior: "smooth"});
+  }
+  else if (t.dataset.act === "link") {
+    const u = new URL(location.href); u.search = ""; u.hash = "";
+    if (new URLSearchParams(location.search).has("demo")) u.searchParams.set("demo", "1");
+    u.searchParams.set("p", state.player);
+    navigator.clipboard.writeText(u.toString()).then(() => { t.textContent = "✅ Enlace copiado"; setTimeout(() => t.textContent = "🔗 Copiar mi enlace", 1600); });
+  }
   else if (t.dataset.act === "copy") {
     navigator.clipboard.writeText(bonusTable("\t")).then(() => { t.textContent = "✅ Copiado"; setTimeout(() => t.textContent = "📋 Copiar tabla", 1500); });
   }
@@ -404,6 +681,17 @@ document.addEventListener("click", e => {
 });
 $("#dlg").addEventListener("click", e => { if (e.target.id === "dlg") e.target.close(); });
 $("#season").addEventListener("change", e => { state.season = e.target.value; render(); });
+document.addEventListener("change", e => {
+  if (e.target.id !== "playerSel") return;
+  state.player = e.target.value || null;
+  if (state.player) LS.set("coc_player", state.player);
+  render();
+});
+let resizeTimer;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => { if (DATA && state.tab === "perfil") render(); }, 250);
+});
 $("#logo").addEventListener("error", e => { e.target.style.display = "none"; });
 
 /* ---------- arranque ---------- */
@@ -431,6 +719,9 @@ $("#logo").addEventListener("error", e => { e.target.style.display = "none"; });
       Mientras tanto puedes ver cómo se verá con datos de ejemplo: <a href="?demo=1">abrir demo</a>.</div>`;
     return;
   }
+  const linked = new URLSearchParams(location.search).get("p");
+  state.player = linked || LS.get("coc_player") || null;
+  if (linked) state.tab = "perfil";
   state.season = DATA.seasons[0];
   $("#season").innerHTML = [...DATA.seasons, "all"].map(s => `<option value="${esc(s)}">${esc(seasonLabel(s))}</option>`).join("");
   render();
