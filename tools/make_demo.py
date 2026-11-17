@@ -21,7 +21,7 @@ NAMES = [
     "Lobo", "Pixel", "Mamba", "Blitz", "Eclipse", "Gaucho", "Ninja", "Trueno", "Alfa", "Rebelde",
 ]
 RIVALS = ["Los Titanes", "Dragones MX", "Elite Warriors", "Furia Roja", "Night Owls", "Pampa Clash", "Legión X", "Reyes del Norte"]
-OUR_CLAN = {"tag": "#DEMO123", "name": "Clan Demo"}
+OUR_CLAN = {"tag": "#DEMO123", "name": "Arepa con queso"}
 PLAYERS = [
     {"tag": f"#P{i:04d}", "name": n, "th": random.choice([14, 15, 15, 16, 16, 17]), "skill": random.uniform(-0.2, 0.25)}
     for i, n in enumerate(NAMES)
@@ -38,7 +38,7 @@ def roll(ath, dth, skill):
     if r < p3:
         return 3, 100.0
     if r < p3 + 0.35:
-        return 2, round(random.uniform(55, 95), 1)
+        return (2, 99.0) if random.random() < 0.06 else (2, round(random.uniform(55, 95), 1))
     if r < p3 + 0.47:
         return 1, round(random.uniform(15, 50), 1)
     return 0, round(random.uniform(0, 30), 1)

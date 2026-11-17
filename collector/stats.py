@@ -54,7 +54,7 @@ def war_lines(war, W):
             "tag": m["tag"], "name": m["name"], "th": m.get("th"), "pos": m.get("pos"),
             "available": allowed, "used": 0, "stars": 0, "new_stars": 0, "three": 0,
             "destruction": 0, "hit_up": 0, "hit_eq": 0, "hit_down": 0,
-            "duration": 0, "duration_n": 0, "target_pos": 0,
+            "duration": 0, "duration_n": 0, "target_pos": 0, "burnt": 0, "rescue": 0,
             "def_n": 0, "def_stars": 0, "def_three": 0, "def_destruction": 0,
         }
 
@@ -65,8 +65,13 @@ def war_lines(war, W):
     for a, tag in atks:
         L = lines[tag]
         d = a["defender"]
-        new = max(0, a["stars"] - best.get(d, 0))
-        best[d] = max(best.get(d, 0), a["stars"])
+        prior = best.get(d, 0)
+        new = max(0, a["stars"] - prior)
+        best[d] = max(prior, a["stars"])
+        if a["stars"] == 2 and a["destruction"] >= 99:   # "Queso Quemado": 2 estrellas con 99 %
+            L["burnt"] += 1
+        if a["stars"] == 3 and prior == 2:               # "El Rescatador": limpia y completa las 3 estrellas
+            L["rescue"] += 1
         L["used"] += 1
         L["stars"] += a["stars"]
         L["new_stars"] += new

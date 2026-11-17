@@ -7,6 +7,7 @@
 <title>Clan Stats · Guerras y CWL</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="logo.webp">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("coc_theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <style>
 :root{
   --bg:#f5f5f7; --panel:#ffffff; --panel2:#f5f5f7; --line:rgba(0,0,0,.08);
@@ -20,24 +21,25 @@
   --viz-bar:#d4720a; --viz-avg:#898781; --viz-axis:rgba(0,0,0,.22); --sheen:rgba(255,255,255,.7);
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",Roboto,Inter,system-ui,sans-serif;
 }
-@media (prefers-color-scheme:dark){
-  :root{
-    --bg:#000000; --panel:#1c1c1e; --panel2:#2c2c2e; --line:rgba(255,255,255,.10);
-    --text:#f5f5f7; --muted:#98989d; --hover:rgba(255,255,255,.05);
+:root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#070d24; --panel:#101a3c; --panel2:#17234d; --line:rgba(140,170,255,.15);
+    --text:#eef2ff; --muted:#9fabd3; --hover:rgba(130,160,255,.08);
     --accent:#ff9f0a; --accent-text:#ffb340; --accent-soft:rgba(255,159,10,.16);
     --green:#30d158; --red:#ff453a; --blue:#64a8ff;
-    --seg:rgba(118,118,128,.24); --seg-on:#636366;
-    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
-    --glow:rgba(255,159,10,.20);
+    --seg:rgba(110,140,230,.18); --seg-on:#27397a;
+    --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 28px rgba(0,0,0,.4);
+    --glow:rgba(255,170,40,.22);
     --viz-bar:#d17f0a; --viz-avg:#898781; --viz-axis:rgba(255,255,255,.22); --sheen:rgba(255,255,255,.16);
-  }
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--text);font:15px/1.47 var(--font);
   -webkit-font-smoothing:antialiased;letter-spacing:-.01em}
-body::before{content:"";position:fixed;inset:0 0 auto 0;height:420px;pointer-events:none;z-index:0;
+body::before{content:"";position:fixed;inset:0 0 auto 0;height:520px;pointer-events:none;z-index:0;
   background:radial-gradient(60% 100% at 50% 0%,var(--glow),transparent 70%)}
+:root[data-theme="dark"],:root[data-theme="dark"] body{background-color:#070d24}
+:root[data-theme="dark"] body{background-image:radial-gradient(120% 70% at 50% -10%,#14235a 0%,#0a1230 45%,#070d24 100%);background-repeat:no-repeat;background-attachment:fixed}
 .wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 20px calc(40px + env(safe-area-inset-bottom))}
 
 /* portada */
@@ -263,6 +265,111 @@ tbody tr.r3 td:first-child{box-shadow:inset 3px 0 0 #cd7f32}
 @media (max-width:640px){.scene{padding:18px;min-height:100px}.scene h2{font-size:22px}.scene .art{width:80px;height:80px;right:10px;opacity:.55}}
 .scene .mark{display:none}.scene.has-img.nomascot .mark{display:block;position:absolute;right:22px;top:50%;width:min(130px,26vw);height:auto;transform:translateY(-50%);z-index:1;filter:drop-shadow(0 6px 18px rgba(255,160,0,.45));animation:bob 4s ease-in-out infinite}#view.quiet .scene .mark{animation:none}@media (prefers-reduced-motion:reduce){.scene .mark{animation:none}}
 @media (max-width:640px){.scene.has-img .txt{max-width:52%}.scene.has-img p{font-size:12.5px}.scene.has-img.nomascot .mark{width:84px;right:12px}}
+
+/* ================= ALDEA: piedra, madera, bronce, antorchas ================= */
+.controls{display:flex;gap:10px;align-items:center}
+.themebtn{border:1px solid var(--line);background:var(--panel);width:38px;height:38px;border-radius:50%;box-shadow:var(--shadow);font-size:17px;line-height:1;padding:0}
+.themebtn:hover{box-shadow:0 0 0 3px var(--glow),var(--shadow)}
+/* navegación: estandartes y gema */
+nav button{display:inline-flex;align-items:center;gap:6px}
+nav button .ticon{width:17px;height:21px;object-fit:contain;filter:drop-shadow(0 1px 1px rgba(0,0,0,.4))}
+nav button.on::before{content:"";width:13px;height:14px;flex:none;background:url(img/ui/gem.webp) center/contain no-repeat;filter:drop-shadow(0 0 5px rgba(80,150,255,.9));animation:gemglint 2.8s ease-in-out infinite}
+@keyframes gemglint{0%,100%{filter:drop-shadow(0 0 3px rgba(80,150,255,.7))}50%{filter:drop-shadow(0 0 8px rgba(120,190,255,1))}}
+th.on::before{content:"";display:inline-block;width:11px;height:12px;margin-right:4px;vertical-align:-1px;background:url(img/ui/gem.webp) center/contain no-repeat}
+/* banner de pestaña: farolas, motas, niebla, estandartes colgantes */
+.scene{isolation:isolate}
+.scene .lamp,.scene .motes,.scene .fog{position:absolute;pointer-events:none;z-index:1}
+.scene .lamp{top:-4px;left:44%;width:52px;filter:drop-shadow(0 0 10px rgba(255,170,40,.55));animation:lampPulse 3.2s ease-in-out infinite}
+@keyframes lampPulse{0%,100%{filter:drop-shadow(0 0 6px rgba(255,170,40,.35)) brightness(.95)}50%{filter:drop-shadow(0 0 20px rgba(255,190,60,.95)) brightness(1.12)}}
+.scene .motes{right:16%;bottom:6px;width:150px;opacity:.9;animation:drift 7s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(-8px,6px);opacity:.35}to{transform:translate(10px,-14px);opacity:1}}
+.scene .fog{left:-5%;bottom:-26px;width:75%;opacity:.28;animation:fog 26s linear infinite alternate}
+@keyframes fog{to{transform:translateX(22%)}}
+.scene.has-img.nomascot .mark.hang{top:-6px;right:5%;width:auto;height:min(150px,150%);transform:none;transform-origin:50% 0;animation:sway 4.2s ease-in-out infinite;filter:drop-shadow(0 8px 14px rgba(0,0,0,.55))}
+@keyframes sway{0%,100%{transform:rotate(-2.2deg)}50%{transform:rotate(2.2deg)}}
+@media (max-width:820px){.scene .lamp{display:none}}
+/* placas de madera con marco de piedra */
+.card.mvp{border-radius:4px;padding:26px 24px 22px;border-style:solid;border-width:18px;border-color:transparent;
+  border-image:url(img/ui/frame.webp) 120 / 18px stretch;
+  background:linear-gradient(rgba(34,14,0,.38),rgba(34,14,0,.38)),url(img/ui/wood.webp) center/cover;
+  box-shadow:0 10px 26px rgba(0,0,0,.45)}
+.card.mvp h3{color:#f6dca5;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.card.mvp .name{color:#ffd86b;text-shadow:0 2px 3px rgba(0,0,0,.65)}
+.card.mvp .big{color:#f6e8c8;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.card.mvp .badge{background:rgba(0,0,0,.38);color:#ffe3a3}
+.badge.gold{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(#ffe083,#e3a100)!important;color:#3a2300!important;box-shadow:0 0 10px rgba(255,190,50,.55);text-shadow:none}
+.badge.gold img{width:11px;height:12px}
+/* distinciones humorísticas */
+.honors{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.honor{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center;background:linear-gradient(135deg,rgba(255,170,40,.12),transparent 70%),var(--panel);border:1px solid rgba(255,190,70,.25)}
+.honor .ico{grid-row:span 3;font-size:34px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.35))}
+.honor h3{margin:0}.honor .who{font-size:22px;font-weight:700;color:var(--accent-text)}.honor .why{font-size:13px;color:var(--muted)}
+/* pergamino de guerra */
+.scroll{position:relative;min-height:clamp(150px,19vw,230px);display:grid;place-items:center;background:url(img/ui/scroll.webp) center/cover;color:#4a2e0f;overflow:hidden;text-align:center;border-bottom:1px solid var(--line)}
+.scroll::after{content:"";position:absolute;inset:0;pointer-events:none}
+.scroll.win::after{background:radial-gradient(70% 90% at 50% 40%,rgba(255,215,90,.38),transparent 70%)}
+.scroll.lose::after{background:rgba(70,10,10,.26)} .scroll.lose{filter:saturate(.6) brightness(.9)}
+.scroll.tie::after{background:rgba(70,100,170,.2)}
+.sc-in{position:relative;z-index:1;width:min(560px,56%);padding:10px 0}
+.sc-title{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7a4a12}
+.scroll.win .sc-title{font-size:22px;letter-spacing:.04em;color:#9a5a00;text-shadow:0 0 14px rgba(255,200,60,.9)}
+.scroll.lose .sc-title{color:#7a1d10}
+.sc-row{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin-top:6px}
+.sc-side{display:flex;flex-direction:column;align-items:center;line-height:1.15;min-width:0}
+.sc-name{font-weight:700;font-size:14px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sc-side b{font-size:30px;font-weight:800;letter-spacing:-.02em;color:#3a2108}.sc-side small{font-size:13px;color:#6b4a1f}
+.sc-vs{font-weight:800;color:#8a5a1f}
+details.war[open] .scroll{animation:unroll .65s cubic-bezier(.2,.85,.25,1) both}
+@keyframes unroll{from{clip-path:inset(0 49% 0 49%);filter:brightness(.7)}to{clip-path:inset(0 0 0 0)}}
+details.war.win{box-shadow:inset 4px 0 0 var(--green),var(--shadow)} details.war.lose{box-shadow:inset 4px 0 0 var(--red),var(--shadow)} details.war.tie{box-shadow:inset 4px 0 0 var(--blue),var(--shadow)}
+.tok{width:20px;height:22px;vertical-align:-6px;margin-right:4px}
+/* secuencia de tres estrellas */
+.tri{display:inline-flex;align-items:center;position:relative;gap:1px;vertical-align:middle}
+.tri img{width:15px;height:15px;display:block}
+.tri .s3{position:relative;display:block}
+.tri .burst{position:absolute;left:50%;top:50%;width:34px;height:32px;margin:-16px 0 0 -17px;opacity:0;pointer-events:none}
+details.war[open] .tri .a1{animation:starpop .35s var(--d,0ms) both}
+details.war[open] .tri .a2{animation:starpop .35s calc(var(--d,0ms) + 160ms) both}
+details.war[open] .tri .a3{animation:starfall .55s cubic-bezier(.3,1.5,.5,1) calc(var(--d,0ms) + 420ms) both}
+details.war[open] .tri .burst{animation:starflash .7s ease-out calc(var(--d,0ms) + 780ms) both}
+@keyframes starpop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes starfall{0%{transform:translateY(-26px) scale(2.1);opacity:0}60%{opacity:1}100%{transform:translateY(0) scale(1)}}
+@keyframes starflash{0%{transform:scale(.3);opacity:1}100%{transform:scale(1.7);opacity:0}}
+.tri-n{font-weight:700;margin-left:4px}
+/* mi perfil: placa de madera */
+.picker{background:url(img/ui/plaque.webp) 100% 100%/100% 100% no-repeat;padding:34px 52px;max-width:600px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.4))}
+.picker select{background-color:#fff4dc;color:#3b2408;border-color:#a8691b}
+.picker button{background:rgba(35,15,0,.55);color:#ffe3a3}
+/* guía: pergamino */
+.card.guide{background:linear-gradient(rgba(255,244,214,.12),rgba(255,244,214,.12)),url(img/ui/parchment.webp) center/cover;color:#3a2610;border:2px solid #b27a2e;box-shadow:inset 0 0 40px rgba(120,70,10,.35),var(--shadow)}
+.card.guide h3,.card.guide dt{color:#8a3f00}.card.guide .muted{color:#6b4a1f}.card.guide code{background:rgba(110,70,10,.14);color:#3a2610}
+/* arepa dormida + reclutamiento */
+.sleep,.join{position:relative;isolation:isolate;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);min-height:clamp(150px,22vw,250px);display:flex;align-items:center;padding:24px 28px;margin-top:18px;color:#fff;border:1px solid rgba(255,190,70,.22)}
+.sleep{background:url(img/ui/sleep.webp) right center/cover}
+.join{background:url(img/ui/gate.webp) center/cover}
+.sleep::before,.join::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,10,30,.9),rgba(5,10,30,.45) 55%,transparent)}
+.sleep h3,.join h3{margin:0 0 4px;font-size:22px;font-weight:700;letter-spacing:-.02em;color:#fff;text-transform:none}
+.sleep p,.join p{margin:0 0 12px;max-width:34ch;color:#dbe4ff;font-size:14px}
+.sl-glow{position:absolute;z-index:0;left:79%;top:80%;width:110px;height:110px;margin:-55px 0 0 -55px;border-radius:50%;background:radial-gradient(rgba(255,175,50,.6),transparent 65%);mix-blend-mode:screen;animation:lampPulse2 3.4s ease-in-out infinite;pointer-events:none}
+@keyframes lampPulse2{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1.12)}}
+.zzz{position:absolute;z-index:1;left:73%;top:30%;font-weight:800;color:#cfe0ff;text-shadow:0 0 8px rgba(120,170,255,.9);opacity:0;animation:zz 4.2s ease-in-out infinite;pointer-events:none}
+.zzz.z2{left:77%;animation-delay:1.4s;font-size:1.2em}.zzz.z3{left:81%;animation-delay:2.8s;font-size:1.5em}
+@keyframes zz{0%{transform:translate(0,14px) scale(.6);opacity:0}25%{opacity:1}100%{transform:translate(14px,-46px) scale(1.2);opacity:0}}
+.joinbtn{display:inline-block;text-decoration:none;font-weight:700;padding:11px 22px;border-radius:999px;color:#3a2300;background:linear-gradient(#ffe083,#e3a100);border:1px solid #fff0b3;box-shadow:0 4px 14px rgba(0,0,0,.4);transition:box-shadow .25s,transform .2s}
+.joinbtn:hover,.joinbtn:focus-visible{box-shadow:0 0 0 3px rgba(255,214,90,.55),0 0 34px 8px rgba(255,190,50,.85);transform:translateY(-1px);outline:none}
+.join::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(40% 80% at 70% 60%,rgba(255,190,60,.55),transparent 70%);opacity:0;transition:opacity .4s}
+.join:has(.joinbtn:hover)::after,.join:has(.joinbtn:focus-visible)::after{opacity:1}
+@media (max-width:640px){
+  .picker{padding:26px 34px} .sc-in{width:74%} .sc-side b{font-size:24px} .sc-name{font-size:12px}
+  .card.mvp{border-width:14px;border-image-width:14px;padding:20px 18px}
+  .sleep,.join{padding:18px} .sleep::before,.join::before{background:linear-gradient(90deg,rgba(5,10,30,.92),rgba(5,10,30,.6) 70%,rgba(5,10,30,.25))}
+}
+@media (prefers-reduced-motion:reduce){
+  .scene .lamp,.scene .motes,.scene .fog,.scene .mark.hang,nav button.on::before,.sl-glow,.zzz,details.war[open] .scroll,
+  details.war[open] .tri img{animation:none!important}
+  .zzz{opacity:.8}
+}
+#view.quiet .scene .lamp,#view.quiet .scene .motes,#view.quiet .scene .fog,#view.quiet .scene .mark.hang{animation:none}
 </style>
 </head>
 <body>
@@ -272,7 +379,7 @@ tbody tr.r3 td:first-child{box-shadow:inset 3px 0 0 #cd7f32}
       <img id="logo" src="logo.webp" alt="" width="96" height="96">
       <div><h1 id="clanName">Clan Stats</h1><div class="sub" id="clanSub">Guerras y CWL</div></div>
     </div>
-    <div class="controls"><select id="season" aria-label="Temporada"></select></div>
+    <div class="controls"><select id="season" aria-label="Temporada"></select><button id="themeBtn" class="themebtn" type="button" aria-label="Cambiar entre noche y día" title="Noche / día"></button></div>
   </header>
   <div id="banner"></div>
   <div class="navbar"><nav id="tabs"></nav></div>
@@ -288,7 +395,8 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmt = (n, d = 1) => n == null ? "–" : Number(n).toLocaleString("es", {minimumFractionDigits: d, maximumFractionDigits: d});
 const int = n => n == null ? "–" : Number(n).toLocaleString("es");
-const TABS = [["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores","👥 Jugadores"],["guerras","⚔️ Guerras"],["cwl","🛡️ CWL"],["bonos","🎖️ Bonos CWL"],["guia","❓ Guía"]];
+const ICON = n => `<img class="ticon" src="img/ui/banner-${n}.webp" alt="">`;
+const TABS = [["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores",ICON("green") + "Jugadores"],["guerras",ICON("red") + "Guerras"],["cwl",ICON("blue") + "CWL"],["bonos","🎖️ Bonos CWL"],["guia","❓ Guía"]];
 const state = {season: null, tab: "resumen", mode: "all", sort: {key: "score", dir: -1}, player: null};
 let DATA = null;
 
@@ -338,7 +446,8 @@ const COLS = [
 
 /* ---------- componentes ---------- */
 function mvpCard(title, name, big, badge) {
-  return `<div class="card mvp"><h3>${esc(title)}${badge ? `<span class="badge">${esc(badge)}</span>` : ""}</h3>
+  const gold = name ? '<span class="badge gold"><img src="img/ui/gem.webp" alt="">Arepa de Oro</span>' : "";
+  return `<div class="card mvp"><h3>${esc(title)}${badge ? `<span class="badge">${esc(badge)}</span>` : ""}${gold}</h3>
     <div class="name">${name ? '<span class="trophy">🏆</span> ' + esc(name) : "—"}</div><div class="big">${esc(big || "")}</div></div>`;
 }
 
@@ -353,21 +462,27 @@ function board(title, list, key, opts = {}) {
 
 function warCard(w) {
   const typeLbl = w.type === "cwl" ? `CWL${isAll() ? " " + w.season : ""} · Ronda ${w.round}` : "Guerra";
-  const R = {win:["Victoria","win"], lose:["Derrota","lose"], tie:["Empate","tie"], live:["En curso","live"]}[w.result];
+  const R = {win:["Victoria","win","¡Victoria!"], lose:["Derrota","lose","Derrota"], tie:["Empate","tie","Empate"], live:["En curso","live","Guerra en curso"]}[w.result];
+  const live = w.result === "live";
+  const clanName = (DATA.clan && DATA.clan.name) || "Nuestro clan";
+  let tri = 0;
   const ranks = Object.fromEntries((w.podium || []).map((p, i) => [p.tag, p.rank || i + 1]));
   const medals = Object.fromEntries(Object.entries(ranks).map(([tg, r]) => [tg, `<span class="medal">${["🥇","🥈","🥉"][r - 1]}</span>`]));
   const rows = w.lines.map(L => {
     const defAvg = L.def_n ? fmt(L.def_stars / L.def_n, 1) : "–";
     return `<tr data-tag="${esc(L.tag)}"${ranks[L.tag] ? ` class="r${ranks[L.tag]}"` : ""}><td class="l">${medals[L.tag] || ""} ${esc(L.name)}</td><td>${L.th ?? "–"}</td>
-      <td class="${L.missed ? "bad" : ""}">${L.used}/${L.available}</td><td>${L.stars}</td><td>${L.new_stars}</td>
-      <td>${L.avg_destruction == null ? "–" : fmt(L.avg_destruction, 0) + "%"}</td><td>${L.three}</td><td>${defAvg}</td>
+      <td class="${L.missed ? "bad" : ""}">${live ? `<img class="tok" src="img/ui/${L.used < L.available ? "token-wait" : "token-star"}.webp" alt="${L.used < L.available ? "Ataques pendientes" : "Ataques registrados"}">` : ""}${L.used}/${L.available}</td><td>${L.stars}</td><td>${L.new_stars}</td>
+      <td>${L.avg_destruction == null ? "–" : fmt(L.avg_destruction, 0) + "%"}</td><td>${L.three ? `<span class="tri" role="img" aria-label="${L.three} ataque${L.three > 1 ? "s" : ""} de 3 estrellas" style="--d:${Math.min(tri++, 8) * 70}ms"><img class="a1" src="img/ui/star1.webp" alt=""><img class="a2" src="img/ui/star2.webp" alt=""><span class="s3"><img class="a3" src="img/ui/star1.webp" alt=""><img class="burst" src="img/ui/star-burst.webp" alt=""></span></span>${L.three > 1 ? `<b class="tri-n">×${L.three}</b>` : ""}` : "0"}</td><td>${defAvg}</td>
       <td class="pts">${fmt(L.score, 1)}</td></tr>`;
   }).join("");
-  return `<details class="war"><summary>
+  return `<details class="war ${R[1]}"><summary>
     <div><span class="wtype">${esc(typeLbl)}</span><span class="wopp">vs ${esc(w.opponent.name || "?")}</span><span class="chip ${R[1]}">${R[0]}</span></div>
     <div class="wscore"><b>${w.stars}</b>★ <small>${fmt(w.destruction, 1)}%</small><span class="vs">vs</span><b>${w.opp_stars}</b>★ <small>${fmt(w.opp_destruction, 1)}%</small></div>
     <div class="wmvp">${w.mvp ? `🏆 <b>${esc(mvpText(w))}</b> · ${fmt(w.mvp.score, 1)} pts` : (w.result === "live" ? '<span class="muted">MVP al terminar</span>' : "")}</div>
     <div class="wdate">${shortDate(w.end)}</div></summary>
+    <div class="scroll ${R[1]}"><div class="sc-in"><div class="sc-title">${R[2]}</div>
+      <div class="sc-row"><div class="sc-side"><span class="sc-name">${esc(clanName)}</span><b>${w.stars}★</b><small>${fmt(w.destruction, 1)}%</small></div><span class="sc-vs">VS</span>
+      <div class="sc-side"><span class="sc-name">${esc(w.opponent.name || "?")}</span><b>${w.opp_stars}★</b><small>${fmt(w.opp_destruction, 1)}%</small></div></div></div></div>
     <div class="tablebox"><table><thead><tr><th class="l">Jugador</th><th>TH</th><th title="Ataques usados / disponibles">Atq</th><th>★</th>
     <th title="Estrellas nuevas aportadas">★ netas</th><th title="Destrucción promedio">Destr.</th><th title="Ataques de 3 estrellas">3★</th>
     <th title="Estrellas concedidas por ataque recibido">★ conc.</th><th>Pts</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
@@ -382,12 +497,41 @@ function playersTable(list) {
     if (y == null) return -1;
     return typeof x === "string" ? dir * x.localeCompare(y) : dir * (x - y);
   });
-  const head = COLS.map(c => `<th data-sort="${c.k}" title="${esc(c.tip)}" class="${c.l ? "l" : ""}">${c.t}${key === c.k ? (dir < 0 ? " ▼" : " ▲") : ""}</th>`).join("");
+  const head = COLS.map(c => `<th data-sort="${c.k}" title="${esc(c.tip)}" class="${c.l ? "l" : ""}${key === c.k ? " on" : ""}">${c.t}${key === c.k ? (dir < 0 ? " ▼" : " ▲") : ""}</th>`).join("");
   const body = arr.map(p => `<tr data-tag="${esc(p.tag)}">${COLS.map(c => `<td class="${c.l ? "l" : ""} ${c.cls || ""}">${c.f(p)}</td>`).join("")}</tr>`).join("");
   return `<div class="tablebox"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
 /* ---------- vistas ---------- */
+function honorsHTML() {
+  const acc = {};
+  for (const w of wars()) { if (w.result === "live") continue; for (const L of w.lines) {
+    const a = acc[L.tag] || (acc[L.tag] = {name: L.name, b: 0, r: 0}); a.b += L.burnt || 0; a.r += L.rescue || 0; } }
+  const list = Object.values(acc), top = k => list.filter(a => a[k] > 0).sort((x, y) => y[k] - x[k] || x.name.localeCompare(y.name))[0];
+  const b = top("b"), r = top("r");
+  if (!b && !r) return "";
+  const card = (ico, t, a, key, why) => `<div class="card honor"><span class="ico" aria-hidden="true">${ico}</span><h3>${t}</h3>
+    <div class="who">${a ? esc(a.name) : "—"}</div><div class="why">${a ? `${a[key]} ${a[key] > 1 ? "veces" : "vez"} · ${why}` : "Aún nadie"}</div></div>`;
+  return `<h2>Distinciones del clan <span class="muted small">solo por diversión · no cuentan para los bonos</span></h2><div class="grid honors">
+    ${card("🧀🔥", "Queso Quemado", b, "b", "2★ con un 99 % de destrucción")}
+    ${card("🦸", "El Rescatador", r, "r", "limpió y completó las 3★ sobre una base de 2★")}</div>`;
+}
+
+function sleepHTML() {
+  if (wars().some(w => w.result === "live")) return "";
+  const t = DATA.generated_at ? new Date(DATA.generated_at).toLocaleString("es", {dateStyle: "medium", timeStyle: "short"}) : "";
+  return `<section class="sleep"><span class="sl-glow"></span><span class="zzz">z</span><span class="zzz z2">z</span><span class="zzz z3">Z</span>
+    <div><h3>La arepa descansa 💤</h3><p>No hay ninguna guerra en curso según el último registro${t ? " (" + esc(t) + ")" : ""}. Cuando empiece otra, aparecerá aquí.</p></div></section>`;
+}
+
+function joinHTML() {
+  const tag = DATA.clan && DATA.clan.tag;
+  if (!tag) return "";
+  const href = "https://link.clashofclans.com/en?action=OpenClanProfile&tag=" + encodeURIComponent(tag.startsWith("#") ? tag : "#" + tag);
+  return `<section class="join"><div><h3>¡Únete a ${esc(DATA.clan.name || "nuestro clan")}!</h3><p>Guerras, CWL y buen queso derretido. Abre el clan directamente en Clash of Clans.</p>
+    <a class="joinbtn" href="${href}" target="_blank" rel="noopener noreferrer">Abrir en Clash of Clans</a></div></section>`;
+}
+
 function viewResumen() {
   let cards = "";
   if (!isAll()) {
@@ -417,10 +561,10 @@ function viewResumen() {
     board("🛡️ Mejor defensa (★ conc.)", all, "def_avg_stars", {min: MIND, asc: true, need: "def_n", f: v => fmt(v, 2)}),
   ].join("");
   const recent = wars().slice(0, 4).map(warCard).join("");
-  return `<div class="grid cards">${cards}</div>
+  return `<div class="grid cards">${cards}</div>${honorsHTML()}
     <h2>Rankings <span class="muted small">mín. ${MIN} ataque${MIN > 1 ? "s" : ""} en los de porcentaje</span></h2>
     <div class="grid boards">${boards}</div>
-    <h2>Últimas guerras y rondas</h2>${recent || '<div class="muted">Sin guerras registradas todavía.</div>'}`;
+    <h2>Últimas guerras y rondas</h2>${recent || '<div class="muted">Sin guerras registradas todavía.</div>'}${sleepHTML()}${joinHTML()}`;
 }
 
 function viewJugadores() {
@@ -687,13 +831,15 @@ const SC = {
   bonos:["Bonos CWL","Medallas sugeridas según el desempeño.",'<path d="M30 8h16l8 26H38zM70 8H54l-8 26h16z" opacity=".65"/><circle cx="50" cy="58" r="26"/><circle cx="50" cy="58" r="19" fill="none" stroke="var(--panel)" stroke-width="3"/><path d="M50 46l4.2 8.6 9.5 1.4-6.9 6.7 1.6 9.4-8.4-4.4-8.4 4.4 1.6-9.4-6.9-6.7 9.5-1.4z" fill="var(--panel)"/>'],
   guia:["Guía","Cómo se calculan los puntos y los bonos.",'<path d="M12 20c14-4 28-4 38 4v54c-10-8-24-8-38-4zM88 20c-14-4-28-4-38 4v54c10-8 24-8 38-4z"/>']
 };
+const MARK = {jugadores: "img/ui/banner-green.webp", cwl: "img/ui/banner-blue.webp"};
 function sceneHTML(tab) {
   const c = SC[tab]; if (!c) return "";
-  return `<section class="scene" data-scene="${tab}"><img class="custom" src="img/banner-${tab}.jpg" alt="" hidden><div class="txt"><h2>${c[0]}</h2><p>${c[1]}</p></div><img class="mark" src="logo.webp" alt="" width="120" height="120"><div class="art" aria-hidden="true"><svg viewBox="0 0 100 100" fill="currentColor">${c[2]}</svg></div></section>`;
+  const fx = tab === "resumen" ? '<img class="fog" src="img/ui/fog.webp" alt=""><img class="lamp" src="img/ui/lantern-on.webp" alt=""><img class="motes" src="img/ui/motes.webp" alt="">' : "";
+  return `<section class="scene" data-scene="${tab}"><img class="custom" src="img/banner-${tab}.jpg" alt="" hidden>${fx}<div class="txt"><h2>${c[0]}</h2><p>${c[1]}</p></div><img class="mark${MARK[tab] ? " hang" : ""}" src="${MARK[tab] || "logo.webp"}" alt="" height="120"><div class="art" aria-hidden="true"><svg viewBox="0 0 100 100" fill="currentColor">${c[2]}</svg></div></section>`;
 }
 function bindScene(root) {
   const sc = root.querySelector(".scene"), im = sc && sc.querySelector("img.custom"); if (!im) return;
-  im.onload = () => { im.hidden = false; sc.classList.add("has-img"); if (["jugadores","cwl","bonos","guia"].includes(sc.dataset.scene)) sc.classList.add("nomascot"); };
+  im.onload = () => { im.hidden = false; sc.classList.add("has-img"); if (["jugadores","cwl","guia"].includes(sc.dataset.scene)) sc.classList.add("nomascot"); };
   im.onerror = () => im.remove();
 }
 
@@ -839,6 +985,14 @@ document.addEventListener("click", e => {
 });
 $("#dlg").addEventListener("click", e => { if (e.target.id === "dlg") e.target.close(); });
 $("#season").addEventListener("change", e => { state.season = e.target.value; render(); });
+function paintTheme() { const d = document.documentElement.dataset.theme === "dark"; $("#themeBtn").textContent = d ? "🌙" : "☀️"; $("#themeBtn").setAttribute("aria-pressed", String(d)); }
+$("#themeBtn").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem("coc_theme", next); } catch (e) {}
+  paintTheme(); if (DATA && state.tab === "perfil") render({quiet: true});
+});
+paintTheme();
 document.addEventListener("change", e => {
   if (e.target.id !== "playerSel") return;
   state.player = e.target.value || null;
