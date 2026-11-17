@@ -180,8 +180,8 @@
  "opponent": {
   "tag": "#9QGYY09R",
   "name": "Trust 良心战营",
-  "stars": 28,
-  "destruction": 66.07,
+  "stars": 32,
+  "destruction": 78.87,
   "members": [
    {
     "tag": "#80VQ02CRC",
@@ -340,7 +340,22 @@
     "name": "Ahmet",
     "th": 15,
     "pos": 12,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 20,
+      "defender": "#GVYPV8PJG",
+      "stars": 1,
+      "destruction": 92,
+      "duration": 131
+     },
+     {
+      "order": 21,
+      "defender": "#R20CGVRQQ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 97
+     }
+    ]
    },
    {
     "tag": "#LQ2Q8Q0Y2",
