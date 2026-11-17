@@ -172,8 +172,8 @@
  "opponent": {
   "tag": "#9QGYY09R",
   "name": "Trust 良心战营",
-  "stars": 23,
-  "destruction": 53.27,
+  "stars": 28,
+  "destruction": 66.07,
   "members": [
    {
     "tag": "#80VQ02CRC",
@@ -202,7 +202,22 @@
     "name": "Hölle I 地獄",
     "th": 18,
     "pos": 2,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 17,
+      "defender": "#8CQQG8J88",
+      "stars": 2,
+      "destruction": 92,
+      "duration": 149
+     },
+     {
+      "order": 18,
+      "defender": "#2U8JYG9V8",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 148
+     }
+    ]
    },
    {
     "tag": "#LUJ0UCR0P",
