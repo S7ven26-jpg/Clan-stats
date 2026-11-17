@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clan Stats · Guerras y CWL</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%94%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0a0e17; --panel:#121a2b; --panel2:#18223a; --line:#24304d;
+  --text:#e8ecf7; --muted:#8b97b5; --accent:#00e0a4; --gold:#ffc53d;
+  --red:#ff5d6c; --blue:#4da3ff; --radius:12px;
+}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0;background:radial-gradient(1200px 500px at 70% -10%,#16254a 0,transparent 60%),var(--bg);
+  color:var(--text);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:16px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:8px 0 16px}
+h1{margin:0;font-size:22px;letter-spacing:.3px}
+h1 small{display:block;font-size:13px;color:var(--muted);font-weight:400}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+select,button{font:inherit;color:var(--text);background:var(--panel2);border:1px solid var(--line);
+  border-radius:8px;padding:7px 12px;cursor:pointer}
+button:hover,select:hover{border-color:var(--accent)}
+nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;border-bottom:1px solid var(--line);margin-bottom:16px}
+nav button{border:0;background:transparent;color:var(--muted);padding:9px 14px;border-radius:8px 8px 0 0;white-space:nowrap}
+nav button.on{color:var(--text);background:var(--panel);box-shadow:inset 0 -2px 0 var(--accent)}
+.banner{background:#3a2d0a;border:1px solid #6b5313;color:#ffd978;padding:8px 12px;border-radius:8px;margin-bottom:12px;font-size:13px}
+.muted{color:var(--muted)} .small{font-size:13px}
+.grid{display:grid;gap:12px}
+.cards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.boards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+.card h3{margin:0 0 8px;font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.mvp{border-color:#5a4a16;background:linear-gradient(160deg,#241d0a,var(--panel) 60%)}
+.mvp .name{font-size:24px;font-weight:700;color:var(--gold)}
+.mvp .big{font-size:13px;color:var(--muted)}
+.badge{display:inline-block;font-size:11px;padding:1px 7px;border-radius:99px;background:#2a3556;color:var(--blue);margin-left:6px;vertical-align:middle}
+h2{font-size:17px;margin:22px 0 10px}
+ol.top{margin:0;padding:0;list-style:none}
+ol.top li{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px solid var(--line)}
+ol.top li:last-child{border:0}
+ol.top li span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ol.top b{color:var(--accent);font-variant-numeric:tabular-nums}
+.tablebox{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child,th.l,td.l{text-align:left}
+th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.4px;background:var(--panel2);position:sticky;top:0}
+th[data-sort]{cursor:pointer;user-select:none} th[data-sort]:hover{color:var(--text)}
+tr:last-child td{border-bottom:0}
+tbody tr[data-tag]{cursor:pointer} tbody tr[data-tag]:hover td{background:#16213a}
+td.pts{color:var(--accent);font-weight:700}
+.bad{color:var(--red)} .gold{color:var(--gold)} .dim{opacity:.45}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:10px}
+.seg button{border:0;border-radius:0;background:transparent;color:var(--muted)}
+.seg button.on{background:var(--panel2);color:var(--text);box-shadow:inset 0 -2px 0 var(--accent)}
+details.war{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:10px}
+details.war summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1.4fr 1fr 1.2fr auto;gap:10px;align-items:center;padding:12px 14px}
+details.war summary::-webkit-details-marker{display:none}
+details.war[open] summary{border-bottom:1px solid var(--line)}
+.wtype{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.wopp{font-weight:600}
+.wscore b{font-size:18px} .wscore small{color:var(--muted)} .vs{color:var(--muted);margin:0 4px}
+.wmvp b{color:var(--gold)} .wdate{color:var(--muted);font-size:13px;text-align:right}
+.chip{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+.chip.win{background:#0c3b2e;color:var(--accent)} .chip.lose{background:#40161d;color:var(--red)}
+.chip.tie{background:#2a3556;color:var(--blue)} .chip.live{background:#3a2d0a;color:var(--gold)}
+details.war .tablebox{border:0;border-radius:0 0 var(--radius) var(--radius)}
+.empty{text-align:center;padding:48px 16px;color:var(--muted)}
+.empty h2{color:var(--text)}
+dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:0;
+  width:min(760px,94vw);max-height:88vh}
+dialog::backdrop{background:#000a}
+dialog .in{padding:16px;overflow:auto;max-height:88vh}
+dialog h2{margin:0 0 4px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:12px 0}
+.kpi{background:var(--panel2);border-radius:10px;padding:8px 10px}
+.kpi b{display:block;font-size:19px} .kpi span{font-size:12px;color:var(--muted)}
+.actions{display:flex;gap:8px;margin:10px 0;flex-wrap:wrap}
+.guide dt{font-weight:700;margin-top:10px;color:var(--accent)} .guide dd{margin:2px 0 0;color:var(--text)}
+.guide code{background:var(--panel2);padding:1px 6px;border-radius:5px}
+@media (max-width:720px){
+  details.war summary{grid-template-columns:1fr 1fr}
+  .wdate{text-align:left}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>⚔️ <span id="clanName">Clan Stats</span><small id="clanSub"></small></h1>
+    <div class="controls">
+      <label class="muted small" for="season">Temporada</label>
+      <select id="season"></select>
+    </div>
+  </header>
+  <div id="banner"></div>
+  <nav id="tabs"></nav>
+  <main id="view"><div class="empty">Cargando…</div></main>
+  <p class="muted small" id="foot" style="margin-top:28px"></p>
+</div>
+<dialog id="dlg"><div class="in" id="dlgBody"></div></dialog>
+
+<script>
+"use strict";
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = (n, d = 1) => n == null ? "–" : Number(n).toLocaleString("es", {minimumFractionDigits: d, maximumFractionDigits: d});
+const int = n => n == null ? "–" : Number(n).toLocaleString("es");
+const TABS = [["resumen","🏆 Resumen"],["jugadores","👥 Jugadores"],["guerras","⚔️ Guerras"],["cwl","🛡️ CWL"],["bonos","🎖️ Bonos CWL"],["guia","❓ Guía"]];
+const state = {season: null, tab: "resumen", mode: "all", sort: {key: "score", dir: -1}};
+let DATA = null;
+
+/* ---------- acceso a datos ---------- */
+const isAll = () => state.season === "all";
+const S = () => isAll() ? null : DATA.data[state.season];
+const players = mode => isAll() ? DATA.all_time.players[mode] : DATA.data[state.season].players[mode];
+const wars = () => isAll() ? DATA.seasons.flatMap(s => DATA.data[s].wars) : DATA.data[state.season].wars;
+const seasonLabel = s => {
+  if (s === "all") return "Histórico (todas)";
+  const [y, m] = s.split("-").map(Number);
+  const t = new Date(y, m - 1, 1).toLocaleDateString("es", {month: "long", year: "numeric"});
+  return t.charAt(0).toUpperCase() + t.slice(1);
+};
+const shortDate = iso => iso ? new Date(iso).toLocaleDateString("es", {day: "numeric", month: "short"}) : "";
+
+/* ---------- columnas de la tabla de jugadores ---------- */
+const COLS = [
+  {k:"name", t:"Jugador", l:1, tip:"Nombre del jugador", f:p => esc(p.name)},
+  {k:"th", t:"TH", tip:"Nivel de ayuntamiento", f:p => p.th ?? "–"},
+  {k:"wars", t:"Part.", tip:"Guerras / rondas jugadas", f:p => p.wars},
+  {k:"used", t:"Atq", tip:"Ataques usados / disponibles", f:p => `${p.used}/${p.available}`},
+  {k:"attack_rate", t:"Uso %", tip:"% de ataques usados", f:p => p.attack_rate == null ? "–" : `<span class="${p.attack_rate < 100 ? "bad" : ""}">${fmt(p.attack_rate, 0)}%</span>`},
+  {k:"stars", t:"★", tip:"Estrellas totales", f:p => int(p.stars)},
+  {k:"avg_stars", t:"★/atq", tip:"Estrellas promedio por ataque", f:p => fmt(p.avg_stars, 2)},
+  {k:"new_stars", t:"★ netas", tip:"Estrellas nuevas que aportó (que el rival no tenía ya)", f:p => int(p.new_stars)},
+  {k:"three_rate", t:"3★ %", tip:"% de ataques con 3 estrellas", f:p => p.three_rate == null ? "–" : fmt(p.three_rate, 0) + "%"},
+  {k:"avg_destruction", t:"Destr. %", tip:"Destrucción promedio por ataque", f:p => p.avg_destruction == null ? "–" : fmt(p.avg_destruction, 1) + "%"},
+  {k:"hit_up_rate", t:"Hit-up %", tip:"% de ataques contra un TH más alto", f:p => p.hit_up_rate == null ? "–" : fmt(p.hit_up_rate, 0) + "%"},
+  {k:"def_avg_stars", t:"★ conc.", tip:"Estrellas concedidas por ataque recibido (menos es mejor)", f:p => fmt(p.def_avg_stars, 2)},
+  {k:"missed", t:"Fallos", tip:"Ataques no usados", f:p => p.missed ? `<span class="bad">${p.missed}</span>` : "0"},
+  {k:"mvps", t:"MVP", tip:"Veces MVP de guerra o ronda", f:p => p.mvps ? `<span class="gold">🏆 ${p.mvps}</span>` : "0"},
+  {k:"score", t:"Puntos", tip:"Puntos MVP acumulados", cls:"pts", f:p => fmt(p.score, 1)},
+];
+
+/* ---------- componentes ---------- */
+function mvpCard(title, name, big, badge) {
+  return `<div class="card mvp"><h3>${esc(title)}${badge ? `<span class="badge">${esc(badge)}</span>` : ""}</h3>
+    <div class="name">${name ? "🏆 " + esc(name) : "—"}</div><div class="big">${esc(big || "")}</div></div>`;
+}
+
+function board(title, list, key, opts = {}) {
+  const {min = 3, asc = false, f = v => fmt(v, 1), need = "used", suffix = ""} = opts;
+  const rows = list.filter(p => p[need] >= min && p[key] != null)
+    .sort((a, b) => asc ? a[key] - b[key] : b[key] - a[key]).slice(0, 5);
+  return `<div class="card"><h3>${esc(title)}</h3>${rows.length ? `<ol class="top">${rows.map((p, i) =>
+    `<li><span>${["🥇","🥈","🥉"][i] || (i + 1) + "."} ${esc(p.name)}</span><b>${f(p[key])}${suffix}</b></li>`).join("")}</ol>`
+    : `<div class="muted small">Sin datos suficientes (mín. ${min})</div>`}</div>`;
+}
+
+function warCard(w) {
+  const typeLbl = w.type === "cwl" ? `CWL${isAll() ? " " + w.season : ""} · Ronda ${w.round}` : "Guerra";
+  const R = {win:["Victoria","win"], lose:["Derrota","lose"], tie:["Empate","tie"], live:["En curso","live"]}[w.result];
+  const medals = Object.fromEntries((w.podium || []).map((p, i) => [p.tag, ["🥇","🥈","🥉"][i]]));
+  const rows = w.lines.map(L => {
+    const defAvg = L.def_n ? fmt(L.def_stars / L.def_n, 1) : "–";
+    return `<tr data-tag="${esc(L.tag)}"><td class="l">${medals[L.tag] || ""} ${esc(L.name)}</td><td>${L.th ?? "–"}</td>
+      <td class="${L.missed ? "bad" : ""}">${L.used}/${L.available}</td><td>${L.stars}</td><td>${L.new_stars}</td>
+      <td>${L.avg_destruction == null ? "–" : fmt(L.avg_destruction, 0) + "%"}</td><td>${L.three}</td><td>${defAvg}</td>
+      <td class="pts">${fmt(L.score, 1)}</td></tr>`;
+  }).join("");
+  return `<details class="war"><summary>
+    <div><span class="wtype">${esc(typeLbl)}</span><span class="wopp">vs ${esc(w.opponent.name || "?")}</span><span class="chip ${R[1]}">${R[0]}</span></div>
+    <div class="wscore"><b>${w.stars}</b>★ <small>${fmt(w.destruction, 1)}%</small><span class="vs">vs</span><b>${w.opp_stars}</b>★ <small>${fmt(w.opp_destruction, 1)}%</small></div>
+    <div class="wmvp">${w.mvp ? `🏆 <b>${esc(w.mvp.name)}</b> · ${fmt(w.mvp.score, 1)} pts` : (w.result === "live" ? '<span class="muted">MVP al terminar</span>' : "")}</div>
+    <div class="wdate">${shortDate(w.end)}</div></summary>
+    <div class="tablebox"><table><thead><tr><th class="l">Jugador</th><th>TH</th><th title="Ataques usados / disponibles">Atq</th><th>★</th>
+    <th title="Estrellas nuevas aportadas">★ netas</th><th title="Destrucción promedio">Destr.</th><th title="Ataques de 3 estrellas">3★</th>
+    <th title="Estrellas concedidas por ataque recibido">★ conc.</th><th>Pts</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
+}
+
+function playersTable(list, sort = true) {
+  const {key, dir} = state.sort;
+  const arr = [...list].sort((a, b) => {
+    const x = a[key], y = b[key];
+    if (x == null && y == null) return 0;
+    if (x == null) return 1;
+    if (y == null) return -1;
+    return typeof x === "string" ? dir * x.localeCompare(y) : dir * (x - y);
+  });
+  const head = COLS.map(c => `<th data-sort="${c.k}" title="${esc(c.tip)}" class="${c.l ? "l" : ""}">${c.t}${key === c.k ? (dir < 0 ? " ▼" : " ▲") : ""}</th>`).join("");
+  const body = arr.map(p => `<tr data-tag="${esc(p.tag)}">${COLS.map(c => `<td class="${c.l ? "l" : ""} ${c.cls || ""}">${c.f(p)}</td>`).join("")}</tr>`).join("");
+  return `<div class="tablebox"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
+/* ---------- vistas ---------- */
+function viewResumen() {
+  let cards = "";
+  if (!isAll()) {
+    const m = S().mvp, ws = wars();
+    const lastW = ws.find(w => w.type === "war" && w.mvp), lastC = ws.find(w => w.type === "cwl" && w.mvp);
+    cards += mvpCard("MVP de temporada · Guerras", m.war?.name, m.war ? `${fmt(m.war.score, 1)} puntos` : "Aún sin datos", m.war_final ? "" : "provisional");
+    cards += mvpCard("MVP de temporada · CWL", m.cwl?.name, m.cwl ? `${fmt(m.cwl.score, 1)} puntos` : "Aún sin datos", m.cwl_final ? "" : `provisional · ${S().cwl_rounds}/7 rondas`);
+    cards += mvpCard("Último MVP de guerra", lastW?.mvp?.name, lastW ? `vs ${lastW.opponent.name} · ${fmt(lastW.mvp.score, 1)} pts` : "");
+    cards += mvpCard("Último MVP de ronda CWL", lastC?.mvp?.name, lastC ? `Ronda ${lastC.round} · ${fmt(lastC.mvp.score, 1)} pts` : "");
+  } else {
+    const all = players("all");
+    const by = (k, f) => [...all].sort((a, b) => f(b) - f(a))[0];
+    const a = by("mvps", p => p.mvps), b = by("sm", p => (p.season_mvps_war || 0) + (p.season_mvps_cwl || 0)), c = by("score", p => p.score);
+    cards += mvpCard("Más MVPs de guerra/ronda", a?.mvps ? a.name : null, a ? `${a.mvps} veces MVP` : "");
+    cards += mvpCard("Más MVPs de temporada", b && (b.season_mvps_war + b.season_mvps_cwl) ? b.name : null, b ? `${b.season_mvps_war} guerras · ${b.season_mvps_cwl} CWL` : "");
+    cards += mvpCard("Más puntos históricos", c?.name, c ? `${fmt(c.score, 1)} puntos` : "");
+  }
+  const all = players("all");
+  const boards = [
+    board("⭐ Más estrellas", all, "stars", {min: 1, f: int}),
+    board("💠 Más ★ netas", all, "new_stars", {min: 1, f: int}),
+    board("🎯 Mejor 3★ %", all, "three_rate", {suffix: "%", f: v => fmt(v, 0)}),
+    board("💥 Mejor destrucción prom.", all, "avg_destruction", {suffix: "%"}),
+    board("🧗 Más ataques a TH superior", all, "hit_up_rate", {suffix: "%", f: v => fmt(v, 0)}),
+    board("🛡️ Mejor defensa (★ conc.)", all, "def_avg_stars", {asc: true, need: "def_n", f: v => fmt(v, 2)}),
+  ].join("");
+  const recent = wars().slice(0, 4).map(warCard).join("");
+  return `<div class="grid cards">${cards}</div>
+    <h2>Rankings <span class="muted small">(mín. 3 ataques en rankings de porcentaje)</span></h2>
+    <div class="grid boards">${boards}</div>
+    <h2>Últimas guerras y rondas</h2>${recent || '<div class="muted">Sin guerras registradas todavía.</div>'}`;
+}
+
+function viewJugadores() {
+  const seg = [["all","Todo"],["war","Guerras"],["cwl","CWL"]].map(([k, t]) =>
+    `<button data-mode="${k}" class="${state.mode === k ? "on" : ""}">${t}</button>`).join("");
+  return `<div class="seg">${seg}</div>
+    <p class="muted small" style="margin:0 0 8px">Toca un encabezado para ordenar y un jugador para ver su historial. Solo cuentan guerras ya terminadas.</p>
+    ${playersTable(players(state.mode))}`;
+}
+
+function viewGuerras() {
+  const l = wars().filter(w => w.type === "war");
+  return l.length ? l.map(warCard).join("") : '<div class="empty">No hay guerras normales registradas en este periodo.</div>';
+}
+
+function viewCwl() {
+  const l = wars().filter(w => w.type === "cwl");
+  const sorted = isAll() ? l : [...l].sort((a, b) => a.round - b.round);
+  return `<h2 style="margin-top:0">Ranking CWL ${isAll() ? "histórico" : "de la temporada"}</h2>${playersTable(players("cwl"))}
+    <h2>Rondas</h2>${sorted.length ? sorted.map(warCard).join("") : '<div class="empty">No hay rondas de CWL registradas.</div>'}`;
+}
+
+function bonusRows() { return S().cwl_bonus.filter(r => r.rounds_played > 0 || r.eligible); }
+
+function viewBonos() {
+  if (isAll()) return '<div class="empty"><h2>Elige una temporada</h2>Los bonos de CWL se calculan por temporada.</div>';
+  const s = S(), B = DATA.bonus, rows = s.cwl_bonus;
+  if (!rows.length) return '<div class="empty">Aún no hay datos de CWL en esta temporada.</div>';
+  const warn = s.mvp.cwl_final ? "" : `<div class="banner">La CWL de esta temporada aún no termina (${s.cwl_rounds}/7 rondas). Las cifras son provisionales.</div>`;
+  const body = rows.map(r => `<tr class="${r.eligible ? "" : "dim"}" data-tag="${esc(r.tag)}"><td class="l">${r.season_mvp ? "👑 " : ""}${esc(r.name)}</td><td>${r.th ?? "–"}</td>
+    <td>${r.rounds_played}/${r.rounds_total}</td><td>${r.stars}</td><td>${r.three}</td><td>${r.round_mvps}</td>
+    <td class="${r.missed ? "bad" : ""}">${r.missed}</td><td class="pts">${r.eligible ? r.bonus : "no elegible"}</td></tr>`).join("");
+  return `${warn}<p class="muted small">Fórmula: ${B.per_star} por ★ + ${B.per_three_star} por 3★ + ${B.per_round_mvp} por MVP de ronda + ${B.season_mvp} por MVP de temporada
+    − ${B.per_missed_attack_penalty} por ataque no usado (mínimo 0). Se necesita jugar al menos ${B.min_rounds_played} ronda(s). Ajusta los valores en <code>config.json</code>.</p>
+    <div class="actions"><button data-act="copy">📋 Copiar tabla</button><button data-act="csv">⬇️ Descargar CSV</button></div>
+    <div class="tablebox"><table><thead><tr><th class="l">Jugador</th><th>TH</th><th title="Rondas jugadas / rondas totales">Rondas</th><th>★</th><th title="Ataques de 3 estrellas">3★</th>
+    <th title="Veces MVP de ronda">MVP ronda</th><th title="Ataques no usados">Fallos</th><th>Bono (medallas)</th></tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
+function viewGuia() {
+  const W = DATA.weights;
+  return `<div class="card guide"><h3>Cómo se calculan los puntos MVP</h3>
+  <p>Cada ataque suma puntos. El jugador con más puntos en una guerra o ronda es el <b>MVP</b>. El MVP de temporada es quien acumula más puntos.</p>
+  <p><code>Puntos = ${W.star}×★ + ${W.new_star}×★ netas + ${W.three_star}×(ataques de 3★) + ${W.destruction_per_10pct} por cada 10% de destrucción + ${W.hit_up}×(ataques a TH superior) − ${W.missed_attack_penalty}×(ataques no usados)</code></p>
+  <dl>
+  <dt>★ netas</dt><dd>Estrellas nuevas que tu ataque aportó. Si la base ya tenía 2★ y tú sacas 3★, aportas 1 neta. Premia atacar bien y no “repetir” estrellas.</dd>
+  <dt>3★ %</dt><dd>Porcentaje de tus ataques que terminaron en 3 estrellas.</dd>
+  <dt>Destr. %</dt><dd>Destrucción promedio por ataque.</dd>
+  <dt>Hit-up %</dt><dd>Porcentaje de ataques contra un ayuntamiento (TH) más alto que el tuyo.</dd>
+  <dt>★ conc.</dt><dd>Estrellas que el rival sacó en promedio contra tu base (defensa). Menos es mejor.</dd>
+  <dt>Uso % / Fallos</dt><dd>Ataques usados vs disponibles. En CWL solo cuentan las rondas en las que estuviste en la alineación.</dd>
+  <dt>Puntos</dt><dd>Total acumulado de puntos MVP en el periodo seleccionado.</dd></dl>
+  <p class="muted small">Todas las reglas (puntos y bonos) se editan en <code>config.json</code>. Las estadísticas empiezan a contarse desde que se activó el colector: el API no entrega guerras antiguas.</p></div>`;
+}
+
+const VIEWS = {resumen: viewResumen, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, guia: viewGuia};
+
+function render() {
+  $("#tabs").innerHTML = TABS.map(([k, t]) => `<button data-tab="${k}" class="${state.tab === k ? "on" : ""}">${t}</button>`).join("");
+  $("#view").innerHTML = VIEWS[state.tab]();
+}
+
+/* ---------- detalle de jugador ---------- */
+function showPlayer(tag) {
+  const p = players("all").find(x => x.tag === tag);
+  const hist = wars().flatMap(w => { const L = w.lines.find(l => l.tag === tag); return L ? [[w, L]] : []; });
+  const name = p?.name || hist[0]?.[1].name || tag;
+  const kpi = p ? [
+    ["Puntos", fmt(p.score, 1)], ["★ totales", int(p.stars)], ["★/ataque", fmt(p.avg_stars, 2)], ["3★ %", p.three_rate == null ? "–" : fmt(p.three_rate, 0) + "%"],
+    ["Destr. prom.", p.avg_destruction == null ? "–" : fmt(p.avg_destruction, 0) + "%"], ["Uso", p.attack_rate == null ? "–" : fmt(p.attack_rate, 0) + "%"], ["MVPs", p.mvps],
+  ].map(([k, v]) => `<div class="kpi"><b>${v}</b><span>${k}</span></div>`).join("") : "";
+  const rows = hist.map(([w, L]) => `<tr><td class="l">${shortDate(w.end)}</td><td class="l">${w.type === "cwl" ? "CWL R" + w.round : "Guerra"} vs ${esc(w.opponent.name || "?")}</td>
+    <td class="${L.missed ? "bad" : ""}">${L.used}/${L.available}</td><td>${L.stars}</td><td>${L.avg_destruction == null ? "–" : fmt(L.avg_destruction, 0) + "%"}</td>
+    <td class="pts">${fmt(L.score, 1)}</td><td>${w.mvp && w.mvp.tag === tag ? "🏆" : (w.result === "live" ? "en curso" : "")}</td></tr>`).join("");
+  $("#dlgBody").innerHTML = `<div style="display:flex;justify-content:space-between;align-items:start"><div><h2>${esc(name)}</h2>
+    <span class="muted small">${esc(tag)}${p?.th ? " · TH" + p.th : ""} · ${esc(seasonLabel(state.season))}</span></div><button data-act="close">✕</button></div>
+    <div class="kpis">${kpi}</div>
+    <div class="tablebox"><table><thead><tr><th class="l">Fecha</th><th class="l">Evento</th><th>Atq</th><th>★</th><th>Destr.</th><th>Pts</th><th></th></tr></thead>
+    <tbody>${rows || '<tr><td colspan="7" class="muted">Sin participaciones.</td></tr>'}</tbody></table></div>`;
+  $("#dlg").showModal();
+}
+
+/* ---------- exportar bonos ---------- */
+function bonusTable(sep) {
+  const head = ["Jugador", "Tag", "Rondas jugadas", "Estrellas", "3 estrellas", "MVP ronda", "Fallos", "MVP temporada", "Bono medallas"];
+  const clean = v => String(v).replace(/[\t\r\n]+/g, " ");
+  const q = v => sep === "," ? `"${clean(v).replace(/"/g, '""')}"` : clean(v);
+  const lines = bonusRows().map(r => [r.name, r.tag, `${r.rounds_played}/${r.rounds_total}`, r.stars, r.three, r.round_mvps, r.missed, r.season_mvp ? "Sí" : "", r.eligible ? r.bonus : 0]);
+  return [head, ...lines].map(l => l.map(q).join(sep)).join("\n");
+}
+
+/* ---------- eventos ---------- */
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-tab],[data-mode],[data-sort],[data-act],tr[data-tag]");
+  if (!t) return;
+  if (t.dataset.tab) { state.tab = t.dataset.tab; render(); }
+  else if (t.dataset.mode) { state.mode = t.dataset.mode; render(); }
+  else if (t.dataset.sort) {
+    const k = t.dataset.sort;
+    state.sort = state.sort.key === k ? {key: k, dir: -state.sort.dir} : {key: k, dir: k === "name" || k === "def_avg_stars" ? 1 : -1};
+    render();
+  }
+  else if (t.dataset.act === "close") $("#dlg").close();
+  else if (t.dataset.act === "copy") {
+    navigator.clipboard.writeText(bonusTable("\t")).then(() => { t.textContent = "✅ Copiado"; setTimeout(() => t.textContent = "📋 Copiar tabla", 1500); });
+  }
+  else if (t.dataset.act === "csv") {
+    const blob = new Blob(["﻿" + bonusTable(",")], {type: "text/csv;charset=utf-8"});
+    const a = Object.assign(document.createElement("a"), {href: URL.createObjectURL(blob), download: `bonos-cwl-${state.season}.csv`});
+    a.click(); URL.revokeObjectURL(a.href);
+  }
+  else if (t.dataset.tag) showPlayer(t.dataset.tag);
+});
+$("#dlg").addEventListener("click", e => { if (e.target.id === "dlg") e.target.close(); });
+$("#season").addEventListener("change", e => { state.season = e.target.value; render(); });
+
+/* ---------- arranque ---------- */
+(async function init() {
+  const demo = new URLSearchParams(location.search).has("demo");
+  try {
+    const r = await fetch(demo ? "data/demo.json" : "data/stats.json", {cache: "no-store"});
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    DATA = await r.json();
+  } catch (err) {
+    $("#view").innerHTML = `<div class="empty"><h2>No se pudieron cargar los datos</h2>
+      Si abriste el archivo directamente, usa GitHub Pages o un servidor local (<code>python3 -m http.server -d docs</code>).<br><small>${esc(err.message)}</small></div>`;
+    return;
+  }
+  $("#clanName").textContent = DATA.clan.name || "Clan Stats";
+  $("#clanSub").textContent = DATA.clan.tag || "";
+  if (demo) $("#banner").innerHTML = '<div class="banner">Estás viendo datos de DEMOSTRACIÓN (ficticios). Quita <code>?demo=1</code> de la dirección para ver los datos reales.</div>';
+  $("#foot").textContent = `Datos del API oficial de Supercell · Actualizado: ${DATA.generated_at ? new Date(DATA.generated_at).toLocaleString("es") : "—"}`;
+  if (!DATA.seasons.length) {
+    $("#tabs").innerHTML = "";
+    $("#view").innerHTML = `<div class="empty"><h2>Aún no hay datos</h2>El colector registrará las guerras en cuanto haya una en curso.
+      Mientras tanto puedes ver cómo se verá con datos de ejemplo: <a href="?demo=1" style="color:var(--accent)">abrir demo</a>.</div>`;
+    return;
+  }
+  state.season = DATA.seasons[0];
+  $("#season").innerHTML = [...DATA.seasons, "all"].map(s => `<option value="${esc(s)}">${esc(seasonLabel(s))}</option>`).join("");
+  render();
+})();
+</script>
+</body>
+</html>

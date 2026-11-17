@@ -1,0 +1,22 @@
+{
+  "clan_tag": "#TAGDETUCLAN",
+  "api_base": "https://cocproxy.royaleapi.dev/v1",
+
+  "mvp_weights": {
+    "star": 1,
+    "new_star": 2,
+    "three_star": 2,
+    "destruction_per_10pct": 1,
+    "hit_up": 2,
+    "missed_attack_penalty": 8
+  },
+
+  "cwl_bonus": {
+    "per_star": 1,
+    "per_three_star": 1,
+    "per_round_mvp": 3,
+    "season_mvp": 10,
+    "per_missed_attack_penalty": 5,
+    "min_rounds_played": 1
+  }
+}
