@@ -1,0 +1,361 @@
+{
+ "id": "war_20261116T193214",
+ "type": "war",
+ "season": "2026-11",
+ "round": null,
+ "war_tag": null,
+ "state": "inWar",
+ "start": "2026-11-16T19:32:14Z",
+ "end": "2026-11-17T19:32:14Z",
+ "team_size": 15,
+ "attacks_per_member": 2,
+ "clan": {
+  "tag": "#2RP29GPCG",
+  "name": "Arepa con queso",
+  "stars": 14,
+  "destruction": 32.93,
+  "members": [
+   {
+    "tag": "#GLVJLU020",
+    "name": "×{•KAISER•}×",
+    "th": 17,
+    "pos": 9,
+    "attacks": []
+   },
+   {
+    "tag": "#8CQQG8J88",
+    "name": "ZOM3R",
+    "th": 18,
+    "pos": 2,
+    "attacks": []
+   },
+   {
+    "tag": "#P0YRJCV",
+    "name": "S7ven26",
+    "th": 19,
+    "pos": 1,
+    "attacks": [
+     {
+      "order": 1,
+      "defender": "#PJR80RUUR",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 157
+     }
+    ]
+   },
+   {
+    "tag": "#GRG9V2YCG",
+    "name": "Siegfried",
+    "th": 16,
+    "pos": 12,
+    "attacks": [
+     {
+      "order": 13,
+      "defender": "#8GLRVQ8J2",
+      "stars": 1,
+      "destruction": 91,
+      "duration": 125
+     }
+    ]
+   },
+   {
+    "tag": "#GCG2PYY2R",
+    "name": "Greeyhawk",
+    "th": 18,
+    "pos": 6,
+    "attacks": []
+   },
+   {
+    "tag": "#GVYPV8PJG",
+    "name": "lamb",
+    "th": 17,
+    "pos": 10,
+    "attacks": [
+     {
+      "order": 14,
+      "defender": "#8CLY0VGPV",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 119
+     },
+     {
+      "order": 15,
+      "defender": "#LUJ0UCR0P",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 113
+     }
+    ]
+   },
+   {
+    "tag": "#R0GVRJ00C",
+    "name": "8A2",
+    "th": 16,
+    "pos": 11,
+    "attacks": []
+   },
+   {
+    "tag": "#8LR9GY8V9",
+    "name": "Andrewx0202",
+    "th": 18,
+    "pos": 4,
+    "attacks": []
+   },
+   {
+    "tag": "#R2C8PUVQJ",
+    "name": "8A",
+    "th": 18,
+    "pos": 5,
+    "attacks": []
+   },
+   {
+    "tag": "#R20CGVRQQ",
+    "name": "shinra xz11",
+    "th": 14,
+    "pos": 13,
+    "attacks": []
+   },
+   {
+    "tag": "#R8U0YL9LL",
+    "name": "Kelsier",
+    "th": 15,
+    "pos": 14,
+    "attacks": [
+     {
+      "order": 4,
+      "defender": "#2PVC9C88",
+      "stars": 2,
+      "destruction": 94,
+      "duration": 136
+     }
+    ]
+   },
+   {
+    "tag": "#QUC2L8QRP",
+    "name": "pipemono",
+    "th": 17,
+    "pos": 8,
+    "attacks": [
+     {
+      "order": 16,
+      "defender": "#8GLRVQ8J2",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 129
+     }
+    ]
+   },
+   {
+    "tag": "#2U8JYG9V8",
+    "name": "kevin daniel",
+    "th": 19,
+    "pos": 3,
+    "attacks": []
+   },
+   {
+    "tag": "#QCPVC0GU0",
+    "name": "Abusamadres",
+    "th": 17,
+    "pos": 7,
+    "attacks": []
+   },
+   {
+    "tag": "#GG2GGQ80V",
+    "name": "8A3",
+    "th": 13,
+    "pos": 15,
+    "attacks": []
+   }
+  ]
+ },
+ "opponent": {
+  "tag": "#9QGYY09R",
+  "name": "Trust 良心战营",
+  "stars": 23,
+  "destruction": 53.27,
+  "members": [
+   {
+    "tag": "#80VQ02CRC",
+    "name": "Honnie❤️Emiliaツ",
+    "th": 17,
+    "pos": 8,
+    "attacks": [
+     {
+      "order": 11,
+      "defender": "#QUC2L8QRP",
+      "stars": 2,
+      "destruction": 99,
+      "duration": 180
+     },
+     {
+      "order": 12,
+      "defender": "#GLVJLU020",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 165
+     }
+    ]
+   },
+   {
+    "tag": "#8CR2JQGCC",
+    "name": "Hölle I 地獄",
+    "th": 18,
+    "pos": 2,
+    "attacks": []
+   },
+   {
+    "tag": "#LUJ0UCR0P",
+    "name": "Frodo Mercury",
+    "th": 17,
+    "pos": 10,
+    "attacks": []
+   },
+   {
+    "tag": "#Y2JGYYCU",
+    "name": "+enchufe+",
+    "th": 17,
+    "pos": 9,
+    "attacks": []
+   },
+   {
+    "tag": "#8CLY0VGPV",
+    "name": "Tobias123",
+    "th": 16,
+    "pos": 11,
+    "attacks": [
+     {
+      "order": 7,
+      "defender": "#R0GVRJ00C",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 155
+     },
+     {
+      "order": 9,
+      "defender": "#GRG9V2YCG",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 90
+     }
+    ]
+   },
+   {
+    "tag": "#GCLPG889J",
+    "name": "BlackMamba",
+    "th": 18,
+    "pos": 6,
+    "attacks": [
+     {
+      "order": 6,
+      "defender": "#GCG2PYY2R",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 105
+     }
+    ]
+   },
+   {
+    "tag": "#8YCCCYQ",
+    "name": "Akari☔️",
+    "th": 19,
+    "pos": 3,
+    "attacks": []
+   },
+   {
+    "tag": "#UYL8Y8GL",
+    "name": "Dzeko",
+    "th": 18,
+    "pos": 7,
+    "attacks": [
+     {
+      "order": 3,
+      "defender": "#QUC2L8QRP",
+      "stars": 2,
+      "destruction": 87,
+      "duration": 167
+     },
+     {
+      "order": 5,
+      "defender": "#GLVJLU020",
+      "stars": 1,
+      "destruction": 78,
+      "duration": 135
+     }
+    ]
+   },
+   {
+    "tag": "#P8RL0RYQG",
+    "name": "Jasminswelt",
+    "th": 18,
+    "pos": 4,
+    "attacks": []
+   },
+   {
+    "tag": "#GJGRUU9UP",
+    "name": "Gimli Hendrix",
+    "th": 12,
+    "pos": 15,
+    "attacks": []
+   },
+   {
+    "tag": "#LVP0RRQLQ",
+    "name": "Juli❤️KPOPIUM",
+    "th": 18,
+    "pos": 5,
+    "attacks": []
+   },
+   {
+    "tag": "#2PVC9C88",
+    "name": "Freya",
+    "th": 14,
+    "pos": 14,
+    "attacks": []
+   },
+   {
+    "tag": "#8GLRVQ8J2",
+    "name": "Ahmet",
+    "th": 15,
+    "pos": 12,
+    "attacks": []
+   },
+   {
+    "tag": "#LQ2Q8Q0Y2",
+    "name": "DerRushendeBoss",
+    "th": 15,
+    "pos": 13,
+    "attacks": [
+     {
+      "order": 8,
+      "defender": "#R8U0YL9LL",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 75
+     },
+     {
+      "order": 10,
+      "defender": "#GG2GGQ80V",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 89
+     }
+    ]
+   },
+   {
+    "tag": "#PJR80RUUR",
+    "name": "Julitendo",
+    "th": 19,
+    "pos": 1,
+    "attacks": [
+     {
+      "order": 2,
+      "defender": "#P0YRJCV",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 134
+     }
+    ]
+   }
+  ]
+ }
+}
