@@ -20,7 +20,22 @@
     "name": "×{•KAISER•}×",
     "th": 17,
     "pos": 9,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 44,
+      "defender": "#8CLY0VGPV",
+      "stars": 2,
+      "destruction": 55,
+      "duration": 160
+     },
+     {
+      "order": 45,
+      "defender": "#8GLRVQ8J2",
+      "stars": 2,
+      "destruction": 61,
+      "duration": 125
+     }
+    ]
    },
    {
     "tag": "#8CQQG8J88",
@@ -305,8 +320,8 @@
  "opponent": {
   "tag": "#9QGYY09R",
   "name": "Trust 良心战营",
-  "stars": 35,
-  "destruction": 79.47,
+  "stars": 41,
+  "destruction": 91.07,
   "members": [
    {
     "tag": "#80VQ02CRC",
@@ -466,7 +481,22 @@
     "name": "Juli❤️KPOPIUM",
     "th": 18,
     "pos": 5,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 42,
+      "defender": "#8LR9GY8V9",
+      "stars": 2,
+      "destruction": 66,
+      "duration": 113
+     },
+     {
+      "order": 43,
+      "defender": "#R2C8PUVQJ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 160
+     }
+    ]
    },
    {
     "tag": "#2PVC9C88",
@@ -531,6 +561,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 134
+     },
+     {
+      "order": 41,
+      "defender": "#8CQQG8J88",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 154
      }
     ]
    }
