@@ -4,7 +4,7 @@
  "season": "2026-11",
  "round": null,
  "war_tag": null,
- "state": "inWar",
+ "state": "warEnded",
  "start": "2026-11-16T19:32:14Z",
  "end": "2026-11-17T19:32:14Z",
  "team_size": 15,
@@ -320,8 +320,8 @@
  "opponent": {
   "tag": "#9QGYY09R",
   "name": "Trust 良心战营",
-  "stars": 41,
-  "destruction": 91.07,
+  "stars": 45,
+  "destruction": 100.0,
   "members": [
    {
     "tag": "#80VQ02CRC",
@@ -430,6 +430,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 105
+     },
+     {
+      "order": 46,
+      "defender": "#QCPVC0GU0",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 84
      }
     ]
    },
@@ -438,7 +445,15 @@
     "name": "Akari☔️",
     "th": 19,
     "pos": 3,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 47,
+      "defender": "#8LR9GY8V9",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 94
+     }
+    ]
    },
    {
     "tag": "#UYL8Y8GL",
