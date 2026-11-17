@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 38,
-  "destruction": 86.27,
+  "stars": 45,
+  "destruction": 100.0,
   "members": [
    {
     "tag": "#GLVJLU020",
@@ -78,6 +78,13 @@
       "stars": 1,
       "destruction": 91,
       "duration": 125
+     },
+     {
+      "order": 35,
+      "defender": "#Y2JGYYCU",
+      "stars": 2,
+      "destruction": 78,
+      "duration": 131
      }
     ]
    },
@@ -86,7 +93,22 @@
     "name": "Greeyhawk",
     "th": 18,
     "pos": 6,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 39,
+      "defender": "#Y2JGYYCU",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 103
+     },
+     {
+      "order": 40,
+      "defender": "#GCLPG889J",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 122
+     }
+    ]
    },
    {
     "tag": "#GVYPV8PJG",
@@ -137,7 +159,22 @@
     "name": "Andrewx0202",
     "th": 18,
     "pos": 4,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 36,
+      "defender": "#Y2JGYYCU",
+      "stars": 2,
+      "destruction": 88,
+      "duration": 180
+     },
+     {
+      "order": 37,
+      "defender": "#UYL8Y8GL",
+      "stars": 2,
+      "destruction": 92,
+      "duration": 146
+     }
+    ]
    },
    {
     "tag": "#R2C8PUVQJ",
@@ -180,6 +217,13 @@
       "stars": 2,
       "destruction": 94,
       "duration": 136
+     },
+     {
+      "order": 38,
+      "defender": "#Y2JGYYCU",
+      "stars": 2,
+      "destruction": 71,
+      "duration": 77
      }
     ]
    },
@@ -195,6 +239,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 129
+     },
+     {
+      "order": 34,
+      "defender": "#2PVC9C88",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 103
      }
     ]
    },
@@ -210,6 +261,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 148
+     },
+     {
+      "order": 33,
+      "defender": "#80VQ02CRC",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 116
      }
     ]
    },
