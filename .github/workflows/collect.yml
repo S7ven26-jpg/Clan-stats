@@ -1,0 +1,48 @@
+name: Recolectar datos de Clash of Clans
+
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Consultar el API y guardar guerras / CWL
+        env:
+          COC_API_TOKEN: ${{ secrets.COC_API_TOKEN }}
+        run: python collector/collect.py
+
+      - name: Calcular estadisticas
+        if: always()
+        run: python collector/stats.py
+
+      - name: Guardar cambios
+        if: always()
+        run: |
+          mkdir -p data docs/data
+          git config user.name "coc-stats-bot"
+          git config user.email "coc-stats-bot@users.noreply.github.com"
+          git add -A data docs/data
+          if git diff --cached --quiet; then
+            echo "Sin cambios."
+          else
+            git commit -m "Actualizar datos del clan"
+            git pull --rebase --autostash
+            git push
+          fi
