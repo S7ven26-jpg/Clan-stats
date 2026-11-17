@@ -2,104 +2,166 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
 <title>Clan Stats · Guerras y CWL</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%94%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="logo.webp">
 <style>
 :root{
-  --bg:#0a0e17; --panel:#121a2b; --panel2:#18223a; --line:#24304d;
-  --text:#e8ecf7; --muted:#8b97b5; --accent:#00e0a4; --gold:#ffc53d;
-  --red:#ff5d6c; --blue:#4da3ff; --radius:12px;
+  --bg:#f5f5f7; --panel:#ffffff; --panel2:#f5f5f7; --line:rgba(0,0,0,.08);
+  --text:#1d1d1f; --muted:#6e6e73; --hover:rgba(0,0,0,.035);
+  --accent:#ff9500; --accent-text:#b45f00; --accent-soft:rgba(255,149,0,.12);
+  --green:#1f8a3b; --red:#d70015; --blue:#0066cc;
+  --seg:rgba(60,60,67,.09); --seg-on:#ffffff;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+  --glow:rgba(255,149,0,.20);
+  --radius:20px;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",Roboto,Inter,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#000000; --panel:#1c1c1e; --panel2:#2c2c2e; --line:rgba(255,255,255,.10);
+    --text:#f5f5f7; --muted:#98989d; --hover:rgba(255,255,255,.05);
+    --accent:#ff9f0a; --accent-text:#ffb340; --accent-soft:rgba(255,159,10,.16);
+    --green:#30d158; --red:#ff453a; --blue:#64a8ff;
+    --seg:rgba(118,118,128,.24); --seg-on:#636366;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+    --glow:rgba(255,159,10,.20);
+  }
 }
 *{box-sizing:border-box}
-html{color-scheme:dark}
-body{margin:0;background:radial-gradient(1200px 500px at 70% -10%,#16254a 0,transparent 60%),var(--bg);
-  color:var(--text);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:1180px;margin:0 auto;padding:16px}
-header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:8px 0 16px}
-h1{margin:0;font-size:22px;letter-spacing:.3px}
-h1 small{display:block;font-size:13px;color:var(--muted);font-weight:400}
-.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-select,button{font:inherit;color:var(--text);background:var(--panel2);border:1px solid var(--line);
-  border-radius:8px;padding:7px 12px;cursor:pointer}
-button:hover,select:hover{border-color:var(--accent)}
-nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;border-bottom:1px solid var(--line);margin-bottom:16px}
-nav button{border:0;background:transparent;color:var(--muted);padding:9px 14px;border-radius:8px 8px 0 0;white-space:nowrap}
-nav button.on{color:var(--text);background:var(--panel);box-shadow:inset 0 -2px 0 var(--accent)}
-.banner{background:#3a2d0a;border:1px solid #6b5313;color:#ffd978;padding:8px 12px;border-radius:8px;margin-bottom:12px;font-size:13px}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.47 var(--font);
+  -webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+body::before{content:"";position:fixed;inset:0 0 auto 0;height:420px;pointer-events:none;z-index:0;
+  background:radial-gradient(60% 100% at 50% 0%,var(--glow),transparent 70%)}
+.wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 20px calc(40px + env(safe-area-inset-bottom))}
+
+/* portada */
+header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:36px 0 18px}
+.brand{display:flex;align-items:center;gap:18px;min-width:0}
+.brand img{width:96px;height:96px;object-fit:contain;filter:drop-shadow(0 8px 18px rgba(0,0,0,.22))}
+h1{margin:0;font-size:clamp(26px,4.2vw,40px);line-height:1.08;font-weight:700;letter-spacing:-.025em}
+.sub{margin-top:4px;color:var(--muted);font-size:15px}
+.controls select{font:inherit;font-weight:500;color:var(--text);background:var(--panel);border:1px solid var(--line);
+  border-radius:999px;padding:9px 38px 9px 16px;box-shadow:var(--shadow);cursor:pointer;appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%238e8e93' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 15px center}
+.controls select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* pestañas tipo iOS */
+.navbar{position:sticky;top:0;z-index:10;padding:10px 0;margin:0 -20px 18px;
+  background:color-mix(in srgb,var(--bg) 72%,transparent);
+  -webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px)}
+nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin:0 20px;padding:3px;background:var(--seg);border-radius:12px;width:fit-content;max-width:calc(100% - 40px)}
+nav::-webkit-scrollbar{display:none}
+nav button{border:0;background:transparent;color:var(--text);font:inherit;font-size:14px;font-weight:500;padding:7px 15px;border-radius:9px;
+  cursor:pointer;white-space:nowrap;transition:background .2s,box-shadow .2s}
+nav button:hover{background:var(--hover)}
+nav button.on{background:var(--seg-on);box-shadow:0 1px 3px rgba(0,0,0,.14),0 1px 1px rgba(0,0,0,.06)}
+
+button{font:inherit;color:var(--text);cursor:pointer}
+.banner{background:var(--accent-soft);color:var(--accent-text);padding:11px 16px;border-radius:14px;margin:0 0 16px;font-size:14px}
+.banner code{background:transparent;padding:0;color:inherit;font-weight:600}
 .muted{color:var(--muted)} .small{font-size:13px}
-.grid{display:grid;gap:12px}
-.cards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.boards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
-.card h3{margin:0 0 8px;font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
-.mvp{border-color:#5a4a16;background:linear-gradient(160deg,#241d0a,var(--panel) 60%)}
-.mvp .name{font-size:24px;font-weight:700;color:var(--gold)}
-.mvp .big{font-size:13px;color:var(--muted)}
-.badge{display:inline-block;font-size:11px;padding:1px 7px;border-radius:99px;background:#2a3556;color:var(--blue);margin-left:6px;vertical-align:middle}
-h2{font-size:17px;margin:22px 0 10px}
+.grid{display:grid;gap:14px}
+.cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.boards{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.card{background:var(--panel);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 10px;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.mvp{background:linear-gradient(155deg,var(--accent-soft),transparent 75%),var(--panel)}
+.mvp .name{font-size:28px;line-height:1.15;font-weight:700;letter-spacing:-.02em;color:var(--accent-text)}
+.mvp .big{margin-top:4px;font-size:14px;color:var(--muted)}
+.badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:0;text-transform:none;padding:2px 8px;border-radius:99px;
+  background:var(--seg);color:var(--muted);margin-left:6px;vertical-align:middle}
+h2{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:34px 0 14px}
+h2 .small{font-weight:400;letter-spacing:0}
 ol.top{margin:0;padding:0;list-style:none}
-ol.top li{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px solid var(--line)}
-ol.top li:last-child{border:0}
+ol.top li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+ol.top li:last-child{border:0;padding-bottom:0}
 ol.top li span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-ol.top b{color:var(--accent);font-variant-numeric:tabular-nums}
-.tablebox{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+ol.top b{color:var(--accent-text);font-weight:600;font-variant-numeric:tabular-nums}
+
+.tablebox{overflow-x:auto;background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow)}
 table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
-th,td{padding:8px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
-th:first-child,td:first-child,th.l,td.l{text-align:left}
-th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.4px;background:var(--panel2);position:sticky;top:0}
+th,td{padding:11px 12px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child,th.l,td.l{text-align:left;padding-left:18px}
+th:last-child,td:last-child{padding-right:18px}
+th{font-size:11.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;background:var(--panel2);position:sticky;top:0}
 th[data-sort]{cursor:pointer;user-select:none} th[data-sort]:hover{color:var(--text)}
 tr:last-child td{border-bottom:0}
-tbody tr[data-tag]{cursor:pointer} tbody tr[data-tag]:hover td{background:#16213a}
-td.pts{color:var(--accent);font-weight:700}
-.bad{color:var(--red)} .gold{color:var(--gold)} .dim{opacity:.45}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:10px}
-.seg button{border:0;border-radius:0;background:transparent;color:var(--muted)}
-.seg button.on{background:var(--panel2);color:var(--text);box-shadow:inset 0 -2px 0 var(--accent)}
-details.war{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:10px}
-details.war summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1.4fr 1fr 1.2fr auto;gap:10px;align-items:center;padding:12px 14px}
+tbody tr[data-tag]{cursor:pointer;transition:background .15s} tbody tr[data-tag]:hover td{background:var(--hover)}
+td.pts{color:var(--accent-text);font-weight:600}
+.bad{color:var(--red)} .gold{color:var(--accent-text)} .dim{opacity:.45}
+.seg{display:inline-flex;gap:2px;padding:3px;background:var(--seg);border-radius:10px;margin-bottom:12px}
+.seg button{border:0;background:transparent;font-size:14px;font-weight:500;padding:6px 16px;border-radius:8px}
+.seg button.on{background:var(--seg-on);box-shadow:0 1px 3px rgba(0,0,0,.14)}
+
+details.war{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:12px;overflow:hidden}
+details.war summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1.4fr 1fr 1.2fr auto;gap:12px;align-items:center;padding:16px 20px;transition:background .15s}
+details.war summary:hover{background:var(--hover)}
 details.war summary::-webkit-details-marker{display:none}
 details.war[open] summary{border-bottom:1px solid var(--line)}
-.wtype{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
-.wopp{font-weight:600}
-.wscore b{font-size:18px} .wscore small{color:var(--muted)} .vs{color:var(--muted);margin:0 4px}
-.wmvp b{color:var(--gold)} .wdate{color:var(--muted);font-size:13px;text-align:right}
-.chip{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
-.chip.win{background:#0c3b2e;color:var(--accent)} .chip.lose{background:#40161d;color:var(--red)}
-.chip.tie{background:#2a3556;color:var(--blue)} .chip.live{background:#3a2d0a;color:var(--gold)}
-details.war .tablebox{border:0;border-radius:0 0 var(--radius) var(--radius)}
-.empty{text-align:center;padding:48px 16px;color:var(--muted)}
-.empty h2{color:var(--text)}
-dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:0;
-  width:min(760px,94vw);max-height:88vh}
-dialog::backdrop{background:#000a}
-dialog .in{padding:16px;overflow:auto;max-height:88vh}
-dialog h2{margin:0 0 4px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:12px 0}
-.kpi{background:var(--panel2);border-radius:10px;padding:8px 10px}
-.kpi b{display:block;font-size:19px} .kpi span{font-size:12px;color:var(--muted)}
-.actions{display:flex;gap:8px;margin:10px 0;flex-wrap:wrap}
-.guide dt{font-weight:700;margin-top:10px;color:var(--accent)} .guide dd{margin:2px 0 0;color:var(--text)}
-.guide code{background:var(--panel2);padding:1px 6px;border-radius:5px}
+details.war[open] .tablebox{animation:rise .25s ease both}
+.wtype{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.wopp{font-weight:600;font-size:16px}
+.wscore b{font-size:20px;font-weight:700} .wscore small{color:var(--muted)} .vs{color:var(--muted);margin:0 6px}
+.wmvp b{color:var(--accent-text)} .wdate{color:var(--muted);font-size:13px;text-align:right}
+.chip{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:99px;margin-left:8px;vertical-align:middle}
+.chip.win{background:color-mix(in srgb,var(--green) 15%,transparent);color:var(--green)}
+.chip.lose{background:color-mix(in srgb,var(--red) 14%,transparent);color:var(--red)}
+.chip.tie{background:color-mix(in srgb,var(--blue) 15%,transparent);color:var(--blue)}
+.chip.live{background:var(--accent-soft);color:var(--accent-text)}
+details.war .tablebox{box-shadow:none;border-radius:0}
+.empty{text-align:center;padding:64px 16px;color:var(--muted)}
+.empty h2{color:var(--text);margin-top:0}
+.empty a{color:var(--blue);text-decoration:none;font-weight:500}
+.empty code,.guide code,.muted code{background:var(--seg);padding:1px 7px;border-radius:6px;font-size:.92em}
+dialog{background:var(--panel);color:var(--text);border:0;border-radius:24px;padding:0;width:min(780px,94vw);max-height:88vh;
+  box-shadow:0 24px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(0,0,0,.4);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+dialog[open]{animation:pop .22s cubic-bezier(.2,.8,.2,1) both}
+dialog .in{padding:22px;overflow:auto;max-height:88vh}
+dialog h2{margin:0 0 2px;font-size:26px}
+dialog .tablebox{box-shadow:none;border:1px solid var(--line)}
+dialog button[data-act=close]{border:0;background:var(--seg);width:30px;height:30px;border-radius:50%;font-size:13px;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:10px;margin:16px 0}
+.kpi{background:var(--panel2);border-radius:14px;padding:11px 13px}
+.kpi b{display:block;font-size:20px;font-weight:700;letter-spacing:-.02em} .kpi span{font-size:12px;color:var(--muted)}
+.actions{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}
+.actions button{background:var(--panel);border:0;border-radius:999px;padding:8px 18px;font-weight:500;box-shadow:var(--shadow);transition:transform .15s}
+.actions button:active{transform:scale(.97)}
+.guide dt{font-weight:600;margin-top:14px;color:var(--accent-text)} .guide dd{margin:2px 0 0}
+.guide p{margin:8px 0}
+footer{margin-top:40px;text-align:center;color:var(--muted);font-size:12.5px}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+#view>*{animation:rise .35s ease both}
+#view>*:nth-child(2){animation-delay:.04s} #view>*:nth-child(3){animation-delay:.08s}
+#view>*:nth-child(4){animation-delay:.12s} #view>*:nth-child(n+5){animation-delay:.16s}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media (max-width:720px){
-  details.war summary{grid-template-columns:1fr 1fr}
-  .wdate{text-align:left}
+  .wrap{padding:0 14px 40px} .navbar{margin:0 -14px 14px} nav{margin:0 14px;max-width:calc(100% - 28px)}
+  header{padding:22px 0 12px} .brand img{width:68px;height:68px}
+  details.war summary{grid-template-columns:1fr 1fr;padding:14px 16px} .wdate{text-align:left}
+  .card{padding:16px} th,td{padding:10px 9px}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>⚔️ <span id="clanName">Clan Stats</span><small id="clanSub"></small></h1>
-    <div class="controls">
-      <label class="muted small" for="season">Temporada</label>
-      <select id="season"></select>
+    <div class="brand">
+      <img id="logo" src="logo.webp" alt="" width="96" height="96">
+      <div><h1 id="clanName">Clan Stats</h1><div class="sub" id="clanSub">Guerras y CWL</div></div>
     </div>
+    <div class="controls"><select id="season" aria-label="Temporada"></select></div>
   </header>
   <div id="banner"></div>
-  <nav id="tabs"></nav>
+  <div class="navbar"><nav id="tabs"></nav></div>
   <main id="view"><div class="empty">Cargando…</div></main>
-  <p class="muted small" id="foot" style="margin-top:28px"></p>
+  <footer id="foot"></footer>
 </div>
 <dialog id="dlg"><div class="in" id="dlgBody"></div></dialog>
 
@@ -181,7 +243,7 @@ function warCard(w) {
     <th title="Estrellas concedidas por ataque recibido">★ conc.</th><th>Pts</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
 }
 
-function playersTable(list, sort = true) {
+function playersTable(list) {
   const {key, dir} = state.sort;
   const arr = [...list].sort((a, b) => {
     const x = a[key], y = b[key];
@@ -207,8 +269,8 @@ function viewResumen() {
     cards += mvpCard("Último MVP de ronda CWL", lastC?.mvp?.name, lastC ? `Ronda ${lastC.round} · ${fmt(lastC.mvp.score, 1)} pts` : "");
   } else {
     const all = players("all");
-    const by = (k, f) => [...all].sort((a, b) => f(b) - f(a))[0];
-    const a = by("mvps", p => p.mvps), b = by("sm", p => (p.season_mvps_war || 0) + (p.season_mvps_cwl || 0)), c = by("score", p => p.score);
+    const by = f => [...all].sort((a, b) => f(b) - f(a))[0];
+    const a = by(p => p.mvps), b = by(p => (p.season_mvps_war || 0) + (p.season_mvps_cwl || 0)), c = by(p => p.score);
     cards += mvpCard("Más MVPs de guerra/ronda", a?.mvps ? a.name : null, a ? `${a.mvps} veces MVP` : "");
     cards += mvpCard("Más MVPs de temporada", b && (b.season_mvps_war + b.season_mvps_cwl) ? b.name : null, b ? `${b.season_mvps_war} guerras · ${b.season_mvps_cwl} CWL` : "");
     cards += mvpCard("Más puntos históricos", c?.name, c ? `${fmt(c.score, 1)} puntos` : "");
@@ -224,7 +286,7 @@ function viewResumen() {
   ].join("");
   const recent = wars().slice(0, 4).map(warCard).join("");
   return `<div class="grid cards">${cards}</div>
-    <h2>Rankings <span class="muted small">(mín. 3 ataques en rankings de porcentaje)</span></h2>
+    <h2>Rankings <span class="muted small">mín. 3 ataques en los de porcentaje</span></h2>
     <div class="grid boards">${boards}</div>
     <h2>Últimas guerras y rondas</h2>${recent || '<div class="muted">Sin guerras registradas todavía.</div>'}`;
 }
@@ -233,7 +295,7 @@ function viewJugadores() {
   const seg = [["all","Todo"],["war","Guerras"],["cwl","CWL"]].map(([k, t]) =>
     `<button data-mode="${k}" class="${state.mode === k ? "on" : ""}">${t}</button>`).join("");
   return `<div class="seg">${seg}</div>
-    <p class="muted small" style="margin:0 0 8px">Toca un encabezado para ordenar y un jugador para ver su historial. Solo cuentan guerras ya terminadas.</p>
+    <p class="muted small" style="margin:0 0 10px">Toca un encabezado para ordenar y un jugador para ver su historial. Solo cuentan guerras ya terminadas.</p>
     ${playersTable(players(state.mode))}`;
 }
 
@@ -302,7 +364,7 @@ function showPlayer(tag) {
     <td class="${L.missed ? "bad" : ""}">${L.used}/${L.available}</td><td>${L.stars}</td><td>${L.avg_destruction == null ? "–" : fmt(L.avg_destruction, 0) + "%"}</td>
     <td class="pts">${fmt(L.score, 1)}</td><td>${w.mvp && w.mvp.tag === tag ? "🏆" : (w.result === "live" ? "en curso" : "")}</td></tr>`).join("");
   $("#dlgBody").innerHTML = `<div style="display:flex;justify-content:space-between;align-items:start"><div><h2>${esc(name)}</h2>
-    <span class="muted small">${esc(tag)}${p?.th ? " · TH" + p.th : ""} · ${esc(seasonLabel(state.season))}</span></div><button data-act="close">✕</button></div>
+    <span class="muted small">${esc(tag)}${p?.th ? " · TH" + p.th : ""} · ${esc(seasonLabel(state.season))}</span></div><button data-act="close" aria-label="Cerrar">✕</button></div>
     <div class="kpis">${kpi}</div>
     <div class="tablebox"><table><thead><tr><th class="l">Fecha</th><th class="l">Evento</th><th>Atq</th><th>★</th><th>Destr.</th><th>Pts</th><th></th></tr></thead>
     <tbody>${rows || '<tr><td colspan="7" class="muted">Sin participaciones.</td></tr>'}</tbody></table></div>`;
@@ -342,6 +404,7 @@ document.addEventListener("click", e => {
 });
 $("#dlg").addEventListener("click", e => { if (e.target.id === "dlg") e.target.close(); });
 $("#season").addEventListener("change", e => { state.season = e.target.value; render(); });
+$("#logo").addEventListener("error", e => { e.target.style.display = "none"; });
 
 /* ---------- arranque ---------- */
 (async function init() {
@@ -355,14 +418,17 @@ $("#season").addEventListener("change", e => { state.season = e.target.value; re
       Si abriste el archivo directamente, usa GitHub Pages o un servidor local (<code>python3 -m http.server -d docs</code>).<br><small>${esc(err.message)}</small></div>`;
     return;
   }
-  $("#clanName").textContent = DATA.clan.name || "Clan Stats";
-  $("#clanSub").textContent = DATA.clan.tag || "";
+  const clanName = DATA.clan.name || "Clan Stats";
+  $("#clanName").textContent = clanName;
+  $("#logo").alt = "Logo de " + clanName;
+  document.title = clanName + " · Guerras y CWL";
+  $("#clanSub").textContent = (DATA.clan.tag ? DATA.clan.tag + " · " : "") + "Guerras y CWL";
   if (demo) $("#banner").innerHTML = '<div class="banner">Estás viendo datos de DEMOSTRACIÓN (ficticios). Quita <code>?demo=1</code> de la dirección para ver los datos reales.</div>';
   $("#foot").textContent = `Datos del API oficial de Supercell · Actualizado: ${DATA.generated_at ? new Date(DATA.generated_at).toLocaleString("es") : "—"}`;
   if (!DATA.seasons.length) {
     $("#tabs").innerHTML = "";
     $("#view").innerHTML = `<div class="empty"><h2>Aún no hay datos</h2>El colector registrará las guerras en cuanto haya una en curso.
-      Mientras tanto puedes ver cómo se verá con datos de ejemplo: <a href="?demo=1" style="color:var(--accent)">abrir demo</a>.</div>`;
+      Mientras tanto puedes ver cómo se verá con datos de ejemplo: <a href="?demo=1">abrir demo</a>.</div>`;
     return;
   }
   state.season = DATA.seasons[0];
