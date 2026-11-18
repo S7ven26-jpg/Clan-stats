@@ -506,6 +506,10 @@ tr.me td{background:rgba(255,207,90,.12)}
 .chart{width:100%;height:auto;display:block;margin-top:4px}.chart .gr{stroke:#ffffff22;stroke-width:1}.chart .ax{fill:#a9b8e6;font-size:11px}.chart .ln{fill:none;stroke:#ffcf5a;stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}
 .chart .pt{fill:#ffcf5a;stroke:#050b24;stroke-width:2}.chart .pt.last{r:5}.chart .pt:hover{filter:brightness(1.3)}.chart .gap{stroke:#a9b8e6;stroke-width:1;stroke-dasharray:3 4;opacity:.7}.chart .gt{fill:#a9b8e6;font-size:10px}
 @media (max-width:760px){.archivo{aspect-ratio:auto;background-size:100% auto;background-position:center top}.archin{padding:92px 14px 18px}.tgrid{grid-template-columns:1fr;gap:10px}.tcard{padding:10px 12px}.tmsg{max-width:none}.archhead h2{font-size:22px}.archhead p{font-size:12px}.tcard .rv{font-size:24px}.tcard .ct{font-size:11px}.tcard .cs{font-size:12px}.chart .ax{font-size:13px}}
+.sharesec{margin-bottom:18px}.sharesec h2{margin-top:0}
+.sharewrap{display:grid;grid-template-columns:minmax(0,440px) 1fr;gap:18px;align-items:start}#shareCanvas{width:100%;height:auto;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.5);background:#050b24}
+.sharebtns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}#shareTxt{width:100%;box-sizing:border-box;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:10px;font:inherit;font-size:14px;resize:vertical}
+@media (max-width:760px){.sharewrap{grid-template-columns:1fr}}
 /* actividad y donaciones / alerta de inactividad */
 .hero2{position:relative;overflow:hidden;border-radius:22px;margin:0 0 16px;height:clamp(250px,30vw,340px);background:#010f37;container-type:size;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .hero2 .scene{position:absolute;top:50%;transform:translateY(-50%);width:max(100cqw,206cqh);aspect-ratio:2/1;left:calc(-1 * var(--fx,1) * (max(100cqw,206cqh) - 100cqw))}
@@ -754,7 +758,7 @@ function viewGuerras() {
 function viewCwl() {
   const l = wars().filter(w => w.type === "cwl");
   const sorted = isAll() ? l : [...l].sort((a, b) => a.round - b.round);
-  return `<h2 style="margin-top:0">Ranking CWL ${isAll() ? "histórico" : "de la temporada"}</h2>${playersTable(players("cwl"))}
+  return `<section class="sharesec">${shareCard()}</section><h2>Ranking CWL ${isAll() ? "histórico" : "de la temporada"}</h2>${playersTable(players("cwl"))}
     <h2>Rondas</h2>${sorted.length ? sorted.map(warCard).join("") : '<div class="empty">No hay rondas de CWL registradas.</div>'}`;
 }
 
@@ -793,6 +797,7 @@ function viewGuia() {
   <p><b>Scouting CWL:</b> al publicarse el grupo de la liga aparecen los clanes clasificados de S a D según el promedio de ayuntamiento de sus 15 mejores inscritos (la pestaña explica los umbrales).</p>
   <p><b>Donaciones:</b> tropas donadas y recibidas por miembro en la temporada, con los mejores donadores y quiénes reciben sin devolver.</p>
   <p><b>Inactivos:</b> ayuda para líderes: cruza ataques de guerra, asaltos de la Capital y donaciones de los últimos 30 días. La pestaña explica cómo se calcula.</p>
+  <p><b>Resumen de temporada (pestaña CWL):</b> cuando la liga termina (7 rondas guardadas) aparece una tarjeta con el MVP, los resultados y los mejores donadores. «Compartir» abre el menú del móvil para elegir WhatsApp; si el navegador no puede, descarga el PNG.</p>
   <p><b>Calendario (Inicio):</b> cuenta regresiva del fin de la guerra actual, del próximo asalto de la Capital y de la próxima CWL, con la hora en tu zona. La guerra sale de los datos del colector; las fechas del asalto y de la CWL se calculan solo si el historial confirma la regla, y si no, dicen «Fecha por confirmar».</p>
   <p><b>Salón de la fama:</b> cuatro récords del clan con la fecha desde la que hay registros. <b>Tendencias:</b> trofeos, miembros y TH promedio con una captura por semana (UTC); las semanas sin captura se ven como huecos.</p>
   <p><b>Instalar como app:</b> en Android o Chrome usa el botón «Instalar» de Inicio. En iPhone: Compartir → «Añadir a pantalla de inicio».</p>
@@ -1009,7 +1014,7 @@ async function loadExtra(name) {
   } catch (e) { EXTRA[name] = {error: true, detail: String((e && e.message) || e)}; }
   if ((EXTRA_TABS[name] || [name]).includes(state.tab)) render({quiet: true});
 }
-const EXTRA_TABS = {clan: ["clan", "donaciones", "fama"], actividad: ["inactivos"], historial: ["tendencias"]};
+const EXTRA_TABS = {clan: ["clan", "donaciones", "fama", "cwl"], actividad: ["inactivos"], historial: ["tendencias"]};
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-retry]"); if (!b) return;
   delete EXTRA[b.dataset.retry]; render({quiet: true});
@@ -1360,6 +1365,72 @@ function viewTendencias() {
     <p class="muted small">Trofeos = puntos del clan (clanPoints) en todas las capturas. El TH promedio solo cuenta miembros con nivel de ayuntamiento conocido. Las líneas punteadas marcan semanas sin captura: no se rellenan ni se estiman.</p>`;
 }
 
+/* ---------- Resumen de temporada CWL para compartir ---------- */
+function cwlShare() {
+  const key = isAll() ? DATA.seasons.find(s => DATA.data[s].wars.some(w => w.type === "cwl")) : state.season;
+  if (!key || !DATA.data[key] || !DATA.data[key].wars.some(w => w.type === "cwl")) return {status: "none", key};
+  const S0 = DATA.data[key], cw = S0.wars.filter(w => w.type === "cwl"), ended = cw.filter(w => w.state === "warEnded"), nowKey = new Date().toISOString().slice(0, 7);
+  const base = {key, label: seasonLabel(key), rounds: ended.length};
+  if (ended.length < 7) return {...base, status: key >= nowKey || cw.some(w => w.state !== "warEnded") ? "live" : "partial"};
+  const res = r => ended.filter(w => w.result === r).length, mv = S0.mvp && S0.mvp.cwl, C = EXTRA.clan;
+  const mp = mv && ((S0.players && S0.players.cwl) || []).find(p => p.tag === mv.tag);
+  const fetchedKey = C && !C.error && C.fetched ? C.fetched.slice(0, 7) : null;
+  const donors = key === nowKey && fetchedKey === key && C.members ? C.members.filter(m => m.donations > 0).sort((a, b) => b.donations - a.donations).slice(0, 3) : [];
+  return {...base, status: "ready", mv, mvStars: mp ? mp.stars : null, w: res("win"), t: res("tie"), l: res("lose"), stars: ended.reduce((s, w) => s + (w.stars || 0), 0),
+    standing: S0.cwl_standing || null, donors, donorsLoaded: C !== undefined, donorPeriod: C && C.fetched ? `Temporada de donaciones en curso · datos al ${stamp(C.fetched)}` : ""};
+}
+function shareCard() {
+  if (EXTRA.clan === undefined) loadExtra("clan");
+  const d = cwlShare(), h = `<h2>Resumen de temporada</h2>`;
+  if (d.status === "none") return `${h}<div class="empty">No hay CWL registrada en esta temporada.</div>`;
+  if (d.status === "live") return `${h}<div class="empty">Disponible al terminar la liga. Van ${d.rounds} de 7 rondas terminadas.</div>`;
+  if (d.status === "partial") return `${h}<div class="empty">El historial de ${esc(d.label)} está incompleto: solo hay ${d.rounds} de 7 rondas guardadas, así que no se puede confirmar el resultado de la liga.</div>`;
+  return `${h}<p class="muted small" style="margin:0 0 10px">Tarjeta de la CWL de ${esc(d.label)}, lista para mandar al grupo.${isAll() ? " (Con «Todo» se usa la última liga registrada.)" : ""}</p>
+    <div class="sharewrap"><canvas id="shareCanvas" width="1080" height="1350" role="img" aria-label="Resumen de la CWL de ${esc(d.label)}"></canvas>
+    <div><div class="sharebtns"><button id="dlBtn" class="btn gold">⬇️ Descargar PNG</button><button id="shareBtn" class="btn">📤 Compartir</button></div><p id="shareMsg" class="small muted" role="status"></p>
+    <p class="muted small">MVP: cálculo del sitio. Resultados: las 7 rondas guardadas. «Estrellas en ataques» son las que lograron los jugadores; la clasificación oficial (posición y estrellas oficiales) ${d.standing ? "viene de los datos guardados." : "todavía no se guarda, por eso aparece «Sin datos»."}
+    ${d.donors.length ? "Los donadores son los de la temporada de donaciones en curso." : "Las donaciones solo se conocen del periodo en curso; las de una liga pasada no se rellenan con los contadores actuales."}</p></div></div>`;
+}
+async function drawShare() {
+  const cv = document.getElementById("shareCanvas"); if (!cv) return;
+  const d = cwlShare(); if (d.status !== "ready") return;
+  const ctx = cv.getContext("2d"), F = "Inter, system-ui, -apple-system, Segoe UI, sans-serif";
+  const bg = await new Promise(r => { const i = new Image(); i.onload = () => r(i); i.onerror = () => r(null); i.src = "img/plantilla-resumen-cwl.jpg"; });
+  if (document.fonts) await document.fonts.ready;
+  if (!document.getElementById("shareCanvas") || !bg) return;
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(bg, 0, 0, 1080, 1350); ctx.scale(1080 / 1122, 1350 / 1402);   // desde aqui coordenadas de la plantilla (1122 x 1402)
+  const fit = (t, w) => { t = String(t); while (ctx.measureText(t).width > w && t.length > 1) t = t.slice(0, -2) + "…"; return t; };
+  const T = (t, x, y, font, color, align = "left", maxW = 0) => { ctx.font = font; ctx.fillStyle = color; ctx.textAlign = align; ctx.fillText(maxW ? fit(t, maxW) : t, x, y); };
+  const G = "#ffcf5a", W = "#ffffff", M = "#a9b8e6", R = 1062, L = 292;
+  // cabecera (zona oscura a la izquierda de la arepa)
+  T("Resumen de temporada", 138, 132, `700 31px ${F}`, G, "left", 430); T("Arepa con queso", 138, 206, `800 50px ${F}`, W, "left", 440); T(d.label, 138, 266, `700 36px ${F}`, G, "left", 430); T("Guerra de Clanes · CWL", 138, 312, `600 25px ${F}`, M, "left", 430);
+  // panel 1: corona
+  T("MVP de la CWL", L, 556, `800 32px ${F}`, G);
+  if (d.mv) { T(d.mv.name, L, 624, `800 54px ${F}`, W, "left", R - L); T(`${d.mvStars != null ? d.mvStars + " ⭐ · " : ""}${fmt(d.mv.score, 1)} pts`, L, 668, `700 30px ${F}`, M); }
+  else T("Sin datos de MVP", L, 624, `700 40px ${F}`, M);
+  // panel 2: hachas
+  T("Resultados de la liga", L, 776, `800 32px ${F}`, G);
+  const row = (y, lab, val, col = W) => { T(lab, L, y, `600 28px ${F}`, M); T(val, R, y, `800 34px ${F}`, col, "right", 460); };
+  row(826, d.standing ? "Clasificación oficial" : "Clasificación oficial", d.standing ? `${d.standing.rank}.º · ${d.standing.stars} ⭐ oficiales` : "Sin datos", d.standing ? G : M);
+  row(874, "Victorias · Empates · Derrotas", `${d.w} · ${d.t} · ${d.l}`); row(922, "Estrellas en ataques", `${d.stars} ⭐`);
+  // panel 3: caja de refuerzos
+  T("Mejores donadores", L, 1038, `800 32px ${F}`, G);
+  if (d.donors.length) { T(d.donorPeriod, L, 1076, `600 23px ${F}`, M, "left", R - L);
+    d.donors.forEach((p, i) => { const y = 1146 + i * 62; T(["1.º", "2.º", "3.º"][i], L, y, `800 34px ${F}`, G); T(p.name, L + 66, y, `800 38px ${F}`, W, "left", 440); T(`${int(p.donations)} tropas`, R, y, `700 32px ${F}`, G, "right"); }); }
+  else T("Sin datos del periodo", (L + R) / 2, 1170, `700 38px ${F}`, M, "center");
+}
+const shareBlob = () => new Promise(r => document.getElementById("shareCanvas").toBlob(r, "image/png"));
+document.addEventListener("click", async e => {
+  const b = e.target.closest("#shareBtn, #dlBtn"); if (!b) return;
+  const msg = document.getElementById("shareMsg"), say = t => { msg.textContent = t; }, d = cwlShare(), name = `arepa-con-queso-cwl-${d.key}.png`;
+  try {
+    const blob = await shareBlob(), file = new File([blob], name, {type: "image/png"});
+    if (b.id === "shareBtn" && navigator.canShare && navigator.canShare({files: [file]})) { await navigator.share({files: [file], title: `Resumen CWL · ${d.label}`}); return; }
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    say(b.id === "shareBtn" ? "Este navegador no puede compartir archivos: se descargó el PNG para que lo envíes." : "PNG descargado.");
+  } catch (err) { if (err && err.name !== "AbortError") say("No se pudo completar la acción. Intenta con «Descargar PNG»."); }
+});
+
 /* ---------- Asaltos de la Capital: fines de semana de incursion ---------- */
 let CAP;   // undefined = cargando · null = sin datos
 async function loadCapital() {
@@ -1479,6 +1550,7 @@ function render(opts = {}) {
   v.innerHTML = sceneHTML(state.tab) + VIEWS[state.tab]();
   bindScene(v);
   if (state.tab === "perfil") bindChart();
+  if (state.tab === "cwl") drawShare();
   if (!quiet) { countUp(v); celebrate(v); }
 }
 
