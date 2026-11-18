@@ -13,7 +13,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -262,6 +262,36 @@ def collect_capital():
     print(f"Capital: {len(items)} temporada(s) de incursion, {saved} nueva(s) o actualizada(s).")
 
 
+def collect_contrib():
+    """Oro de capital APORTADO (acumulado de por vida) de los miembros actuales.
+    Sale del logro 'Most Valuable Clanmate' de cada jugador (GET /players/{tag}).
+    La API no da el oro aportado por fin de semana, solo este acumulado."""
+    clan = api_get(f"/clans/{enc(CLAN)}") or {}
+    members, failed = [], 0
+    for m in clan.get("memberList", []):
+        try:
+            p = api_get(f"/players/{enc(m['tag'])}")
+        except ApiError:
+            failed += 1
+            continue
+        if not p:
+            failed += 1
+            continue
+        val = next((a.get("value") for a in p.get("achievements", []) if a.get("name") == "Most Valuable Clanmate"), None)
+        if val is not None:
+            members.append({"tag": m["tag"], "name": m.get("name") or m["tag"], "contributed": val})
+    if failed or not members:
+        print(f"Aporte capital: {failed} jugador(es) sin leer; se conserva el archivo anterior.")
+        return
+    path = DATA / "capital_contrib.json"
+    rec = {"clan_members": len(clan.get("memberList", [])), "members": sorted(members, key=lambda x: x["tag"])}
+    if path.exists() and {k: v for k, v in json.loads(path.read_text(encoding="utf-8")).items() if k != "fetched"} == rec:
+        return
+    rec["fetched"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    path.write_text(json.dumps(rec, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"Aporte capital: {len(members)} jugador(es) guardados.")
+
+
 def main():
     if not TOKEN:
         sys.exit("Falta la variable COC_API_TOKEN (tu API key).")
@@ -284,6 +314,7 @@ def main():
     # la capital es un extra: si falla, solo avisa (no marca el workflow en rojo)
     try:
         collect_capital()
+        collect_contrib()
     except ApiError as e:
         print(f"AVISO (capital): {e}", file=sys.stderr)
     if errors:

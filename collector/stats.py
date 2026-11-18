@@ -288,7 +288,14 @@ def build_capital(data_dir):
             "attacks_used": sum(m["attacks"] for m in mem), "attacks_cap": sum(m["cap"] for m in mem),
             "mvps": mvps, "members": mem,
         })
-    return {"generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "seasons": seasons}
+    contrib = None
+    cf = data_dir / "capital_contrib.json"
+    if cf.exists():
+        c = load_json(cf)
+        mem = sorted(c.get("members", []), key=lambda m: -m["contributed"])
+        contrib = {"fetched": c.get("fetched"), "count": len(mem), "clan_members": c.get("clan_members", len(mem)),
+                   "total": sum(m["contributed"] for m in mem), "members": mem}
+    return {"generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "seasons": seasons, "contrib": contrib}
 
 
 def write_if_changed(path, obj):

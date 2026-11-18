@@ -143,6 +143,9 @@ def build(out_dir):
                "total_attacks": sum(m["attacks"] for m in mem), "districts_destroyed": random.randint(12, 28),
                "offensive_reward": random.randint(1100, 1700), "defensive_reward": random.randint(250, 700), "members": mem}
         (out_dir / "capital" / f"{sid}.json").write_text(json.dumps(rec), encoding="utf-8")
+    (out_dir / "capital_contrib.json").write_text(json.dumps({
+        "fetched": "2026-11-16T12:00:00Z", "clan_members": 30,
+        "members": [{"tag": p["tag"], "name": p["name"], "contributed": random.randint(400_000, 5_000_000)} for p in PLAYERS]}), encoding="utf-8")
 
 
 
