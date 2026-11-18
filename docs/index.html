@@ -146,7 +146,7 @@ dialog .tablebox{box-shadow:none;border:1px solid var(--line)}
 dialog button[data-act=close]{border:0;background:var(--seg);width:30px;height:30px;border-radius:50%;font-size:13px;color:var(--muted)}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:10px;margin:16px 0}
 .kpi{background:var(--panel2);border-radius:14px;padding:11px 13px}
-.kpi b{display:block;font-size:20px;font-weight:700;letter-spacing:-.02em} .kpi span{font-size:12px;color:var(--muted)}
+.kpi b{display:block;overflow-wrap:anywhere;font-size:20px;font-weight:700;letter-spacing:-.02em} .kpi span{font-size:12px;color:var(--muted)}
 .actions{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}
 .actions button{background:var(--panel);border:0;border-radius:999px;padding:8px 18px;font-weight:500;box-shadow:var(--shadow);transition:transform .15s}
 .actions button:active{transform:scale(.97)}
@@ -420,6 +420,51 @@ details.war[open] .tri .burst{animation:starflash .7s ease-out calc(var(--d,0ms)
   .pchip.p1{order:1}.pchip.p3{order:3}.pchip .pn{flex:1;text-align:left}.pchip .pa{display:none}
   @keyframes podrise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 }
+/* inicio del clan / scouting */
+.btn{font:inherit;font-weight:700;cursor:pointer;color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:9px 18px;text-decoration:none;display:inline-block}
+.btn.gold{color:#2b1a00;background:linear-gradient(180deg,#ffd86b,#e0a526);border-color:#a56e0b;box-shadow:0 3px 0 #8a5a08,0 6px 14px rgba(0,0,0,.4)}
+.btn.gold:hover{filter:brightness(1.08)}
+.homehead img,.scouthead img{object-position:100% 50%}
+.homehead::after,.scouthead::after{background:linear-gradient(90deg,rgba(2,8,34,.8),rgba(2,8,34,.25) 42%,transparent 60%)}
+.capin .htag{color:#ffcf5a;font-weight:700;letter-spacing:.04em}
+.capin .hdesc{margin:0;color:#dbe4ff;font-size:14px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.homehead .capin{max-width:min(37%,400px);gap:10px;align-items:flex-start}
+.bigks{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:2px}
+.bigk{display:flex;gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:12px 14px}
+.bigk img{width:56px;height:56px;flex:none;filter:drop-shadow(0 4px 6px rgba(0,0,0,.45))}.bigk b{display:block;font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.1}.bigk small{font-size:14px;color:var(--muted)}.bigk span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip2{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px}
+.cbadge{width:52px;height:52px;object-fit:contain;flex:none;filter:drop-shadow(0 3px 5px rgba(0,0,0,.4))}.cbadge.ph{display:flex;align-items:center;justify-content:center;font-size:30px}
+.salon{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#0b1430 url(img/salon.jpg) center top/cover no-repeat;padding:84px 8% 70px;min-height:330px;display:flex;flex-direction:column;gap:18px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.srow{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;width:100%}
+.lcard{background:rgba(6,12,34,.8);border:2px solid #8f9bb3;border-radius:16px;padding:10px 14px;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:150px;max-width:210px;text-align:center;color:#fff}
+.lcard img{width:56px;height:56px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.5))}.lcard b{font-size:17px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lcard.L{border-color:#f1b73a;box-shadow:0 0 26px rgba(241,183,58,.5);padding:14px 26px}.lcard.L img{width:84px;height:84px}.lcard.L b{font-size:22px}
+.lrole{font-size:11px;color:#ffcf5a;text-transform:uppercase;letter-spacing:.08em;font-weight:800}.lcard.C{border-color:#5f8fe0}.lcard.C .lrole{color:#9cc2ff}
+.hbar{display:grid;grid-template-columns:48px 1fr 24px;gap:8px;align-items:center;font-size:13px;margin:5px 0}.hbar i{display:block;height:10px;border-radius:6px;background:linear-gradient(90deg,#d9a93a,#ffcf5a)}.hbar b{text-align:right}
+.mini{margin:6px 0 0;padding:0;list-style:none}.mini li{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}.mini li:last-child{border:0}
+.sseason{font-size:13px;font-weight:500;margin-left:8px;text-transform:none;letter-spacing:0}.card h3 select{font:inherit;font-size:13px;margin-left:6px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.tierlist{display:flex;flex-direction:column;gap:10px;margin:14px 0}.tier{display:flex;gap:10px;align-items:stretch;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:10px}
+.tier .tl{width:132px;flex:none;aspect-ratio:600/340;background:center/100% 100% no-repeat;display:flex;align-items:center;justify-content:center;align-self:center}
+.tier .tl span{font-size:40px;font-weight:900;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.6),0 0 12px rgba(0,0,0,.6);margin-top:6px}.tier.vacio{opacity:.6}.tier.vacio .tl{filter:grayscale(.6)}
+.tier .tc{flex:1;display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;align-content:center}
+.tb{display:inline-block;min-width:24px;text-align:center;border-radius:8px;padding:1px 6px;color:#10131f;font-weight:800}
+.t-S .tb,.tb.t-S{background:#ff6b5e}.tb.t-A{background:#ff9f43}.tb.t-B{background:#6ab0f5}.tb.t-C{background:#6fd3a0}.tb.t-D{background:#9aa3b8}
+.sclan{position:relative;display:flex;gap:10px;align-items:center;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:9px 12px;min-width:235px;flex:1 1 235px;max-width:360px}
+.sclan.us{border-color:#ffcf5a;box-shadow:0 0 14px rgba(255,207,90,.35)}.sclan em{font-style:normal;font-size:11px;background:#ffcf5a;color:#10131f;border-radius:6px;padding:1px 6px;margin-left:4px;white-space:nowrap}
+.sclan .emb{position:absolute;right:6px;top:-12px;width:64px;filter:drop-shadow(0 3px 4px rgba(0,0,0,.5))}
+.sc-b{display:flex;flex-direction:column;gap:2px;min-width:0}.ths{display:flex;flex-wrap:wrap;gap:4px}.ths i{font-style:normal;font-size:11px;background:var(--panel);border-radius:6px;padding:1px 6px}
+.tierlist.go .sb{animation:badgein .5s calc(var(--i) * 90ms) cubic-bezier(.2,.9,.3,1.3) both}
+@keyframes badgein{from{opacity:0;transform:scale(.4) rotate(-12deg)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.tierlist.go .sb{animation:none}}
+ul.doc{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:5px;font-size:13px}
+tr.me td{background:rgba(255,207,90,.12)}
+@media (max-width:900px){.bigks{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){
+  .homehead{height:330px}.homehead .capin{max-width:52%}.homehead .hdesc{-webkit-line-clamp:3;font-size:13px}.scouthead .capin{max-width:50%}.scouthead .htag{font-size:13px}
+  .homehead::after,.scouthead::after{background:linear-gradient(90deg,rgba(2,8,34,.88),rgba(2,8,34,.4) 55%,transparent 80%)}
+  .salon{padding:60px 12px 40px}.lcard{min-width:130px}.lcard.L{padding:12px 18px}
+  .tier{flex-direction:column;gap:6px}.tier .tl{width:96px;align-self:flex-start}.tier .tl span{font-size:30px}.sclan{max-width:none}
+}
 </style>
 </head>
 <body>
@@ -446,8 +491,8 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt
 const fmt = (n, d = 1) => n == null ? "–" : Number(n).toLocaleString("es", {minimumFractionDigits: d, maximumFractionDigits: d});
 const int = n => n == null ? "–" : Number(n).toLocaleString("es");
 const ICON = n => `<img class="ticon" src="img/ui/banner-${n}.webp" alt="">`;
-const TABS = [["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores",ICON("green") + "Jugadores"],["guerras",ICON("red") + "Guerras"],["cwl",ICON("blue") + "CWL"],["bonos","🎖️ Bonos CWL"],["capital","🏰 Asaltos de la Capital"],["guia","❓ Guía"]];
-const state = {capWeek: null, capKey: null, season: null, tab: "resumen", mode: "all", sort: {key: "score", dir: -1}, player: null};
+const TABS = [["clan","🏠 Inicio del clan"],["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores",ICON("green") + "Jugadores"],["guerras",ICON("red") + "Guerras"],["cwl",ICON("blue") + "CWL"],["scout","🔭 Scouting CWL"],["bonos","🎖️ Bonos CWL"],["capital","🏰 Asaltos de la Capital"],["guia","❓ Guía"]];
+const state = {scoutSel: null, scoutKey: null, capWeek: null, capKey: null, season: null, tab: "clan", mode: "all", sort: {key: "score", dir: -1}, player: null};
 let DATA = null;
 
 /* ---------- acceso a datos ---------- */
@@ -668,6 +713,8 @@ function viewGuia() {
   <dt>★ conc.</dt><dd>Estrellas que el rival sacó en promedio contra tu base (defensa). Menos es mejor.</dd>
   <dt>Uso % / Fallos</dt><dd>Ataques usados vs disponibles. En CWL solo cuentan las rondas en las que estuviste en la alineación.</dd>
   <dt>Puntos</dt><dd>Total acumulado de puntos MVP en el periodo seleccionado.</dd></dl>
+  <p><b>Inicio del clan:</b> portada del clan, salón de líderes (líder y colíderes según sus roles reales), ayuntamientos, trofeos y donaciones. Se actualiza sola.</p>
+  <p><b>Scouting CWL:</b> al publicarse el grupo de la liga aparecen los clanes clasificados de S a D según el promedio de ayuntamiento de sus 15 mejores inscritos (la pestaña explica los umbrales).</p>
   <p><b>Asaltos de la Capital:</b> elige un fin de semana y verás el oro saqueado, las medallas de asalto del clan y el ranking de saqueadores de ese mismo periodo. El oro aportado a la Capital es un acumulado de por vida de los miembros actuales.</p>
   <p class="muted small">Todas las reglas (puntos y bonos) se editan en <code>config.json</code>. Las estadísticas empiezan a contarse desde que se activó el colector: el API no entrega guerras antiguas.</p></div>`;
 }
@@ -869,6 +916,136 @@ function bindChart() {
   box.addEventListener("focusout", hide);
 }
 
+/* ---------- datos extra (Inicio del clan, Scouting CWL): data/<tab>.json ---------- */
+const EXTRA = {};   // undefined = cargando · null = aun no publicado (404) · {error:true} = fallo de carga
+async function loadExtra(name) {
+  if (name in EXTRA) return;
+  EXTRA[name] = undefined;
+  try {
+    const r = await fetch(`data/${name}${new URLSearchParams(location.search).has("demo") ? "_demo" : ""}.json`, {cache: "no-store"});
+    EXTRA[name] = r.ok ? await r.json() : (r.status === 404 ? null : {error: true});
+  } catch (e) { EXTRA[name] = {error: true}; }
+  if (state.tab === name) render({quiet: true});
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-retry]"); if (!b) return;
+  delete EXTRA[b.dataset.retry]; render({quiet: true});
+});
+const errBox = n => `<div class="empty"><h2>No se pudieron cargar los datos</h2>Hubo un problema de conexión al pedir esta información.<br><button class="btn" data-retry="${n}">Reintentar</button></div>`;
+const imgOk = u => typeof u === "string" && u.startsWith("https://");
+const badgeImg = (u, cls = "cbadge", us = false) => imgOk(u)
+  ? `<img class="${cls}" src="${esc(u)}" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'${cls} ph',textContent:'🛡️'}))">`
+  : (us ? `<img class="${cls}" src="logo.webp" alt="">` : `<span class="${cls} ph">🛡️</span>`);
+const stamp = iso => iso ? new Date(iso).toLocaleString("es", {day: "numeric", month: "short", hour: "2-digit", minute: "2-digit"}) : "";
+const goTab = t => `<button class="btn" data-tab="${t}">`;
+
+/* ---------- Inicio del clan ---------- */
+const ROLE = {leader: "Líder", coLeader: "Colíder", admin: "Veterano", member: "Miembro"};
+const WARFREQ = {always: "Siempre", moreThanOncePerWeek: "Más de 1 vez por semana", oncePerWeek: "1 vez por semana", lessThanOncePerWeek: "Menos de 1 vez por semana", never: "Nunca", unknown: "Sin definir"};
+const CTYPE = {open: "Abierto", inviteOnly: "Por invitación", closed: "Cerrado"};
+const ico = n => `<img src="img/ui/ico-${n}.webp" alt="" width="56" height="56">`;
+
+function viewClan() {
+  const C = EXTRA.clan;
+  if (C === undefined) { loadExtra("clan"); return '<div class="empty">Cargando…</div>'; }
+  if (C && C.error) return errBox("clan");
+  if (!C) return `<div class="empty"><h2>Aún no hay datos del clan</h2>Se cargan solos en la próxima ejecución del colector. Si acabas de actualizar el proyecto, ejecuta
+    <b>Actions → Recolectar datos de Clash of Clans → Run workflow</b>. Demo: <a href="?demo=1">abrir demo</a>.</div>`;
+  const ms = C.members || [], n = ms.length;
+  const sum = k => ms.reduce((a, m) => a + (m[k] || 0), 0);
+  const games = (C.war_wins || 0) + (C.war_losses || 0) + (C.war_ties || 0);
+  const wr = C.war_log_public && games ? 100 * C.war_wins / games : null;
+  const link = `https://link.clashofclans.com/es?action=OpenClanProfile&tag=${encodeURIComponent(C.tag || "")}`;
+  const head = `<section class="caphead homehead"><img src="img/banner-clan.jpg" alt="" fetchpriority="high"><div class="capin"><h2>${esc(C.name)}</h2>
+    <span class="htag">${esc(C.tag)}</span><p class="hdesc">${esc(C.description) || "Sin descripción"}</p>
+    <a class="btn gold" href="${link}" target="_blank" rel="noopener">Ver clan en el juego</a></div></section>`;
+  const big = (icon, v, l) => `<div class="bigk">${ico(icon)}<div><b>${v}</b><span>${l}</span></div></div>`;
+  const bigs = [big("cascos", `${n}<small>/50</small>`, "Miembros"), big("salon", C.level ?? "–", "Nivel del clan"), big("copa", int(C.points), "Trofeos del clan"),
+    big("hachas", int(C.war_wins), "Guerras ganadas")].join("");
+  const kpi = (v, l) => `<div class="kpi"><b>${v}</b><span>${l}</span></div>`;
+  const kpis = [kpi(esc(C.war_league || "–"), "Liga CWL"), kpi(esc(CTYPE[C.type] || C.type || "–"), "Tipo de clan"),
+    kpi(C.required_trophies != null ? int(C.required_trophies) + " 🏆" : "–", "Trofeos para entrar"), kpi(C.required_th ? "TH " + C.required_th + "+" : "–", "Ayuntamiento mínimo"),
+    kpi(wr == null ? "Privado" : fmt(wr, 0) + "%", "% de victorias"), kpi(C.war_win_streak ?? "–", "Racha de victorias"),
+    kpi(esc(WARFREQ[C.war_frequency] || C.war_frequency || "–"), "Frecuencia de guerra"), kpi(esc(C.location || "–"), "Ubicación"),
+    kpi(n ? fmt(sum("th") / n, 1) : "–", "TH promedio"), kpi(int(sum("donations")), "Tropas donadas")].join("");
+  // Salon de lideres (roles reales de la lista de miembros)
+  const by = (a, b) => b.trophies - a.trophies;
+  const leaders = ms.filter(m => m.role === "leader").sort(by), co = ms.filter(m => m.role === "coLeader").sort(by);
+  const elders = ms.filter(m => m.role === "admin").length;
+  const lcard = (m, cls, icon) => `<div class="lcard ${cls}">${ico(icon)}<span class="lrole">${ROLE[m.role]}</span><b title="${esc(m.name)}">${esc(m.name)}</b>
+    <span class="muted small">TH ${m.th} · ${int(m.trophies)} 🏆</span></div>`;
+  const hall = `<h2>Salón de líderes <span class="muted small">${co.length} colíder${co.length === 1 ? "" : "es"} · ${elders} veterano${elders === 1 ? "" : "s"}</span></h2>
+    <section class="salon"><div class="srow top">${leaders.length ? leaders.map(m => lcard(m, "L", "corona")).join("") : '<div class="lcard L empty">Sin líder en la lista</div>'}</div>
+    <div class="srow">${co.map(m => lcard(m, "C", "escudo")).join("") || '<span class="muted small">Sin colíderes</span>'}</div></section>`;
+  const hist = {}; ms.forEach(m => hist[m.th] = (hist[m.th] || 0) + 1);
+  const ths = Object.keys(hist).map(Number).sort((a, b) => b - a), maxc = Math.max(1, ...Object.values(hist));
+  const bars = ths.map(t => `<div class="hbar"><span>TH ${t}</span><i style="width:${100 * hist[t] / maxc}%"></i><b>${hist[t]}</b></div>`).join("");
+  const top = (arr, fn) => arr.slice(0, 5).map((m, i) => `<li><span>${["🥇","🥈","🥉"][i] || i + 1 + "."} ${esc(m.name)}</span><b>${fn(m)}</b></li>`).join("");
+  const rank = k => [...ms].sort((a, b) => b[k] - a[k]);
+  const dist = (C.districts || []).length ? `<div class="chips" style="margin-top:8px">${C.districts.map(d => `<span class="chip2">${esc(d.name)} · nv ${d.hall}</span>`).join("")}</div>` : "";
+  return `${head}<div class="bigks">${bigs}</div><div class="kpis" style="margin:10px 0 0">${kpis}</div>
+    ${(C.labels || []).length ? `<div class="chips" style="margin-top:10px">${C.labels.map(l => `<span class="chip2">${esc(l)}</span>`).join("")}</div>` : ""}
+    ${hall}
+    <div class="grid boards" style="margin-top:16px">
+      <div class="card"><h3>🏰 Ayuntamientos</h3>${bars}</div>
+      <div class="card"><h3>🏆 Más trofeos</h3><ol class="mini">${top(rank("trophies"), m => int(m.trophies))}</ol></div>
+      <div class="card"><h3>🎁 Más donaciones</h3><ol class="mini">${top(rank("donations"), m => int(m.donations))}</ol></div></div>
+    ${C.capital_hall ? `<div class="card" style="margin-top:12px"><b>Capital del clan · Ayuntamiento nivel ${C.capital_hall}${C.capital_league ? " · " + esc(C.capital_league) : ""}</b>${dist}</div>` : ""}
+    <p style="margin:16px 0 4px">${goTab("jugadores")}Ver todos los jugadores y su detalle</button></p>
+    <p class="muted small">Datos del API oficial de Supercell · actualizado ${stamp(C.fetched)}. Se refrescan cada pocas horas, o antes si cambia la plantilla.</p>`;
+}
+
+/* ---------- Scouting CWL ---------- */
+const SSTATE = {preparation: "Preparación", inWar: "En curso", ended: "Terminada"};
+const PLACA = {S: "red", A: "bronze", B: "blue", C: "green", D: "gray"};
+document.addEventListener("change", e => { if (e.target.id === "scoutSeason") { state.scoutSel = e.target.value; state.scoutKey = null; render({quiet: true}); } });
+
+function viewScout() {
+  const S = EXTRA.scout;
+  if (S === undefined) { loadExtra("scout"); return '<div class="empty">Cargando…</div>'; }
+  if (S && S.error) return errBox("scout");
+  const noGroup = '<div class="empty"><h2>Scouting disponible cuando se publique el grupo de CWL</h2>En cuanto Supercell publique el grupo de la liga, el colector lo guarda y esta pestaña clasifica a los clanes sola. No hace falta hacer nada.</div>';
+  const head = se => `<section class="caphead scouthead"><img src="img/banner-scout.jpg" alt="" fetchpriority="high"><div class="capin"><h2>Scouting CWL</h2>
+    <span class="htag">${se ? "Temporada de " + esc(seasonLabel(se.season)) : "Temporada sin grupo"}</span>${se ? `<p class="hdesc">${SSTATE[se.state] || ""} · ${se.clans.length} clanes en el grupo</p>` : ""}</div></section>`;
+  if (!S || !S.seasons || !S.seasons.length) return head(null) + noGroup;
+  const cur = new Date().toISOString().slice(0, 7);
+  const se = S.seasons.find(s => s.season === state.scoutSel) || S.seasons[0];
+  const pending = S.seasons[0].season < cur && !state.scoutSel;          // hay datos viejos, pero aun no hay grupo de este mes
+  const animate = state.scoutKey !== se.season; state.scoutKey = se.season;
+  const sel = S.seasons.length > 1 ? `<label class="sseason">Temporada <select id="scoutSeason" aria-label="Temporada">${S.seasons.map(s => `<option value="${s.season}"${s === se ? " selected" : ""}>${esc(seasonLabel(s.season))}</option>`).join("")}</select></label>` : "";
+  const thr = S.tiers || [], lim = k => (thr.find(t => t[0] === k) || [])[1];
+  const doc = ["S", "A", "B", "C", "D"].map((k, i) => {
+    const hi = i ? lim(["S", "A", "B", "C", "D"][i - 1]) : null, lo = lim(k);
+    return `<li><b class="tb t-${k}">${k}</b> ${lo == null ? `diferencia mayor de ${fmt(hi, 1)}` : (hi == null ? `diferencia de hasta ${fmt(lo, 1)}` : `diferencia de ${fmt(hi, 1)} a ${fmt(lo, 1)}`)}</li>`;
+  }).join("");
+  let idx = 0;
+  const card = c => `<div class="sclan${c.is_us ? " us" : ""}" style="--i:${idx++}">${badgeImg(c.badge, "cbadge sb", c.is_us)}<div class="sc-b">
+    <b>${esc(c.name)}${c.is_us ? ' <em>Nuestro clan</em>' : ""}</b>
+    ${c.avg_top == null ? '<span class="muted small">Sin inscritos todavía</span>' : `<span class="small">TH promedio: <b>${fmt(c.avg_top, 2)}</b>${c.n_sample < se.sample ? ` <span class="muted">(${c.n_sample} inscritos)</span>` : ""}</span>
+    <span class="small">TH${se.group_max_th} en la muestra: <b>${c.max_count}</b></span>
+    <span class="ths">${c.hist.slice(0, 5).map(([t, n]) => `<i>TH${t}×${n}</i>`).join("")}</span>`}
+    <span class="muted small">${c.war_league ? esc(c.war_league) : ""}${c.war_league && c.win_rate != null ? " · " : ""}${c.win_rate != null ? fmt(100 * c.win_rate, 0) + "% victorias" : (c.war_league ? "" : "Sin datos de guerra")}</span></div>
+    ${c.is_us ? '<img class="emb" src="img/ui/placa-nuestro.webp" alt="" width="64">' : ""}</div>`;
+  const tiers = ["S", "A", "B", "C", "D"].map(t => {
+    const list = se.clans.filter(c => c.tier === t);
+    return `<div class="tier t-${t}${list.length ? "" : " vacio"}"><div class="tl" style="background-image:url(img/ui/placa-${PLACA[t]}.webp)"><span>${t}</span></div>
+      <div class="tc">${list.length ? list.map(card).join("") : '<span class="muted small">Ningún clan en este tier</span>'}</div></div>`;
+  }).join("");
+  const us = se.clans.find(c => c.is_us);
+  const lead = us && us.tier ? `Nuestro clan queda en el puesto <b>${us.rank} de ${se.clans.length}</b>, tier ${us.tier}. ` : "";
+  const rows = se.clans.map(c => `<tr${c.is_us ? ' class="me"' : ""}><td>${c.rank}</td><td class="l">${esc(c.name)}</td><td>${c.tier ? `<b class="tb t-${c.tier}">${c.tier}</b>` : "–"}</td>
+    <td>${c.avg_top == null ? "–" : fmt(c.avg_top, 2)}</td><td>${c.max_count}</td><td>${c.roster}</td><td>${c.win_rate == null ? "–" : fmt(100 * c.win_rate, 0) + "%"}</td><td>${esc(c.war_league || "–")}</td></tr>`).join("");
+  return `${head(se)}${pending ? noGroup : ""}
+    <div class="card"><h3>CWL de ${esc(seasonLabel(se.season))} ${pending ? '<span class="chip2">anterior</span>' : ""} ${sel}</h3>
+      <p class="muted small" style="margin:6px 0 0">${lead}Muestra usada: los <b>${se.sample}</b> mejores inscritos de cada clan${se.sample_known ? "" : " (estimación: el tamaño de la alineación no está disponible)"}.
+      La fuerza estimada describe la composición inscrita; no predice el resultado de la liga.</p></div>
+    <div class="tierlist${animate ? " go" : ""}">${tiers}</div>
+    <h2>Detalle</h2><div class="tablebox"><table><thead><tr><th>#</th><th class="l">Clan</th><th>Tier</th><th title="Promedio de ayuntamiento de la muestra">TH prom.</th><th title="Jugadores de la muestra con el TH máximo del grupo">TH${se.group_max_th}</th><th>Inscritos</th><th>% victorias</th><th>Liga</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <div class="card" style="margin-top:12px"><h3>Cómo se asigna cada tier</h3><p class="muted small" style="margin:6px 0">Se calcula el <b>promedio de TH</b> de la muestra de cada clan y se compara con el
+      <b>TH máximo observado en el grupo</b> (TH${se.group_max_th}). Cuanto menor la diferencia, mejor tier. Varios clanes pueden compartir tier y un tier puede quedar vacío.
+      A igual promedio, va primero quien tenga más jugadores con TH${se.group_max_th} en la muestra.</p><ul class="doc">${doc}</ul></div>`;
+}
+
 /* ---------- Asaltos de la Capital: fines de semana de incursion ---------- */
 let CAP;   // undefined = cargando · null = sin datos
 async function loadCapital() {
@@ -952,7 +1129,7 @@ function viewCapital() {
     <p class="muted small">El oro saqueado de cada jugador y las medallas del clan salen del registro de asaltos de Supercell. El oro aportado es un acumulado de por vida (no se puede separar por fin de semana) y son tres métricas distintas.</p>`;
 }
 
-const VIEWS = {resumen: viewResumen, perfil: viewPerfil, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, capital: viewCapital, guia: viewGuia};
+const VIEWS = {clan: viewClan, scout: viewScout, resumen: viewResumen, perfil: viewPerfil, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, capital: viewCapital, guia: viewGuia};
 
 
 /* ---------- banners por pestana (ilustraciones propias; opcional: docs/img/banner-<pestana>.jpg) ---------- */

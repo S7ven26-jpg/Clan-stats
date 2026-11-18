@@ -292,6 +292,88 @@ def collect_contrib():
     print(f"Aporte capital: {len(members)} jugador(es) guardados.")
 
 
+def _now():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def collect_scout():
+    """Scouting CWL: los 8 clanes del grupo de la liga (GET /clans/{tag}/currentwar/leaguegroup)
+    + una consulta por clan rival (GET /clans/{tag}) solo la primera vez. Aparece al empezar la CWL."""
+    g = api_get(f"/clans/{enc(CLAN)}/currentwar/leaguegroup")
+    if not g or not g.get("clans"):
+        print("Scouting: no hay grupo de CWL ahora mismo.")
+        return
+    season = g.get("season") or datetime.now(timezone.utc).strftime("%Y-%m")
+    d = DATA / "scout"
+    d.mkdir(parents=True, exist_ok=True)
+    path = d / f"{season}.json"
+    old = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    old_info = {c["tag"]: c.get("info") for c in old.get("clans", [])}
+    clans = []
+    for c in g["clans"]:
+        info = old_info.get(c["tag"])
+        if not info:
+            try:
+                full = api_get(f"/clans/{enc(c['tag'])}") or {}
+                info = {
+                    "war_wins": full.get("warWins"), "war_losses": full.get("warLosses"), "war_ties": full.get("warTies"),
+                    "win_streak": full.get("warWinStreak"), "war_log_public": full.get("isWarLogPublic"),
+                    "war_league": (full.get("warLeague") or {}).get("name"), "points": full.get("clanPoints"),
+                    "members_count": full.get("members"),
+                } if full else None
+            except ApiError:
+                info = None
+        clans.append({
+            "tag": c["tag"], "name": c.get("name"), "level": c.get("clanLevel"),
+            "badge": (c.get("badgeUrls") or {}).get("large"), "info": info,
+            "members": [{"tag": m["tag"], "name": m.get("name"), "th": m.get("townHallLevel") or 0} for m in c.get("members", [])],
+        })
+    rec = {"season": season, "state": g.get("state"), "our_tag": CLAN, "clans": clans}
+    if {k: v for k, v in old.items() if k != "fetched"} == rec:
+        return
+    rec["fetched"] = _now()
+    path.write_text(json.dumps(rec, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"Scouting: {len(clans)} clanes guardados para {season}.")
+
+
+def collect_clan():
+    """Ficha de nuestro clan: GET /clans/{tag} (1 consulta). Se refresca cada 3 h o si cambia la plantilla."""
+    path = DATA / "clan.json"
+    old = json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+    c = api_get(f"/clans/{enc(CLAN)}")
+    if not c:
+        return
+    mem = [{
+        "tag": m["tag"], "name": m.get("name"), "role": m.get("role"), "th": m.get("townHallLevel") or 0,
+        "exp": m.get("expLevel"), "trophies": m.get("trophies") or 0, "bb_trophies": m.get("builderBaseTrophies") or 0,
+        "rank": m.get("clanRank"), "donations": m.get("donations") or 0, "received": m.get("donationsReceived") or 0,
+        "league": (m.get("league") or {}).get("name"),
+    } for m in c.get("memberList", [])]
+    cap = c.get("clanCapital") or {}
+    rec = {
+        "tag": c.get("tag"), "name": c.get("name"), "description": c.get("description") or "", "type": c.get("type"),
+        "level": c.get("clanLevel"), "points": c.get("clanPoints"), "bb_points": c.get("clanBuilderBasePoints"),
+        "capital_points": c.get("clanCapitalPoints"), "war_frequency": c.get("warFrequency"),
+        "war_win_streak": c.get("warWinStreak"), "war_wins": c.get("warWins"), "war_ties": c.get("warTies"),
+        "war_losses": c.get("warLosses"), "war_log_public": c.get("isWarLogPublic"),
+        "location": (c.get("location") or {}).get("name"), "chat_language": (c.get("chatLanguage") or {}).get("name"),
+        "required_trophies": c.get("requiredTrophies"), "required_th": c.get("requiredTownhallLevel"),
+        "war_league": (c.get("warLeague") or {}).get("name"), "capital_league": (c.get("capitalLeague") or {}).get("name"),
+        "capital_hall": cap.get("capitalHallLevel"),
+        "districts": [{"name": x.get("name"), "hall": x.get("districtHallLevel")} for x in cap.get("districts", [])],
+        "labels": [x.get("name") for x in c.get("labels", [])],
+        "badge": (c.get("badgeUrls") or {}).get("large"), "members": mem,
+    }
+    sig = lambda r: [(m["tag"], m["name"], m["role"], m["th"]) for m in r["members"]] + [r["name"], r["description"], r["level"]]
+    if old:
+        age = (datetime.now(timezone.utc) - datetime.strptime(old["fetched"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)).total_seconds()
+        if age < 3 * 3600 and sig(old) == sig(rec):
+            return
+    rec["fetched"] = _now()
+    path.write_text(json.dumps(rec, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"Clan: ficha guardada ({len(mem)} miembros).")
+
+
 def main():
     if not TOKEN:
         sys.exit("Falta la variable COC_API_TOKEN (tu API key).")
@@ -311,12 +393,12 @@ def main():
                     "registro de guerra del clan sea PUBLICO.",
                     file=sys.stderr,
                 )
-    # la capital es un extra: si falla, solo avisa (no marca el workflow en rojo)
-    try:
-        collect_capital()
-        collect_contrib()
-    except ApiError as e:
-        print(f"AVISO (capital): {e}", file=sys.stderr)
+    # extras: si fallan, solo avisan (no marcan el workflow en rojo)
+    for fn in (collect_capital, collect_contrib, collect_scout, collect_clan):
+        try:
+            fn()
+        except ApiError as e:
+            print(f"AVISO ({fn.__name__}): {e}", file=sys.stderr)
     if errors:
         sys.exit(1)
 

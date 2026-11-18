@@ -147,6 +147,35 @@ def build(out_dir):
         "fetched": "2026-11-16T12:00:00Z", "clan_members": 30,
         "members": [{"tag": p["tag"], "name": p["name"], "contributed": random.randint(400_000, 5_000_000)} for p in PLAYERS]}), encoding="utf-8")
 
+    # scouting CWL (8 clanes) y ficha del clan
+    (out_dir / "scout").mkdir(parents=True)
+    rivals = ["Los Titanes", "Dragones MX", "Elite Warriors", "Furia Roja", "Night Owls", "Pampa Clash", "Legión X"]
+    clans = []
+    for i, nm in enumerate([OUR_CLAN["name"]] + rivals):
+        base = random.uniform(14.6, 16.8)
+        mem = [{"tag": f"#S{i}{j:03d}", "name": f"Jugador{j}", "th": max(10, min(17, round(base + random.gauss(0, 1.1) - j * 0.03)))} for j in range(random.randint(15, 30))]
+        w, l = random.randint(80, 400), random.randint(40, 200)
+        clans.append({"tag": OUR_CLAN["tag"] if i == 0 else f"#R{i:04d}", "name": nm, "level": random.randint(12, 25), "badge": None,
+                      "info": {"war_wins": w, "war_losses": l, "war_ties": random.randint(0, 8), "win_streak": random.randint(0, 9),
+                               "war_log_public": random.random() > 0.15, "war_league": random.choice(["Cristal I", "Oro I", "Oro II", "Cristal II"]),
+                               "points": random.randint(18000, 42000), "members_count": len(mem)}, "members": mem})
+    (out_dir / "scout" / "2026-11.json").write_text(json.dumps({"season": "2026-11", "state": "inWar", "our_tag": OUR_CLAN["tag"],
+        "fetched": "2026-11-02T08:00:00Z", "clans": clans}), encoding="utf-8")
+    roles = ["leader", "coLeader", "coLeader", "admin", "admin", "admin"] + ["member"] * (len(PLAYERS) - 6)
+    members = [{"tag": p["tag"], "name": p["name"], "role": roles[i], "th": p["th"], "exp": random.randint(120, 300),
+                "trophies": random.randint(3800, 5600), "bb_trophies": random.randint(2800, 5600), "rank": i + 1,
+                "donations": random.randint(0, 2200), "received": random.randint(0, 1800), "league": "Leyenda"} for i, p in enumerate(PLAYERS)]
+    members.sort(key=lambda m: -m["trophies"])
+    for i, mm in enumerate(members, 1):
+        mm["rank"] = i
+    (out_dir / "clan.json").write_text(json.dumps({
+        "fetched": "2026-11-17T20:00:00Z", "tag": OUR_CLAN["tag"], "name": OUR_CLAN["name"], "type": "inviteOnly", "level": 18, "points": 31250, "bb_points": 28400,
+        "capital_points": 21800, "description": "Clan para jugar en equipo, guerras y CWL todos los meses. ¡Se busca actividad y buen rollo! (texto de ejemplo)",
+        "war_frequency": "always", "war_win_streak": 4, "war_wins": 231, "war_ties": 3, "war_losses": 88, "war_log_public": True, "location": "International",
+        "chat_language": "Español", "required_trophies": 3500, "required_th": 14, "war_league": "Cristal I", "capital_league": "Oro II", "capital_hall": 9,
+        "districts": [{"name": "Capital Peak", "hall": 9}, {"name": "Barbarian Camp", "hall": 7}, {"name": "Wizard Valley", "hall": 6}],
+        "labels": ["Guerra de clanes", "CWL", "Amigable"], "badge": None, "members": members}), encoding="utf-8")
+
 
 
 def main():

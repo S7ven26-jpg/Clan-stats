@@ -313,6 +313,64 @@ def write_if_changed(path, obj):
     return True
 
 
+# Tiers del scouting: diferencia entre el TH maximo observado en el grupo y el promedio de TH de la muestra del clan.
+SCOUT_TIERS = [("S", 0.5), ("A", 1.0), ("B", 1.5), ("C", 2.0), ("D", None)]   # D = todo lo que supere 2.0
+SCOUT_SAMPLE = 15
+
+
+def build_scout(data_dir):
+    """Scouting CWL: promedio de TH de los mejores inscritos de cada clan del grupo y su tier (S-D).
+    Metrica principal: promedio de TH de la muestra (top N inscritos; N = tamaño de alineacion si se conoce, si no 15).
+    Desempate: cuantos de la muestra tienen el TH maximo observado en el grupo. Devuelve None si no hay datos."""
+    d = data_dir / "scout"
+    recs = [load_json(p) for p in sorted(d.glob("*.json"))] if d.exists() else []
+    if not recs:
+        return None
+    seasons = []
+    for r in sorted(recs, key=lambda r: r["season"], reverse=True):
+        size = r.get("lineup_size")
+        sample = size or SCOUT_SAMPLE
+        group_max = max((m["th"] for c in r["clans"] for m in c["members"]), default=0)
+        rows = []
+        for c in r["clans"]:
+            ths = sorted((m["th"] for m in c["members"]), reverse=True)
+            top = ths[:sample]
+            avg = sum(top) / len(top) if top else None
+            info = c.get("info") or {}
+            games = sum(info.get(k) or 0 for k in ("war_wins", "war_losses", "war_ties"))
+            wr = (info.get("war_wins") or 0) / games if info.get("war_log_public") and games >= 10 else None
+            hist = defaultdict(int)
+            for t in top:
+                hist[t] += 1
+            gap = None if avg is None else group_max - avg
+            tier = None
+            if gap is not None:
+                tier = next(k for k, lim in SCOUT_TIERS if lim is None or gap <= lim + 1e-9)
+            rows.append({
+                "tag": c["tag"], "name": c["name"], "badge": c.get("badge"), "level": c.get("level"),
+                "is_us": c["tag"] == r.get("our_tag"), "roster": len(ths), "n_sample": len(top),
+                "avg_top": None if avg is None else round(avg, 2), "max_count": sum(1 for t in top if t == group_max),
+                "hist": sorted(hist.items(), reverse=True), "win_rate": None if wr is None else round(wr, 3),
+                "war_wins": info.get("war_wins"), "war_league": info.get("war_league"), "points": info.get("points"),
+                "war_log_public": info.get("war_log_public"), "tier": tier,
+            })
+        rows.sort(key=lambda x: (x["avg_top"] is None, -(x["avg_top"] or 0), -x["max_count"], x["name"].lower()))
+        for i, x in enumerate(rows, 1):
+            x["rank"] = i
+        seasons.append({"season": r["season"], "state": r.get("state"), "fetched": r.get("fetched"), "sample": sample,
+                        "sample_known": bool(size), "group_max_th": group_max, "clans": rows})
+    return {"tiers": [[k, lim] for k, lim in SCOUT_TIERS], "seasons": seasons}
+
+
+def build_clan(data_dir):
+    p = data_dir / "clan.json"
+    return load_json(p) if p.exists() else None
+
+
+def side_out(out, name):
+    return out.with_name(f"{name}.json" if out.name == "stats.json" else f"{name}_{out.stem}.json")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data-dir", default=str(ROOT / "data"))
@@ -382,6 +440,9 @@ def main():
         cap_out = out.with_name("capital.json" if out.name == "stats.json" else f"capital_{out.stem}.json")
         if write_if_changed(cap_out, cap):
             print(f"Capital: {len(cap['seasons'])} temporada(s) de incursion escritas en {cap_out}.")
+    for nm, obj in (("scout", build_scout(data_dir)), ("clan", build_clan(data_dir))):
+        if obj is not None and write_if_changed(side_out(out, nm), obj):
+            print(f"{nm}: datos escritos en {side_out(out, nm)}.")
     if out.exists():
         prev = load_json(out)
         prev.pop("generated_at", None)
