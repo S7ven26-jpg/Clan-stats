@@ -383,7 +383,7 @@
    "role": "member",
    "th": 16,
    "exp": 116,
-   "trophies": 126,
+   "trophies": 166,
    "bb_trophies": 2146,
    "rank": 25,
    "donations": 321,
@@ -422,7 +422,7 @@
    "role": "member",
    "th": 14,
    "exp": 125,
-   "trophies": 29,
+   "trophies": 47,
    "bb_trophies": 2281,
    "rank": 28,
    "donations": 20,
@@ -448,7 +448,7 @@
    "role": "member",
    "th": 13,
    "exp": 99,
-   "trophies": 319,
+   "trophies": 332,
    "bb_trophies": 2126,
    "rank": 30,
    "donations": 269,
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-18T06:39:32Z"
+ "fetched": "2026-11-18T10:01:44Z"
 }
