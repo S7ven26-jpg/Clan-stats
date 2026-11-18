@@ -84,7 +84,7 @@
    "role": "member",
    "th": 19,
    "exp": 220,
-   "trophies": 703,
+   "trophies": 743,
    "bb_trophies": 3800,
    "rank": 2,
    "donations": 5609,
@@ -100,7 +100,7 @@
    "trophies": 0,
    "bb_trophies": 2486,
    "rank": 3,
-   "donations": 6520,
+   "donations": 6522,
    "received": 3914,
    "league": "Unranked"
   },
@@ -110,11 +110,11 @@
    "role": "member",
    "th": 18,
    "exp": 232,
-   "trophies": 621,
+   "trophies": 799,
    "bb_trophies": 4791,
    "rank": 4,
    "donations": 2865,
-   "received": 1809,
+   "received": 1866,
    "league": "Titan League I"
   },
   {
@@ -126,8 +126,8 @@
    "trophies": 0,
    "bb_trophies": 3018,
    "rank": 5,
-   "donations": 2052,
-   "received": 4069,
+   "donations": 2141,
+   "received": 4071,
    "league": "Gold League II"
   },
   {
@@ -149,11 +149,11 @@
    "role": "member",
    "th": 18,
    "exp": 230,
-   "trophies": 103,
+   "trophies": 277,
    "bb_trophies": 3411,
    "rank": 7,
-   "donations": 1526,
-   "received": 793,
+   "donations": 1583,
+   "received": 882,
    "league": "Unranked"
   },
   {
@@ -395,8 +395,8 @@
    "name": "Kelsier",
    "role": "member",
    "th": 15,
-   "exp": 82,
-   "trophies": 295,
+   "exp": 83,
+   "trophies": 495,
    "bb_trophies": 1977,
    "rank": 26,
    "donations": 0,
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-18T13:54:39Z"
+ "fetched": "2026-11-18T16:57:37Z"
 }
