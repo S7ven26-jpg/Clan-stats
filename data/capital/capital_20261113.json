@@ -1,0 +1,198 @@
+{
+ "id": "capital_20261113",
+ "state": "ended",
+ "start": "2026-11-13T07:00:00Z",
+ "end": "2026-11-16T07:00:00Z",
+ "total_loot": 466130,
+ "raids_completed": 6,
+ "total_attacks": 135,
+ "districts_destroyed": 54,
+ "offensive_reward": 182,
+ "defensive_reward": 201,
+ "members": [
+  {
+   "tag": "#Q9LGCJRPY",
+   "name": "lucas 2",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 19385
+  },
+  {
+   "tag": "#QV82CU9RV",
+   "name": "ANGELTRE#",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 14086
+  },
+  {
+   "tag": "#QRUR00J0P",
+   "name": "lucas",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 22850
+  },
+  {
+   "tag": "#GLVJLU020",
+   "name": "×{•KAISER•}×",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 19334
+  },
+  {
+   "tag": "#YLL22GQRQ",
+   "name": "josephe",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 18815
+  },
+  {
+   "tag": "#8CQQG8J88",
+   "name": "ZOM3R",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 28219
+  },
+  {
+   "tag": "#P0YRJCV",
+   "name": "S7ven26",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 24694
+  },
+  {
+   "tag": "#2R0PGVQL",
+   "name": "DESTROYERS",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 18799
+  },
+  {
+   "tag": "#Q8C8UJCPG",
+   "name": "Daniel",
+   "attacks": 3,
+   "attack_limit": 5,
+   "bonus_attack_limit": 0,
+   "looted": 6715
+  },
+  {
+   "tag": "#GRG9V2YCG",
+   "name": "Siegfried",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 19469
+  },
+  {
+   "tag": "#GCG2PYY2R",
+   "name": "Greeyhawk",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 24117
+  },
+  {
+   "tag": "#GVYPV8PJG",
+   "name": "lamb",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 16075
+  },
+  {
+   "tag": "#LCUVG0202",
+   "name": "JTRC",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 17376
+  },
+  {
+   "tag": "#R0GVRJ00C",
+   "name": "8A2",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 26337
+  },
+  {
+   "tag": "#8LR9GY8V9",
+   "name": "Andrewx0202",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 15744
+  },
+  {
+   "tag": "#R2C8PUVQJ",
+   "name": "8A",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 20545
+  },
+  {
+   "tag": "#R2RV2RRV0",
+   "name": "Greeyhawk_Jr",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 25723
+  },
+  {
+   "tag": "#GJ92LJP0Y",
+   "name": "kojiro_PK",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 20357
+  },
+  {
+   "tag": "#R20CGVRQQ",
+   "name": "shinra xz11",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 23677
+  },
+  {
+   "tag": "#R8U0YL9LL",
+   "name": "Dracaris",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 22753
+  },
+  {
+   "tag": "#GCQRV9U0R",
+   "name": "martin",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 22662
+  },
+  {
+   "tag": "#2U8JYG9V8",
+   "name": "kevin daniel",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 18494
+  },
+  {
+   "tag": "#GG2GGQ80V",
+   "name": "8A3",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 19904
+  }
+ ]
+}
