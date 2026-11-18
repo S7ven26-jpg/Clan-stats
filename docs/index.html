@@ -923,15 +923,16 @@ async function loadExtra(name) {
   EXTRA[name] = undefined;
   try {
     const r = await fetch(`data/${name}${new URLSearchParams(location.search).has("demo") ? "_demo" : ""}.json`, {cache: "no-store"});
-    EXTRA[name] = r.ok ? await r.json() : (r.status === 404 ? null : {error: true});
-  } catch (e) { EXTRA[name] = {error: true}; }
+    if (r.ok) EXTRA[name] = await r.json();
+    else EXTRA[name] = [403, 404, 410].includes(r.status) ? null : {error: true, detail: "HTTP " + r.status};
+  } catch (e) { EXTRA[name] = {error: true, detail: String((e && e.message) || e)}; }
   if (state.tab === name) render({quiet: true});
 }
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-retry]"); if (!b) return;
   delete EXTRA[b.dataset.retry]; render({quiet: true});
 });
-const errBox = n => `<div class="empty"><h2>No se pudieron cargar los datos</h2>Hubo un problema de conexión al pedir esta información.<br><button class="btn" data-retry="${n}">Reintentar</button></div>`;
+const errBox = n => `<div class="empty"><h2>No se pudieron cargar los datos</h2>Hubo un problema de conexión al pedir esta información.<br><span class="muted small">Detalle técnico: ${esc((EXTRA[n] || {}).detail || "desconocido")}</span><br><button class="btn" data-retry="${n}">Reintentar</button></div>`;
 const imgOk = u => typeof u === "string" && u.startsWith("https://");
 const badgeImg = (u, cls = "cbadge", us = false) => imgOk(u)
   ? `<img class="${cls}" src="${esc(u)}" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'${cls} ph',textContent:'🛡️'}))">`
