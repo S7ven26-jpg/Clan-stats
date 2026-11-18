@@ -152,6 +152,19 @@ def build(out_dir):
         "members": [{"tag": p["tag"], "name": p["name"], "contributed": random.randint(400_000, 5_000_000)} for p in PLAYERS]}), encoding="utf-8")
 
     # scouting CWL (8 clanes) y ficha del clan
+
+    # capturas semanales del clan (con un hueco a proposito: semana 2026-W43 sin captura)
+    pts, th, mem, snaps = 29800, 15.1, 28, []
+    for i in range(10):
+        d = datetime(2026, 9, 14, 6, 20, tzinfo=timezone.utc) + timedelta(weeks=i)
+        pts += random.randint(-60, 220); th += random.uniform(0.02, 0.12)
+        mem = max(24, min(33, mem + random.choice([-1, 0, 0, 1])))
+        y, w, _ = d.isocalendar()
+        if f"{y}-W{w:02d}" == "2026-W43":
+            continue
+        snaps.append({"week": f"{y}-W{w:02d}", "taken": d.strftime("%Y-%m-%dT%H:%M:%SZ"), "points": pts, "members": mem,
+                      "th_avg": round(th, 2), "th_known": mem - (1 if i == 7 else 0)})
+    (out_dir / "history.json").write_text(json.dumps(snaps), encoding="utf-8")
     (out_dir / "scout").mkdir(parents=True)
     rivals = ["Los Titanes", "Dragones MX", "Elite Warriors", "Furia Roja", "Night Owls", "Pampa Clash", "Legión X"]
     clans = []

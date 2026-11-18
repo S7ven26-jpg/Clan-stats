@@ -374,6 +374,39 @@ def collect_clan():
     print(f"Clan: ficha guardada ({len(mem)} miembros).")
 
 
+def week_key(d):
+    """Clave semanal estable: ISO 8601 en UTC, p. ej. 2026-W47 (la semana empieza el lunes 00:00 UTC)."""
+    y, w, _ = d.isocalendar()
+    return f"{y}-W{w:02d}"
+
+
+def collect_history():
+    """Captura SEMANAL del clan para Tendencias (data/history.json). Reusa la ficha del clan ya descargada: 0 consultas nuevas.
+    Una sola captura por semana ISO (UTC): si se reintenta o el flujo corre de nuevo esa semana, no se duplica ni se sobrescribe."""
+    cf = DATA / "clan.json"
+    if not cf.exists():
+        return
+    c = json.loads(cf.read_text(encoding="utf-8"))
+    now = datetime.now(timezone.utc)
+    key = week_key(now)
+    path = DATA / "history.json"
+    hist = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+    for h in hist:                      # migra capturas antiguas (diarias) a la clave semanal
+        if "week" not in h:
+            h["week"] = week_key(datetime.strptime(h["date"], "%Y-%m-%d"))
+    if any(h["week"] == key for h in hist):
+        return
+    ms = c.get("members", [])
+    known = [m["th"] for m in ms if (m.get("th") or 0) > 0]
+    hist.append({
+        "week": key, "taken": _now(), "points": c.get("points"), "members": len(ms),
+        "th_avg": round(sum(known) / len(known), 2) if known else None, "th_known": len(known),
+    })
+    hist.sort(key=lambda h: h["week"])
+    path.write_text(json.dumps(hist[-260:], ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"Historial: captura de la semana {key} guardada ({len(hist)} en total).")
+
+
 def main():
     if not TOKEN:
         sys.exit("Falta la variable COC_API_TOKEN (tu API key).")
@@ -394,7 +427,7 @@ def main():
                     file=sys.stderr,
                 )
     # extras: si fallan, solo avisan (no marcan el workflow en rojo)
-    for fn in (collect_capital, collect_contrib, collect_scout, collect_clan):
+    for fn in (collect_capital, collect_contrib, collect_scout, collect_clan, collect_history):
         try:
             fn()
         except ApiError as e:

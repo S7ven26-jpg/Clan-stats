@@ -20,7 +20,12 @@
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="apple-touch-icon" href="logo.webp">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0a1440">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Arepa Stats">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("coc_theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <style>
 :root{
@@ -465,6 +470,42 @@ tr.me td{background:rgba(255,207,90,.12)}
   .salon{padding:60px 12px 40px}.lcard{min-width:130px}.lcard.L{padding:12px 18px}
   .tier{flex-direction:column;gap:6px}.tier .tl{width:96px;align-self:flex-start}.tier .tl span{font-size:30px}.sclan{max-width:none}
 }
+/* inicio: calendario / salon de la fama / tendencias */
+.pos{color:#7be0ae}.neg{color:#ff9a9a}
+.calhero{position:relative;border-radius:22px;overflow:hidden;border:1px solid #d9a93a55;margin:14px 0;container-type:inline-size;background:#050b24}
+.calbg{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover}
+.calpanel{position:absolute;left:3cqw;top:3cqw;bottom:3cqw;width:33cqw;display:flex;flex-direction:column;justify-content:center;gap:1.1cqw}
+.calpanel h2{margin:0 0 .4cqw;font-size:clamp(18px,2.8cqw,28px);text-shadow:0 2px 6px #000}
+.ev{display:flex;gap:2cqw;align-items:center;background:rgba(7,14,44,.82);border:1px solid #d9a93a66;border-radius:14px;padding:1.2cqw 1.8cqw;box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.ev img{flex:none;width:clamp(30px,4.4cqw,44px);height:auto;filter:drop-shadow(0 3px 4px #000a)}.ev div{min-width:0}.ev span,.ev b{display:block}
+.ev .ct{font-size:clamp(10px,1.3cqw,12px);font-weight:700;color:#ffcf5a;text-transform:uppercase;letter-spacing:.06em}
+.ev b{font-size:clamp(18px,3.3cqw,32px);font-weight:800;line-height:1.15;font-variant-numeric:tabular-nums}.ev b.txt{font-size:clamp(15px,2.2cqw,22px);color:var(--text)}
+.ev .cs{font-size:clamp(11px,1.4cqw,13px);color:var(--muted)}.ev.off{opacity:.85}.ev.done b{color:#9fb4e8;font-size:clamp(14px,2cqw,19px)}
+@media (max-width:760px){.calhero{container-type:normal}.calbg{aspect-ratio:2/1}.calpanel{position:static;width:auto;padding:12px;gap:8px;background:linear-gradient(#050b24,#0a1440)}.calpanel h2{font-size:20px}.ev{padding:9px 12px;gap:12px}.ev img{width:36px}.ev b{font-size:22px}.ev b.txt{font-size:18px}.ev .ct{font-size:11px}.ev .cs{font-size:12px}}
+.instbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--panel);border:1px dashed #d9a93a77;border-radius:14px;padding:8px 14px;margin:0 0 12px;font-size:14px}
+.famahero{position:relative;border-radius:22px;overflow:hidden;border:1px solid #d9a93a55;margin:0 0 14px;container-type:inline-size;background:#050b24}
+.famahero>img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover}
+.famatxt{position:absolute;left:3cqw;top:9cqw;width:20cqw}.famatxt h2{margin:0 0 6px;font-size:clamp(20px,3.4cqw,36px);text-shadow:0 2px 8px #000}.famatxt p{margin:0;font-size:clamp(11px,1.4cqw,15px);color:#c9d6ff;text-shadow:0 1px 4px #000}
+.glint{position:absolute;left:79.5%;top:7%;width:7cqw;height:7cqw;margin:-3.5cqw 0 0 -3.5cqw;background:radial-gradient(#fff,#ffe9a0 40%,transparent 70%);clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);opacity:0;transform:scale(0) rotate(0);animation:famaglint 1.1s ease-out 1 both;pointer-events:none}
+.glint.g2{left:87%;top:30%;width:4cqw;height:4cqw;margin:-2cqw 0 0 -2cqw}
+@keyframes famaglint{0%{opacity:0;transform:scale(0) rotate(0)}40%{opacity:1;transform:scale(1.25) rotate(40deg)}100%{opacity:0;transform:scale(.2) rotate(90deg)}}
+@media (prefers-reduced-motion:reduce){.glint{display:none}}
+@media (max-width:760px){.famahero>img{aspect-ratio:16/10;object-position:70% 50%}.famatxt{position:static;width:auto;padding:10px 14px 12px;background:linear-gradient(#0a1440,#050b24)}.famatxt h2{font-size:22px}.famatxt p{font-size:13px}}
+.recgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:12px}
+.rcard{display:flex;gap:14px;align-items:center;background:linear-gradient(135deg,var(--panel),var(--panel2));border:1px solid #d9a93a44;border-radius:18px;padding:14px 16px}.rcard img{flex:none;filter:drop-shadow(0 3px 5px #000a)}
+.rcard div{min-width:0}.rcard span,.rcard b{display:block}.rcard .ct{font-size:12px;font-weight:800;color:#ffcf5a;text-transform:uppercase;letter-spacing:.07em}
+.rcard .rv{font-size:26px;font-weight:800;line-height:1.2;color:#ffcf5a}.rcard.none .rv{font-size:17px;color:var(--muted)}.rcard .who{font-size:16px;font-weight:700;overflow-wrap:anywhere}
+.rcard .cs{font-size:13px;color:var(--muted);margin-top:2px}.rcard .since{font-size:11px;color:var(--muted);opacity:.8;margin-top:4px}.tie{display:inline-block;background:#d9a93a;color:#2a1a00;border-radius:8px;padding:0 7px;font-size:11px;font-weight:800;text-transform:uppercase}
+@media (max-width:760px){.recgrid{grid-template-columns:1fr}}
+.archivo{border-radius:22px;overflow:hidden;border:1px solid #d9a93a55;margin:0 0 12px;container-type:inline-size;background:#050b24 url(img/fondo-archivo-clan.jpg) center top/cover no-repeat;aspect-ratio:2/1}
+.archin{padding:9cqw 8cqw 6cqw}.archhead{text-align:center;margin-bottom:1.4cqw}.archhead h2{margin:0;font-size:clamp(20px,3cqw,30px);text-shadow:0 2px 8px #000}.archhead p{margin:2px 0 0;font-size:clamp(11px,1.5cqw,14px);color:#c9d6ff}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4cqw}
+.tcard{background:rgba(5,11,36,.84);border:1px solid #d9a93a55;border-radius:14px;padding:1.1cqw 1.4cqw;min-width:0}.tcard span,.tcard b{display:block}
+.tcard .ct{font-size:clamp(10px,1.3cqw,12px);font-weight:800;color:#ffcf5a;text-transform:uppercase;letter-spacing:.06em}.tcard .rv{font-size:clamp(18px,2.8cqw,28px);font-weight:800;line-height:1.15}.tcard .cs{font-size:clamp(10px,1.3cqw,12px);color:var(--muted)}
+.tmsg{margin:1.6cqw auto 0;max-width:60cqw;text-align:center;background:rgba(5,11,36,.84);border:1px dashed #d9a93a88;border-radius:12px;padding:10px 14px;font-size:clamp(12px,1.6cqw,15px)}
+.chart{width:100%;height:auto;display:block;margin-top:4px}.chart .gr{stroke:#ffffff22;stroke-width:1}.chart .ax{fill:#a9b8e6;font-size:11px}.chart .ln{fill:none;stroke:#ffcf5a;stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}
+.chart .pt{fill:#ffcf5a;stroke:#050b24;stroke-width:2}.chart .pt.last{r:5}.chart .pt:hover{filter:brightness(1.3)}.chart .gap{stroke:#a9b8e6;stroke-width:1;stroke-dasharray:3 4;opacity:.7}.chart .gt{fill:#a9b8e6;font-size:10px}
+@media (max-width:760px){.archivo{aspect-ratio:auto;background-size:100% auto;background-position:center top}.archin{padding:92px 14px 18px}.tgrid{grid-template-columns:1fr;gap:10px}.tcard{padding:10px 12px}.tmsg{max-width:none}.archhead h2{font-size:22px}.archhead p{font-size:12px}.tcard .rv{font-size:24px}.tcard .ct{font-size:11px}.tcard .cs{font-size:12px}.chart .ax{font-size:13px}}
 /* actividad y donaciones / alerta de inactividad */
 .hero2{position:relative;overflow:hidden;border-radius:22px;margin:0 0 16px;height:clamp(250px,30vw,340px);background:#010f37;container-type:size;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .hero2 .scene{position:absolute;top:50%;transform:translateY(-50%);width:max(100cqw,206cqh);aspect-ratio:2/1;left:calc(-1 * var(--fx,1) * (max(100cqw,206cqh) - 100cqw))}
@@ -526,7 +567,7 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt
 const fmt = (n, d = 1) => n == null ? "–" : Number(n).toLocaleString("es", {minimumFractionDigits: d, maximumFractionDigits: d});
 const int = n => n == null ? "–" : Number(n).toLocaleString("es");
 const ICON = n => `<img class="ticon" src="img/ui/banner-${n}.webp" alt="">`;
-const TABS = [["clan","🏠 Inicio del clan"],["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores",ICON("green") + "Jugadores"],["guerras",ICON("red") + "Guerras"],["cwl",ICON("blue") + "CWL"],["scout","🔭 Scouting CWL"],["bonos","🎖️ Bonos CWL"],["capital","🏰 Asaltos de la Capital"],["donaciones","💝 Donaciones"],["inactivos","🚨 Inactivos"],["guia","❓ Guía"]];
+const TABS = [["clan","🏠 Inicio del clan"],["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores",ICON("green") + "Jugadores"],["guerras",ICON("red") + "Guerras"],["cwl",ICON("blue") + "CWL"],["scout","🔭 Scouting CWL"],["bonos","🎖️ Bonos CWL"],["capital","🏰 Asaltos de la Capital"],["donaciones","💝 Donaciones"],["inactivos","🚨 Inactivos"],["fama","🏛️ Salón de la fama"],["tendencias","📈 Tendencias"],["guia","❓ Guía"]];
 const state = {donFilter: "all", donKey: null, scoutSel: null, scoutKey: null, capWeek: null, capKey: null, season: null, tab: "clan", mode: "all", sort: {key: "score", dir: -1}, player: null};
 let DATA = null;
 
@@ -752,6 +793,9 @@ function viewGuia() {
   <p><b>Scouting CWL:</b> al publicarse el grupo de la liga aparecen los clanes clasificados de S a D según el promedio de ayuntamiento de sus 15 mejores inscritos (la pestaña explica los umbrales).</p>
   <p><b>Donaciones:</b> tropas donadas y recibidas por miembro en la temporada, con los mejores donadores y quiénes reciben sin devolver.</p>
   <p><b>Inactivos:</b> ayuda para líderes: cruza ataques de guerra, asaltos de la Capital y donaciones de los últimos 30 días. La pestaña explica cómo se calcula.</p>
+  <p><b>Calendario (Inicio):</b> cuenta regresiva del fin de la guerra actual, del próximo asalto de la Capital y de la próxima CWL, con la hora en tu zona. La guerra sale de los datos del colector; las fechas del asalto y de la CWL se calculan solo si el historial confirma la regla, y si no, dicen «Fecha por confirmar».</p>
+  <p><b>Salón de la fama:</b> cuatro récords del clan con la fecha desde la que hay registros. <b>Tendencias:</b> trofeos, miembros y TH promedio con una captura por semana (UTC); las semanas sin captura se ven como huecos.</p>
+  <p><b>Instalar como app:</b> en Android o Chrome usa el botón «Instalar» de Inicio. En iPhone: Compartir → «Añadir a pantalla de inicio».</p>
   <p><b>Asaltos de la Capital:</b> elige un fin de semana y verás el oro saqueado, las medallas de asalto del clan y el ranking de saqueadores de ese mismo periodo. El oro aportado a la Capital es un acumulado de por vida de los miembros actuales.</p>
   <p class="muted small">Todas las reglas (puntos y bonos) se editan en <code>config.json</code>. Las estadísticas empiezan a contarse desde que se activó el colector: el API no entrega guerras antiguas.</p></div>`;
 }
@@ -965,7 +1009,7 @@ async function loadExtra(name) {
   } catch (e) { EXTRA[name] = {error: true, detail: String((e && e.message) || e)}; }
   if ((EXTRA_TABS[name] || [name]).includes(state.tab)) render({quiet: true});
 }
-const EXTRA_TABS = {clan: ["clan", "donaciones"], actividad: ["inactivos"]};
+const EXTRA_TABS = {clan: ["clan", "donaciones", "fama"], actividad: ["inactivos"], historial: ["tendencias"]};
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-retry]"); if (!b) return;
   delete EXTRA[b.dataset.retry]; render({quiet: true});
@@ -1022,7 +1066,8 @@ function viewClan() {
   const top = (arr, fn) => arr.slice(0, 5).map((m, i) => `<li><span>${["🥇","🥈","🥉"][i] || i + 1 + "."} ${esc(m.name)}</span><b>${fn(m)}</b></li>`).join("");
   const rank = k => [...ms].sort((a, b) => b[k] - a[k]);
   const dist = (C.districts || []).length ? `<div class="chips" style="margin-top:8px">${C.districts.map(d => `<span class="chip2">${esc(d.name)} · nv ${d.hall}</span>`).join("")}</div>` : "";
-  return `${head}<div class="bigks">${bigs}</div><div class="kpis" style="margin:10px 0 0">${kpis}</div>
+  loadCapital();
+  return `${head}${calendarBlock()}${installBar()}<div class="bigks">${bigs}</div><div class="kpis" style="margin:10px 0 0">${kpis}</div>
     ${(C.labels || []).length ? `<div class="chips" style="margin-top:10px">${C.labels.map(l => `<span class="chip2">${esc(l)}</span>`).join("")}</div>` : ""}
     ${hall}
     <div class="grid boards" style="margin-top:16px">
@@ -1182,6 +1227,139 @@ function viewInactivos() {
       El juego no informa cuándo se conectó cada jugador. Actualizado ${stamp(A.generated_at)}.</p></div>`;
 }
 
+/* ---------- Calendario y cuenta regresiva (Inicio) ---------- */
+const pad2 = n => String(n).padStart(2, "0");
+const fmtCD = ms => { const s = Math.max(0, Math.floor(ms / 1000)), d = Math.floor(s / 86400); return (d ? `${d} d ` : "") + `${pad2(Math.floor(s % 86400 / 3600))}:${pad2(Math.floor(s % 3600 / 60))}:${pad2(s % 60)}`; };
+const localWhen = ts => new Date(ts).toLocaleString("es", {weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZoneName: "short"});
+function tickCountdowns() {
+  document.querySelectorAll("[data-until]").forEach(el => {
+    const left = +el.dataset.until - Date.now(), card = el.closest(".ev");
+    if (left <= 0) { if (!card.classList.contains("done")) { card.classList.add("done"); el.textContent = el.dataset.done || "Esperando datos nuevos"; } }
+    else { card.classList.remove("done"); el.textContent = fmtCD(left); }
+  });
+}
+setInterval(tickCountdowns, 1000);   // solo reloj del navegador: no consulta nada a la API
+const isoMonday = (y, w) => { const j4 = new Date(Date.UTC(y, 0, 4)), m1 = new Date(j4); m1.setUTCDate(j4.getUTCDate() - ((j4.getUTCDay() + 6) % 7)); m1.setUTCDate(m1.getUTCDate() + (w - 1) * 7); return m1; };
+function calEvents() {
+  const now = Date.now(), all = DATA.seasons.flatMap(s => DATA.data[s].wars), ev = [];
+  // 1) fin de la guerra actual: viene de la guerra en curso que guarda el colector
+  const lw = all.find(w => w.type === "war" && w.state !== "warEnded") || all.find(w => w.type === "cwl" && w.state !== "warEnded");
+  if (lw && lw.end) ev.push({icon: "guerras", title: "Fin de la guerra actual", ts: +new Date(lw.end), done: "Guerra terminada · esperando datos nuevos",
+    sub: `${lw.type === "cwl" ? `Ronda ${lw.round ?? ""} de CWL` : lw.state === "preparation" ? "En preparación" : "En batalla"} · vs ${esc(lw.opponent.name)}`});
+  else ev.push({icon: "guerras", title: "Fin de la guerra actual", off: "Sin guerra activa", sub: "Aparecerá aquí cuando empiece la siguiente"});
+  // 2) próximo asalto de la Capital: regla viernes 07:00 UTC, solo si TODOS los asaltos registrados la cumplen
+  if (CAP === undefined) ev.push({icon: "asaltos", title: "Próximo asalto de la Capital", off: "Cargando…", sub: ""});
+  else {
+    const ss = (CAP && CAP.seasons) || [], ok = ss.length > 0 && ss.every(s => { const d = new Date(s.start); return d.getUTCDay() === 5 && d.getUTCHours() === 7 && d.getUTCMinutes() === 0; });
+    if (ok) { const d = new Date(now); d.setUTCHours(7, 0, 0, 0); d.setUTCDate(d.getUTCDate() + ((5 - d.getUTCDay() + 7) % 7)); if (+d <= now) d.setUTCDate(d.getUTCDate() + 7);
+      ev.push({icon: "asaltos", title: "Próximo asalto de la Capital", ts: +d, done: "Asalto en curso · esperando datos nuevos", sub: `Regla verificada con ${ss.length} asalto${ss.length === 1 ? "" : "s"} registrado${ss.length === 1 ? "" : "s"}`}); }
+    else ev.push({icon: "asaltos", title: "Próximo asalto de la Capital", off: "Fecha por confirmar", sub: ss.length ? "Los asaltos registrados no siguen una regla fija" : "Aún no hay asaltos registrados para verificarla"});
+  }
+  // 3) próxima CWL: regla "mismo día y hora UTC del mes" solo si ≥2 temporadas con CWL registradas coinciden
+  const liveC = all.find(w => w.type === "cwl" && w.state !== "warEnded");
+  if (liveC) ev.push({icon: "cwl", title: "Próxima CWL", off: "CWL en curso", sub: `Ronda ${liveC.round ?? ""}`.trim() + (liveC.end ? ` · termina ${localWhen(liveC.end)}` : "")});
+  else {
+    const firsts = DATA.seasons.map(s => DATA.data[s].wars.filter(w => w.type === "cwl" && w.start)).filter(a => a.length).map(a => new Date(a.reduce((m, w) => w.start < m ? w.start : m, a[0].start)));
+    const same = firsts.length >= 2 && firsts.every(d => d.getUTCDate() === firsts[0].getUTCDate() && d.getUTCHours() === firsts[0].getUTCHours() && d.getUTCMinutes() === firsts[0].getUTCMinutes());
+    if (same) { const f = firsts[0]; let d = new Date(Date.UTC(new Date(now).getUTCFullYear(), new Date(now).getUTCMonth(), f.getUTCDate(), f.getUTCHours(), f.getUTCMinutes())); if (+d <= now) d = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, f.getUTCDate(), f.getUTCHours(), f.getUTCMinutes()));
+      ev.push({icon: "cwl", title: "Próxima CWL", ts: +d, done: "CWL iniciada · esperando datos nuevos", sub: `Regla verificada con ${firsts.length} temporadas de CWL`}); }
+    else ev.push({icon: "cwl", title: "Próxima CWL", off: "Fecha por confirmar", sub: firsts.length < 2 ? "Se calcula cuando haya 2 temporadas de CWL registradas" : "Las CWL registradas no empezaron en la misma fecha"});
+  }
+  return ev;
+}
+function calendarBlock() {
+  loadCapital();
+  const cards = calEvents().map(e => `<div class="ev${e.off ? " off" : ""}"><img src="img/ui/ico-${e.icon}.webp" alt="" width="40" height="40"><div><span class="ct">${e.title}</span>
+    ${e.ts ? `<b data-until="${e.ts}" data-done="${esc(e.done)}">${fmtCD(e.ts - Date.now())}</b><span class="cs">${esc(localWhen(e.ts))}</span>` : `<b class="txt">${e.off}</b>`}<span class="cs">${e.sub}</span></div></div>`).join("");
+  return `<section class="calhero" aria-label="Calendario"><img class="calbg" src="img/banner-calendario.jpg" alt="" width="1600" height="800"><div class="calpanel"><h2>Calendario</h2>${cards}</div></section>`;
+}
+let installEvt = null;
+const IOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+const STANDALONE = (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone;
+function installBar() {
+  if (STANDALONE) return "";
+  if (installEvt) return '<div class="instbar"><span>Instala el panel como app en tu móvil.</span><button id="installApp" class="btn gold">📲 Instalar</button></div>';
+  if (IOS) return '<div class="instbar"><span>En iPhone: toca <b>Compartir</b> y elige <b>«Añadir a pantalla de inicio»</b>.</span></div>';
+  return "";
+}
+window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEvt = e; if (state.tab === "clan") render({quiet: true}); });
+window.addEventListener("appinstalled", () => { installEvt = null; if (state.tab === "clan") render({quiet: true}); });
+document.addEventListener("click", async e => { if (e.target.closest("#installApp") && installEvt) { installEvt.prompt(); try { await installEvt.userChoice; } catch (_) {} installEvt = null; render({quiet: true}); } });
+
+/* ---------- Salón de la fama ---------- */
+let famaAt = 0;
+function viewFama() {
+  if (CAP === undefined) loadCapital();
+  const ended = DATA.seasons.flatMap(s => DATA.data[s].wars).filter(w => w.state === "warEnded");
+  const nw = ended.filter(w => w.type === "war").sort((a, b) => a.start < b.start ? -1 : 1);
+  const sinceW = ended.length ? shortDate(ended.reduce((m, w) => w.start < m ? w.start : m, ended[0].start)) : null;
+  const capSs = CAP && CAP.seasons ? CAP.seasons.filter(s => s.state === "ended") : [];
+  const sinceC = capSs.length ? shortDate(capSs.reduce((m, s) => s.start < m ? s.start : m, capSs[0].start)) : null;
+  const names = hs => { const n = hs.map(h => esc(h.name)); return n.length > 6 ? `${n.slice(0, 6).join(", ")} y ${n.length - 6} más` : n.join(", "); };
+  const card = (icon, title, value, who, detail, since) => `<article class="rcard${value ? "" : " none"}"><img src="img/ui/${icon}.webp" alt="" width="64" height="64"><div><span class="ct">${title}</span>
+    <b class="rv">${value || "Aún sin registros"}</b>${value && who ? `<span class="who">${who}</span>` : ""}${value && detail ? `<span class="cs">${detail}</span>` : ""}<span class="since">${since ? "Registros desde " + since : "Sin datos todavía"}</span></div></article>`;
+  // Arepa de Oro: más MVP según el cálculo del sitio (all_time.players.mvps); si hay empate, salen todos
+  const ap = (DATA.all_time.players.all || []).filter(p => (p.mvps || 0) > 0), mx = ap.reduce((m, p) => Math.max(m, p.mvps), 0), tied = ap.filter(p => p.mvps === mx);
+  const c1 = card("ico-corona", "Arepa de Oro", mx ? `${mx} MVP` : "", mx ? (tied.length > 1 ? `<span class="tie">Empate</span> ` : "") + names(tied) : "", "Jugador con más MVP de guerra", sinceW);
+  // Racha imparable: victorias seguidas en guerras normales; empate, derrota, resultado desconocido o un hueco > 7 días cortan la racha
+  const GAP = 7 * 864e5; let run = [], best = [], runs = [];
+  const close = () => { if (run.length) { runs.push(run); } run = []; };
+  nw.forEach((w, i) => { const prev = nw[i - 1]; if (run.length && prev && +new Date(w.start) - +new Date(prev.end) > GAP) close();
+    if (w.result === "win") run.push(w); else close(); });
+  close();
+  const bl = runs.reduce((m, r) => Math.max(m, r.length), 0); best = runs.filter(r => r.length === bl);
+  const r = best[best.length - 1];
+  const c2 = card("ico-hachas", "Racha imparable", bl ? `${bl} victoria${bl === 1 ? "" : "s"} seguida${bl === 1 ? "" : "s"}` : "", "Arepa con queso", bl ? `${shortDate(r[0].start)} → ${shortDate(r[r.length - 1].start)}${best.length > 1 ? ` · ${best.length - 1} racha${best.length > 2 ? "s" : ""} igual${best.length > 2 ? "es" : ""} más` : ""}<br>Empate, derrota o 7 días sin guerras cortan la racha` : "", sinceW);
+  // El saqueo del siglo: mayor total_loot del clan en un fin de semana de asaltos
+  let c3;
+  if (CAP === undefined) c3 = card("cap-cofre", "El saqueo del siglo", "", "", "", null).replace("Aún sin registros", "Cargando…");
+  else { const m = capSs.reduce((x, s) => Math.max(x, s.total_loot || 0), 0), hs = capSs.filter(s => (s.total_loot || 0) === m);
+    c3 = card("cap-cofre", "El saqueo del siglo", m ? `${int(m)} oro` : "", "Arepa con queso", m ? `Fin de semana del ${capWhen(hs[0])}${hs.length > 1 ? ` · ${hs.length - 1} más con la misma cifra` : ""}` : "", sinceC); }
+  // Lluvia de estrellas: más estrellas del clan en una guerra normal, con el tamaño de la guerra
+  const ms = nw.reduce((x, w) => Math.max(x, w.stars || 0), 0), sw = nw.filter(w => (w.stars || 0) === ms), w0 = sw[0];
+  const c4 = card("ico-copa", "Lluvia de estrellas", ms ? `${ms} ⭐` : "", "Arepa con queso", ms ? `Guerra de ${w0.team_size} vs ${w0.team_size} (máx. ${3 * w0.team_size}) · vs ${esc(w0.opponent.name)} · ${shortDate(w0.start)}${sw.length > 1 ? ` · ${sw.length - 1} más con la misma cifra` : ""}` : "", sinceW);
+  if (!famaAt) famaAt = Date.now();
+  const el = Date.now() - famaAt;
+  return `<section class="famahero"><img src="img/banner-salon-fama.jpg" alt="" width="1600" height="800"><div class="famatxt"><h2>Salón de la fama</h2><p>Los récords del clan, tal como los muestran los datos guardados.</p></div>${!el || el < 1800 ? `<span class="glint" style="animation-delay:-${el}ms"></span><span class="glint g2" style="animation-delay:${320 - el}ms"></span>` : ""}</section>
+    <div class="recgrid">${c1}${c2}${c3}${c4}</div>
+    <p class="muted small">Guerras: ${sinceW ? "registradas desde el " + sinceW : "sin registros"} · Asaltos de la Capital: ${sinceC ? "desde el " + sinceC : "sin registros"}. Los récords solo cuentan lo que el colector alcanzó a guardar.</p>`;
+}
+
+/* ---------- Tendencias (capturas semanales) ---------- */
+const weekIdx = wk => { const [y, w] = wk.split("-W").map(Number); return Math.round(+isoMonday(y, w) / (7 * 864e5)); };
+const weekLbl = wk => { const [y, w] = wk.split("-W").map(Number); return shortDate(isoMonday(y, w).toISOString()); };
+function weekChart(sn, key, f, label) {
+  const W = 360, H = 180, pl = 46, pr = 14, pt = 18, pb = 28, rows = sn.filter(s => s[key] != null).map(s => ({i: weekIdx(s.week), y: s[key], s}));
+  if (rows.length < 2) return "";
+  const i0 = rows[0].i, i1 = rows[rows.length - 1].i; let lo = Math.min(...rows.map(r => r.y)), hi = Math.max(...rows.map(r => r.y));
+  if (lo === hi) { lo -= 1; hi += 1; } else { const p = (hi - lo) * .2; lo -= p; hi += p; }
+  const X = i => pl + (W - pl - pr) * (i1 === i0 ? .5 : (i - i0) / (i1 - i0)), Y = v => pt + (H - pt - pb) * (1 - (v - lo) / (hi - lo));
+  const grid = [0, 1, 2].map(k => { const v = lo + (hi - lo) * k / 2; return `<line class="gr" x1="${pl}" x2="${W - pr}" y1="${Y(v)}" y2="${Y(v)}"/><text class="ax" x="${pl - 6}" y="${Y(v) + 4}" text-anchor="end">${f(v)}</text>`; }).join("");
+  const have = new Set(rows.map(r => r.i)); let gaps = "", gapOpen = false;
+  for (let i = i0; i <= i1; i++) { if (!have.has(i)) { gaps += `<line class="gap" x1="${X(i)}" x2="${X(i)}" y1="${pt}" y2="${H - pb}"/>`; if (!gapOpen) { gaps += `<text class="gt" x="${X(i)}" y="${pt - 5}" text-anchor="middle">sin captura</text>`; gapOpen = true; } } else gapOpen = false; }
+  const segs = []; rows.forEach((r, k) => { if (k && rows[k - 1].i === r.i - 1) segs[segs.length - 1].push(r); else segs.push([r]); });
+  const lines = segs.filter(s => s.length > 1).map(s => `<path class="ln" d="${s.map((r, k) => (k ? "L" : "M") + X(r.i).toFixed(1) + " " + Y(r.y).toFixed(1)).join("")}"/>`).join("");
+  const dots = rows.map((r, k) => `<circle class="pt${k === rows.length - 1 ? " last" : ""}" cx="${X(r.i)}" cy="${Y(r.y)}" r="4"><title>${esc(weekLbl(r.s.week))} (${r.s.week}): ${f(r.y)}${key === "th_avg" ? ` · ${r.s.th_known} de ${r.s.members} miembros con nivel` : ""}</title></circle>`).join("");
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)}: ${rows.length} capturas semanales">${grid}${gaps}${lines}${dots}<text class="ax" x="${pl}" y="${H - 8}">${esc(weekLbl(rows[0].s.week))}</text><text class="ax" x="${W - pr}" y="${H - 8}" text-anchor="end">${esc(weekLbl(rows[rows.length - 1].s.week))}</text></svg>`;
+}
+function viewTendencias() {
+  const H = EXTRA.historial;
+  if (H === undefined) { loadExtra("historial"); return '<div class="empty">Cargando…</div>'; }
+  if (H && H.error) return errBox("historial");
+  const sn = H && H.snapshots ? H.snapshots : [], last = sn[sn.length - 1];
+  const ser = [["points", "Trofeos del clan", v => int(Math.round(v))], ["members", "Miembros", v => int(Math.round(v))], ["th_avg", "TH promedio", v => fmt(v, 2)]];
+  const card = ([k, t, f]) => {
+    const v = last ? last[k] : null, first = sn.find(s => s[k] != null), d = v != null && first && sn.length > 1 ? v - first[k] : null;
+    const th = k === "th_avg" && last ? `<span class="cs">${last.th_known} de ${last.members} miembros con nivel conocido${last.th_known < last.members ? " (dato parcial)" : ""}</span>` : "";
+    return `<div class="tcard"><span class="ct">${t}</span><b class="rv">${v == null ? "—" : f(v)}</b>${d != null ? `<span class="cs ${d < 0 ? "neg" : "pos"}">${d > 0 ? "+" : ""}${k === "th_avg" ? fmt(d, 2) : int(d)} desde ${weekLbl(sn[0].week)}</span>` : ""}${th}${sn.length > 1 ? weekChart(sn, k, f, t) : ""}</div>`;
+  };
+  const msg = !sn.length ? "Aún no hay capturas. La primera se guardará en la próxima ejecución del colector."
+    : sn.length === 1 ? `Dato actual · captura de la semana ${last.week} (${weekLbl(last.week)}). El historial se irá formando con las próximas capturas semanales.` : "";
+  const body = sn.length ? `<div class="tgrid">${ser.map(card).join("")}</div>` : "";
+  return `<section class="archivo"><div class="archin"><div class="archhead"><h2>Historial del clan</h2><p>Una captura por semana (semana ISO, zona horaria UTC). ${sn.length ? `${sn.length} captura${sn.length === 1 ? "" : "s"} real${sn.length === 1 ? "" : "es"}.` : ""}</p></div>${body}${msg ? `<p class="tmsg">${msg}</p>` : ""}</div></section>
+    <p class="muted small">Trofeos = puntos del clan (clanPoints) en todas las capturas. El TH promedio solo cuenta miembros con nivel de ayuntamiento conocido. Las líneas punteadas marcan semanas sin captura: no se rellenan ni se estiman.</p>`;
+}
+
 /* ---------- Asaltos de la Capital: fines de semana de incursion ---------- */
 let CAP;   // undefined = cargando · null = sin datos
 async function loadCapital() {
@@ -1190,7 +1368,7 @@ async function loadCapital() {
     const r = await fetch(new URLSearchParams(location.search).has("demo") ? "data/capital_demo.json" : "data/capital.json", {cache: "no-store"});
     CAP = r.ok ? await r.json() : null;
   } catch (e) { CAP = null; }
-  if (state.tab === "capital") render({quiet: true});
+  if (["capital", "clan", "fama", "tendencias"].includes(state.tab)) render({quiet: true});
 }
 const capWhen = s => `${shortDate(s.start)} – ${shortDate(s.end)} ${new Date(s.end).getFullYear()}`;
 const capLabel = s => `${capWhen(s)}${s.state === "ongoing" ? " · en curso" : ""}`;
@@ -1265,7 +1443,7 @@ function viewCapital() {
     <p class="muted small">El oro saqueado de cada jugador y las medallas del clan salen del registro de asaltos de Supercell. El oro aportado es un acumulado de por vida (no se puede separar por fin de semana) y son tres métricas distintas.</p>`;
 }
 
-const VIEWS = {donaciones: viewDonaciones, inactivos: viewInactivos, clan: viewClan, scout: viewScout, resumen: viewResumen, perfil: viewPerfil, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, capital: viewCapital, guia: viewGuia};
+const VIEWS = {fama: viewFama, tendencias: viewTendencias, donaciones: viewDonaciones, inactivos: viewInactivos, clan: viewClan, scout: viewScout, resumen: viewResumen, perfil: viewPerfil, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, capital: viewCapital, guia: viewGuia};
 
 
 /* ---------- banners por pestana (ilustraciones propias; opcional: docs/img/banner-<pestana>.jpg) ---------- */
@@ -1297,6 +1475,7 @@ function render(opts = {}) {
   v.classList.toggle("quiet", quiet);
   if (state.tab !== "capital") state.capKey = null;
   if (state.tab !== "donaciones") state.donKey = null;
+  if (state.tab !== "fama") famaAt = 0;
   v.innerHTML = sceneHTML(state.tab) + VIEWS[state.tab]();
   bindScene(v);
   if (state.tab === "perfil") bindChart();
@@ -1497,5 +1676,6 @@ document.addEventListener("toggle", e => {
   render();
 })();
 </script>
+<script>if("serviceWorker"in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}</script>
 </body>
 </html>
