@@ -120,9 +120,30 @@ def build(out_dir):
             start = datetime(y, m, d, 18, 0, tzinfo=timezone.utc)
             save(make_war(f"war_{y}{m:02d}{d:02d}T180000", "war", season, None, start,
                           random.sample(PLAYERS, 30), "warEnded", 2))
+
     # una guerra en curso (parcial)
     start = datetime(2026, 11, 15, 18, 0, tzinfo=timezone.utc)
     save(make_war("war_20261115T180000", "war", "2026-11", None, start, random.sample(PLAYERS, 30), "inWar", 2, progress=0.5))
+
+    # incursiones de la capital (fines de semana de viernes a lunes)
+    (out_dir / "capital").mkdir(parents=True)
+    for d0 in [(10, 2), (10, 9), (10, 16), (10, 23), (10, 30), (11, 6), (11, 13)]:
+        start = datetime(2026, d0[0], d0[1], 7, 0, tzinfo=timezone.utc)
+        end = start + timedelta(days=3)
+        mem = []
+        for p in random.sample(PLAYERS, random.randint(22, 28)):
+            lim, bonus = 5, random.choice([0, 0, 1])
+            used = random.choice([lim + bonus, lim + bonus, lim, lim - 1, 3, 0]) if random.random() > 0.08 else 0
+            mem.append({"tag": p["tag"], "name": p["name"], "attacks": used, "attack_limit": lim,
+                        "bonus_attack_limit": bonus,
+                        "looted": int(used * random.uniform(1400, 6200) * (1 + p["skill"]))})
+        sid = "capital_" + start.strftime("%Y%m%d")
+        rec = {"id": sid, "state": "ended", "start": start.strftime("%Y-%m-%dT%H:%M:%SZ"), "end": end.strftime("%Y-%m-%dT%H:%M:%SZ"),
+               "total_loot": sum(m["looted"] for m in mem), "raids_completed": random.randint(3, 6),
+               "total_attacks": sum(m["attacks"] for m in mem), "districts_destroyed": random.randint(12, 28),
+               "offensive_reward": random.randint(1100, 1700), "defensive_reward": random.randint(250, 700), "members": mem}
+        (out_dir / "capital" / f"{sid}.json").write_text(json.dumps(rec), encoding="utf-8")
+
 
 
 def main():

@@ -384,6 +384,9 @@ details.war[open] .tri .burst{animation:starflash .7s ease-out calc(var(--d,0ms)
   .zzz{opacity:.8}
 }
 #view.quiet .scene .lamp,#view.quiet .scene .motes,#view.quiet .scene .fog,#view.quiet .scene .mark.hang{animation:none}
+/* capital */
+details.war.cap summary{grid-template-columns:1.3fr 1.1fr 1.2fr auto}
+@media (max-width:640px){details.war.cap summary{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -410,7 +413,7 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt
 const fmt = (n, d = 1) => n == null ? "–" : Number(n).toLocaleString("es", {minimumFractionDigits: d, maximumFractionDigits: d});
 const int = n => n == null ? "–" : Number(n).toLocaleString("es");
 const ICON = n => `<img class="ticon" src="img/ui/banner-${n}.webp" alt="">`;
-const TABS = [["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores",ICON("green") + "Jugadores"],["guerras",ICON("red") + "Guerras"],["cwl",ICON("blue") + "CWL"],["bonos","🎖️ Bonos CWL"],["guia","❓ Guía"]];
+const TABS = [["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores",ICON("green") + "Jugadores"],["guerras",ICON("red") + "Guerras"],["cwl",ICON("blue") + "CWL"],["bonos","🎖️ Bonos CWL"],["capital","🏰 Capital"],["guia","❓ Guía"]];
 const state = {season: null, tab: "resumen", mode: "all", sort: {key: "score", dir: -1}, player: null};
 let DATA = null;
 
@@ -632,6 +635,7 @@ function viewGuia() {
   <dt>★ conc.</dt><dd>Estrellas que el rival sacó en promedio contra tu base (defensa). Menos es mejor.</dd>
   <dt>Uso % / Fallos</dt><dd>Ataques usados vs disponibles. En CWL solo cuentan las rondas en las que estuviste en la alineación.</dd>
   <dt>Puntos</dt><dd>Total acumulado de puntos MVP en el periodo seleccionado.</dd></dl>
+  <p><b>Capital:</b> la pestaña muestra, por fin de semana de incursión, el oro de capital que saqueó el clan y cada jugador (lo que financia el desarrollo de la capital), las medallas de incursión que informa el API y los mejores saqueadores. El MVP de incursión es quien más oro saqueó (si hay empate, comparten el título).</p>
   <p class="muted small">Todas las reglas (puntos y bonos) se editan en <code>config.json</code>. Las estadísticas empiezan a contarse desde que se activó el colector: el API no entrega guerras antiguas.</p></div>`;
 }
 
@@ -832,7 +836,78 @@ function bindChart() {
   box.addEventListener("focusout", hide);
 }
 
-const VIEWS = {resumen: viewResumen, perfil: viewPerfil, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, guia: viewGuia};
+/* ---------- Capital del clan: incursiones de fin de semana ---------- */
+let CAP;   // undefined = cargando · null = sin datos
+async function loadCapital() {
+  if (CAP !== undefined) return;
+  try {
+    const r = await fetch(new URLSearchParams(location.search).has("demo") ? "data/capital_demo.json" : "data/capital.json", {cache: "no-store"});
+    CAP = r.ok ? await r.json() : null;
+  } catch (e) { CAP = null; }
+  if (state.tab === "capital") render({quiet: true});
+}
+const capSeasons = () => (CAP ? CAP.seasons : []).filter(s => isAll() || s.month === state.season);
+
+function capAgg(list) {
+  const m = {};
+  for (const s of list) {
+    const ended = s.state === "ended";
+    for (const p of s.members) {
+      const a = m[p.tag] || (m[p.tag] = {tag: p.tag, name: p.name, looted: 0, attacks: 0, weeks: 0, mvps: 0, attacksE: 0, capE: 0});
+      a.looted += p.looted; a.attacks += p.attacks;
+      if (p.attacks > 0) a.weeks++;
+      if (ended) { a.attacksE += p.attacks; a.capE += p.cap; }
+    }
+    if (ended) for (const v of s.mvps) if (m[v.tag]) m[v.tag].mvps++;
+  }
+  return Object.values(m).map(a => ({...a, score: a.looted, avg: a.attacks ? a.looted / a.attacks : null, part: a.capE ? 100 * a.attacksE / a.capE : null}));
+}
+
+function capWeek(s) {
+  const when = `${shortDate(s.start)} – ${shortDate(s.end)}`;
+  const mv = (s.mvps || []).map(v => v.name);
+  const mvTxt = mv.length ? `👑 <b>${esc(mv.length > 3 ? "Empate de " + mv.length + " jugadores" : mv.join(" y "))}</b> · ${int(s.mvps[0].looted)} oro` : (s.state === "ongoing" ? '<span class="muted">MVP al terminar</span>' : "");
+  const rows = s.members.map((p, i) => `<tr><td class="l">${["🥇","🥈","🥉"][i] && p.looted > 0 ? ["🥇","🥈","🥉"][i] + " " : ""}${esc(p.name)}</td><td class="pts">${int(p.looted)}</td>
+    <td class="${p.missed ? "bad" : ""}">${p.attacks}/${p.cap}</td><td>${p.attacks ? int(Math.round(p.looted / p.attacks)) : "–"}</td></tr>`).join("");
+  return `<details class="war cap"><summary>
+    <div><span class="wtype">Incursión${isAll() ? " · " + s.month : ""}</span><span class="wopp">${esc(when)}</span>${s.state === "ongoing" ? '<span class="chip live">En curso</span>' : ""}</div>
+    <div class="wscore"><b>${int(s.total_loot)}</b> <small>oro de capital</small></div>
+    <div class="wmvp">${mvTxt}</div><div class="wdate">🏅 ${int(s.medals)}</div></summary>
+    <div class="tablebox"><table><thead><tr><th class="l">Jugador</th><th>Oro saqueado</th><th title="Ataques usados / disponibles">Ataques</th><th>Oro/ataque</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
+}
+
+function viewCapital() {
+  if (CAP === undefined) { loadCapital(); return '<div class="empty">Cargando…</div>'; }
+  if (!CAP || !CAP.seasons.length) return `<div class="empty"><h2>Aún no hay datos de la capital</h2>El colector trae las incursiones en cada ejecución (cada 20 minutos).
+    Si acabas de actualizar el proyecto, ejecuta una vez <b>Actions → Recolectar datos de Clash of Clans → Run workflow</b>.<br>Mientras tanto puedes ver cómo se verá con datos de ejemplo: <a href="?demo=1">abrir demo</a>.</div>`;
+  const list = capSeasons();
+  if (!list.length) return `<div class="empty"><h2>Sin incursiones en ${esc(seasonLabel(state.season))}</h2>Elige otro mes o el Histórico.</div>`;
+  const sum = k => list.reduce((a, s) => a + (s[k] || 0), 0);
+  const players = capAgg(list), maxAtt = Math.max(0, ...players.map(p => p.attacks)), MIN = Math.max(1, Math.min(3, maxAtt));
+  const memLoot = players.reduce((a, p) => a + p.looted, 0);
+  const warn = list.some(s => s.state === "ongoing") ? '<div class="banner">Hay una incursión en curso: las cifras de esta semana son provisionales.</div>' : "";
+  const tile = (k, n, extra) => `<div class="kpi"><b${n != null ? ` data-count="${n}" data-dec="0"` : ""}>${extra ?? int(n)}</b><span>${k}</span></div>`;
+  const kpis = [tile("Oro de capital saqueado", sum("total_loot")), tile("Medallas de incursión", sum("medals")), tile("Incursiones completadas", sum("raids_completed")),
+    tile("Distritos destruidos", sum("districts_destroyed")), tile("Ataques usados", null, `${int(sum("attacks_used"))}/${int(sum("attacks_cap"))}`), tile("Fines de semana", list.length)].join("");
+  const boards = [
+    board("🏰 Más oro saqueado", players, "looted", {min: 1, need: "attacks", f: v => int(v)}),
+    board("🎯 Mejor botín por ataque", players, "avg", {min: MIN, need: "attacks", f: v => int(Math.round(v))}),
+    board("✅ Mejor participación", players, "part", {min: 1, need: "capE", f: v => fmt(v, 0) + "%"}),
+    board("👑 MVP de incursión", players, "mvps", {min: 1, need: "mvps", f: v => v + (v > 1 ? " veces" : " vez")}),
+  ].join("");
+  const rows = [...players].sort((a, b) => b.looted - a.looted || a.name.localeCompare(b.name)).map((p, i) => `<tr data-tag="${esc(p.tag)}"${i < 3 && p.looted > 0 ? ` class="r${i + 1}"` : ""}>
+    <td class="l">${["🥇","🥈","🥉"][i] && p.looted > 0 ? `<span class="medal">${["🥇","🥈","🥉"][i]}</span> ` : ""}${esc(p.name)}</td><td class="pts">${int(p.looted)}</td><td>${p.attacks}</td>
+    <td>${p.avg == null ? "–" : int(Math.round(p.avg))}</td><td>${memLoot ? fmt(100 * p.looted / memLoot, 1) + "%" : "–"}</td><td>${p.mvps || 0}</td></tr>`).join("");
+  return `${warn}<div class="card"><h3>Capital del clan · ${esc(seasonLabel(state.season))}</h3><div class="kpis" style="margin:8px 0 0">${kpis}</div>
+    <p class="muted small" style="margin:12px 0 0">El <b>oro de capital</b> es lo que el clan saquea en las incursiones y financia el desarrollo de la capital. Las <b>medallas de incursión</b> son la recompensa
+    (ofensiva + defensiva) que informa el API para cada fin de semana.</p></div>
+    <h2>Rankings <span class="muted small">incursiones de ${esc(seasonLabel(state.season))}</span></h2><div class="grid boards">${boards}</div>
+    <h2>Aporte de cada jugador</h2><div class="tablebox"><table><thead><tr><th class="l">Jugador</th><th title="Oro de capital saqueado en total">Oro saqueado</th><th>Ataques</th><th title="Oro por ataque">Oro/ataque</th>
+    <th title="Parte del botín total del clan">Aporte %</th><th title="Veces mejor saqueador del fin de semana">MVP</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <h2>Fines de semana de incursión</h2>${list.map(capWeek).join("")}`;
+}
+
+const VIEWS = {resumen: viewResumen, perfil: viewPerfil, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, capital: viewCapital, guia: viewGuia};
 
 
 /* ---------- banners por pestana (ilustraciones propias; opcional: docs/img/banner-<pestana>.jpg) ---------- */
@@ -843,6 +918,7 @@ const SC = {
   guerras:["Guerras","Cada batalla, jugador por jugador.",'<g id="sw"><path d="M80 8l12 12-44 44-8-4-4-8z"/><path d="M34 60l10 10-6 6-10-10z"/><path d="M26 66l8 8-14 14-8-2-2-8z" opacity=".85"/></g><use href="#sw" transform="translate(100 0) scale(-1 1)"/>'],
   cwl:["CWL","Liga de guerra de clanes: ronda por ronda.",'<path d="M14 40h72v8H14zM20 48h60v34H20z"/><path d="M14 40V24h10v8h8v-8h12v8h8v-8h10v8h8v-8h10v16z"/><path d="M42 82V62a8 8 0 0116 0v20z" fill="var(--panel)"/>'],
   bonos:["Bonos CWL","Medallas sugeridas según el desempeño.",'<path d="M30 8h16l8 26H38zM70 8H54l-8 26h16z" opacity=".65"/><circle cx="50" cy="58" r="26"/><circle cx="50" cy="58" r="19" fill="none" stroke="var(--panel)" stroke-width="3"/><path d="M50 46l4.2 8.6 9.5 1.4-6.9 6.7 1.6 9.4-8.4-4.4-8.4 4.4 1.6-9.4-6.9-6.7 9.5-1.4z" fill="var(--panel)"/>'],
+  capital:["Capital del clan","Incursiones de fin de semana: botín, medallas y mejores saqueadores.",'<path d="M14 44h72v8H14zM20 52h60v32H20z"/><path d="M14 44V24h10v8h8v-8h12v8h8v-8h10v8h8v-8h10v20z"/><path d="M42 84V66a8 8 0 0116 0v18z" fill="var(--panel)"/>'],
   guia:["Guía","Cómo se calculan los puntos y los bonos.",'<path d="M12 20c14-4 28-4 38 4v54c-10-8-24-8-38-4zM88 20c-14-4-28-4-38 4v54c10-8 24-8 38-4z"/>']
 };
 const MARK = {jugadores: "img/ui/banner-green.webp", cwl: "img/ui/banner-blue.webp"};
@@ -853,7 +929,7 @@ function sceneHTML(tab) {
 }
 function bindScene(root) {
   const sc = root.querySelector(".scene"), im = sc && sc.querySelector("img.custom"); if (!im) return;
-  im.onload = () => { im.hidden = false; sc.classList.add("has-img"); if (["jugadores","cwl","guia"].includes(sc.dataset.scene)) sc.classList.add("nomascot"); };
+  im.onload = () => { im.hidden = false; sc.classList.add("has-img"); if (["jugadores","cwl","guia","capital"].includes(sc.dataset.scene)) sc.classList.add("nomascot"); };
   im.onerror = () => im.remove();
 }
 
@@ -1046,6 +1122,7 @@ document.addEventListener("toggle", e => {
   document.title = clanName + " · Guerras y CWL";
   $("#clanSub").textContent = (DATA.clan.tag ? DATA.clan.tag + " · " : "") + "Guerras y CWL";
   if (demo) $("#banner").innerHTML = '<div class="banner">Estás viendo datos de DEMOSTRACIÓN (ficticios). Quita <code>?demo=1</code> de la dirección para ver los datos reales.</div>';
+  loadCapital();
   $("#foot").textContent = `Datos del API oficial de Supercell · Actualizado: ${DATA.generated_at ? new Date(DATA.generated_at).toLocaleString("es") : "—"}`;
   if (!DATA.seasons.length) {
     $("#tabs").innerHTML = "";

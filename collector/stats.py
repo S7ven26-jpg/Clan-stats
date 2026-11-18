@@ -261,6 +261,51 @@ def build_season(season, wars_out, roster, W, B, now_month):
 
 
 # -------------------------------------------------------------------- main
+def build_capital(data_dir):
+    """Incursiones de la capital -> estructura lista para la pestaña Capital (o None si no hay datos)."""
+    d = data_dir / "capital"
+    recs = [load_json(p) for p in sorted(d.glob("*.json"))] if d.exists() else []
+    if not recs:
+        return None
+    seasons = []
+    for r in sorted(recs, key=lambda r: r.get("start") or "", reverse=True):
+        ended = r.get("state") == "ended"
+        mem = []
+        for m in sorted(r.get("members", []), key=lambda m: (-m["looted"], m["name"].lower())):
+            cap = (m.get("attack_limit") or 0) + (m.get("bonus_attack_limit") or 0)
+            mem.append({"tag": m["tag"], "name": m["name"], "attacks": m["attacks"], "cap": cap,
+                        "looted": m["looted"], "missed": max(0, cap - m["attacks"]) if ended else 0})
+        best = max((m["looted"] for m in mem), default=0)
+        mvps = [{"tag": m["tag"], "name": m["name"], "looted": m["looted"]} for m in mem if best > 0 and m["looted"] == best] if ended else []
+        seasons.append({
+            "id": r["id"], "state": r.get("state"), "start": r.get("start"), "end": r.get("end"),
+            "month": (r.get("end") or r.get("start") or "")[:7],
+            "total_loot": r.get("total_loot", 0), "raids_completed": r.get("raids_completed", 0),
+            "total_attacks": r.get("total_attacks", 0), "districts_destroyed": r.get("districts_destroyed", 0),
+            "offensive_reward": r.get("offensive_reward", 0), "defensive_reward": r.get("defensive_reward", 0),
+            "medals": (r.get("offensive_reward") or 0) + (r.get("defensive_reward") or 0),
+            "participants": sum(1 for m in mem if m["attacks"] > 0),
+            "attacks_used": sum(m["attacks"] for m in mem), "attacks_cap": sum(m["cap"] for m in mem),
+            "mvps": mvps, "members": mem,
+        })
+    return {"generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "seasons": seasons}
+
+
+def write_if_changed(path, obj):
+    """Escribe el JSON solo si cambio algo ademas de generated_at (evita commits vacios)."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists():
+        try:
+            old = json.loads(path.read_text(encoding="utf-8"))
+            if {k: v for k, v in old.items() if k != "generated_at"} == {k: v for k, v in obj.items() if k != "generated_at"}:
+                return False
+        except Exception:
+            pass
+    path.write_text(json.dumps(obj, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return True
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data-dir", default=str(ROOT / "data"))
@@ -325,6 +370,11 @@ def main():
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
+    cap = build_capital(data_dir)
+    if cap is not None:
+        cap_out = out.with_name("capital.json" if out.name == "stats.json" else f"capital_{out.stem}.json")
+        if write_if_changed(cap_out, cap):
+            print(f"Capital: {len(cap['seasons'])} temporada(s) de incursion escritas en {cap_out}.")
     if out.exists():
         prev = load_json(out)
         prev.pop("generated_at", None)

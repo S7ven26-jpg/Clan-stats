@@ -220,6 +220,48 @@ def collect_cwl():
     print(f"CWL {season}: {saved} ronda(s) actualizada(s).")
 
 
+def collect_capital():
+    """Temporadas de incursion de la capital del clan: GET /clans/{tag}/capitalraidseasons.
+    Guarda data/capital/capital_<AAAAMMDD>.json (una por fin de semana de incursion)."""
+    d = api_get(f"/clans/{enc(CLAN)}/capitalraidseasons?limit=10")
+    items = (d or {}).get("items", [])
+    out = DATA / "capital"
+    out.mkdir(parents=True, exist_ok=True)
+    saved = 0
+    for s in items:
+        start = iso(s.get("startTime"))
+        if not start:
+            continue
+        rec = {
+            "id": "capital_" + start.replace("-", "")[:8],
+            "state": s.get("state"),
+            "start": start,
+            "end": iso(s.get("endTime")),
+            "total_loot": s.get("capitalTotalLoot") or 0,
+            "raids_completed": s.get("raidsCompleted") or 0,
+            "total_attacks": s.get("totalAttacks") or 0,
+            "districts_destroyed": s.get("enemyDistrictsDestroyed") or 0,
+            "offensive_reward": s.get("offensiveReward") or 0,
+            "defensive_reward": s.get("defensiveReward") or 0,
+            "members": [
+                {
+                    "tag": m.get("tag"), "name": m.get("name"),
+                    "attacks": m.get("attacks") or 0,
+                    "attack_limit": m.get("attackLimit") or 0,
+                    "bonus_attack_limit": m.get("bonusAttackLimit") or 0,
+                    "looted": m.get("capitalResourcesLooted") or 0,
+                }
+                for m in (s.get("members") or [])
+            ],
+        }
+        path = out / f"{rec['id']}.json"
+        if path.exists() and json.loads(path.read_text(encoding="utf-8")) == rec:
+            continue
+        path.write_text(json.dumps(rec, ensure_ascii=False, indent=1), encoding="utf-8")
+        saved += 1
+    print(f"Capital: {len(items)} temporada(s) de incursion, {saved} nueva(s) o actualizada(s).")
+
+
 def main():
     if not TOKEN:
         sys.exit("Falta la variable COC_API_TOKEN (tu API key).")
@@ -239,6 +281,11 @@ def main():
                     "registro de guerra del clan sea PUBLICO.",
                     file=sys.stderr,
                 )
+    # la capital es un extra: si falla, solo avisa (no marca el workflow en rojo)
+    try:
+        collect_capital()
+    except ApiError as e:
+        print(f"AVISO (capital): {e}", file=sys.stderr)
     if errors:
         sys.exit(1)
 
