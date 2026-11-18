@@ -510,6 +510,22 @@ tr.me td{background:rgba(255,207,90,.12)}
 .sharewrap{display:grid;grid-template-columns:minmax(0,440px) 1fr;gap:18px;align-items:start}#shareCanvas{width:100%;height:auto;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.5);background:#050b24}
 .sharebtns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}#shareTxt{width:100%;box-sizing:border-box;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:10px;font:inherit;font-size:14px;resize:vertical}
 @media (max-width:760px){.sharewrap{grid-template-columns:1fr}}
+.lnsec{margin:0 0 18px}.lnsec h2{margin-top:0}
+.lnhero{position:relative;border-radius:22px;overflow:hidden;border:1px solid #d9a93a55;container-type:inline-size;background:#050b24}.lnbg{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover}
+.lnpanel{position:absolute;left:3cqw;top:4cqw;bottom:4cqw;width:36cqw;display:flex;flex-direction:column;justify-content:center;gap:1.3cqw}
+.lnpanel .ct{font-size:clamp(11px,1.6cqw,15px);font-weight:800;color:#ffcf5a;text-transform:uppercase;letter-spacing:.08em}.lnpanel .cs{display:block;font-size:clamp(11px,1.5cqw,14px);color:#b8c6f0}
+.lnrival{display:flex;gap:1.6cqw;align-items:center}.lnshield{flex:none;width:clamp(44px,8cqw,84px);height:auto;filter:drop-shadow(0 3px 6px #000a)}.lnname{display:block;font-size:clamp(18px,3.4cqw,34px);line-height:1.1;overflow-wrap:anywhere;text-shadow:0 2px 6px #000}
+.lnstate{display:flex;gap:1.4cqw;align-items:center}.lnstate img{flex:none;width:clamp(34px,5.6cqw,56px);height:auto;filter:drop-shadow(0 3px 5px #000a)}.lnstate b{display:block;font-size:clamp(15px,2.4cqw,24px)}.lnstate span{display:block;font-size:clamp(12px,1.7cqw,16px);color:#ffcf5a;font-weight:700}
+.lncd{display:block;font-size:clamp(20px,3.6cqw,36px);font-weight:800;color:#ffcf5a;font-variant-numeric:tabular-nums;line-height:1.1}.lncd.done{font-size:clamp(13px,1.9cqw,18px);color:#9fb4e8;font-weight:700}.lnwait{margin:0;font-size:clamp(14px,2.4cqw,24px);font-weight:700;line-height:1.3}
+@media (max-width:760px){.lncd.done{font-size:15px}.lnhero{container-type:normal}.lnpanel{position:static;width:auto;padding:12px 14px;gap:10px;background:linear-gradient(#050b24,#0a1440)}.lnname{font-size:22px}.lncd{font-size:26px}.lnshield{width:52px}.lnstate img{width:44px}.lnpanel .cs{font-size:13px}}
+.lnchips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.lnchip{display:inline-flex;gap:6px;align-items:center}
+.lncmp{border-radius:22px;border:1px solid #d9a93a55;background:#050b24 url(img/fondo-lineup-comparativo.jpg) center/cover no-repeat;padding:4cqw 7cqw 5cqw;container-type:inline-size}
+.lncard{background:rgba(5,11,36,.86);border:1px solid #d9a93a55;border-radius:16px;padding:14px 16px}
+.lnsums{display:flex;gap:8px;flex-wrap:wrap}.thsum{background:#d9a93a1c;border:1px solid #d9a93a66;border-radius:10px;padding:3px 10px;font-size:14px}.thsum b{color:#ffcf5a}.lnavg{margin:8px 0;font-size:14px;color:var(--muted)}.lnavg b{color:var(--text)}.lnpartial{margin:6px 0;color:#ffcf5a;font-size:14px}
+.lntbl{width:100%;border-collapse:collapse;table-layout:fixed}.lntbl th{padding:8px;text-align:left;font-size:15px}.lntbl th.us{color:#7fb8ff;border-bottom:3px solid #3b82f6}.lntbl th.rv{color:#ff8a8a;border-bottom:3px solid #e04848}
+.lntbl td{padding:5px 6px;border-bottom:1px solid #ffffff14}.lntbl td.us{background:rgba(59,130,246,.10)}.lntbl td.rv{background:rgba(224,72,72,.10)}.lntbl td.num{width:30px;color:var(--muted);text-align:center}
+.lntbl td.pl{text-align:left;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.ln-n{margin-left:6px}.crown{width:24px;height:auto;vertical-align:-7px;margin-left:4px}.thp{display:inline-block;min-width:42px;text-align:center;background:#d9a93a22;border:1px solid #d9a93a66;border-radius:8px;padding:0 5px;font-size:12px;font-weight:800;color:#ffcf5a}
+@media (max-width:760px){.lncmp{padding:10px}.lncard{padding:10px}.lntbl td,.lntbl th{padding:4px 3px;font-size:12px}.thp{min-width:0;padding:0 3px;font-size:11px}.ln-n{margin-left:3px}.crown{width:16px;margin-left:1px;vertical-align:-3px}.thsum{font-size:12px}.lntbl th{font-size:13px}}
 /* actividad y donaciones / alerta de inactividad */
 .hero2{position:relative;overflow:hidden;border-radius:22px;margin:0 0 16px;height:clamp(250px,30vw,340px);background:#010f37;container-type:size;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .hero2 .scene{position:absolute;top:50%;transform:translateY(-50%);width:max(100cqw,206cqh);aspect-ratio:2/1;left:calc(-1 * var(--fx,1) * (max(100cqw,206cqh) - 100cqw))}
@@ -797,6 +813,7 @@ function viewGuia() {
   <p><b>Scouting CWL:</b> al publicarse el grupo de la liga aparecen los clanes clasificados de S a D según el promedio de ayuntamiento de sus 15 mejores inscritos (la pestaña explica los umbrales).</p>
   <p><b>Donaciones:</b> tropas donadas y recibidas por miembro en la temporada, con los mejores donadores y quiénes reciben sin devolver.</p>
   <p><b>Inactivos:</b> ayuda para líderes: cruza ataques de guerra, asaltos de la Capital y donaciones de los últimos 30 días. La pestaña explica cómo se calcula.</p>
+  <p><b>Lineup rival (pestaña Scouting CWL):</b> en cuanto Supercell publica la alineación de una ronda (preparación), «Próximo rival» muestra el rival, la cuenta regresiva y las dos alineaciones por posición del mapa y por ayuntamiento. Puedes consultar la ronda activa y las finalizadas. Se actualiza cada ~20 minutos.</p>
   <p><b>Resumen de temporada (pestaña CWL):</b> cuando la liga termina (7 rondas guardadas) aparece una tarjeta con el MVP, los resultados y los mejores donadores. «Compartir» abre el menú del móvil para elegir WhatsApp; si el navegador no puede, descarga el PNG.</p>
   <p><b>Calendario (Inicio):</b> cuenta regresiva del fin de la guerra actual, del próximo asalto de la Capital y de la próxima CWL, con la hora en tu zona. La guerra sale de los datos del colector; las fechas del asalto y de la CWL se calculan solo si el historial confirma la regla, y si no, dicen «Fecha por confirmar».</p>
   <p><b>Salón de la fama:</b> cuatro récords del clan con la fecha desde la que hay registros. <b>Tendencias:</b> trofeos, miembros y TH promedio con una captura por semana (UTC); las semanas sin captura se ven como huecos.</p>
@@ -1014,7 +1031,7 @@ async function loadExtra(name) {
   } catch (e) { EXTRA[name] = {error: true, detail: String((e && e.message) || e)}; }
   if ((EXTRA_TABS[name] || [name]).includes(state.tab)) render({quiet: true});
 }
-const EXTRA_TABS = {clan: ["clan", "donaciones", "fama", "cwl"], actividad: ["inactivos"], historial: ["tendencias"]};
+const EXTRA_TABS = {clan: ["clan", "donaciones", "fama", "cwl"], actividad: ["inactivos"], historial: ["tendencias"], lineup: ["scout"]};
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-retry]"); if (!b) return;
   delete EXTRA[b.dataset.retry]; render({quiet: true});
@@ -1089,7 +1106,8 @@ const SSTATE = {preparation: "Preparación", inWar: "En curso", ended: "Terminad
 const PLACA = {S: "red", A: "bronze", B: "blue", C: "green", D: "gray"};
 document.addEventListener("change", e => { if (e.target.id === "scoutSeason") { state.scoutSel = e.target.value; state.scoutKey = null; render({quiet: true}); } });
 
-function viewScout() {
+function viewScout() { return lineupBlock() + viewScoutBase(); }
+function viewScoutBase() {
   const S = EXTRA.scout;
   if (S === undefined) { loadExtra("scout"); return '<div class="empty">Cargando…</div>'; }
   if (S && S.error) return errBox("scout");
@@ -1238,7 +1256,7 @@ const fmtCD = ms => { const s = Math.max(0, Math.floor(ms / 1000)), d = Math.flo
 const localWhen = ts => new Date(ts).toLocaleString("es", {weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZoneName: "short"});
 function tickCountdowns() {
   document.querySelectorAll("[data-until]").forEach(el => {
-    const left = +el.dataset.until - Date.now(), card = el.closest(".ev");
+    const left = +el.dataset.until - Date.now(), card = el.closest(".ev") || el;
     if (left <= 0) { if (!card.classList.contains("done")) { card.classList.add("done"); el.textContent = el.dataset.done || "Esperando datos nuevos"; } }
     else { card.classList.remove("done"); el.textContent = fmtCD(left); }
   });
@@ -1364,6 +1382,42 @@ function viewTendencias() {
   return `<section class="archivo"><div class="archin"><div class="archhead"><h2>Historial del clan</h2><p>Una captura por semana (semana ISO, zona horaria UTC). ${sn.length ? `${sn.length} captura${sn.length === 1 ? "" : "s"} real${sn.length === 1 ? "" : "es"}.` : ""}</p></div>${body}${msg ? `<p class="tmsg">${msg}</p>` : ""}</div></section>
     <p class="muted small">Trofeos = puntos del clan (clanPoints) en todas las capturas. El TH promedio solo cuenta miembros con nivel de ayuntamiento conocido. Las líneas punteadas marcan semanas sin captura: no se rellenan ni se estiman.</p>`;
 }
+
+/* ---------- Lineup rival (Scouting CWL) ---------- */
+const LN_ST = {preparation: ["estado-preparacion", "En preparación"], inWar: ["estado-batalla", "En batalla"], warEnded: ["estado-finalizada", "Finalizada"]};
+const lnHero = (inner, cls = "") => `<section class="lnhero ${cls}" aria-label="Próximo rival"><img class="lnbg" src="img/banner-proximo-rival.jpg" alt="" width="1600" height="800"><div class="lnpanel">${inner}</div></section>`;
+function lineupBlock() {
+  if (EXTRA.lineup === undefined) { loadExtra("lineup"); return ""; }
+  const L = EXTRA.lineup, wait = "El lineup aparecerá cuando se publique la alineación de la ronda";
+  if (L && L.error) return `<section class="lnsec"><h2>Próximo rival</h2>${errBox("lineup")}</section>`;
+  if (!L || !L.rounds || !L.rounds.length) return `<section class="lnsec">${lnHero(`<span class="ct">Próximo rival</span><p class="lnwait">${wait}.</p><span class="cs">Se revisa cada ~20 minutos.</span>`)}</section>`;
+  const R = L.rounds, prep = [...R].reverse().find(x => x.state === "preparation"), live = [...R].reverse().find(x => x.state === "inWar");
+  const r = R.find(x => x.round === state.lnRound) || prep || live || R[R.length - 1], st = LN_ST[r.state] || LN_ST.warEnded;
+  const kicker = prep && r.round === prep.round ? "Próximo rival" : r.state === "inWar" ? "Rival de la ronda actual" : "Rival de la ronda";
+  const ts = Date.parse(r.state === "preparation" ? r.start : r.end), okTs = Number.isFinite(ts);
+  const clock = r.state === "warEnded" ? `<span class="cs">Ronda finalizada</span>`
+    : okTs ? `<span class="cs">${r.state === "preparation" ? "La batalla empieza en" : "La batalla termina en"}</span><b class="lncd" data-until="${ts}" data-done="${r.state === "preparation" ? "Ya empezó · esperando datos nuevos" : "Terminó · esperando datos nuevos"}">${fmtCD(ts - Date.now())}</b><span class="cs">${esc(localWhen(ts))}</span>`
+    : `<span class="cs">Hora de inicio por confirmar</span>`;
+  const hero = lnHero(`<span class="ct">${kicker}</span><div class="lnrival"><img class="lnshield" src="${esc(r.opp.badge || "img/ui/ico-escudo.webp")}" alt="" width="64" height="64" onerror="this.onerror=null;this.src='img/ui/ico-escudo.webp'"><div><b class="lnname">${esc(r.opp.name)}</b><span class="cs">Nivel ${r.opp.level ?? "?"} · ${esc(r.opp.tag)}</span></div></div>
+    <div class="lnstate"><img src="img/ui/${st[0]}.png" alt="" width="46" height="46"><div><b>Ronda ${r.round}</b><span>${st[1]}</span></div></div>${clock}`);
+  const chips = R.map(x => `<button class="fchip lnchip${x.round === r.round ? " on" : ""}" data-lnr="${x.round}"><img src="img/ui/${(LN_ST[x.state] || LN_ST.warEnded)[0]}.png" alt="" width="22" height="22">Ronda ${x.round} · ${(LN_ST[x.state] || LN_ST.warEnded)[1]}</button>`).join("");
+  const byPos = s => [...s].sort((a, b) => (a.pos || 99) - (b.pos || 99)), A = byPos(r.ours.members), O = byPos(r.opp.members), n = Math.max(A.length, O.length);
+  const top = s => Math.max(0, ...s.map(p => p.th || 0)), tA = top(A), tO = top(O);
+  const cell = (p, t, cls) => p ? `<td class="num ${cls}">${p.pos ?? ""}</td><td class="pl ${cls}"><span class="thp">TH${p.th ?? "?"}</span><span class="ln-n">${esc(p.name)}</span>${p.th && p.th === t ? '<img class="crown" src="img/ui/th-mas-alto.png" alt="TH más alto" title="TH más alto de su lado" width="26" height="26">' : ""}</td>` : `<td class="${cls}"></td><td class="${cls}"></td>`;
+  const rows = Array.from({length: n}, (_, i) => `<tr>${cell(A[i], tA, "us")}${cell(O[i], tO, "rv")}</tr>`).join("");
+  const cnt = (s, t) => s.filter(p => p.th === t).length, levels = [...new Set([...A, ...O].map(p => p.th).filter(Boolean))].sort((a, b) => b - a);
+  const sum = levels.map(t => `<span class="thsum"><b>TH${t}</b> · Nosotros ${cnt(A, t)} / Rival ${cnt(O, t)}</span>`).join("");
+  const avg = s => { const k = s.filter(p => p.th); return k.length ? fmt(k.reduce((x, p) => x + p.th, 0) / k.length, 2) : "—"; };
+  const known = s => s.filter(p => p.th).length, size = r.team_size || n;
+  const partial = A.length < size || O.length < size || known(A) < A.length || known(O) < O.length;
+  return `<section class="lnsec">${hero}<div class="lnchips">${chips}</div>
+    <div class="lncmp"><div class="lncard"><div class="lnsums">${sum || '<span class="muted">Sin niveles de ayuntamiento todavía</span>'}</div>
+      <p class="lnavg">TH promedio: <b>${avg(A)}</b> (Nosotros) vs <b>${avg(O)}</b> (Rival)</p>
+      ${partial ? `<p class="lnpartial">⚠️ Datos parciales: ${A.length} de ${size} jugadores nuestros y ${O.length} de ${size} del rival publicados${known(A) < A.length || known(O) < O.length ? ", algunos sin TH" : ""}.</p>` : ""}
+      <table class="lntbl"><colgroup><col style="width:34px"><col><col style="width:34px"><col></colgroup><thead><tr><th colspan="2" class="us">Arepa con queso</th><th colspan="2" class="rv">${esc(r.opp.name)}</th></tr></thead><tbody>${rows}</tbody></table>
+      <p class="muted small" style="margin:8px 0 0"><img src="img/ui/th-mas-alto.png" alt="" width="18" height="18" style="vertical-align:-4px"> = TH más alto de su lado (se marcan todos los empatados) · Liga de ${esc(seasonLabel(L.season))}${L.published != null ? ` · ${L.published} de ${L.total ?? "?"} rondas publicadas` : ""} · captura ${esc(stamp(r.captured))}. El rival puede mover jugadores durante la preparación.</p></div></div></section>`;
+}
+document.addEventListener("click", e => { const b = e.target.closest("[data-lnr]"); if (!b) return; state.lnRound = +b.dataset.lnr; render({quiet: true}); });
 
 /* ---------- Resumen de temporada CWL para compartir ---------- */
 function cwlShare() {

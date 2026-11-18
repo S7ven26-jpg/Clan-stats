@@ -165,6 +165,18 @@ def build(out_dir):
         snaps.append({"week": f"{y}-W{w:02d}", "taken": d.strftime("%Y-%m-%dT%H:%M:%SZ"), "points": pts, "members": mem,
                       "th_avg": round(th, 2), "th_known": mem - (1 if i == 7 else 0)})
     (out_dir / "history.json").write_text(json.dumps(snaps), encoding="utf-8")
+    # alineaciones de CWL (rival por ronda) con un generador aparte para no alterar el resto de la demo
+    rg = random.Random(7); cf = out_dir / "cwl" / "2026-11.json"; cd = json.loads(cf.read_text(encoding="utf-8")); lus = {}
+    for r in range(4, 8):
+        mine = rg.sample(cd["roster"], 15); mine.sort(key=lambda p: (-p["th"], p["name"]))
+        opp = sorted((rg.choice([13, 14, 15, 15, 16, 16, 17]) for _ in range(15)), reverse=True)
+        st = {4: "warEnded", 5: "warEnded", 6: "inWar", 7: "preparation"}[r]
+        lus[str(r)] = {"round": r, "war_tag": f"#DEMOWAR{r}", "state": st, "start": f"2026-11-{1 + r + (1 if r == 7 else 0):02d}T08:00:00Z", "end": f"2026-11-{2 + r + (1 if r == 7 else 0):02d}T08:00:00Z", "team_size": 15,
+                       "ours": {"tag": "#2RP29GPCG", "name": "Arepa con queso", "badge": "img/ui/ico-escudo.webp", "level": 18, "members": [{"tag": p["tag"], "name": p["name"], "th": p["th"], "pos": i + 1} for i, p in enumerate(mine)]},
+                       "opp": {"tag": f"#RIV{r}", "name": ["Los Cuervos", "Nova Legion", "Rey del Valle", "Furia Norte"][r - 4], "badge": "img/ui/ico-escudo.webp", "level": 15,
+                               "members": [{"tag": f"#R{r}{i}", "name": f"Rival{r}-{i + 1}" if not (r == 7 and i == 2) else "Un_Nombre_Muy_Largo_De_Prueba_123456", "th": t, "pos": i + 1} for i, t in enumerate(opp)]},
+                       "captured": f"2026-11-{1 + r:02d}T09:20:00Z"}
+    cd["lineups"] = lus; cd["rounds_published"] = 7; cd["rounds_total"] = 7; cf.write_text(json.dumps(cd), encoding="utf-8")
     (out_dir / "scout").mkdir(parents=True)
     rivals = ["Los Titanes", "Dragones MX", "Elite Warriors", "Furia Roja", "Night Owls", "Pampa Clash", "Legión X"]
     clans = []

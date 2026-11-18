@@ -378,6 +378,16 @@ def build_history(data_dir):
     return {"timezone": "UTC", "snapshots": out}
 
 
+def build_lineup(data_dir):
+    """Alineaciones de CWL de la liga mas reciente que tenga alguna guardada (preparacion, batalla o finalizada)."""
+    for p in sorted((data_dir / "cwl").glob("*.json"), reverse=True):
+        d = load_json(p)
+        if d.get("lineups"):
+            return {"season": d.get("season"), "published": d.get("rounds_published"), "total": d.get("rounds_total"),
+                    "rounds": sorted(d["lineups"].values(), key=lambda r: r["round"])}
+    return None
+
+
 def build_clan(data_dir):
     p = data_dir / "clan.json"
     return load_json(p) if p.exists() else None
@@ -522,7 +532,7 @@ def main():
         cap_out = out.with_name("capital.json" if out.name == "stats.json" else f"capital_{out.stem}.json")
         if write_if_changed(cap_out, cap):
             print(f"Capital: {len(cap['seasons'])} temporada(s) de incursion escritas en {cap_out}.")
-    for nm, obj in (("scout", build_scout(data_dir)), ("clan", build_clan(data_dir)), ("historial", build_history(data_dir)), ("actividad", build_activity(data_dir, now, cfg.get("inactivity_days", ACT_DAYS)))):
+    for nm, obj in (("scout", build_scout(data_dir)), ("clan", build_clan(data_dir)), ("historial", build_history(data_dir)), ("lineup", build_lineup(data_dir)), ("actividad", build_activity(data_dir, now, cfg.get("inactivity_days", ACT_DAYS)))):
         if obj is not None and write_if_changed(side_out(out, nm), obj):
             print(f"{nm}: datos escritos en {side_out(out, nm)}.")
     if out.exists():

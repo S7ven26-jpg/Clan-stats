@@ -175,6 +175,18 @@ def collect_regular():
         print(f"Guerra {wid}: sin cambios.")
 
 
+def lineup_of(raw, idx, war_tag=None):
+    """Alineacion publicada de una ronda de CWL (nosotros vs rival), sin ataques. Nuestro clan se reconoce por su tag, sin importar el lado."""
+    w = normalize_war(raw, "lineup", "cwl", "", rnd=idx)
+    sides = {s.get("tag", "").upper(): s for s in (raw.get("clan", {}), raw.get("opponent", {}))}
+    def side(s, raw_side):
+        badge = (raw_side.get("badgeUrls") or {})
+        return {"tag": s["tag"], "name": s["name"], "badge": badge.get("large") or badge.get("medium") or badge.get("small"), "level": raw_side.get("clanLevel"),
+                "members": sorted(({"tag": m["tag"], "name": m["name"], "th": m["th"], "pos": m["pos"]} for m in s["members"]), key=lambda m: m["pos"] or 99)}
+    return {"round": idx, "war_tag": war_tag, "state": w["state"], "start": w["start"], "end": w["end"], "team_size": w["team_size"],
+            "ours": side(w["clan"], sides[w["clan"]["tag"].upper()]), "opp": side(w["opponent"], sides[w["opponent"]["tag"].upper()])}
+
+
 def collect_cwl():
     g = api_get(f"/clans/{enc(CLAN)}/currentwar/leaguegroup")
     if not g:
@@ -193,6 +205,7 @@ def collect_cwl():
             for m in mine.get("members", [])
         ]
 
+    lineups = old.get("lineups", {})
     saved = 0
     for idx, rnd in enumerate(g.get("rounds", []), 1):
         for wt in rnd.get("warTags", []):
@@ -210,13 +223,18 @@ def collect_cwl():
                 tag_map[wt] = "other"
                 continue
             tag_map[wt] = "ours"
+            if raw.get("state") in ("preparation", "inWar", "warEnded"):   # una entrada por ronda (clave = numero de ronda): se actualiza, no se duplica
+                lu, prev = lineup_of(raw, idx, wt), lineups.get(str(idx))
+                lu["captured"] = prev["captured"] if prev and {k: v for k, v in prev.items() if k != "captured"} == lu else _now()   # la hora solo cambia si cambia la alineacion
+                lineups[str(idx)] = lu
             if raw.get("state") == "preparation":
                 continue
             war = normalize_war(raw, wid, "cwl", season, rnd=idx, war_tag=wt)
             if war and save_json(path, war):
                 saved += 1
                 print(f"CWL ronda {idx}: guardada ({raw.get('state')}).")
-    save_json(cwl_path, {"season": season, "state": g.get("state"), "roster": roster, "tag_map": tag_map})
+    save_json(cwl_path, {"season": season, "state": g.get("state"), "roster": roster, "tag_map": tag_map, "lineups": lineups,
+                           "rounds_published": sum(1 for r in g.get("rounds", []) if any(t and t != "#0" for t in r.get("warTags", []))), "rounds_total": len(g.get("rounds", []))})
     print(f"CWL {season}: {saved} ronda(s) actualizada(s).")
 
 
