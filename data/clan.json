@@ -70,12 +70,12 @@
    "name": "S7ven26",
    "role": "coLeader",
    "th": 19,
-   "exp": 220,
+   "exp": 221,
    "trophies": 0,
    "bb_trophies": 3972,
    "rank": 1,
-   "donations": 4587,
-   "received": 3150,
+   "donations": 5604,
+   "received": 3274,
    "league": "Unranked"
   },
   {
@@ -84,7 +84,7 @@
    "role": "member",
    "th": 19,
    "exp": 220,
-   "trophies": 743,
+   "trophies": 752,
    "bb_trophies": 3800,
    "rank": 2,
    "donations": 5609,
@@ -113,7 +113,7 @@
    "trophies": 813,
    "bb_trophies": 4791,
    "rank": 4,
-   "donations": 2865,
+   "donations": 3043,
    "received": 1866,
    "league": "Titan League I"
   },
@@ -144,6 +144,19 @@
    "league": "Unranked"
   },
   {
+   "tag": "#QUC2L8QRP",
+   "name": "pipemono",
+   "role": "coLeader",
+   "th": 17,
+   "exp": 180,
+   "trophies": 331,
+   "bb_trophies": 3618,
+   "rank": 7,
+   "donations": 1803,
+   "received": 2332,
+   "league": "Unranked"
+  },
+  {
    "tag": "#8LR9GY8V9",
    "name": "Andrewx0202",
    "role": "member",
@@ -151,22 +164,9 @@
    "exp": 230,
    "trophies": 303,
    "bb_trophies": 3411,
-   "rank": 7,
+   "rank": 8,
    "donations": 1583,
    "received": 882,
-   "league": "Unranked"
-  },
-  {
-   "tag": "#QUC2L8QRP",
-   "name": "pipemono",
-   "role": "coLeader",
-   "th": 17,
-   "exp": 180,
-   "trophies": 301,
-   "bb_trophies": 3618,
-   "rank": 8,
-   "donations": 1799,
-   "received": 2039,
    "league": "Unranked"
   },
   {
@@ -175,7 +175,7 @@
    "role": "admin",
    "th": 16,
    "exp": 133,
-   "trophies": 9,
+   "trophies": 18,
    "bb_trophies": 1970,
    "rank": 9,
    "donations": 969,
@@ -201,7 +201,7 @@
    "role": "admin",
    "th": 16,
    "exp": 150,
-   "trophies": 59,
+   "trophies": 89,
    "bb_trophies": 2518,
    "rank": 11,
    "donations": 137,
@@ -227,7 +227,7 @@
    "role": "admin",
    "th": 17,
    "exp": 180,
-   "trophies": 84,
+   "trophies": 98,
    "bb_trophies": 2985,
    "rank": 13,
    "donations": 186,
@@ -243,7 +243,7 @@
    "trophies": 0,
    "bb_trophies": 2884,
    "rank": 14,
-   "donations": 309,
+   "donations": 396,
    "received": 0,
    "league": "Unranked"
   },
@@ -318,10 +318,10 @@
    "role": "member",
    "th": 17,
    "exp": 182,
-   "trophies": 274,
+   "trophies": 354,
    "bb_trophies": 3411,
    "rank": 20,
-   "donations": 2812,
+   "donations": 2842,
    "received": 3108,
    "league": "Unranked"
   },
@@ -344,7 +344,7 @@
    "role": "admin",
    "th": 16,
    "exp": 171,
-   "trophies": 36,
+   "trophies": 66,
    "bb_trophies": 2697,
    "rank": 22,
    "donations": 1113,
@@ -383,11 +383,11 @@
    "role": "member",
    "th": 16,
    "exp": 117,
-   "trophies": 166,
+   "trophies": 526,
    "bb_trophies": 2146,
    "rank": 25,
    "donations": 321,
-   "received": 857,
+   "received": 1756,
    "league": "Unranked"
   },
   {
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-18T20:36:03Z"
+ "fetched": "2026-11-18T23:44:29Z"
 }
