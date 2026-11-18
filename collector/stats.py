@@ -7,7 +7,7 @@ temporada (MVP y bonos de medallas CWL). Las reglas estan en config.json.
 import argparse
 import json
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -367,6 +367,71 @@ def build_clan(data_dir):
     return load_json(p) if p.exists() else None
 
 
+ACT_DAYS = 30   # umbral por defecto (dias); se cambia con "inactivity_days" en config.json
+
+
+def _parse_iso(s):
+    return datetime.strptime(s, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc) if s else None
+
+
+def build_activity(data_dir, now, days=ACT_DAYS):
+    """Seguimiento de participacion de los miembros ACTUALES (clan.json) en tres modos: guerras, CWL y asaltos de la Capital.
+    Por modo y jugador: ok (participo en los ultimos `days` dias), absent (estuvo alineado/listado y no uso ataques),
+    nochance (el modo tuvo eventos pero el jugador no fue alineado) o nodata (el modo no tuvo eventos en la ventana).
+    Nivel: activo (algun modo ok) · alerta (sin ok y algun absent) · insuficiente (nada que revisar). Sin consultas nuevas a la API."""
+    cf = data_dir / "clan.json"
+    if not cf.exists():
+        return None
+    clan = load_json(cf)
+    since = now - timedelta(days=days)
+    ev = {"war": [], "cwl": [], "capital": []}   # (fin, {tag: ataques usados})
+    wd = data_dir / "wars"
+    for p in sorted(wd.glob("*.json")) if wd.exists() else []:
+        w = load_json(p)
+        end = _parse_iso(w.get("end"))
+        if w.get("state") == "warEnded" and end:
+            ev["cwl" if w.get("type") == "cwl" else "war"].append((end, {m["tag"]: len(m.get("attacks") or []) for m in w["clan"]["members"]}))
+    cd = data_dir / "capital"
+    for p in sorted(cd.glob("*.json")) if cd.exists() else []:
+        r = load_json(p)
+        end = _parse_iso(r.get("end"))
+        if r.get("state") == "ended" and end:
+            ev["capital"].append((end, {m["tag"]: m.get("attacks") or 0 for m in r.get("members", [])}))
+    ends = [e[0] for lst in ev.values() for e in lst]
+    iso = lambda d: d.strftime("%Y-%m-%dT%H:%M:%SZ") if d else None
+    rows = []
+    for m in clan.get("members", []):
+        tag, modes, lasts = m["tag"], {}, []
+        for mode, events in ev.items():
+            in_win = [e for e in events if e[0] >= since]
+            last = max((e[0] for e in events if e[1].get(tag, 0) > 0), default=None)
+            if last and last >= since:
+                status = "ok"
+            elif any(tag in e[1] for e in in_win):
+                status = "absent"
+            elif in_win:
+                status = "nochance"
+            else:
+                status = "nodata"
+            if last:
+                lasts.append((last, mode))
+            modes[mode] = {"status": status, "last": iso(last), "events": len(in_win),
+                           "listed": sum(1 for e in in_win if tag in e[1]), "used": sum(e[1].get(tag, 0) for e in in_win)}
+        st = [v["status"] for v in modes.values()]
+        level = "activo" if "ok" in st else ("alerta" if "absent" in st else "insuficiente")
+        last_any = max(lasts) if lasts else None
+        rows.append({"tag": tag, "name": m["name"], "role": m.get("role"), "th": m.get("th"), "modes": modes, "level": level,
+                     "last": iso(last_any[0]) if last_any else None, "last_mode": last_any[1] if last_any else None,
+                     "days_since": (now - last_any[0]).days if last_any else None})
+    order = {"alerta": 0, "insuficiente": 1, "activo": 2}
+    rows.sort(key=lambda r: (order[r["level"]], -(r["days_since"] if r["days_since"] is not None else 10 ** 6), r["name"].lower()))
+    return {"generated_at": iso(now), "window_days": days, "clan_fetched": clan.get("fetched"),
+            "coverage": {"war": sum(1 for e in ev["war"] if e[0] >= since), "cwl": sum(1 for e in ev["cwl"] if e[0] >= since),
+                         "capital": sum(1 for e in ev["capital"] if e[0] >= since), "history_since": iso(min(ends)) if ends else None,
+                         "full_window": bool(ends) and min(ends) <= since},
+            "members": rows}
+
+
 def side_out(out, name):
     return out.with_name(f"{name}.json" if out.name == "stats.json" else f"{name}_{out.stem}.json")
 
@@ -376,6 +441,7 @@ def main():
     ap.add_argument("--data-dir", default=str(ROOT / "data"))
     ap.add_argument("--out", default=str(ROOT / "docs" / "data" / "stats.json"))
     ap.add_argument("--config", default=str(ROOT / "config.json"))
+    ap.add_argument("--now", default=None, help="fecha fija AAAA-MM-DDTHH:MM:SSZ (solo para la demo/pruebas)")
     args = ap.parse_args()
 
     cfg = load_json(args.config)
@@ -392,7 +458,7 @@ def main():
         if w.get("season"):
             by_season[w["season"]].append(summarize_war(w, W))
 
-    now = datetime.now(timezone.utc)
+    now = _parse_iso(args.now) if args.now else datetime.now(timezone.utc)
     now_month = now.strftime("%Y-%m")
     seasons = sorted(by_season, reverse=True)
     season_data = {s: build_season(s, by_season[s], rosters.get(s, []), W, B, now_month) for s in seasons}
@@ -440,7 +506,7 @@ def main():
         cap_out = out.with_name("capital.json" if out.name == "stats.json" else f"capital_{out.stem}.json")
         if write_if_changed(cap_out, cap):
             print(f"Capital: {len(cap['seasons'])} temporada(s) de incursion escritas en {cap_out}.")
-    for nm, obj in (("scout", build_scout(data_dir)), ("clan", build_clan(data_dir))):
+    for nm, obj in (("scout", build_scout(data_dir)), ("clan", build_clan(data_dir)), ("actividad", build_activity(data_dir, now, cfg.get("inactivity_days", ACT_DAYS)))):
         if obj is not None and write_if_changed(side_out(out, nm), obj):
             print(f"{nm}: datos escritos en {side_out(out, nm)}.")
     if out.exists():

@@ -346,7 +346,7 @@ def collect_clan():
     mem = [{
         "tag": m["tag"], "name": m.get("name"), "role": m.get("role"), "th": m.get("townHallLevel") or 0,
         "exp": m.get("expLevel"), "trophies": m.get("trophies") or 0, "bb_trophies": m.get("builderBaseTrophies") or 0,
-        "rank": m.get("clanRank"), "donations": m.get("donations") or 0, "received": m.get("donationsReceived") or 0,
+        "rank": m.get("clanRank"), "donations": m.get("donations"), "received": m.get("donationsReceived"),   # None = el API no lo dio (no es lo mismo que 0)
         "league": (m.get("league") or {}).get("name"),
     } for m in c.get("memberList", [])]
     cap = c.get("clanCapital") or {}

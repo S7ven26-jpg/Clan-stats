@@ -21,6 +21,7 @@ NAMES = [
     "Lobo", "Pixel", "Mamba", "Blitz", "Eclipse", "Gaucho", "Ninja", "Trueno", "Alfa", "Rebelde",
 ]
 RIVALS = ["Los Titanes", "Dragones MX", "Elite Warriors", "Furia Roja", "Night Owls", "Pampa Clash", "Legión X", "Reyes del Norte"]
+EXTRA_MEMBERS = [("#X001", "Fantasma", {}), ("#X002", "Dormilon", {0: 3, 1: 2}), ("#X003", "Pausado", {3: 1})]   # ataques por fin de semana (indice)
 OUR_CLAN = {"tag": "#DEMO123", "name": "Arepa con queso"}
 PLAYERS = [
     {"tag": f"#P{i:04d}", "name": n, "th": random.choice([14, 15, 15, 16, 16, 17]), "skill": random.uniform(-0.2, 0.25)}
@@ -127,7 +128,7 @@ def build(out_dir):
 
     # incursiones de la capital (fines de semana de viernes a lunes)
     (out_dir / "capital").mkdir(parents=True)
-    for d0 in [(10, 2), (10, 9), (10, 16), (10, 23), (10, 30), (11, 6), (11, 13)]:
+    for wi, d0 in enumerate([(10, 2), (10, 9), (10, 16), (10, 23), (10, 30), (11, 6), (11, 13)]):
         start = datetime(2026, d0[0], d0[1], 7, 0, tzinfo=timezone.utc)
         end = start + timedelta(days=3)
         mem = []
@@ -137,6 +138,9 @@ def build(out_dir):
             mem.append({"tag": p["tag"], "name": p["name"], "attacks": used, "attack_limit": lim,
                         "bonus_attack_limit": bonus,
                         "looted": int(used * random.uniform(1400, 6200) * (1 + p["skill"]))})
+        for tg, nm, byweek in EXTRA_MEMBERS:
+            used = byweek.get(wi, 0)   # miembros "dormidos" para la demo de actividad (no estan en las guerras)
+            mem.append({"tag": tg, "name": nm, "attacks": used, "attack_limit": 5, "bonus_attack_limit": 0, "looted": used * 900})
         sid = "capital_" + start.strftime("%Y%m%d")
         rec = {"id": sid, "state": "ended", "start": start.strftime("%Y-%m-%dT%H:%M:%SZ"), "end": end.strftime("%Y-%m-%dT%H:%M:%SZ"),
                "total_loot": sum(m["looted"] for m in mem), "raids_completed": random.randint(3, 6),
@@ -165,6 +169,11 @@ def build(out_dir):
     members = [{"tag": p["tag"], "name": p["name"], "role": roles[i], "th": p["th"], "exp": random.randint(120, 300),
                 "trophies": random.randint(3800, 5600), "bb_trophies": random.randint(2800, 5600), "rank": i + 1,
                 "donations": random.randint(0, 2200), "received": random.randint(0, 1800), "league": "Leyenda"} for i, p in enumerate(PLAYERS)]
+    for i, (tg, nm, _) in enumerate(EXTRA_MEMBERS):
+        members.append({"tag": tg, "name": nm, "role": "member", "th": 14, "exp": 150, "trophies": 3600 - i * 50, "bb_trophies": 3000,
+                        "rank": 99, "donations": 300 if nm == "Pausado" else 0, "received": 250, "league": "Leyenda"})
+    members.append({"tag": "#X004", "name": "Novato", "role": "member", "th": 12, "exp": 40, "trophies": 2100, "bb_trophies": 1500, "rank": 99,
+                    "donations": None, "received": None, "league": "Oro"})   # recien llegado y sin dato de donaciones
     members.sort(key=lambda m: -m["trophies"])
     for i, mm in enumerate(members, 1):
         mm["rank"] = i
@@ -183,7 +192,7 @@ def main():
     with tempfile.TemporaryDirectory() as tmp:
         build(Path(tmp))
         subprocess.run(
-            [sys.executable, str(ROOT / "collector" / "stats.py"), "--data-dir", tmp, "--out", str(out)],
+            [sys.executable, str(ROOT / "collector" / "stats.py"), "--data-dir", tmp, "--out", str(out), "--now", "2026-11-17T12:00:00Z"],
             check=True,
         )
     print(f"Demo listo: {out}")

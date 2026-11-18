@@ -465,6 +465,41 @@ tr.me td{background:rgba(255,207,90,.12)}
   .salon{padding:60px 12px 40px}.lcard{min-width:130px}.lcard.L{padding:12px 18px}
   .tier{flex-direction:column;gap:6px}.tier .tl{width:96px;align-self:flex-start}.tier .tl span{font-size:30px}.sclan{max-width:none}
 }
+/* actividad y donaciones / alerta de inactividad */
+.hero2{position:relative;overflow:hidden;border-radius:22px;margin:0 0 16px;height:clamp(250px,30vw,340px);background:#010f37;container-type:size;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.hero2 .scene{position:absolute;top:50%;transform:translateY(-50%);width:max(100cqw,206cqh);aspect-ratio:2/1;left:calc(-1 * var(--fx,1) * (max(100cqw,206cqh) - 100cqw))}
+.hero2 .scene img{display:block;width:100%;height:100%}
+.hero2::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,8,34,.75),rgba(2,8,34,.2) 36%,transparent 52%);pointer-events:none}
+.hero2 .capin{position:relative;z-index:1;height:100%;max-width:min(30%,340px);padding:26px 0 26px 28px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.hero2 .capin h2{margin:0;font-size:clamp(22px,3vw,34px);line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.hero2 .capin .htag{color:#ffcf5a;font-weight:700;font-size:14px}
+.farol{position:absolute;left:74.4%;top:40.6%;width:13%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;mix-blend-mode:screen;
+  background:radial-gradient(circle,rgba(255,205,100,.9),rgba(255,160,40,.3) 45%,transparent 70%);animation:farolpulse 3.4s ease-in-out infinite}
+@keyframes farolpulse{0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(.9)}50%{opacity:.9;transform:translate(-50%,-50%) scale(1.12)}}
+.dtop{display:flex;gap:18px;align-items:center;background:linear-gradient(120deg,var(--panel),var(--panel2));border:1px solid #d9a93a88;border-radius:20px;padding:12px 22px;margin:0 0 12px;box-shadow:0 0 26px rgba(217,169,58,.2)}
+.dtop b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.15}.dtop .ct{display:block;font-size:12px;font-weight:700;color:#ffcf5a;text-transform:uppercase;letter-spacing:.07em}
+.trofeo{flex:none;filter:drop-shadow(0 6px 8px rgba(0,0,0,.5))}.trofeo.go{animation:glint 1.6s .5s ease-in-out 1 both}
+@keyframes glint{0%,100%{filter:drop-shadow(0 6px 8px rgba(0,0,0,.5)) brightness(1)}40%{filter:drop-shadow(0 0 22px #ffe08a) brightness(1.45)}}
+.bigk.static{justify-content:center}
+.aviso{display:flex;gap:16px;align-items:center;background:var(--panel);border:1px solid #c98a2b88;border-radius:20px;padding:12px 18px;margin:12px 0}
+.aviso img{width:72px;height:72px;flex:none;filter:drop-shadow(0 3px 5px rgba(0,0,0,.5))}.aviso h3{margin:0}
+.espera{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:14px}.eh{display:flex;gap:14px;align-items:center;margin-bottom:10px}.eh img{width:64px;height:64px;flex:none}.eh h3{margin:0}
+.mcell{white-space:nowrap}.mchip{display:inline-flex;align-items:center;gap:3px;border-radius:10px;padding:2px 7px 2px 3px;font-size:13px;font-weight:800;margin-right:4px}
+.mchip.ok{background:rgba(63,185,130,.2);color:#7be0ae}.mchip.bad{background:rgba(230,80,80,.22);color:#ff9a9a}.mchip.na{background:var(--panel2);color:var(--muted)}.mchip.na img{opacity:.55;filter:grayscale(.6)}
+details.card>summary{cursor:pointer}
+.espera table td,.espera table th,details.card table td,details.card table th{text-align:left}.espera td:last-child{white-space:normal;min-width:200px}
+.st{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700;white-space:nowrap}
+.st.ok{background:#1f6b4a;color:#c9ffe6}.st.warn{background:#8a5a12;color:#ffe3b0}.st.bad{background:#8a2a2a;color:#ffd0d0}.st.gold{background:#d9a93a;color:#2b1a00}.st.na{background:var(--panel2);color:var(--muted)}
+.fchips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}.fchip{font:inherit;font-size:13px;cursor:pointer;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+.fchip.on{border-color:#ffcf5a;background:var(--panel2)}.fchip b{margin-left:4px;color:#ffcf5a}
+.kpi.kbad b{color:#ff8a8a}.kpi.kwarn b{color:#ffcf5a}
+@media (prefers-reduced-motion:reduce){.farol{animation:none;opacity:.55}.trofeo.go{animation:none}}
+@media (max-width:640px){
+  .hero2{height:330px}.hero2.cuartel{--fx:.68}.hero2.guardia{--fx:.9}
+  .hero2::after{background:linear-gradient(180deg,rgba(2,8,34,.88),rgba(2,8,34,.45) 34%,transparent 58%)}
+  .hero2 .capin{max-width:100%;padding:18px 18px 0;justify-content:flex-start}
+  .dtop{padding:10px 14px}.dtop b{font-size:24px}.dtop img{width:84px;height:84px}.aviso{flex-direction:column;align-items:flex-start}.mcell{white-space:normal}
+}
 </style>
 </head>
 <body>
@@ -491,8 +526,8 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt
 const fmt = (n, d = 1) => n == null ? "–" : Number(n).toLocaleString("es", {minimumFractionDigits: d, maximumFractionDigits: d});
 const int = n => n == null ? "–" : Number(n).toLocaleString("es");
 const ICON = n => `<img class="ticon" src="img/ui/banner-${n}.webp" alt="">`;
-const TABS = [["clan","🏠 Inicio del clan"],["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores",ICON("green") + "Jugadores"],["guerras",ICON("red") + "Guerras"],["cwl",ICON("blue") + "CWL"],["scout","🔭 Scouting CWL"],["bonos","🎖️ Bonos CWL"],["capital","🏰 Asaltos de la Capital"],["guia","❓ Guía"]];
-const state = {scoutSel: null, scoutKey: null, capWeek: null, capKey: null, season: null, tab: "clan", mode: "all", sort: {key: "score", dir: -1}, player: null};
+const TABS = [["clan","🏠 Inicio del clan"],["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores",ICON("green") + "Jugadores"],["guerras",ICON("red") + "Guerras"],["cwl",ICON("blue") + "CWL"],["scout","🔭 Scouting CWL"],["bonos","🎖️ Bonos CWL"],["capital","🏰 Asaltos de la Capital"],["donaciones","💝 Donaciones"],["inactivos","🚨 Inactivos"],["guia","❓ Guía"]];
+const state = {donFilter: "all", donKey: null, scoutSel: null, scoutKey: null, capWeek: null, capKey: null, season: null, tab: "clan", mode: "all", sort: {key: "score", dir: -1}, player: null};
 let DATA = null;
 
 /* ---------- acceso a datos ---------- */
@@ -715,6 +750,8 @@ function viewGuia() {
   <dt>Puntos</dt><dd>Total acumulado de puntos MVP en el periodo seleccionado.</dd></dl>
   <p><b>Inicio del clan:</b> portada del clan, salón de líderes (líder y colíderes según sus roles reales), ayuntamientos, trofeos y donaciones. Se actualiza sola.</p>
   <p><b>Scouting CWL:</b> al publicarse el grupo de la liga aparecen los clanes clasificados de S a D según el promedio de ayuntamiento de sus 15 mejores inscritos (la pestaña explica los umbrales).</p>
+  <p><b>Donaciones:</b> tropas donadas y recibidas por miembro en la temporada, con los mejores donadores y quiénes reciben sin devolver.</p>
+  <p><b>Inactivos:</b> ayuda para líderes: cruza ataques de guerra, asaltos de la Capital y donaciones de los últimos 30 días. La pestaña explica cómo se calcula.</p>
   <p><b>Asaltos de la Capital:</b> elige un fin de semana y verás el oro saqueado, las medallas de asalto del clan y el ranking de saqueadores de ese mismo periodo. El oro aportado a la Capital es un acumulado de por vida de los miembros actuales.</p>
   <p class="muted small">Todas las reglas (puntos y bonos) se editan en <code>config.json</code>. Las estadísticas empiezan a contarse desde que se activó el colector: el API no entrega guerras antiguas.</p></div>`;
 }
@@ -926,8 +963,9 @@ async function loadExtra(name) {
     if (r.ok) EXTRA[name] = await r.json();
     else EXTRA[name] = [403, 404, 410].includes(r.status) ? null : {error: true, detail: "HTTP " + r.status};
   } catch (e) { EXTRA[name] = {error: true, detail: String((e && e.message) || e)}; }
-  if (state.tab === name) render({quiet: true});
+  if ((EXTRA_TABS[name] || [name]).includes(state.tab)) render({quiet: true});
 }
+const EXTRA_TABS = {clan: ["clan", "donaciones"], actividad: ["inactivos"]};
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-retry]"); if (!b) return;
   delete EXTRA[b.dataset.retry]; render({quiet: true});
@@ -1047,6 +1085,103 @@ function viewScout() {
       A igual promedio, va primero quien tenga más jugadores con TH${se.group_max_th} en la muestra.</p><ul class="doc">${doc}</ul></div>`;
 }
 
+/* ---------- Actividad y donaciones · Alerta de inactividad (data/clan.json y data/actividad.json) ---------- */
+const hero2 = (cls, img, title, sub, extra = "") => `<section class="hero2 ${cls}"><div class="scene"><img src="img/${img}" alt="" fetchpriority="high">${extra}</div>
+  <div class="capin"><h2>${title}</h2><span class="htag">${sub}</span></div></section>`;
+const DON_MIN_RECV = 200, DON_RATIO = 0.25;
+const hasN = v => v != null;
+const donState = m => !hasN(m.donations) || !hasN(m.received) ? "nodata" : m.donations === 0 ? "sin"
+  : (m.received >= DON_MIN_RECV && m.donations < DON_RATIO * m.received ? "recibe" : (m.donations >= m.received * 1.5 ? "generoso" : "eq"));
+const DONLAB = {nodata: ["Sin datos", "na"], sin: ["Sin donar", "bad"], recibe: ["Muchas recibidas, pocas donadas", "warn"], eq: ["Equilibrado", "ok"], generoso: ["Generoso", "gold"]};
+/* Los contadores de donacion se reinician con cada temporada de Clash (aprox. el ultimo lunes de cada mes, 05:00 UTC) */
+function seasonRange(iso) {
+  const d = iso ? new Date(iso) : new Date(), lastMon = (y, m) => { const e = new Date(Date.UTC(y, m + 1, 0, 5)); e.setUTCDate(e.getUTCDate() - ((e.getUTCDay() + 6) % 7)); return e; };
+  const y = d.getUTCFullYear(), m = d.getUTCMonth();
+  let end = lastMon(y, m), prev = lastMon(m ? y : y - 1, (m + 11) % 12);
+  if (d >= end) { prev = end; end = lastMon(m === 11 ? y + 1 : y, (m + 1) % 12); }
+  return [prev, end];
+}
+document.addEventListener("click", e => { const b = e.target.closest("[data-donf]"); if (!b) return; state.donFilter = b.dataset.donf; render({quiet: true}); });
+
+function viewDonaciones() {
+  const C = EXTRA.clan;
+  if (C === undefined) { loadExtra("clan"); return '<div class="empty">Cargando…</div>'; }
+  if (C && C.error) return errBox("clan");
+  if (!C) return `<div class="empty"><h2>Aún no hay datos del clan</h2>Se cargan solos en la próxima ejecución del colector. Demo: <a href="?demo=1">abrir demo</a>.</div>`;
+  const ms = C.members || [], n = ms.length, [s0, s1] = seasonRange(C.fetched);
+  const period = `Temporada del ${shortDate(s0.toISOString())} al ${shortDate(s1.toISOString())}`;
+  const known = ms.filter(m => hasN(m.donations) && hasN(m.received));
+  const give = known.reduce((a, m) => a + m.donations, 0), get = known.reduce((a, m) => a + m.received, 0);
+  const cnt = s => ms.filter(m => donState(m) === s).length;
+  const sorted = [...ms].sort((a, b) => (b.donations ?? -1) - (a.donations ?? -1) || a.name.localeCompare(b.name));
+  const best = sorted[0] && sorted[0].donations > 0 ? sorted[0] : null;
+  const animate = state.donKey !== "x"; state.donKey = "x";
+  const tile = (icon, v, l) => `<div class="bigk"><img src="img/ui/ico-${icon}.webp" alt="" width="56" height="56"><div><b>${v}</b><span>${l}</span></div></div>`;
+  const kpi = (v, l) => `<div class="kpi"><b>${v}</b><span>${l}</span></div>`;
+  const hall = best ? `<section class="dtop"><img class="trofeo${animate ? " go" : ""}" src="img/ui/ico-donador.webp" alt="" width="112" height="112"><div>
+      <span class="ct">Mejor donador de la temporada</span><b>${esc(best.name)}</b><span class="small">${int(best.donations)} tropas donadas · ${hasN(best.received) ? int(best.received) + " recibidas" : "recibidas sin dato"}</span></div></section>` : "";
+  const flagged = ms.filter(m => donState(m) === "recibe").sort((a, b) => (b.received - b.donations) - (a.received - a.donations));
+  const warn = `<section class="aviso"><img src="img/ui/ico-aviso.webp" alt="" width="72" height="72"><div><h3>Muchas recibidas, pocas donadas</h3>
+    <p class="muted small" style="margin:2px 0 8px">Regla: recibió <b>${DON_MIN_RECV} tropas o más</b> y donó <b>menos del ${DON_RATIO * 100}%</b> de lo que recibió.</p>
+    ${flagged.length ? `<div class="chips">${flagged.slice(0, 12).map(m => `<span class="chip2"><b>${esc(m.name)}</b> · donó ${int(m.donations)} / recibió ${int(m.received)}</span>`).join("")}</div>` : '<span class="muted small">Nadie cumple esta regla ahora mismo.</span>'}</div></section>`;
+  const f = state.donFilter || "all";
+  const shown = sorted.filter(m => f === "all" || donState(m) === f);
+  const chip = (k, t, c) => `<button class="fchip${f === k ? " on" : ""}" data-donf="${k}">${t} <b>${c}</b></button>`;
+  const num = v => hasN(v) ? int(v) : "–";
+  const rows = shown.map(m => { const [lab, cls] = DONLAB[donState(m)], bal = hasN(m.donations) && hasN(m.received) ? m.donations - m.received : null;
+    return `<tr data-tag="${esc(m.tag)}"><td>${sorted.indexOf(m) + 1}</td><td class="l">${esc(m.name)}<span class="muted small"> ${ROLE[m.role] || ""}</span></td><td class="pts">${num(m.donations)}</td><td>${num(m.received)}</td>
+    <td class="${bal != null && bal < 0 ? "bad" : ""}">${bal == null ? "–" : (bal > 0 ? "+" : "") + int(bal)}</td><td><span class="st ${cls}">${lab}</span></td></tr>`; }).join("");
+  return `${hero2("cuartel", "banner-donaciones.jpg", "Actividad y donaciones", esc(period))}
+    ${hall}
+    <div class="bigks">${tile("donadas", int(give), "Tropas donadas")}${tile("recibidas", int(get), "Tropas recibidas")}${tile("donador", n ? int(Math.round(give / Math.max(1, known.length))) : "–", "Donadas por miembro")}
+      <div class="bigk static"><div><b>${get ? fmt(give / get, 2) : "–"}</b><span>Donado / recibido</span></div></div></div>
+    ${warn}
+    <h2>Ranking de donaciones</h2><div class="fchips">${chip("all", "Todos", n)}${chip("recibe", "Muchas recibidas, pocas donadas", cnt("recibe"))}${chip("sin", "Sin donar", cnt("sin"))}${cnt("nodata") ? chip("nodata", "Sin datos", cnt("nodata")) : ""}</div>
+    <div class="tablebox"><table><thead><tr><th>#</th><th class="l">Jugador</th><th>Donadas</th><th>Recibidas</th><th title="Donadas menos recibidas">Balance</th><th>Estado</th></tr></thead><tbody>${rows || '<tr><td colspan="6" class="muted">Nadie en este filtro.</td></tr>'}</tbody></table></div>
+    <p class="muted small"><b>Periodo:</b> los contadores del API corresponden a la temporada en curso y se reinician con cada temporada de Clash (aprox. el último lunes de cada mes); el rango mostrado es una estimación.
+      «Sin datos» significa que el API no devolvió la cifra, y no es lo mismo que 0 donaciones: esos jugadores quedan fuera de los totales. «Generoso»: donó al menos 1,5 veces lo que recibió.
+      Datos del API oficial de Supercell · actualizado ${stamp(C.fetched)}.</p>`;
+}
+
+/* ---------- Alerta de inactividad ---------- */
+const MODE = {war: ["guerras", "Guerras"], cwl: ["cwl", "CWL"], capital: ["asaltos", "Asaltos de la Capital"]};
+const ago = d => d == null ? "–" : d === 0 ? "hoy" : d === 1 ? "hace 1 día" : `hace ${d} días`;
+function viewInactivos() {
+  const A = EXTRA.actividad;
+  if (A === undefined) { loadExtra("actividad"); return '<div class="empty">Cargando…</div>'; }
+  if (A && A.error) return errBox("actividad");
+  if (!A) return `<div class="empty"><h2>Aún no hay datos de actividad</h2>Se calculan solos cuando el colector ya tiene la ficha del clan y algunas guerras. Si acabas de actualizar, ejecuta
+    <b>Actions → Recolectar datos de Clash of Clans → Run workflow</b>. Demo: <a href="?demo=1">abrir demo</a>.</div>`;
+  const X = A.window_days, ms = A.members, cv = A.coverage || {}, by = l => ms.filter(m => m.level === l);
+  const MSTAT = {ok: ["ok", "Participó"], absent: ["bad", `Sin participación en ${X} días`], nochance: ["na", "No fue alineado"], nodata: ["na", "Sin eventos en el periodo"]};
+  const chips = m => Object.entries(MODE).map(([k, [ic, lab]]) => { const s = m.modes[k], [cls, txt] = MSTAT[s.status];
+    return `<span class="mchip ${cls}" title="${lab}: ${txt}${s.last ? " · última: " + shortDate(s.last) : ""}"><img src="img/ui/ico-${ic}.webp" alt="" width="22" height="22">${s.status === "ok" ? "✓" : s.status === "absent" ? "✗" : "–"}</span>`; }).join("");
+  const reviewed = m => Object.entries(MODE).filter(([k]) => ["ok", "absent"].includes(m.modes[k].status)).map(([, v]) => v[1]);
+  const lastTxt = m => m.last ? `${shortDate(m.last)} · ${MODE[m.last_mode][1]}` : "Sin registro";
+  const limit = m => {
+    const miss = Object.entries(MODE).filter(([k]) => !["ok", "absent"].includes(m.modes[k].status)).map(([k, v]) => `${v[1]}: ${m.modes[k].status === "nodata" ? "sin eventos en el periodo" : "no fue alineado"}`);
+    return miss.length ? miss.join(" · ") : "";
+  };
+  const row = m => `<tr data-tag="${esc(m.tag)}"><td class="l">${esc(m.name)}<span class="muted small"> ${ROLE[m.role] || ""}</span></td><td>${lastTxt(m)}</td><td>${m.days_since == null ? "–" : ago(m.days_since)}</td>
+    <td class="mcell">${chips(m)}</td><td class="muted small">${reviewed(m).join(", ") || "Ninguno"}</td></tr>`;
+  const head = `<thead><tr><th class="l">Jugador</th><th>Última participación registrada</th><th>Hace</th><th title="Guerras · CWL · Asaltos de la Capital">Modos</th><th>Modos revisados</th></tr></thead>`;
+  const alerta = by("alerta"), insu = by("insuficiente"), act = by("activo");
+  const young = cv.full_window === false ? `<div class="banner">El historial del proyecto empieza el ${shortDate(cv.history_since)}, menos de ${X} días: algunos casos pueden ser solo falta de datos.</div>` : "";
+  const kpi = (v, l, c) => `<div class="kpi ${c || ""}"><b>${v}</b><span>${l}</span></div>`;
+  return `${hero2("guardia", "banner-inactivos.jpg", "Alerta de inactividad", `Últimos ${X} días`, '<i class="farol"></i>')}${young}
+    <div class="kpis" style="margin:0 0 12px">${kpi(alerta.length, "Sin participación registrada", "kbad")}${kpi(insu.length, "Historial insuficiente", "kwarn")}${kpi(act.length, "Con participación")}</div>
+    <section class="espera"><div class="eh"><img src="img/ui/ico-espera.webp" alt="" width="64" height="64"><div><h3>Sin participación registrada en los últimos ${X} días</h3>
+      <p class="muted small" style="margin:2px 0 0">Estuvieron alineados o listados en algún modo y no usaron ataques, y no hay otra participación reciente. Sirve para que los líderes revisen cada caso.</p></div></div>
+      ${alerta.length ? `<div class="tablebox"><table>${head}<tbody>${alerta.map(row).join("")}</tbody></table></div>` : '<div class="card">🎉 Nadie está en esta lista ahora mismo.</div>'}</section>
+    ${insu.length ? `<section class="espera" style="margin-top:12px"><div class="eh"><div><h3>Historial insuficiente</h3><p class="muted small" style="margin:2px 0 0">No hay datos para evaluarlos: puede ser un miembro nuevo, o que no fue alineado en el periodo. No es una alerta.</p></div></div>
+      <div class="tablebox"><table>${head}<tbody>${insu.map(m => row(m).replace('<td class="muted small">Ninguno</td>', `<td class="muted small">${esc(limit(m))}</td>`)).join("")}</tbody></table></div></section>` : ""}
+    <details class="card" style="margin-top:12px"><summary><b>Ver todos los miembros (${ms.length})</b></summary><div class="tablebox" style="margin-top:10px"><table>${head}<tbody>${ms.map(row).join("")}</tbody></table></div></details>
+    <div class="card" style="margin-top:12px"><h3>Cómo se calcula</h3><p class="muted small" style="margin:6px 0 0">Se cruzan tres modos con los datos que ya guarda el proyecto (sin consultas nuevas): <b>Guerras</b> (${cv.war ?? 0} en el periodo), <b>CWL</b> (${cv.cwl ?? 0} guerras de liga) y
+      <b>Asaltos de la Capital</b> (${cv.capital ?? 0} fines de semana). Por modo: ✓ participó en los últimos ${X} días · ✗ estuvo alineado o listado y no usó ataques · – no fue alineado, o el modo no tuvo eventos (no cuenta como falta).
+      <b>Sin participación registrada</b> = ningún ✓ y al menos un ✗. <b>Historial insuficiente</b> = ningún ✓ ni ✗. El umbral (${X} días) se cambia con <code>"inactivity_days"</code> en <code>config.json</code>.
+      El juego no informa cuándo se conectó cada jugador. Actualizado ${stamp(A.generated_at)}.</p></div>`;
+}
+
 /* ---------- Asaltos de la Capital: fines de semana de incursion ---------- */
 let CAP;   // undefined = cargando · null = sin datos
 async function loadCapital() {
@@ -1081,13 +1216,13 @@ function capTile(icon, title, big, sub, note) {
     <span class="cs">${sub}</span>${note ? `<span class="cn">${note}</span>` : ""}</div></div>`;
 }
 
-function capPodium(top, animate) {
+function capPodium(top, animate, sub = p => `${p.attacks} ${p.attacks === 1 ? "ataque" : "ataques"}`) {
   const order = [[2, "silver", "🥈"], [1, "gold", "🥇"], [3, "bronze", "🥉"]];
   const chips = order.map(([pos, cls, medal]) => {
     const p = top[pos - 1];
     if (!p) return `<div class="pchip ${cls} empty p${pos}"><span class="pn">–</span></div>`;
     return `<div class="pchip ${cls} p${pos}"><span class="pm">${medal}</span><span class="pn" title="${esc(p.name)}">${esc(p.name)}</span>
-      <span class="pg">${int(p.looted)}</span><span class="pa">${p.attacks} ${p.attacks === 1 ? "ataque" : "ataques"}</span>${pos === 1 ? '<i class="spark"></i>' : ""}</div>`;
+      <span class="pg">${int(p.looted)}</span><span class="pa">${sub(p)}</span>${pos === 1 ? '<i class="spark"></i>' : ""}</div>`;
   }).join("");
   return `<div class="podium${animate ? " go" : ""}" aria-label="Podio de oro saqueado">${chips}</div>`;
 }
@@ -1130,7 +1265,7 @@ function viewCapital() {
     <p class="muted small">El oro saqueado de cada jugador y las medallas del clan salen del registro de asaltos de Supercell. El oro aportado es un acumulado de por vida (no se puede separar por fin de semana) y son tres métricas distintas.</p>`;
 }
 
-const VIEWS = {clan: viewClan, scout: viewScout, resumen: viewResumen, perfil: viewPerfil, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, capital: viewCapital, guia: viewGuia};
+const VIEWS = {donaciones: viewDonaciones, inactivos: viewInactivos, clan: viewClan, scout: viewScout, resumen: viewResumen, perfil: viewPerfil, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, capital: viewCapital, guia: viewGuia};
 
 
 /* ---------- banners por pestana (ilustraciones propias; opcional: docs/img/banner-<pestana>.jpg) ---------- */
@@ -1161,6 +1296,7 @@ function render(opts = {}) {
   const v = $("#view");
   v.classList.toggle("quiet", quiet);
   if (state.tab !== "capital") state.capKey = null;
+  if (state.tab !== "donaciones") state.donKey = null;
   v.innerHTML = sceneHTML(state.tab) + VIEWS[state.tab]();
   bindScene(v);
   if (state.tab === "perfil") bindChart();
