@@ -5,7 +5,7 @@
  "type": "inviteOnly",
  "level": 14,
  "points": 88850,
- "bb_points": 29432,
+ "bb_points": 29481,
  "capital_points": 2819,
  "war_frequency": "always",
  "war_win_streak": 12,
@@ -110,7 +110,7 @@
    "role": "member",
    "th": 18,
    "exp": 232,
-   "trophies": 799,
+   "trophies": 813,
    "bb_trophies": 4791,
    "rank": 4,
    "donations": 2865,
@@ -149,7 +149,7 @@
    "role": "member",
    "th": 18,
    "exp": 230,
-   "trophies": 277,
+   "trophies": 303,
    "bb_trophies": 3411,
    "rank": 7,
    "donations": 1583,
@@ -162,7 +162,7 @@
    "role": "coLeader",
    "th": 17,
    "exp": 180,
-   "trophies": 61,
+   "trophies": 301,
    "bb_trophies": 3618,
    "rank": 8,
    "donations": 1799,
@@ -279,11 +279,11 @@
    "role": "member",
    "th": 15,
    "exp": 209,
-   "trophies": 230,
-   "bb_trophies": 3794,
+   "trophies": 249,
+   "bb_trophies": 3836,
    "rank": 17,
    "donations": 2301,
-   "received": 3754,
+   "received": 3920,
    "league": "Unranked"
   },
   {
@@ -291,11 +291,11 @@
    "name": "lucas",
    "role": "admin",
    "th": 17,
-   "exp": 185,
-   "trophies": 81,
+   "exp": 186,
+   "trophies": 561,
    "bb_trophies": 2829,
    "rank": 18,
-   "donations": 170,
+   "donations": 253,
    "received": 0,
    "league": "Unranked"
   },
@@ -319,9 +319,9 @@
    "th": 17,
    "exp": 182,
    "trophies": 274,
-   "bb_trophies": 3355,
+   "bb_trophies": 3411,
    "rank": 20,
-   "donations": 2729,
+   "donations": 2812,
    "received": 3108,
    "league": "Unranked"
   },
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-18T16:57:37Z"
+ "fetched": "2026-11-18T20:36:03Z"
 }
