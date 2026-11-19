@@ -84,7 +84,7 @@
    "role": "member",
    "th": 19,
    "exp": 220,
-   "trophies": 752,
+   "trophies": 777,
    "bb_trophies": 3800,
    "rank": 2,
    "donations": 5609,
@@ -110,10 +110,10 @@
    "role": "member",
    "th": 18,
    "exp": 232,
-   "trophies": 813,
+   "trophies": 839,
    "bb_trophies": 4791,
    "rank": 4,
-   "donations": 3043,
+   "donations": 3098,
    "received": 1866,
    "league": "Titan League I"
   },
@@ -140,7 +140,7 @@
    "bb_trophies": 3018,
    "rank": 6,
    "donations": 2141,
-   "received": 4186,
+   "received": 4241,
    "league": "Gold League II"
   },
   {
@@ -266,7 +266,7 @@
    "role": "admin",
    "th": 17,
    "exp": 151,
-   "trophies": 20,
+   "trophies": 32,
    "bb_trophies": 1818,
    "rank": 16,
    "donations": 927,
@@ -344,7 +344,7 @@
    "role": "admin",
    "th": 16,
    "exp": 171,
-   "trophies": 66,
+   "trophies": 146,
    "bb_trophies": 2697,
    "rank": 22,
    "donations": 1113,
@@ -421,7 +421,7 @@
    "name": "diego29",
    "role": "member",
    "th": 14,
-   "exp": 125,
+   "exp": 126,
    "trophies": 47,
    "bb_trophies": 2281,
    "rank": 28,
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-19T08:01:49Z"
+ "fetched": "2026-11-19T11:32:14Z"
 }
