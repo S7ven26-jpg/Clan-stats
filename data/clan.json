@@ -127,7 +127,7 @@
    "bb_trophies": 3018,
    "rank": 5,
    "donations": 2141,
-   "received": 4071,
+   "received": 4186,
    "league": "Gold League II"
   },
   {
@@ -227,10 +227,10 @@
    "role": "admin",
    "th": 17,
    "exp": 180,
-   "trophies": 98,
+   "trophies": 194,
    "bb_trophies": 2985,
    "rank": 13,
-   "donations": 186,
+   "donations": 237,
    "received": 0,
    "league": "Unranked"
   },
@@ -266,7 +266,7 @@
    "role": "admin",
    "th": 17,
    "exp": 151,
-   "trophies": 0,
+   "trophies": 20,
    "bb_trophies": 1818,
    "rank": 16,
    "donations": 927,
@@ -292,7 +292,7 @@
    "role": "admin",
    "th": 17,
    "exp": 186,
-   "trophies": 561,
+   "trophies": 592,
    "bb_trophies": 2829,
    "rank": 18,
    "donations": 253,
@@ -409,11 +409,11 @@
    "role": "admin",
    "th": 14,
    "exp": 134,
-   "trophies": 85,
+   "trophies": 140,
    "bb_trophies": 2299,
    "rank": 27,
-   "donations": 83,
-   "received": 234,
+   "donations": 195,
+   "received": 282,
    "league": "Unranked"
   },
   {
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-18T23:44:29Z"
+ "fetched": "2026-11-19T03:12:30Z"
 }

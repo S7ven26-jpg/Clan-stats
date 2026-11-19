@@ -114,15 +114,23 @@
  "opponent": {
   "tag": "#8GUR0YQY",
   "name": "Спартанцы",
-  "stars": 17,
-  "destruction": 58.5,
+  "stars": 20,
+  "destruction": 68.5,
   "members": [
    {
     "tag": "#QCQ88R9Q",
     "name": "КиА",
     "th": 17,
     "pos": 6,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 10,
+      "defender": "#GLVJLU020",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 158
+     }
+    ]
    },
    {
     "tag": "#20JLGC22U",
