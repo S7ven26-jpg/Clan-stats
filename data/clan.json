@@ -71,7 +71,7 @@
    "role": "coLeader",
    "th": 19,
    "exp": 221,
-   "trophies": 15,
+   "trophies": 31,
    "bb_trophies": 3972,
    "rank": 1,
    "donations": 5659,
@@ -84,7 +84,7 @@
    "role": "member",
    "th": 19,
    "exp": 220,
-   "trophies": 777,
+   "trophies": 792,
    "bb_trophies": 3800,
    "rank": 2,
    "donations": 5609,
@@ -100,7 +100,7 @@
    "trophies": 0,
    "bb_trophies": 2486,
    "rank": 3,
-   "donations": 6579,
+   "donations": 7074,
    "received": 3914,
    "league": "Unranked"
   },
@@ -118,6 +118,19 @@
    "league": "Titan League I"
   },
   {
+   "tag": "#GCG2PYY2R",
+   "name": "Greeyhawk",
+   "role": "coLeader",
+   "th": 18,
+   "exp": 175,
+   "trophies": 10,
+   "bb_trophies": 3018,
+   "rank": 5,
+   "donations": 2141,
+   "received": 4296,
+   "league": "Gold League II"
+  },
+  {
    "tag": "#QCPVC0GU0",
    "name": "Abusamadres",
    "role": "coLeader",
@@ -125,23 +138,10 @@
    "exp": 176,
    "trophies": 8,
    "bb_trophies": 3123,
-   "rank": 5,
+   "rank": 6,
    "donations": 813,
    "received": 366,
    "league": "Unranked"
-  },
-  {
-   "tag": "#GCG2PYY2R",
-   "name": "Greeyhawk",
-   "role": "coLeader",
-   "th": 18,
-   "exp": 175,
-   "trophies": 0,
-   "bb_trophies": 3018,
-   "rank": 6,
-   "donations": 2141,
-   "received": 4241,
-   "league": "Gold League II"
   },
   {
    "tag": "#QUC2L8QRP",
@@ -149,11 +149,11 @@
    "role": "coLeader",
    "th": 17,
    "exp": 180,
-   "trophies": 354,
+   "trophies": 474,
    "bb_trophies": 3618,
    "rank": 7,
    "donations": 1803,
-   "received": 2419,
+   "received": 2476,
    "league": "Unranked"
   },
   {
@@ -175,11 +175,11 @@
    "role": "admin",
    "th": 16,
    "exp": 133,
-   "trophies": 18,
+   "trophies": 260,
    "bb_trophies": 1970,
    "rank": 9,
-   "donations": 969,
-   "received": 2492,
+   "donations": 1024,
+   "received": 2987,
    "league": "Unranked"
   },
   {
@@ -191,7 +191,7 @@
    "trophies": 543,
    "bb_trophies": 3951,
    "rank": 10,
-   "donations": 608,
+   "donations": 623,
    "received": 196,
    "league": "Unranked"
   },
@@ -227,10 +227,10 @@
    "role": "admin",
    "th": 17,
    "exp": 180,
-   "trophies": 194,
+   "trophies": 208,
    "bb_trophies": 2985,
    "rank": 13,
-   "donations": 239,
+   "donations": 281,
    "received": 0,
    "league": "Unranked"
   },
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-19T14:53:59Z"
+ "fetched": "2026-11-19T16:57:53Z"
 }
