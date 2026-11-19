@@ -153,7 +153,7 @@
    "bb_trophies": 3618,
    "rank": 7,
    "donations": 1803,
-   "received": 2389,
+   "received": 2419,
    "league": "Unranked"
   },
   {
@@ -165,7 +165,7 @@
    "trophies": 325,
    "bb_trophies": 3411,
    "rank": 8,
-   "donations": 1583,
+   "donations": 1613,
    "received": 882,
    "league": "Unranked"
   },
@@ -188,7 +188,7 @@
    "role": "admin",
    "th": 17,
    "exp": 156,
-   "trophies": 528,
+   "trophies": 543,
    "bb_trophies": 3951,
    "rank": 10,
    "donations": 608,
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-19T04:22:09Z"
+ "fetched": "2026-11-19T08:01:49Z"
 }
