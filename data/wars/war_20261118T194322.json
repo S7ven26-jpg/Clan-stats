@@ -116,14 +116,44 @@
     "name": "8A2",
     "th": 16,
     "pos": 9,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 24,
+      "defender": "#Q08R0P292",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 102
+     },
+     {
+      "order": 26,
+      "defender": "#20JLGC22U",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 108
+     }
+    ]
    },
    {
     "tag": "#R2C8PUVQJ",
     "name": "8A",
     "th": 18,
     "pos": 4,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 22,
+      "defender": "#LCU0UL8PC",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 110
+     },
+     {
+      "order": 23,
+      "defender": "#20JLGC22U",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 111
+     }
+    ]
    },
    {
     "tag": "#R20CGVRQQ",
@@ -144,6 +174,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 143
+     },
+     {
+      "order": 25,
+      "defender": "#9Y9CG8VQQ",
+      "stars": 2,
+      "destruction": 79,
+      "duration": 180
      }
     ]
    },
