@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 9,
-  "destruction": 30.0,
+  "stars": 15,
+  "destruction": 50.0,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -64,7 +64,22 @@
     "name": "lamb",
     "th": 17,
     "pos": 8,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 11,
+      "defender": "#GJYR2888U",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 66
+     },
+     {
+      "order": 12,
+      "defender": "#Q08R0P292",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 77
+     }
+    ]
    },
    {
     "tag": "#R0GVRJ00C",
@@ -114,8 +129,8 @@
  "opponent": {
   "tag": "#8GUR0YQY",
   "name": "Спартанцы",
-  "stars": 20,
-  "destruction": 68.5,
+  "stars": 22,
+  "destruction": 77.8,
   "members": [
    {
     "tag": "#QCQ88R9Q",
@@ -129,6 +144,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 158
+     },
+     {
+      "order": 13,
+      "defender": "#GVYPV8PJG",
+      "stars": 2,
+      "destruction": 93,
+      "duration": 180
      }
     ]
    },
