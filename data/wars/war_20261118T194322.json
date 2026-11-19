@@ -129,8 +129,8 @@
  "opponent": {
   "tag": "#8GUR0YQY",
   "name": "Спартанцы",
-  "stars": 22,
-  "destruction": 77.8,
+  "stars": 26,
+  "destruction": 88.5,
   "members": [
    {
     "tag": "#QCQ88R9Q",
@@ -253,7 +253,22 @@
     "name": "Байэл",
     "th": 16,
     "pos": 7,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 14,
+      "defender": "#GVYPV8PJG",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 151
+     },
+     {
+      "order": 15,
+      "defender": "#R0GVRJ00C",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 169
+     }
+    ]
    },
    {
     "tag": "#LCU0UL8PC",
