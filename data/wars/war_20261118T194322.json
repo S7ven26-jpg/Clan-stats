@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 27,
-  "destruction": 90.0,
+  "stars": 30,
+  "destruction": 100.0,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -152,7 +152,15 @@
     "name": "kevin daniel",
     "th": 19,
     "pos": 2,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 21,
+      "defender": "#LCU0UL8PC",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 132
+     }
+    ]
    }
   ]
  },
