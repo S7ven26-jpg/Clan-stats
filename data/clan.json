@@ -5,11 +5,11 @@
  "type": "inviteOnly",
  "level": 14,
  "points": 88850,
- "bb_points": 29481,
+ "bb_points": 29498,
  "capital_points": 2819,
  "war_frequency": "always",
- "war_win_streak": 12,
- "war_wins": 64,
+ "war_win_streak": 13,
+ "war_wins": 65,
  "war_ties": 17,
  "war_losses": 30,
  "war_log_public": true,
@@ -71,11 +71,11 @@
    "role": "coLeader",
    "th": 19,
    "exp": 221,
-   "trophies": 31,
+   "trophies": 61,
    "bb_trophies": 3972,
    "rank": 1,
    "donations": 5659,
-   "received": 3289,
+   "received": 3328,
    "league": "Unranked"
   },
   {
@@ -87,7 +87,7 @@
    "trophies": 792,
    "bb_trophies": 3800,
    "rank": 2,
-   "donations": 5609,
+   "donations": 6169,
    "received": 3907,
    "league": "Titan League I"
   },
@@ -97,7 +97,7 @@
    "role": "coLeader",
    "th": 18,
    "exp": 174,
-   "trophies": 0,
+   "trophies": 714,
    "bb_trophies": 2486,
    "rank": 3,
    "donations": 7074,
@@ -113,8 +113,8 @@
    "trophies": 839,
    "bb_trophies": 4791,
    "rank": 4,
-   "donations": 3113,
-   "received": 1923,
+   "donations": 3224,
+   "received": 2039,
    "league": "Titan League I"
   },
   {
@@ -123,7 +123,7 @@
    "role": "coLeader",
    "th": 18,
    "exp": 175,
-   "trophies": 10,
+   "trophies": 19,
    "bb_trophies": 3018,
    "rank": 5,
    "donations": 2141,
@@ -149,11 +149,11 @@
    "role": "coLeader",
    "th": 17,
    "exp": 180,
-   "trophies": 474,
+   "trophies": 493,
    "bb_trophies": 3618,
    "rank": 7,
    "donations": 1803,
-   "received": 2476,
+   "received": 2506,
    "league": "Unranked"
   },
   {
@@ -162,7 +162,7 @@
    "role": "member",
    "th": 18,
    "exp": 230,
-   "trophies": 325,
+   "trophies": 334,
    "bb_trophies": 3411,
    "rank": 8,
    "donations": 1613,
@@ -175,11 +175,11 @@
    "role": "admin",
    "th": 16,
    "exp": 133,
-   "trophies": 260,
+   "trophies": 500,
    "bb_trophies": 1970,
    "rank": 9,
-   "donations": 1024,
-   "received": 2987,
+   "donations": 1085,
+   "received": 3481,
    "league": "Unranked"
   },
   {
@@ -318,8 +318,8 @@
    "role": "member",
    "th": 17,
    "exp": 182,
-   "trophies": 354,
-   "bb_trophies": 3411,
+   "trophies": 371,
+   "bb_trophies": 3444,
    "rank": 20,
    "donations": 2842,
    "received": 3108,
@@ -400,7 +400,7 @@
    "bb_trophies": 1977,
    "rank": 26,
    "donations": 0,
-   "received": 2165,
+   "received": 2218,
    "league": "Unranked"
   },
   {
@@ -409,7 +409,7 @@
    "role": "admin",
    "th": 14,
    "exp": 134,
-   "trophies": 140,
+   "trophies": 180,
    "bb_trophies": 2299,
    "rank": 27,
    "donations": 195,
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-19T16:57:53Z"
+ "fetched": "2026-11-19T20:51:46Z"
 }
