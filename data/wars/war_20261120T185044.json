@@ -142,7 +142,7 @@
   "tag": "#VU8V0R9C",
   "name": "les 2 roues",
   "stars": 5,
-  "destruction": 16.6,
+  "destruction": 20.93,
   "members": [
    {
     "tag": "#G9RLVP90R",
@@ -227,7 +227,22 @@
     "name": "ANKO",
     "th": 10,
     "pos": 15,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 7,
+      "defender": "#GG2GGQ80V",
+      "stars": 0,
+      "destruction": 48,
+      "duration": 102
+     },
+     {
+      "order": 8,
+      "defender": "#R8U0YL9LL",
+      "stars": 0,
+      "destruction": 17,
+      "duration": 33
+     }
+    ]
    },
    {
     "tag": "#LG99VPRPJ",
