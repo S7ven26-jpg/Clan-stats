@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 0,
-  "destruction": 0,
+  "stars": 6,
+  "destruction": 13.33,
   "members": [
    {
     "tag": "#QV82CU9RV",
@@ -90,7 +90,15 @@
     "name": "8A",
     "th": 18,
     "pos": 6,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 2,
+      "defender": "#LG99VPRPJ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 121
+     }
+    ]
    },
    {
     "tag": "#R8U0YL9LL",
@@ -118,15 +126,23 @@
     "name": "8A3",
     "th": 13,
     "pos": 15,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 3,
+      "defender": "#LQQG90GCU",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 71
+     }
+    ]
    }
   ]
  },
  "opponent": {
   "tag": "#VU8V0R9C",
   "name": "les 2 roues",
-  "stars": 0,
-  "destruction": 0,
+  "stars": 3,
+  "destruction": 6.67,
   "members": [
    {
     "tag": "#G9RLVP90R",
@@ -231,7 +247,15 @@
     "name": "Max de Tall",
     "th": 17,
     "pos": 5,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 1,
+      "defender": "#GCG2PYY2R",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 153
+     }
+    ]
    }
   ]
  }
