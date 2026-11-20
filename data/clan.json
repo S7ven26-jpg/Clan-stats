@@ -187,7 +187,7 @@
    "name": "lamb",
    "role": "admin",
    "th": 17,
-   "exp": 156,
+   "exp": 157,
    "trophies": 543,
    "bb_trophies": 3951,
    "rank": 10,
@@ -266,7 +266,7 @@
    "role": "admin",
    "th": 17,
    "exp": 151,
-   "trophies": 57,
+   "trophies": 87,
    "bb_trophies": 1818,
    "rank": 16,
    "donations": 927,
@@ -422,7 +422,7 @@
    "role": "member",
    "th": 14,
    "exp": 126,
-   "trophies": 127,
+   "trophies": 145,
    "bb_trophies": 2281,
    "rank": 28,
    "donations": 32,
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-20T00:26:50Z"
+ "fetched": "2026-11-20T03:48:14Z"
 }
