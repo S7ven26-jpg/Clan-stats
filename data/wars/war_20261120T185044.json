@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 6,
-  "destruction": 13.33,
+  "stars": 12,
+  "destruction": 26.67,
   "members": [
    {
     "tag": "#QV82CU9RV",
@@ -27,7 +27,15 @@
     "name": "lucas",
     "th": 17,
     "pos": 8,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 9,
+      "defender": "#8Q9GQP0J0",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 76
+     }
+    ]
    },
    {
     "tag": "#GLVJLU020",
@@ -119,7 +127,15 @@
     "name": "kevin daniel",
     "th": 19,
     "pos": 2,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 10,
+      "defender": "#99U9R2202",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 120
+     }
+    ]
    },
    {
     "tag": "#GG2GGQ80V",
