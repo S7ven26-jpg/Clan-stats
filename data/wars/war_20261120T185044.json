@@ -141,8 +141,8 @@
  "opponent": {
   "tag": "#VU8V0R9C",
   "name": "les 2 roues",
-  "stars": 3,
-  "destruction": 6.67,
+  "stars": 5,
+  "destruction": 16.6,
   "members": [
    {
     "tag": "#G9RLVP90R",
@@ -184,7 +184,22 @@
     "name": "NVK",
     "th": 19,
     "pos": 3,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 4,
+      "defender": "#P0YRJCV",
+      "stars": 1,
+      "destruction": 59,
+      "duration": 109
+     },
+     {
+      "order": 5,
+      "defender": "#2U8JYG9V8",
+      "stars": 1,
+      "destruction": 90,
+      "duration": 136
+     }
+    ]
    },
    {
     "tag": "#YQ99P2JU8",
@@ -219,7 +234,15 @@
     "name": "=NVK=",
     "th": 18,
     "pos": 6,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 6,
+      "defender": "#2U8JYG9V8",
+      "stars": 1,
+      "destruction": 74,
+      "duration": 133
+     }
+    ]
    },
    {
     "tag": "#C9YL8GUG",
