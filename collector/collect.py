@@ -13,7 +13,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -147,7 +147,7 @@ def is_final(path):
         return False
 
 
-def collect_regular():
+def _collect_regular():
     raw = api_get(f"/clans/{enc(CLAN)}/currentwar")
     if not raw:
         print("Guerra normal: no hay datos.")
@@ -173,6 +173,53 @@ def collect_regular():
         print(f"Guerra {wid}: guardada ({state}).")
     else:
         print(f"Guerra {wid}: sin cambios.")
+
+
+def _utc(s):
+    return datetime.strptime(s[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
+
+
+def collect_regular():
+    try:
+        _collect_regular()
+    finally:
+        close_stale_wars()
+
+
+def close_stale_wars():
+    """Cierra guerras que ya pasaron su hora de fin pero nunca se vieron como 'warEnded'.
+    Pasa cuando el clan empieza otra busqueda antes de que el colector consulte: el API deja de mostrar la guerra vieja y quedaria 'En curso' para siempre.
+    Intenta confirmar estrellas y % finales con el registro de guerras (si el clan lo tiene publico); si no, deja los datos de la ultima captura."""
+    now = datetime.now(timezone.utc)
+    log = None
+    for p in sorted((DATA / "wars").glob("war_*.json")):
+        try:
+            w = json.loads(p.read_text(encoding="utf-8"))
+        except ValueError:
+            continue
+        if w.get("state") == "warEnded" or not w.get("end") or _utc(w["end"]) > now - timedelta(minutes=2):
+            continue
+        if log is None:
+            try:
+                log = (api_get(f"/clans/{enc(CLAN)}/warlog?limit=20") or {}).get("items", [])
+            except ApiError as e:
+                print(f"Registro de guerras no disponible ({e}); se cierra con la ultima captura.")
+                log = []
+        hit = next((i for i in log if (i.get("opponent") or {}).get("tag", "").upper() == w["opponent"]["tag"].upper()
+                    and i.get("endTime") and abs((_utc(iso(i["endTime"])) - _utc(w["end"])).total_seconds()) < 900), None)
+        w["state"] = "warEnded"
+        if hit:
+            w["closed_by"] = "warlog"
+            for side, key in (("clan", "clan"), ("opponent", "opponent")):
+                s = hit.get(key) or {}
+                if s.get("stars") is not None:
+                    w[side]["stars"] = s["stars"]
+                if s.get("destructionPercentage") is not None:
+                    w[side]["destruction"] = round(float(s["destructionPercentage"]), 2)
+        else:
+            w["closed_by"] = "tiempo"   # estrellas y ataques son los de la ultima captura: puede faltar algo del final
+        save_json(p, w)
+        print(f"Guerra {w['id']}: cerrada ({w['closed_by']}).")
 
 
 def lineup_of(raw, idx, war_tag=None):
