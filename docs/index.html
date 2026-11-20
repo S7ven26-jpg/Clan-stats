@@ -768,7 +768,7 @@ function viewJugadores() {
 
 function viewGuerras() {
   const l = wars().filter(w => w.type === "war");
-  return l.length ? l.map(warCard).join("") : '<div class="empty">No hay guerras normales registradas en este periodo.</div>';
+  return warShareCard() + (l.length ? l.map(warCard).join("") : '<div class="empty">No hay guerras normales registradas en este periodo.</div>');
 }
 
 function viewCwl() {
@@ -814,6 +814,7 @@ function viewGuia() {
   <p><b>Donaciones:</b> tropas donadas y recibidas por miembro en la temporada, con los mejores donadores y quiénes reciben sin devolver.</p>
   <p><b>Inactivos:</b> ayuda para líderes: cruza ataques de guerra, asaltos de la Capital y donaciones de los últimos 30 días. La pestaña explica cómo se calcula.</p>
   <p><b>Lineup rival (pestaña Scouting CWL):</b> en cuanto Supercell publica la alineación de una ronda (preparación), «Próximo rival» muestra el rival, la cuenta regresiva y las dos alineaciones por posición del mapa y por ayuntamiento. Puedes consultar la ronda activa y las finalizadas. Se actualiza cada ~20 minutos.</p>
+  <p><b>Resumen de guerra (pestaña Guerras):</b> elige una guerra terminada y descarga o comparte su tarjeta con el resultado, el MVP y los mejores atacantes.</p>
   <p><b>Resumen de temporada (pestaña CWL):</b> cuando la liga termina (7 rondas guardadas) aparece una tarjeta con el MVP, los resultados y los mejores donadores. «Compartir» abre el menú del móvil para elegir WhatsApp; si el navegador no puede, descarga el PNG.</p>
   <p><b>Calendario (Inicio):</b> cuenta regresiva del fin de la guerra actual, del próximo asalto de la Capital y de la próxima CWL, con la hora en tu zona. La guerra sale de los datos del colector; las fechas del asalto y de la CWL se calculan solo si el historial confirma la regla, y si no, dicen «Fecha por confirmar».</p>
   <p><b>Salón de la fama:</b> cuatro récords del clan con la fecha desde la que hay registros. <b>Tendencias:</b> trofeos, miembros y TH promedio con una captura por semana (UTC); las semanas sin captura se ven como huecos.</p>
@@ -1485,6 +1486,57 @@ document.addEventListener("click", async e => {
   } catch (err) { if (err && err.name !== "AbortError") say("No se pudo completar la acción. Intenta con «Descargar PNG»."); }
 });
 
+/* ---------- Resumen de guerra normal para compartir ---------- */
+function warShareList() { return wars().filter(w => w.type === "war" && w.state === "warEnded").sort((a, b) => a.start < b.start ? 1 : -1); }
+function warShareSel() { const l = warShareList(); return l.find(w => w.id === state.warPick) || l[0] || null; }
+const slug = t => (String(t).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")) || "rival";
+const RES = {win: "Victoria", lose: "Derrota", tie: "Empate"};
+function warShareCard() {
+  const l = warShareList(); if (!l.length) return "";
+  const w = warShareSel();
+  return `<section class="sharesec"><h2>Resumen de guerra para compartir</h2>
+    <p class="muted small" style="margin:0 0 10px">Elige una guerra terminada y manda la tarjeta al grupo.</p>
+    <div class="sharewrap"><canvas id="warCanvas" width="1080" height="1350" role="img" aria-label="Resumen de la guerra contra ${esc(w.opponent.name)}"></canvas>
+    <div><label class="small muted" for="warPick">Guerra</label><br><select id="warPick" class="sel">${l.map(x => `<option value="${esc(x.id)}"${x.id === w.id ? " selected" : ""}>${esc(shortDate(x.start))} · vs ${esc(x.opponent.name)} · ${RES[x.result] || "Terminada"}</option>`).join("")}</select>
+    <div class="sharebtns" style="margin-top:12px"><button id="warDlBtn" class="btn gold">⬇️ Descargar PNG</button><button id="warShareBtn" class="btn">📤 Compartir</button></div><p id="warMsg" class="small muted" role="status"></p>
+    <p class="muted small">Estrellas y destrucción son las del resultado de la guerra. El MVP y los mejores atacantes salen del cálculo de puntos del sitio, con los ataques que el colector alcanzó a guardar.</p></div></div></section>`;
+}
+async function drawWarShare() {
+  const cv = document.getElementById("warCanvas"); if (!cv) return;
+  const w = warShareSel(); if (!w) return;
+  const ctx = cv.getContext("2d"), F = "Inter, system-ui, -apple-system, Segoe UI, sans-serif";
+  const bg = await new Promise(r => { const i = new Image(); i.onload = () => r(i); i.onerror = () => r(null); i.src = "img/plantilla-resumen-cwl.jpg"; });
+  if (document.fonts) await document.fonts.ready;
+  if (!document.getElementById("warCanvas") || !bg || warShareSel().id !== w.id) return;
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(bg, 0, 0, 1080, 1350); ctx.scale(1080 / 1122, 1350 / 1402);
+  const fit = (t, mw) => { t = String(t); while (ctx.measureText(t).width > mw && t.length > 1) t = t.slice(0, -2) + "…"; return t; };
+  const T = (t, x, y, font, color, align = "left", mw = 0) => { ctx.font = font; ctx.fillStyle = color; ctx.textAlign = align; ctx.fillText(mw ? fit(t, mw) : t, x, y); };
+  const G = "#ffcf5a", W = "#ffffff", M = "#a9b8e6", R = 1062, L = 292, pct = v => v == null ? "—" : `${fmt(v, 1)} %`;
+  T("Resumen de guerra", 138, 132, `700 31px ${F}`, G, "left", 430); T("Arepa con queso", 138, 206, `800 50px ${F}`, W, "left", 440);
+  T(`vs ${w.opponent.name}`, 138, 266, `700 34px ${F}`, G, "left", 430); T(`${shortDate(w.start)} · ${w.team_size} vs ${w.team_size}`, 138, 312, `600 25px ${F}`, M, "left", 430);
+  const mv = w.mvp, ln = mv && (w.lines || []).find(x => x.tag === mv.tag);
+  T("MVP de la guerra", L, 556, `800 32px ${F}`, G);
+  if (mv) { T(mv.name, L, 624, `800 54px ${F}`, W, "left", R - L); T(`${ln ? ln.stars + " ⭐ · " : ""}${fmt(mv.score, 1)} pts`, L, 668, `700 30px ${F}`, M); } else T("Sin datos de MVP", L, 624, `700 40px ${F}`, M);
+  T("Resultado de la guerra", L, 776, `800 32px ${F}`, G);
+  const row = (y, lab, val, col = W) => { T(lab, L, y, `600 28px ${F}`, M); T(val, R, y, `800 34px ${F}`, col, "right", 560); };
+  row(826, "Resultado", RES[w.result] || "Sin resultado", G); row(874, "Estrellas", `${w.stars} ⭐ vs ${w.opp_stars} ⭐`); row(922, "Destrucción", `${pct(w.destruction)} vs ${pct(w.opp_destruction)}`);
+  T("Mejores atacantes", L, 1038, `800 32px ${F}`, G); T("Por puntos MVP de esta guerra", L, 1076, `600 23px ${F}`, M);
+  const top = (w.podium || []).slice(0, 3);
+  if (top.length) top.forEach((p, i) => { const y = 1146 + i * 62, l2 = (w.lines || []).find(x => x.tag === p.tag); T(["1.º", "2.º", "3.º"][i], L, y, `800 34px ${F}`, G); T(p.name, L + 66, y, `800 38px ${F}`, W, "left", 400); T(`${l2 ? l2.stars + " ⭐ · " : ""}${fmt(p.score, 1)} pts`, R, y, `700 30px ${F}`, G, "right"); });
+  else T("Sin datos de ataques", (L + R) / 2, 1170, `700 38px ${F}`, M, "center");
+}
+document.addEventListener("change", e => { if (e.target.id === "warPick") { state.warPick = e.target.value; render({quiet: true}); } });
+document.addEventListener("click", async e => {
+  const b = e.target.closest("#warShareBtn, #warDlBtn"); if (!b) return;
+  const msg = document.getElementById("warMsg"), say = t => { msg.textContent = t; }, w = warShareSel(), name = `arepa-con-queso-guerra-${w.start.slice(0, 10)}-vs-${slug(w.opponent.name)}.png`;
+  try {
+    const blob = await new Promise(r => document.getElementById("warCanvas").toBlob(r, "image/png")), file = new File([blob], name, {type: "image/png"});
+    if (b.id === "warShareBtn" && navigator.canShare && navigator.canShare({files: [file]})) { await navigator.share({files: [file], title: `Guerra vs ${w.opponent.name}`}); return; }
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    say(b.id === "warShareBtn" ? "Este navegador no puede compartir archivos: se descargó el PNG para que lo envíes." : "PNG descargado.");
+  } catch (err) { if (err && err.name !== "AbortError") say("No se pudo completar la acción. Intenta con «Descargar PNG»."); }
+});
+
 /* ---------- Asaltos de la Capital: fines de semana de incursion ---------- */
 let CAP;   // undefined = cargando · null = sin datos
 async function loadCapital() {
@@ -1605,6 +1657,7 @@ function render(opts = {}) {
   bindScene(v);
   if (state.tab === "perfil") bindChart();
   if (state.tab === "cwl") drawShare();
+  if (state.tab === "guerras") drawWarShare();
   if (!quiet) { countUp(v); celebrate(v); }
 }
 
