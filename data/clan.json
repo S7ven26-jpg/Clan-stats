@@ -5,7 +5,7 @@
  "type": "inviteOnly",
  "level": 14,
  "points": 88850,
- "bb_points": 29498,
+ "bb_points": 29483,
  "capital_points": 2819,
  "war_frequency": "always",
  "war_win_streak": 13,
@@ -75,7 +75,7 @@
    "bb_trophies": 3972,
    "rank": 1,
    "donations": 5659,
-   "received": 3328,
+   "received": 3383,
    "league": "Unranked"
   },
   {
@@ -84,7 +84,7 @@
    "role": "member",
    "th": 19,
    "exp": 220,
-   "trophies": 792,
+   "trophies": 805,
    "bb_trophies": 3800,
    "rank": 2,
    "donations": 6169,
@@ -113,7 +113,7 @@
    "trophies": 839,
    "bb_trophies": 4791,
    "rank": 4,
-   "donations": 3224,
+   "donations": 3310,
    "received": 2039,
    "league": "Titan League I"
   },
@@ -149,11 +149,11 @@
    "role": "coLeader",
    "th": 17,
    "exp": 180,
-   "trophies": 493,
+   "trophies": 546,
    "bb_trophies": 3618,
    "rank": 7,
    "donations": 1803,
-   "received": 2506,
+   "received": 2594,
    "league": "Unranked"
   },
   {
@@ -280,9 +280,9 @@
    "th": 15,
    "exp": 209,
    "trophies": 249,
-   "bb_trophies": 3836,
+   "bb_trophies": 3806,
    "rank": 17,
-   "donations": 2301,
+   "donations": 2369,
    "received": 3920,
    "league": "Unranked"
   },
@@ -321,8 +321,8 @@
    "trophies": 371,
    "bb_trophies": 3444,
    "rank": 20,
-   "donations": 2842,
-   "received": 3108,
+   "donations": 2844,
+   "received": 3188,
    "league": "Unranked"
   },
   {
@@ -344,10 +344,10 @@
    "role": "admin",
    "th": 16,
    "exp": 171,
-   "trophies": 146,
+   "trophies": 186,
    "bb_trophies": 2697,
    "rank": 22,
-   "donations": 1113,
+   "donations": 1168,
    "received": 0,
    "league": "Unranked"
   },
@@ -422,10 +422,10 @@
    "role": "member",
    "th": 14,
    "exp": 126,
-   "trophies": 47,
+   "trophies": 127,
    "bb_trophies": 2281,
    "rank": 28,
-   "donations": 20,
+   "donations": 32,
    "received": 0,
    "league": "Unranked"
   },
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-19T20:51:46Z"
+ "fetched": "2026-11-20T00:26:50Z"
 }
