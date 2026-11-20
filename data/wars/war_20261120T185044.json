@@ -1,0 +1,238 @@
+{
+ "id": "war_20261120T185044",
+ "type": "war",
+ "season": "2026-11",
+ "round": null,
+ "war_tag": null,
+ "state": "inWar",
+ "start": "2026-11-20T18:50:44Z",
+ "end": "2026-11-21T18:50:44Z",
+ "team_size": 15,
+ "attacks_per_member": 2,
+ "clan": {
+  "tag": "#2RP29GPCG",
+  "name": "Arepa con queso",
+  "stars": 0,
+  "destruction": 0,
+  "members": [
+   {
+    "tag": "#QV82CU9RV",
+    "name": "ANGELTRE#",
+    "th": 16,
+    "pos": 12,
+    "attacks": []
+   },
+   {
+    "tag": "#QRUR00J0P",
+    "name": "lucas",
+    "th": 17,
+    "pos": 8,
+    "attacks": []
+   },
+   {
+    "tag": "#GLVJLU020",
+    "name": "×{•KAISER•}×",
+    "th": 17,
+    "pos": 9,
+    "attacks": []
+   },
+   {
+    "tag": "#8CQQG8J88",
+    "name": "ZOM3R",
+    "th": 18,
+    "pos": 3,
+    "attacks": []
+   },
+   {
+    "tag": "#P0YRJCV",
+    "name": "S7ven26",
+    "th": 19,
+    "pos": 1,
+    "attacks": []
+   },
+   {
+    "tag": "#GRG9V2YCG",
+    "name": "Siegfried",
+    "th": 16,
+    "pos": 13,
+    "attacks": []
+   },
+   {
+    "tag": "#GCG2PYY2R",
+    "name": "Greeyhawk",
+    "th": 18,
+    "pos": 5,
+    "attacks": []
+   },
+   {
+    "tag": "#GVYPV8PJG",
+    "name": "lamb",
+    "th": 17,
+    "pos": 10,
+    "attacks": []
+   },
+   {
+    "tag": "#R0GVRJ00C",
+    "name": "8A2",
+    "th": 16,
+    "pos": 11,
+    "attacks": []
+   },
+   {
+    "tag": "#8LR9GY8V9",
+    "name": "Andrewx0202",
+    "th": 18,
+    "pos": 4,
+    "attacks": []
+   },
+   {
+    "tag": "#R2C8PUVQJ",
+    "name": "8A",
+    "th": 18,
+    "pos": 6,
+    "attacks": []
+   },
+   {
+    "tag": "#R8U0YL9LL",
+    "name": "Kelsier",
+    "th": 15,
+    "pos": 14,
+    "attacks": []
+   },
+   {
+    "tag": "#QUC2L8QRP",
+    "name": "pipemono",
+    "th": 17,
+    "pos": 7,
+    "attacks": []
+   },
+   {
+    "tag": "#2U8JYG9V8",
+    "name": "kevin daniel",
+    "th": 19,
+    "pos": 2,
+    "attacks": []
+   },
+   {
+    "tag": "#GG2GGQ80V",
+    "name": "8A3",
+    "th": 13,
+    "pos": 15,
+    "attacks": []
+   }
+  ]
+ },
+ "opponent": {
+  "tag": "#VU8V0R9C",
+  "name": "les 2 roues",
+  "stars": 0,
+  "destruction": 0,
+  "members": [
+   {
+    "tag": "#G9RLVP90R",
+    "name": "baygonix",
+    "th": 16,
+    "pos": 12,
+    "attacks": []
+   },
+   {
+    "tag": "#PYY88J9P",
+    "name": "Codex",
+    "th": 16,
+    "pos": 13,
+    "attacks": []
+   },
+   {
+    "tag": "#2PYVJQPVG",
+    "name": "AyRoN",
+    "th": 17,
+    "pos": 7,
+    "attacks": []
+   },
+   {
+    "tag": "#8Q9GQP0J0",
+    "name": "tom",
+    "th": 17,
+    "pos": 8,
+    "attacks": []
+   },
+   {
+    "tag": "#2YJ8LPP22",
+    "name": "✨KingJulliann✨",
+    "th": 18,
+    "pos": 4,
+    "attacks": []
+   },
+   {
+    "tag": "#2YL2V00GR",
+    "name": "NVK",
+    "th": 19,
+    "pos": 3,
+    "attacks": []
+   },
+   {
+    "tag": "#YQ99P2JU8",
+    "name": "AyRoNN",
+    "th": 14,
+    "pos": 14,
+    "attacks": []
+   },
+   {
+    "tag": "#LYLPQCU8G",
+    "name": "roro⚔️",
+    "th": 17,
+    "pos": 9,
+    "attacks": []
+   },
+   {
+    "tag": "#99U9R2202",
+    "name": "Kevin 86",
+    "th": 18,
+    "pos": 2,
+    "attacks": []
+   },
+   {
+    "tag": "#LQQG90GCU",
+    "name": "ANKO",
+    "th": 10,
+    "pos": 15,
+    "attacks": []
+   },
+   {
+    "tag": "#LG99VPRPJ",
+    "name": "=NVK=",
+    "th": 18,
+    "pos": 6,
+    "attacks": []
+   },
+   {
+    "tag": "#C9YL8GUG",
+    "name": "RA Kezzz",
+    "th": 16,
+    "pos": 11,
+    "attacks": []
+   },
+   {
+    "tag": "#2Q2QPCG2U",
+    "name": "M.A.G.A.S.T.",
+    "th": 19,
+    "pos": 1,
+    "attacks": []
+   },
+   {
+    "tag": "#LPLYJ9QPG",
+    "name": "arouf gangsta",
+    "th": 16,
+    "pos": 10,
+    "attacks": []
+   },
+   {
+    "tag": "#90CYUYGVJ",
+    "name": "Max de Tall",
+    "th": 17,
+    "pos": 5,
+    "attacks": []
+   }
+  ]
+ }
+}
