@@ -538,7 +538,7 @@ tr.me td{background:rgba(255,207,90,.12)}
 .co-detail{animation:coIn .28s ease-out}@keyframes coIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 .co-ban{margin:0 0 12px;aspect-ratio:2/1;border-radius:14px;overflow:hidden;background:#0a1230;border:1px solid var(--line);box-shadow:var(--shadow)}
 .co-ban img{display:block;width:100%;height:100%;object-fit:cover;object-position:100% 50%}
-@media (max-width:600px){.co-ban{aspect-ratio:4/3;margin-bottom:10px}}
+@media (max-width:600px){.co-ban{aspect-ratio:var(--mar,4/3);margin-bottom:10px}}
 .co-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.co-msg{margin:6px 0 0;color:#7be0ae;min-height:1em}
 /* actividad y donaciones / alerta de inactividad */
 .hero2{position:relative;overflow:hidden;border-radius:22px;margin:0 0 16px;height:clamp(250px,30vw,340px);background:#010f37;container-type:size;box-shadow:0 10px 30px rgba(0,0,0,.35)}
@@ -1555,7 +1555,7 @@ document.addEventListener("click", async e => {
 /* ---------- Coaching (mejores ejércitos por TH) ---------- */
 const CO_TH = [19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8];
 /* Banner por ficha: campo "banner" del JSON (ruta bajo img/coaching/), así cada TH tiene sus propias imágenes aunque repita nombre. Decorativo. */
-const coBanner = a => a.banner && /^[\w\/-]+\.webp$/.test(a.banner) ? `<figure class="co-ban"><img src="img/coaching/${a.banner}" alt="" width="1440" height="720" loading="lazy" decoding="async" onerror="this.parentNode.remove()"></figure>` : "";
+const coBanner = a => a.banner && /^[\w\/-]+\.webp$/.test(a.banner) ? `<figure class="co-ban"${/^\d+\/\d+$/.test(a.bannerMovil || "") ? ` style="--mar:${a.bannerMovil}"` : ""}><img src="img/coaching/${a.banner}" alt="" width="1440" height="720" loading="lazy" decoding="async" onerror="this.parentNode.remove()"></figure>` : "";
 const CO_TAG = {meta: "Meta actual", guerra: "Guerra", farmeo: "Farmeo", "aéreo": "Aéreo"};
 const coLink = u => typeof u === "string" && u.startsWith("https://link.clashofclans.com/") ? u : null;
 function coHash() { const h = `#coaching-th${state.coachTh}${state.coachOpen ? "/" + state.coachOpen : ""}`; if (location.hash !== h) history.replaceState(null, "", location.pathname + location.search + h); }
@@ -1595,7 +1595,7 @@ function viewCoaching() {
   const tagChips = tags.length ? `<div class="fchips"><button class="fchip${state.coachTag ? "" : " on"}" data-cotag="">Todos</button>${tags.map(t => `<button class="fchip${state.coachTag === t ? " on" : ""}" data-cotag="${t}">${CO_TAG[t]}</button>`).join("")}</div>` : "";
   return `<h2 style="margin:0 0 4px">🎯 Coaching</h2><p class="muted small" style="margin:0 0 10px">Los mejores ejércitos del momento por nivel de ayuntamiento. Toca una tarjeta para ver el detalle.</p>
     <div class="fchips co-ths">${thChips}</div>${tagChips}
-    ${src.canal ? `<p class="co-credit small">Ejércitos de TH${state.coachTh} basados en el video del canal <a href="${esc(src.video || "#")}" target="_blank" rel="noopener"><b>${esc(src.canal)}</b></a>. Los resúmenes salen del transcript automático, pueden tener errores.</p>` : ""}
+    ${src.canal ? `<p class="co-credit small">Ejércitos de TH${state.coachTh} basados en el video del canal <a href="${esc(src.video || "#")}" target="_blank" rel="noopener"><b>${esc(src.canal)}</b></a>. Los resúmenes salen del transcript automático, pueden tener errores. Clash of Clans, sus tropas y personajes son propiedad de Supercell; este sitio es de fans y no está afiliado a Supercell.</p>` : ""}
     ${hasUnv ? '<p class="co-warn small">Los nombres con <b>≈</b> son deducidos y pueden estar mal; los marcados como «Nombre por confirmar (ID N)» aún no tienen nombre. El botón de copiar usa el enlace original y carga el ejército completo igual.</p>' : ""}
     <div class="co-list">${shown.length ? shown.map(card).join("") : '<div class="empty">No hay ejércitos con ese filtro.</div>'}</div>`;
 }

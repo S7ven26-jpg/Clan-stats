@@ -1791,6 +1791,868 @@
           "banner": "th17/root-rider-smash.webp"
         }
       ]
+    },
+    "16": {
+      "th": 16,
+      "fuente": {
+        "canal": "Corrupt",
+        "video": "https://www.youtube.com/watch?v=TY0OnEhIuQY",
+        "nota": "Dar crédito al canal en la web. Los resúmenes salen del transcript automático del video."
+      },
+      "ejercitos": [
+        {
+          "id": "thrower-smash",
+          "orden": 1,
+          "nombre": "Thrower Smash",
+          "etiquetas": [
+            "meta",
+            "guerra"
+          ],
+          "resumen": "La número 1 del video: el Dragon Duke y el Grand Warden cortan embudos y los Throwers entran con Ruin Knights como tanques. El video avisa de un nerf próximo a los Throwers.",
+          "comoUsarlo": [
+            "El Dragon Duke corta el embudo de un lado; el Grand Warden y los Throwers van por el otro, para que los Throwers vayan en la dirección correcta.",
+            "Ice Block sobre el Dragon Duke para curarlo y que refleje daño.",
+            "Los Ruin Knights o las Ruin Witches tanquean para los Throwers; la Archer Queen y el Barbarian King cortan el embudo y entran con el resto.",
+            "El Troop Launcher aporta tropas extra y puede llevar otra Ruin Witch.",
+            "Overgrowth para reducir daño en el núcleo; Totem para desviar daño de los Throwers y otras tropas.",
+            "Revive para el Dragon Duke. Ice Block sobre los tanques y Throwers contra el veneno del Ayuntamiento.",
+            "No seas lento al inicio del ataque."
+          ],
+          "heroes": [
+            {
+              "nombre": "Dragon Duke",
+              "equipoSegunVideo": []
+            },
+            {
+              "nombre": "Grand Warden",
+              "equipoSegunVideo": []
+            },
+            {
+              "nombre": "Archer Queen",
+              "equipoSegunVideo": []
+            },
+            {
+              "nombre": "Barbarian King",
+              "equipoSegunVideo": []
+            }
+          ],
+          "composicion": {
+            "tropas": [
+              {
+                "cantidad": 8,
+                "id": 132,
+                "nombre": "Thrower",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 5,
+                "id": 7,
+                "nombre": "Healer",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 3,
+                "id": 28,
+                "nombre": "Super Wall Breaker",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 2,
+                "id": 109,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 2,
+                "id": 26,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 1,
+                "id": 123,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 1,
+                "id": 58,
+                "nombre": "Ice Golem",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 1,
+                "id": 5,
+                "nombre": null,
+                "confianza": null
+              }
+            ],
+            "hechizos": [
+              {
+                "cantidad": 3,
+                "id": 120,
+                "nombre": "Totem",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 2,
+                "id": 98,
+                "nombre": "Revive",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 2,
+                "id": 5,
+                "nombre": "Freeze",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 1,
+                "id": 70,
+                "nombre": "Overgrowth",
+                "confianza": "media"
+              }
+            ],
+            "castillo": {
+              "tropas": [
+                {
+                  "cantidad": 2,
+                  "id": 10,
+                  "nombre": null,
+                  "confianza": null
+                },
+                {
+                  "cantidad": 1,
+                  "id": 135,
+                  "nombre": null,
+                  "confianza": null
+                },
+                {
+                  "cantidad": 1,
+                  "id": 188,
+                  "nombre": "Sky Wagon",
+                  "confianza": "alta"
+                },
+                {
+                  "cantidad": 1,
+                  "id": 58,
+                  "nombre": "Ice Golem",
+                  "confianza": "alta"
+                },
+                {
+                  "cantidad": 1,
+                  "id": 109,
+                  "nombre": null,
+                  "confianza": null
+                },
+                {
+                  "cantidad": 1,
+                  "id": 5,
+                  "nombre": null,
+                  "confianza": null
+                }
+              ],
+              "hechizos": [
+                {
+                  "cantidad": 2,
+                  "id": 109,
+                  "nombre": "Ice Block",
+                  "confianza": "media"
+                },
+                {
+                  "cantidad": 1,
+                  "id": 9,
+                  "nombre": "Poison",
+                  "confianza": "documentado"
+                }
+              ]
+            }
+          },
+          "enlaceCopiar": "https://link.clashofclans.com/en/?action=CopyArmy&army=h2p3e5_24-1p9e48_39-0p10e32_14-7p4e60_52i1x135-1x188-1x58-1x109-1x5-2x10d2x109-1x9u5x7-8x132-2x109-3x28-1x123-1x58-1x5-2x26s2x98-2x5-1x70-3x120",
+          "banner": "th16/thrower-smash.webp",
+          "bannerMovil": "3/2"
+        },
+        {
+          "id": "hydra-spam",
+          "orden": 2,
+          "nombre": "Hydra Spam",
+          "etiquetas": [
+            "meta",
+            "guerra",
+            "aéreo"
+          ],
+          "resumen": "Dragones y Dragon Riders con doble Overgrowth y el Lavaloon Puppet del Grand Warden.",
+          "comoUsarlo": [
+            "El Dragon Duke (Rocket Backpack) por un lado y la Archer Queen (Giant Arrow) por el otro eliminan hasta cuatro antiaéreas y embudan.",
+            "Entran los Dragon Riders, Dragones, Grand Warden, Minion Prince, Sky Wagon e Ice Hound.",
+            "Overgrowth para controlar el camino; el video suele usarlo sobre el Ayuntamiento.",
+            "Los Lavaloon Puppets dan daño y tanquean trampas; la Dark Orb ralentiza defensas.",
+            "Totem para desviar daño de los dragones, los Lavaloon Puppets y los Dragon Riders.",
+            "Cuando acabe el último Overgrowth, Freeze para apagar una zona, por ejemplo una torre de Rage con daño a varios objetivos."
+          ],
+          "heroes": [
+            {
+              "nombre": "Dragon Duke",
+              "equipoSegunVideo": [
+                "Rocket Backpack"
+              ]
+            },
+            {
+              "nombre": "Archer Queen",
+              "equipoSegunVideo": [
+                "Giant Arrow"
+              ]
+            },
+            {
+              "nombre": "Minion Prince",
+              "equipoSegunVideo": [
+                "Dark Orb"
+              ]
+            },
+            {
+              "nombre": "Grand Warden",
+              "equipoSegunVideo": [
+                "Lavaloon Puppet"
+              ]
+            }
+          ],
+          "composicion": {
+            "tropas": [
+              {
+                "cantidad": 7,
+                "id": 8,
+                "nombre": "Dragon",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 5,
+                "id": 65,
+                "nombre": "Dragon Rider",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 1,
+                "id": 76,
+                "nombre": "Ice Hound",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 1,
+                "id": 23,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 1,
+                "id": 5,
+                "nombre": null,
+                "confianza": null
+              }
+            ],
+            "hechizos": [
+              {
+                "cantidad": 2,
+                "id": 120,
+                "nombre": "Totem",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 2,
+                "id": 70,
+                "nombre": "Overgrowth",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 1,
+                "id": 98,
+                "nombre": "Revive",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 1,
+                "id": 5,
+                "nombre": "Freeze",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 1,
+                "id": 2,
+                "nombre": "Rage",
+                "confianza": "documentado"
+              }
+            ],
+            "castillo": {
+              "tropas": [
+                {
+                  "cantidad": 2,
+                  "id": 188,
+                  "nombre": "Sky Wagon",
+                  "confianza": "alta"
+                },
+                {
+                  "cantidad": 1,
+                  "id": 81,
+                  "nombre": null,
+                  "confianza": null
+                },
+                {
+                  "cantidad": 1,
+                  "id": 10,
+                  "nombre": null,
+                  "confianza": null
+                },
+                {
+                  "cantidad": 1,
+                  "id": 57,
+                  "nombre": null,
+                  "confianza": null
+                }
+              ],
+              "hechizos": [
+                {
+                  "cantidad": 2,
+                  "id": 5,
+                  "nombre": "Freeze",
+                  "confianza": "alta"
+                },
+                {
+                  "cantidad": 1,
+                  "id": 120,
+                  "nombre": "Totem",
+                  "confianza": "media"
+                }
+              ]
+            }
+          },
+          "enlaceCopiar": "https://link.clashofclans.com/en/?action=CopyArmy&army=h1p9e17_20-6p2e49_43-2m1e41_34-7p4e60_53i2x188-1x81-1x10-1x57d2x5-1x120u1x76-7x8-5x65-1x23-1x5s1x98-1x5-2x120-1x2-2x70",
+          "banner": "th16/hydra-spam.webp",
+          "bannerMovil": "3/2"
+        },
+        {
+          "id": "dragon-rider-spam",
+          "orden": 3,
+          "nombre": "Dragon Rider Spam",
+          "etiquetas": [
+            "guerra",
+            "aéreo"
+          ],
+          "resumen": "Carga de la Royal Champion con Invisibility y Spirit Fox, y después Dragon Riders con Inferno Dragons.",
+          "comoUsarlo": [
+            "Empieza con la carga de la Royal Champion: Invisibility cada 10 segundos para que el hechizo y el Spirit Fox se alternen y haya casi 100% de invisibilidad. Usa su habilidad un poco tarde.",
+            "Busca abrir camino, usa Haste para avanzar y, si puedes, elimina el Ayuntamiento.",
+            "Corta embudos a los lados con un Inferno Dragon o el Sky Wagon por un lado y un Baby Dragon por el otro.",
+            "Entran los Dragon Riders, el Ice Hound y los Inferno Dragons. El Dragon Duke (Revenge Deck) crea más caminos y refleja daño.",
+            "Eternal Tome y Healing Tome al pasar por el núcleo, sobre todo cerca de una torre de Rage; la Dark Orb ralentiza defensas.",
+            "Dos Overgrowth para apagar dos zonas distintas. Revive sobre cualquier héroe, sobre todo el Dragon Duke (también funciona con la Royal Champion)."
+          ],
+          "heroes": [
+            {
+              "nombre": "Royal Champion",
+              "equipoSegunVideo": [],
+              "mascota": "Spirit Fox"
+            },
+            {
+              "nombre": "Dragon Duke",
+              "equipoSegunVideo": [
+                "Revenge Deck"
+              ]
+            },
+            {
+              "nombre": "Minion Prince",
+              "equipoSegunVideo": [
+                "Dark Orb"
+              ]
+            },
+            {
+              "nombre": "Grand Warden",
+              "equipoSegunVideo": [
+                "Eternal Tome",
+                "Healing Tome"
+              ]
+            }
+          ],
+          "composicion": {
+            "tropas": [
+              {
+                "cantidad": 7,
+                "id": 65,
+                "nombre": "Dragon Rider",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 6,
+                "id": 63,
+                "nombre": "Inferno Dragon",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 2,
+                "id": 10,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 1,
+                "id": 1,
+                "nombre": "Archer",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 1,
+                "id": 76,
+                "nombre": "Ice Hound",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 1,
+                "id": 23,
+                "nombre": null,
+                "confianza": null
+              }
+            ],
+            "hechizos": [
+              {
+                "cantidad": 5,
+                "id": 35,
+                "nombre": "Invisibility",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 2,
+                "id": 70,
+                "nombre": "Overgrowth",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 1,
+                "id": 2,
+                "nombre": "Rage",
+                "confianza": "documentado"
+              }
+            ],
+            "castillo": {
+              "tropas": [
+                {
+                  "cantidad": 2,
+                  "id": 188,
+                  "nombre": "Sky Wagon",
+                  "confianza": "alta"
+                },
+                {
+                  "cantidad": 2,
+                  "id": 65,
+                  "nombre": "Dragon Rider",
+                  "confianza": "alta"
+                }
+              ],
+              "hechizos": [
+                {
+                  "cantidad": 1,
+                  "id": 98,
+                  "nombre": "Revive",
+                  "confianza": "media"
+                },
+                {
+                  "cantidad": 1,
+                  "id": 9,
+                  "nombre": "Poison",
+                  "confianza": "documentado"
+                }
+              ]
+            }
+          },
+          "enlaceCopiar": "https://link.clashofclans.com/en/?action=CopyArmy&army=h7p4e60_52-4p10e12_40-6p11e49_43-2m1p2e4_34i2x188-2x65d1x98-1x9u1x1-2x10-1x76-1x23-6x63-7x65s5x35-2x70-1x2",
+          "banner": "th16/dragon-rider-spam.webp",
+          "bannerMovil": "3/2"
+        },
+        {
+          "id": "mass-ruin-witch",
+          "orden": 4,
+          "nombre": "Mass Ruin Witch",
+          "etiquetas": [
+            "guerra"
+          ],
+          "resumen": "Fireball para el embudo y Ruin Witches que generan una gran masa de Ruin Knights.",
+          "comoUsarlo": [
+            "Empieza con el Grand Warden (Fireball): Invisibility cerca de defensas y Fireball con dos Earthquake. El objetivo es embudar; el valor es secundario.",
+            "El Grand Warden (Rage Gem) y los Healers caminan por fuera limpiando defensas riesgosas como el Expose.",
+            "Entran las Ruin Witches; espacia su uso para sacar el máximo valor de los Ruin Knights. El Dragon Duke corta el embudo mientras entran más Ruin Witches.",
+            "Ice Golems, Druids y Balloons completan el empuje. El Troop Launcher (Balloons y Rocket Balloons) busca las Seeking Air Mines.",
+            "Overgrowth para controlar el camino y reducir el daño; Ice Block contra el veneno del Ayuntamiento.",
+            "El Barbarian King entra por detrás (Stick Horse, Giant Gauntlet) y tanquea."
+          ],
+          "heroes": [
+            {
+              "nombre": "Grand Warden",
+              "equipoSegunVideo": [
+                "Fireball",
+                "Rage Gem"
+              ]
+            },
+            {
+              "nombre": "Archer Queen",
+              "equipoSegunVideo": []
+            },
+            {
+              "nombre": "Dragon Duke",
+              "equipoSegunVideo": []
+            },
+            {
+              "nombre": "Barbarian King",
+              "equipoSegunVideo": [
+                "Stick Horse",
+                "Giant Gauntlet"
+              ]
+            }
+          ],
+          "composicion": {
+            "tropas": [
+              {
+                "cantidad": 5,
+                "id": 7,
+                "nombre": "Healer",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 4,
+                "id": 109,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 3,
+                "id": 57,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 2,
+                "id": 5,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 2,
+                "id": 28,
+                "nombre": "Super Wall Breaker",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 2,
+                "id": 123,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 1,
+                "id": 150,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 1,
+                "id": 58,
+                "nombre": "Ice Golem",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 1,
+                "id": 97,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 1,
+                "id": 6,
+                "nombre": "Wizard",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 1,
+                "id": 82,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 1,
+                "id": 1,
+                "nombre": "Archer",
+                "confianza": "alta"
+              }
+            ],
+            "hechizos": [
+              {
+                "cantidad": 3,
+                "id": 35,
+                "nombre": "Invisibility",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 2,
+                "id": 120,
+                "nombre": "Totem",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 2,
+                "id": 10,
+                "nombre": "Earthquake",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 1,
+                "id": 5,
+                "nombre": "Freeze",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 1,
+                "id": 109,
+                "nombre": "Ice Block",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 1,
+                "id": 70,
+                "nombre": "Overgrowth",
+                "confianza": "media"
+              }
+            ],
+            "castillo": {
+              "tropas": [
+                {
+                  "cantidad": 4,
+                  "id": 57,
+                  "nombre": null,
+                  "confianza": null
+                },
+                {
+                  "cantidad": 1,
+                  "id": 87,
+                  "nombre": null,
+                  "confianza": null
+                },
+                {
+                  "cantidad": 1,
+                  "id": 135,
+                  "nombre": null,
+                  "confianza": null
+                },
+                {
+                  "cantidad": 1,
+                  "id": 5,
+                  "nombre": null,
+                  "confianza": null
+                },
+                {
+                  "cantidad": 1,
+                  "id": 23,
+                  "nombre": null,
+                  "confianza": null
+                },
+                {
+                  "cantidad": 1,
+                  "id": 1,
+                  "nombre": "Archer",
+                  "confianza": "alta"
+                },
+                {
+                  "cantidad": 1,
+                  "id": 10,
+                  "nombre": null,
+                  "confianza": null
+                }
+              ],
+              "hechizos": [
+                {
+                  "cantidad": 1,
+                  "id": 98,
+                  "nombre": "Revive",
+                  "confianza": "media"
+                },
+                {
+                  "cantidad": 1,
+                  "id": 9,
+                  "nombre": "Poison",
+                  "confianza": "documentado"
+                }
+              ]
+            }
+          },
+          "enlaceCopiar": "https://link.clashofclans.com/en/?action=CopyArmy&army=h0p11e51_10-1p9e48_39-2p3e24_22-7p4e60_52i1x87-1x135-4x57-1x5-1x23-1x1-1x10d1x98-1x9u5x7-2x5-1x150-4x109-1x58-2x28-2x123-1x97-3x57-1x6-1x82-1x1s3x35-2x120-1x5-2x10-1x109-1x70",
+          "banner": "th16/mass-ruin-witch.webp",
+          "bannerMovil": "3/2"
+        },
+        {
+          "id": "super-bowler-smash",
+          "orden": 5,
+          "nombre": "Super Bowler Smash",
+          "etiquetas": [
+            "guerra"
+          ],
+          "resumen": "Queen Charge con Angry Jelly para abrir la base y luego Super Bowlers con Rage; exige un buen embudo.",
+          "comoUsarlo": [
+            "Queen Charge: la Archer Queen (Monolith Arrow, Angry Jelly) con Healers y un Balloon que busca Seeking Air Mines; Invisibility periódica para mantenerla viva.",
+            "Cuando acabe, recalla a la Queen, limpia edificios de fuera y usa el Barbarian King para embudar el otro lado.",
+            "Entran los Super Bowlers con la Queen recallada, el Grand Warden, los Ice Golems y los Super Wall Breakers (paciencia para abrir muros). El Dragon Duke embuda por dentro.",
+            "Rage temprano al llegar al núcleo; el Sky Wagon aporta Super Yeti o Balloons que absorben minas y bombas aéreas.",
+            "Heroic Torch del Grand Warden en el núcleo; Rage sobre los Super Bowlers y Healers.",
+            "La Ruin Witch va por fuera limpiando edificios y distrayendo defensas."
+          ],
+          "heroes": [
+            {
+              "nombre": "Archer Queen",
+              "equipoSegunVideo": [
+                "Monolith Arrow"
+              ],
+              "mascota": "Angry Jelly"
+            },
+            {
+              "nombre": "Barbarian King",
+              "equipoSegunVideo": []
+            },
+            {
+              "nombre": "Grand Warden",
+              "equipoSegunVideo": [
+                "Heroic Torch"
+              ]
+            },
+            {
+              "nombre": "Dragon Duke",
+              "equipoSegunVideo": []
+            }
+          ],
+          "composicion": {
+            "tropas": [
+              {
+                "cantidad": 5,
+                "id": 7,
+                "nombre": "Healer",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 5,
+                "id": 80,
+                "nombre": "Super Bowler",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 3,
+                "id": 1,
+                "nombre": "Archer",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 2,
+                "id": 28,
+                "nombre": "Super Wall Breaker",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 2,
+                "id": 5,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 1,
+                "id": 109,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 1,
+                "id": 58,
+                "nombre": "Ice Golem",
+                "confianza": "alta"
+              },
+              {
+                "cantidad": 1,
+                "id": 97,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 1,
+                "id": 23,
+                "nombre": null,
+                "confianza": null
+              }
+            ],
+            "hechizos": [
+              {
+                "cantidad": 3,
+                "id": 35,
+                "nombre": "Invisibility",
+                "confianza": "media"
+              },
+              {
+                "cantidad": 2,
+                "id": 2,
+                "nombre": "Rage",
+                "confianza": "documentado"
+              },
+              {
+                "cantidad": 1,
+                "id": 53,
+                "nombre": null,
+                "confianza": null
+              },
+              {
+                "cantidad": 1,
+                "id": 98,
+                "nombre": "Revive",
+                "confianza": "media"
+              }
+            ],
+            "castillo": {
+              "tropas": [
+                {
+                  "cantidad": 1,
+                  "id": 188,
+                  "nombre": "Sky Wagon",
+                  "confianza": "alta"
+                },
+                {
+                  "cantidad": 1,
+                  "id": 135,
+                  "nombre": null,
+                  "confianza": null
+                },
+                {
+                  "cantidad": 1,
+                  "id": 147,
+                  "nombre": "Super Yeti",
+                  "confianza": "media"
+                },
+                {
+                  "cantidad": 1,
+                  "id": 58,
+                  "nombre": "Ice Golem",
+                  "confianza": "alta"
+                }
+              ],
+              "hechizos": [
+                {
+                  "cantidad": 2,
+                  "id": 120,
+                  "nombre": "Totem",
+                  "confianza": "media"
+                },
+                {
+                  "cantidad": 1,
+                  "id": 9,
+                  "nombre": "Poison",
+                  "confianza": "documentado"
+                }
+              ]
+            }
+          },
+          "enlaceCopiar": "https://link.clashofclans.com/en/?action=CopyArmy&army=h1p11e48_16-0p10e32_14-2p7e4_19-7p4e60_52i1x188-1x135-1x147-1x58d2x120-1x9u5x7-1x109-5x80-2x28-1x58-1x97-2x5-1x23-3x1s2x2-3x35-1x53-1x98",
+          "banner": "th16/super-bowler-smash.webp",
+          "bannerMovil": "3/2"
+        }
+      ]
     }
   }
 }
