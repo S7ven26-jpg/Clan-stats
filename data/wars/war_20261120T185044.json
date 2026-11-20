@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 12,
-  "destruction": 26.67,
+  "stars": 15,
+  "destruction": 33.33,
   "members": [
    {
     "tag": "#QV82CU9RV",
@@ -84,7 +84,15 @@
     "name": "8A2",
     "th": 16,
     "pos": 11,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 13,
+      "defender": "#C9YL8GUG",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 131
+     }
+    ]
    },
    {
     "tag": "#8LR9GY8V9",
@@ -157,8 +165,8 @@
  "opponent": {
   "tag": "#VU8V0R9C",
   "name": "les 2 roues",
-  "stars": 5,
-  "destruction": 20.93,
+  "stars": 7,
+  "destruction": 26.33,
   "members": [
    {
     "tag": "#G9RLVP90R",
@@ -236,7 +244,22 @@
     "name": "Kevin 86",
     "th": 18,
     "pos": 2,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 11,
+      "defender": "#8CQQG8J88",
+      "stars": 1,
+      "destruction": 85,
+      "duration": 123
+     },
+     {
+      "order": 12,
+      "defender": "#2U8JYG9V8",
+      "stars": 2,
+      "destruction": 86,
+      "duration": 130
+     }
+    ]
    },
    {
     "tag": "#LQQG90GCU",
