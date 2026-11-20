@@ -526,6 +526,16 @@ tr.me td{background:rgba(255,207,90,.12)}
 .lntbl td{padding:5px 6px;border-bottom:1px solid #ffffff14}.lntbl td.us{background:rgba(59,130,246,.10)}.lntbl td.rv{background:rgba(224,72,72,.10)}.lntbl td.num{width:30px;color:var(--muted);text-align:center}
 .lntbl td.pl{text-align:left;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.ln-n{margin-left:6px}.crown{width:24px;height:auto;vertical-align:-7px;margin-left:4px}.thp{display:inline-block;min-width:42px;text-align:center;background:#d9a93a22;border:1px solid #d9a93a66;border-radius:8px;padding:0 5px;font-size:12px;font-weight:800;color:#ffcf5a}
 @media (max-width:760px){.lncmp{padding:10px}.lncard{padding:10px}.lntbl td,.lntbl th{padding:4px 3px;font-size:12px}.thp{min-width:0;padding:0 3px;font-size:11px}.ln-n{margin-left:3px}.crown{width:16px;margin-left:1px;vertical-align:-3px}.thsum{font-size:12px}.lntbl th{font-size:13px}}
+.co-ths{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}.co-ths .fchip{flex:none}.fchip.off{opacity:.4;cursor:not-allowed}
+.co-credit{margin:6px 0;color:var(--muted)}.co-credit a{color:#ffcf5a}.co-warn{margin:6px 0 10px;background:#d9a93a18;border:1px solid #d9a93a55;border-radius:12px;padding:8px 12px}
+.co-list{display:flex;flex-direction:column;gap:10px;margin-top:10px}.coc{background:linear-gradient(135deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:18px;overflow:hidden}.coc.open{border-color:#d9a93a88}
+.coh{all:unset;box-sizing:border-box;display:flex;gap:12px;align-items:flex-start;width:100%;padding:14px 16px;cursor:pointer}.coh:focus-visible{outline:2px solid #ffcf5a;outline-offset:-2px}
+.con{flex:none;width:34px;height:34px;border-radius:50%;background:#d9a93a;color:#2a1a00;font-weight:800;display:grid;place-items:center}.cot{flex:1;min-width:0}.cot b{font-size:18px}.cot .cs{display:block;margin-top:4px;font-size:14px;color:var(--muted)}.cox{flex:none;color:var(--muted);font-size:13px;padding-top:6px}
+.co-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}.co-pill{background:#d9a93a22;border:1px solid #d9a93a66;border-radius:999px;padding:0 9px;font-size:12px;font-weight:700;color:#ffcf5a}.co-pill.warn{background:#c8404022;border-color:#c8404088;color:#ff9a9a}
+.co-detail{padding:0 16px 16px}.co-detail h4{margin:14px 0 6px;color:#ffcf5a;font-size:14px;text-transform:uppercase;letter-spacing:.05em}.co-res{margin:0;color:var(--muted)}
+.co-heroes{margin:0;padding-left:18px}.co-heroes li{margin:3px 0}.co-chips{display:flex;flex-wrap:wrap;gap:6px}.co-chip{background:#ffffff0d;border:1px solid var(--line);border-radius:10px;padding:3px 9px;font-size:14px}.co-chip b{color:#ffcf5a}
+.co-unk{color:var(--muted);font-style:italic}.co-unv{color:#ffcf5a;margin-left:1px;cursor:help}.co-how{margin:0;padding-left:20px}.co-how li{margin:5px 0}
+.co-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.co-msg{margin:6px 0 0;color:#7be0ae;min-height:1em}
 /* actividad y donaciones / alerta de inactividad */
 .hero2{position:relative;overflow:hidden;border-radius:22px;margin:0 0 16px;height:clamp(250px,30vw,340px);background:#010f37;container-type:size;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .hero2 .scene{position:absolute;top:50%;transform:translateY(-50%);width:max(100cqw,206cqh);aspect-ratio:2/1;left:calc(-1 * var(--fx,1) * (max(100cqw,206cqh) - 100cqw))}
@@ -587,7 +597,7 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt
 const fmt = (n, d = 1) => n == null ? "–" : Number(n).toLocaleString("es", {minimumFractionDigits: d, maximumFractionDigits: d});
 const int = n => n == null ? "–" : Number(n).toLocaleString("es");
 const ICON = n => `<img class="ticon" src="img/ui/banner-${n}.webp" alt="">`;
-const TABS = [["clan","🏠 Inicio del clan"],["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores",ICON("green") + "Jugadores"],["guerras",ICON("red") + "Guerras"],["cwl",ICON("blue") + "CWL"],["scout","🔭 Scouting CWL"],["bonos","🎖️ Bonos CWL"],["capital","🏰 Asaltos de la Capital"],["donaciones","💝 Donaciones"],["inactivos","🚨 Inactivos"],["fama","🏛️ Salón de la fama"],["tendencias","📈 Tendencias"],["guia","❓ Guía"]];
+const TABS = [["clan","🏠 Inicio del clan"],["resumen","🏆 Resumen"],["perfil","👤 Mi perfil"],["jugadores",ICON("green") + "Jugadores"],["guerras",ICON("red") + "Guerras"],["cwl",ICON("blue") + "CWL"],["scout","🔭 Scouting CWL"],["coaching","🎯 Coaching"],["bonos","🎖️ Bonos CWL"],["capital","🏰 Asaltos de la Capital"],["donaciones","💝 Donaciones"],["inactivos","🚨 Inactivos"],["fama","🏛️ Salón de la fama"],["tendencias","📈 Tendencias"],["guia","❓ Guía"]];
 const state = {donFilter: "all", donKey: null, scoutSel: null, scoutKey: null, capWeek: null, capKey: null, season: null, tab: "clan", mode: "all", sort: {key: "score", dir: -1}, player: null};
 let DATA = null;
 
@@ -813,6 +823,7 @@ function viewGuia() {
   <p><b>Scouting CWL:</b> al publicarse el grupo de la liga aparecen los clanes clasificados de S a D según el promedio de ayuntamiento de sus 15 mejores inscritos (la pestaña explica los umbrales).</p>
   <p><b>Donaciones:</b> tropas donadas y recibidas por miembro en la temporada, con los mejores donadores y quiénes reciben sin devolver.</p>
   <p><b>Inactivos:</b> ayuda para líderes: cruza ataques de guerra, asaltos de la Capital y donaciones de los últimos 30 días. La pestaña explica cómo se calcula.</p>
+  <p><b>Coaching:</b> los mejores ejércitos por nivel de ayuntamiento (por ahora TH18), con composición, cómo usarlos y botones para copiarlos al juego. Cada TH tiene su enlace directo, por ejemplo <code>#coaching-th18</code>. Los ejércitos viven en <code>docs/data/armies.json</code>.</p>
   <p><b>Lineup rival (pestaña Scouting CWL):</b> en cuanto Supercell publica la alineación de una ronda (preparación), «Próximo rival» muestra el rival, la cuenta regresiva y las dos alineaciones por posición del mapa y por ayuntamiento. Puedes consultar la ronda activa y las finalizadas. Se actualiza cada ~20 minutos.</p>
   <p><b>Resumen de guerra (pestaña Guerras):</b> elige una guerra terminada y descarga o comparte su tarjeta con el resultado, el MVP y los mejores atacantes.</p>
   <p><b>Resumen de temporada (pestaña CWL):</b> cuando la liga termina (7 rondas guardadas) aparece una tarjeta con el MVP, los resultados y los mejores donadores. «Compartir» abre el menú del móvil para elegir WhatsApp; si el navegador no puede, descarga el PNG.</p>
@@ -1026,13 +1037,13 @@ async function loadExtra(name) {
   if (name in EXTRA) return;
   EXTRA[name] = undefined;
   try {
-    const r = await fetch(`data/${name}${new URLSearchParams(location.search).has("demo") ? "_demo" : ""}.json`, {cache: "no-store"});
+    const r = await fetch(`data/${name}${name !== "armies" && new URLSearchParams(location.search).has("demo") ? "_demo" : ""}.json`, {cache: "no-store"});
     if (r.ok) EXTRA[name] = await r.json();
     else EXTRA[name] = [403, 404, 410].includes(r.status) ? null : {error: true, detail: "HTTP " + r.status};
   } catch (e) { EXTRA[name] = {error: true, detail: String((e && e.message) || e)}; }
   if ((EXTRA_TABS[name] || [name]).includes(state.tab)) render({quiet: true});
 }
-const EXTRA_TABS = {clan: ["clan", "donaciones", "fama", "cwl"], actividad: ["inactivos"], historial: ["tendencias"], lineup: ["scout"]};
+const EXTRA_TABS = {clan: ["clan", "donaciones", "fama", "cwl"], actividad: ["inactivos"], historial: ["tendencias"], lineup: ["scout"], armies: ["coaching"]};
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-retry]"); if (!b) return;
   delete EXTRA[b.dataset.retry]; render({quiet: true});
@@ -1537,6 +1548,64 @@ document.addEventListener("click", async e => {
   } catch (err) { if (err && err.name !== "AbortError") say("No se pudo completar la acción. Intenta con «Descargar PNG»."); }
 });
 
+/* ---------- Coaching (mejores ejércitos por TH) ---------- */
+const CO_TH = [18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8];
+const CO_TAG = {meta: "Meta actual", guerra: "Guerra", farmeo: "Farmeo", "aéreo": "Aéreo"};
+const coLink = u => typeof u === "string" && u.startsWith("https://link.clashofclans.com/") ? u : null;
+function coHash() { const h = `#coaching-th${state.coachTh}${state.coachOpen ? "/" + state.coachOpen : ""}`; if (location.hash !== h) history.replaceState(null, "", location.pathname + location.search + h); }
+function coFromHash() { const m = /^#coaching-th(\d+)(?:\/([\w-]+))?$/.exec(location.hash); if (!m) return false; state.tab = "coaching"; state.coachTh = +m[1]; state.coachOpen = m[2] || null; return true; }
+window.addEventListener("hashchange", () => { if (DATA && coFromHash()) render({quiet: true}); });
+function viewCoaching() {
+  if (EXTRA.armies === undefined) { loadExtra("armies"); return '<div class="empty">Cargando…</div>'; }
+  if (EXTRA.armies && EXTRA.armies.error) return errBox("armies");
+  const all = (EXTRA.armies && EXTRA.armies.armies) || {}, avail = Object.keys(all).map(Number);
+  if (!avail.length) return '<div class="empty"><h2>Coaching</h2>Aún no hay ejércitos publicados.</div>';
+  if (!avail.includes(state.coachTh)) { state.coachTh = Math.max(...avail); state.coachOpen = null; }
+  const T = all[state.coachTh], src = T.fuente || {}, list = [...T.ejercitos].sort((a, b) => (a.orden || 99) - (b.orden || 99));
+  const tags = ["meta", "guerra", "farmeo"].filter(t => list.some(a => (a.etiquetas || []).includes(t)));
+  if (state.coachTag && !tags.includes(state.coachTag)) state.coachTag = null;
+  const shown = list.filter(a => !state.coachTag || (a.etiquetas || []).includes(state.coachTag));
+  coHash();
+  const unk = x => x.nombre == null || x.confianza === "media";
+  const hasUnv = list.some(a => [...a.composicion.tropas, ...a.composicion.hechizos, ...a.composicion.castillo.tropas, ...a.composicion.castillo.hechizos].some(unk));
+  const nm = (x, kind) => x.nombre ? `${esc(x.nombre)}${x.confianza === "media" ? '<sup class="co-unv" title="Nombre deducido, sin verificar">≈</sup>' : ""}` : `<span class="co-unk" title="Nombre por identificar">${kind} #${x.id}</span>`;
+  const chips = (arr, kind) => arr.length ? `<div class="co-chips">${arr.map(x => `<span class="co-chip"><b>${x.cantidad}×</b> ${nm(x, kind)}</span>`).join("")}</div>` : '<span class="muted small">—</span>';
+  const detail = a => { const c = a.composicion, link = coLink(a.enlaceCopiar);
+    return `<div class="co-detail">
+      <p class="co-res">${esc(a.resumen || "")}</p>
+      <h4>Héroes y equipo</h4><ul class="co-heroes">${a.heroes.map(h => `<li><b>${esc(h.nombre)}</b>${h.mascota ? ` · mascota ${esc(h.mascota)}` : ""}${(h.equipoSegunVideo || []).length ? ` <span class="muted">— ${h.equipoSegunVideo.map(esc).join(", ")}</span>` : ""}${h.modo ? ` <span class="muted">(${esc(h.modo)})</span>` : ""}</li>`).join("")}</ul>
+      ${(a.notasEquipo || []).map(n => `<p class="muted small">${esc(n)}</p>`).join("")}
+      <h4>Tropas</h4>${chips(c.tropas, "Tropa")}<h4>Hechizos</h4>${chips(c.hechizos, "Hechizo")}
+      <h4>Castillo del clan</h4><p class="small muted" style="margin:0 0 4px">Tropas</p>${chips(c.castillo.tropas, "Tropa")}<p class="small muted" style="margin:8px 0 4px">Hechizos</p>${chips(c.castillo.hechizos, "Hechizo")}
+      <h4>Cómo usarlo</h4><ol class="co-how">${(a.comoUsarlo || []).map(s => `<li>${esc(s)}</li>`).join("")}</ol>
+      <h4>Contra qué bases sirve</h4><p class="muted small" style="margin:0">${a.basesRecomendadas ? esc(a.basesRecomendadas) : "Sin información todavía: el video no lo indica."}</p>
+      ${link ? `<div class="co-actions"><a class="btn gold" href="${esc(link)}" target="_blank" rel="noopener">⚔️ Copiar ejército</a><button class="btn" data-cocopy="${esc(a.id)}">🔗 Copiar link</button></div>
+      <p class="muted small" style="margin:6px 0 0">«Copiar ejército» abre el juego y solo funciona desde el móvil con Clash of Clans instalado. En computador usa «Copiar link» y pégalo en tu teléfono.</p><p class="co-msg small" role="status" data-comsg="${esc(a.id)}"></p>` : '<p class="muted small">Este ejército no tiene enlace de copiar.</p>'}</div>`; };
+  const card = a => { const open = state.coachOpen === a.id;
+    return `<article class="coc${open ? " open" : ""}" id="co-${esc(a.id)}"><button class="coh" data-co="${esc(a.id)}" aria-expanded="${open}">
+      <span class="con">${a.orden ?? ""}</span><span class="cot"><b>${esc(a.nombre)}</b>${a.nombreEnVideo ? ' <span class="co-pill warn">nombre por confirmar</span>' : ""}
+      <span class="co-tags">${(a.etiquetas || []).map(t => `<span class="co-pill">${esc(CO_TAG[t] || t)}</span>`).join("")}</span>${open ? "" : `<span class="cs">${esc(a.resumen || "")}</span>`}</span><span class="cox">${open ? "▲" : "▼"}</span></button>${open ? detail(a) : ""}</article>`; };
+  const thChips = CO_TH.map(t => avail.includes(t) ? `<button class="fchip${state.coachTh === t ? " on" : ""}" data-coth="${t}">TH${t}</button>` : `<button class="fchip off" disabled title="Próximamente">TH${t}</button>`).join("");
+  const tagChips = tags.length ? `<div class="fchips"><button class="fchip${state.coachTag ? "" : " on"}" data-cotag="">Todos</button>${tags.map(t => `<button class="fchip${state.coachTag === t ? " on" : ""}" data-cotag="${t}">${CO_TAG[t]}</button>`).join("")}</div>` : "";
+  return `<h2 style="margin:0 0 4px">🎯 Coaching</h2><p class="muted small" style="margin:0 0 10px">Los mejores ejércitos del momento por nivel de ayuntamiento. Toca una tarjeta para ver el detalle.</p>
+    <div class="fchips co-ths">${thChips}</div>${tagChips}
+    ${src.canal ? `<p class="co-credit small">Ejércitos de TH${state.coachTh} basados en el video del canal <a href="${esc(src.video || "#")}" target="_blank" rel="noopener"><b>${esc(src.canal)}</b></a>. Los resúmenes salen del transcript automático, pueden tener errores.</p>` : ""}
+    ${hasUnv ? '<p class="co-warn small">Los nombres con <b>≈</b> son deducidos y pueden estar mal; los marcados como «Tropa #N» aún no tienen nombre. El botón de copiar usa el enlace original y carga el ejército completo igual.</p>' : ""}
+    <div class="co-list">${shown.length ? shown.map(card).join("") : '<div class="empty">No hay ejércitos con ese filtro.</div>'}</div>`;
+}
+document.addEventListener("click", async e => {
+  const th = e.target.closest("[data-coth]"), tg = e.target.closest("[data-cotag]"), op = e.target.closest("[data-co]"), cp = e.target.closest("[data-cocopy]");
+  if (th) { state.coachTh = +th.dataset.coth; state.coachOpen = null; state.coachTag = null; render({quiet: true}); }
+  else if (tg) { state.coachTag = tg.dataset.cotag || null; render({quiet: true}); }
+  else if (op) { state.coachOpen = state.coachOpen === op.dataset.co ? null : op.dataset.co; render({quiet: true}); const el = document.getElementById("co-" + state.coachOpen); if (el) el.scrollIntoView({block: "nearest", behavior: "smooth"}); }
+  else if (cp) {
+    const a = ((EXTRA.armies.armies[state.coachTh] || {}).ejercitos || []).find(x => x.id === cp.dataset.cocopy), link = a && coLink(a.enlaceCopiar), msg = document.querySelector(`[data-comsg="${cp.dataset.cocopy}"]`);
+    if (!link) return;
+    try { await navigator.clipboard.writeText(link); msg.textContent = "Link copiado. Pégalo en tu teléfono o mándalo al grupo."; }
+    catch (_) { const t = document.createElement("textarea"); t.value = link; document.body.appendChild(t); t.select(); let ok = false; try { ok = document.execCommand("copy"); } catch (__) {} t.remove(); msg.textContent = ok ? "Link copiado." : "No se pudo copiar automáticamente: mantén pulsado el botón «Copiar ejército» y copia la dirección."; }
+  }
+});
+
 /* ---------- Asaltos de la Capital: fines de semana de incursion ---------- */
 let CAP;   // undefined = cargando · null = sin datos
 async function loadCapital() {
@@ -1620,7 +1689,7 @@ function viewCapital() {
     <p class="muted small">El oro saqueado de cada jugador y las medallas del clan salen del registro de asaltos de Supercell. El oro aportado es un acumulado de por vida (no se puede separar por fin de semana) y son tres métricas distintas.</p>`;
 }
 
-const VIEWS = {fama: viewFama, tendencias: viewTendencias, donaciones: viewDonaciones, inactivos: viewInactivos, clan: viewClan, scout: viewScout, resumen: viewResumen, perfil: viewPerfil, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, capital: viewCapital, guia: viewGuia};
+const VIEWS = {coaching: viewCoaching, fama: viewFama, tendencias: viewTendencias, donaciones: viewDonaciones, inactivos: viewInactivos, clan: viewClan, scout: viewScout, resumen: viewResumen, perfil: viewPerfil, jugadores: viewJugadores, guerras: viewGuerras, cwl: viewCwl, bonos: viewBonos, capital: viewCapital, guia: viewGuia};
 
 
 /* ---------- banners por pestana (ilustraciones propias; opcional: docs/img/banner-<pestana>.jpg) ---------- */
@@ -1653,6 +1722,7 @@ function render(opts = {}) {
   if (state.tab !== "capital") state.capKey = null;
   if (state.tab !== "donaciones") state.donKey = null;
   if (state.tab !== "fama") famaAt = 0;
+  if (state.tab !== "coaching" && /^#coaching/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
   v.innerHTML = sceneHTML(state.tab) + VIEWS[state.tab]();
   bindScene(v);
   if (state.tab === "perfil") bindChart();
@@ -1850,6 +1920,7 @@ document.addEventListener("toggle", e => {
   const linked = new URLSearchParams(location.search).get("p");
   state.player = linked || LS.get("coc_player") || null;
   if (linked) state.tab = "perfil";
+  coFromHash();
   state.season = DATA.seasons[0];
   $("#season").innerHTML = [...DATA.seasons, "all"].map(s => `<option value="${esc(s)}">${esc(seasonLabel(s))}</option>`).join("");
   render();
