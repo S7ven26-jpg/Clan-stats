@@ -526,7 +526,7 @@ tr.me td{background:rgba(255,207,90,.12)}
 .lntbl td{padding:5px 6px;border-bottom:1px solid #ffffff14}.lntbl td.us{background:rgba(59,130,246,.10)}.lntbl td.rv{background:rgba(224,72,72,.10)}.lntbl td.num{width:30px;color:var(--muted);text-align:center}
 .lntbl td.pl{text-align:left;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.ln-n{margin-left:6px}.crown{width:24px;height:auto;vertical-align:-7px;margin-left:4px}.thp{display:inline-block;min-width:42px;text-align:center;background:#d9a93a22;border:1px solid #d9a93a66;border-radius:8px;padding:0 5px;font-size:12px;font-weight:800;color:#ffcf5a}
 @media (max-width:760px){.lncmp{padding:10px}.lncard{padding:10px}.lntbl td,.lntbl th{padding:4px 3px;font-size:12px}.thp{min-width:0;padding:0 3px;font-size:11px}.ln-n{margin-left:3px}.crown{width:16px;margin-left:1px;vertical-align:-3px}.thsum{font-size:12px}.lntbl th{font-size:13px}}
-.co-ths{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}.co-ths .fchip{flex:none}.fchip.off{opacity:.4;cursor:not-allowed}
+.co-ths{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}.co-ths .fchip{flex:none}.fchip.off{opacity:.4;cursor:not-allowed}.fchip.soon{opacity:.75;border-style:dashed}.fchip.soon small{margin-left:4px;font-size:11px;font-weight:700;color:#ffcf5a;text-transform:uppercase;letter-spacing:.04em}
 .co-credit{margin:6px 0;color:var(--muted)}.co-credit a{color:#ffcf5a}.co-warn{margin:6px 0 10px;background:#d9a93a18;border:1px solid #d9a93a55;border-radius:12px;padding:8px 12px}
 .co-list{display:flex;flex-direction:column;gap:10px;margin-top:10px}.coc{background:linear-gradient(135deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:18px;overflow:hidden}.coc.open{border-color:#d9a93a88}
 .coh{all:unset;box-sizing:border-box;display:flex;gap:12px;align-items:flex-start;width:100%;padding:14px 16px;cursor:pointer}.coh:focus-visible{outline:2px solid #ffcf5a;outline-offset:-2px}
@@ -1553,7 +1553,7 @@ document.addEventListener("click", async e => {
 });
 
 /* ---------- Coaching (mejores ejércitos por TH) ---------- */
-const CO_TH = [18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8];
+const CO_TH = [19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8];
 /* Banners por ID estable del ejército (no por orden de tarjeta). Decorativos: el texto sigue siendo HTML. */
 const CO_IMG = {"thrower-smash": "thrower-smash", "dragones-dragon-riders": "hydra", "super-bowler-queen-charge": "super-bowlers-queen-charge", "super-yeti-revive": "super-yetis-revive", "dragon-riders-inferno": "dragon-riders"};
 const coBanner = a => CO_IMG[a.id] ? `<figure class="co-ban"><img src="img/coaching/${CO_IMG[a.id]}.webp" alt="" width="1440" height="720" loading="lazy" decoding="async" onerror="this.parentNode.remove()"></figure>` : "";
@@ -1592,7 +1592,7 @@ function viewCoaching() {
     return `<article class="coc${open ? " open" : ""}" id="co-${esc(a.id)}"><button class="coh" data-co="${esc(a.id)}" aria-expanded="${open}">
       <span class="con">${a.orden ?? ""}</span><span class="cot"><b>${esc(a.nombre)}</b>${a.nombreEnVideo ? ' <span class="co-pill warn">nombre por confirmar</span>' : ""}
       <span class="co-tags">${(a.etiquetas || []).map(t => `<span class="co-pill">${esc(CO_TAG[t] || t)}</span>`).join("")}</span>${open ? "" : `<span class="cs">${esc(a.resumen || "")}</span>`}</span><span class="cox">${open ? "▲" : "▼"}</span></button>${open ? detail(a) : ""}</article>`; };
-  const thChips = CO_TH.map(t => avail.includes(t) ? `<button class="fchip${state.coachTh === t ? " on" : ""}" data-coth="${t}">TH${t}</button>` : `<button class="fchip off" disabled title="Próximamente">TH${t}</button>`).join("");
+  const thChips = CO_TH.map(t => avail.includes(t) ? `<button class="fchip${state.coachTh === t ? " on" : ""}" data-coth="${t}">TH${t}</button>` : `<button class="fchip off${t === 19 ? " soon" : ""}" disabled title="Próximamente">TH${t}${t === 19 ? " <small>Próximamente</small>" : ""}</button>`).join("");
   const tagChips = tags.length ? `<div class="fchips"><button class="fchip${state.coachTag ? "" : " on"}" data-cotag="">Todos</button>${tags.map(t => `<button class="fchip${state.coachTag === t ? " on" : ""}" data-cotag="${t}">${CO_TAG[t]}</button>`).join("")}</div>` : "";
   return `<h2 style="margin:0 0 4px">🎯 Coaching</h2><p class="muted small" style="margin:0 0 10px">Los mejores ejércitos del momento por nivel de ayuntamiento. Toca una tarjeta para ver el detalle.</p>
     <div class="fchips co-ths">${thChips}</div>${tagChips}
