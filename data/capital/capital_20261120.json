@@ -3,11 +3,28 @@
  "state": "ongoing",
  "start": "2026-11-20T07:00:00Z",
  "end": "2026-11-23T07:00:00Z",
- "total_loot": 0,
+ "total_loot": 30237,
  "raids_completed": 0,
- "total_attacks": 0,
- "districts_destroyed": 0,
+ "total_attacks": 9,
+ "districts_destroyed": 3,
  "offensive_reward": 0,
  "defensive_reward": 0,
- "members": []
+ "members": [
+  {
+   "tag": "#2R0PGVQL",
+   "name": "DESTROYERS",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 20604
+  },
+  {
+   "tag": "#LCUVG0202",
+   "name": "JTRC",
+   "attacks": 3,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 9633
+  }
+ ]
 }

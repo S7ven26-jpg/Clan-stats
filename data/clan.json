@@ -5,7 +5,7 @@
  "type": "inviteOnly",
  "level": 14,
  "points": 88850,
- "bb_points": 29500,
+ "bb_points": 29513,
  "capital_points": 2819,
  "war_frequency": "always",
  "war_win_streak": 13,
@@ -123,7 +123,7 @@
    "role": "coLeader",
    "th": 18,
    "exp": 175,
-   "trophies": 19,
+   "trophies": 31,
    "bb_trophies": 3018,
    "rank": 5,
    "donations": 2141,
@@ -201,7 +201,7 @@
    "role": "admin",
    "th": 16,
    "exp": 150,
-   "trophies": 101,
+   "trophies": 167,
    "bb_trophies": 2518,
    "rank": 11,
    "donations": 137,
@@ -227,10 +227,10 @@
    "role": "admin",
    "th": 17,
    "exp": 180,
-   "trophies": 208,
-   "bb_trophies": 2985,
+   "trophies": 248,
+   "bb_trophies": 3028,
    "rank": 13,
-   "donations": 281,
+   "donations": 312,
    "received": 0,
    "league": "Unranked"
   },
@@ -265,12 +265,12 @@
    "name": "×{•KAISER•}×",
    "role": "admin",
    "th": 17,
-   "exp": 151,
-   "trophies": 87,
+   "exp": 152,
+   "trophies": 395,
    "bb_trophies": 1818,
    "rank": 16,
    "donations": 927,
-   "received": 201,
+   "received": 289,
    "league": "Unranked"
   },
   {
@@ -282,7 +282,7 @@
    "trophies": 249,
    "bb_trophies": 3825,
    "rank": 17,
-   "donations": 2424,
+   "donations": 2426,
    "received": 3920,
    "league": "Unranked"
   },
@@ -321,7 +321,7 @@
    "trophies": 371,
    "bb_trophies": 3461,
    "rank": 20,
-   "donations": 2844,
+   "donations": 2899,
    "received": 3188,
    "league": "Unranked"
   },
@@ -383,7 +383,7 @@
    "role": "member",
    "th": 16,
    "exp": 117,
-   "trophies": 526,
+   "trophies": 555,
    "bb_trophies": 2146,
    "rank": 25,
    "donations": 321,
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-20T13:58:12Z"
+ "fetched": "2026-11-20T17:52:47Z"
 }
