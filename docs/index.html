@@ -1554,9 +1554,8 @@ document.addEventListener("click", async e => {
 
 /* ---------- Coaching (mejores ejércitos por TH) ---------- */
 const CO_TH = [19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8];
-/* Banners por ID estable del ejército (no por orden de tarjeta). Decorativos: el texto sigue siendo HTML. */
-const CO_IMG = {"thrower-smash": "thrower-smash", "dragones-dragon-riders": "hydra", "super-bowler-queen-charge": "super-bowlers-queen-charge", "super-yeti-revive": "super-yetis-revive", "dragon-riders-inferno": "dragon-riders"};
-const coBanner = a => CO_IMG[a.id] ? `<figure class="co-ban"><img src="img/coaching/${CO_IMG[a.id]}.webp" alt="" width="1440" height="720" loading="lazy" decoding="async" onerror="this.parentNode.remove()"></figure>` : "";
+/* Banner por ficha: campo "banner" del JSON (ruta bajo img/coaching/), así cada TH tiene sus propias imágenes aunque repita nombre. Decorativo. */
+const coBanner = a => a.banner && /^[\w\/-]+\.webp$/.test(a.banner) ? `<figure class="co-ban"><img src="img/coaching/${a.banner}" alt="" width="1440" height="720" loading="lazy" decoding="async" onerror="this.parentNode.remove()"></figure>` : "";
 const CO_TAG = {meta: "Meta actual", guerra: "Guerra", farmeo: "Farmeo", "aéreo": "Aéreo"};
 const coLink = u => typeof u === "string" && u.startsWith("https://link.clashofclans.com/") ? u : null;
 function coHash() { const h = `#coaching-th${state.coachTh}${state.coachOpen ? "/" + state.coachOpen : ""}`; if (location.hash !== h) history.replaceState(null, "", location.pathname + location.search + h); }
@@ -1574,16 +1573,16 @@ function viewCoaching() {
   const shown = list.filter(a => !state.coachTag || (a.etiquetas || []).includes(state.coachTag));
   coHash();
   const unk = x => x.nombre == null || x.confianza === "media";
-  const hasUnv = list.some(a => [...a.composicion.tropas, ...a.composicion.hechizos, ...a.composicion.castillo.tropas, ...a.composicion.castillo.hechizos].some(unk));
-  const nm = (x, kind) => x.nombre ? `${esc(x.nombre)}${x.confianza === "media" ? '<sup class="co-unv" title="Nombre deducido, sin verificar">≈</sup>' : ""}` : `<span class="co-unk" title="Nombre por identificar">${kind} #${x.id}</span>`;
+  const hasUnv = list.some(a => a.composicion && [...a.composicion.tropas, ...a.composicion.hechizos, ...a.composicion.castillo.tropas, ...a.composicion.castillo.hechizos].some(unk));
+  const nm = (x, kind) => x.nombre ? `${esc(x.nombre)}${x.confianza === "media" ? '<sup class="co-unv" title="Nombre deducido, sin verificar">≈</sup>' : ""}` : `<span class="co-unk" title="Nombre por identificar">Nombre por confirmar (ID ${x.id})</span>`;
   const chips = (arr, kind) => arr.length ? `<div class="co-chips">${arr.map(x => `<span class="co-chip"><b>${x.cantidad}×</b> ${nm(x, kind)}</span>`).join("")}</div>` : '<span class="muted small">—</span>';
-  const detail = a => { const c = a.composicion, link = coLink(a.enlaceCopiar);
+  const detail = a => { const c = a.composicion || null, link = coLink(a.enlaceCopiar);
     return `<div class="co-detail">
       ${coBanner(a)}<p class="co-res">${esc(a.resumen || "")}</p>
       <h4>Héroes y equipo</h4><ul class="co-heroes">${a.heroes.map(h => `<li><b>${esc(h.nombre)}</b>${h.mascota ? ` · mascota ${esc(h.mascota)}` : ""}${(h.equipoSegunVideo || []).length ? ` <span class="muted">— ${h.equipoSegunVideo.map(esc).join(", ")}</span>` : ""}${h.modo ? ` <span class="muted">(${esc(h.modo)})</span>` : ""}</li>`).join("")}</ul>
       ${(a.notasEquipo || []).map(n => `<p class="muted small">${esc(n)}</p>`).join("")}
-      <h4>Tropas</h4>${chips(c.tropas, "Tropa")}<h4>Hechizos</h4>${chips(c.hechizos, "Hechizo")}
-      <h4>Castillo del clan</h4><p class="small muted" style="margin:0 0 4px">Tropas</p>${chips(c.castillo.tropas, "Tropa")}<p class="small muted" style="margin:8px 0 4px">Hechizos</p>${chips(c.castillo.hechizos, "Hechizo")}
+      ${c ? `<h4>Tropas</h4>${chips(c.tropas, "Tropa")}<h4>Hechizos</h4>${chips(c.hechizos, "Hechizo")}
+      <h4>Castillo del clan</h4><p class="small muted" style="margin:0 0 4px">Tropas</p>${chips(c.castillo.tropas, "Tropa")}<p class="small muted" style="margin:8px 0 4px">Hechizos</p>${chips(c.castillo.hechizos, "Hechizo")}` : '<h4>Composición</h4><p class="muted small" style="margin:0">Composición exacta pendiente: falta el enlace de copiar del juego.</p>'}
       <h4>Cómo usarlo</h4><ol class="co-how">${(a.comoUsarlo || []).map(s => `<li>${esc(s)}</li>`).join("")}</ol>
       <h4>Contra qué bases sirve</h4><p class="muted small" style="margin:0">${a.basesRecomendadas ? esc(a.basesRecomendadas) : "Sin información todavía: el video no lo indica."}</p>
       ${link ? `<div class="co-actions"><a class="btn gold" href="${esc(link)}" target="_blank" rel="noopener">⚔️ Copiar ejército</a><button class="btn" data-cocopy="${esc(a.id)}">🔗 Copiar link</button></div>
@@ -1597,7 +1596,7 @@ function viewCoaching() {
   return `<h2 style="margin:0 0 4px">🎯 Coaching</h2><p class="muted small" style="margin:0 0 10px">Los mejores ejércitos del momento por nivel de ayuntamiento. Toca una tarjeta para ver el detalle.</p>
     <div class="fchips co-ths">${thChips}</div>${tagChips}
     ${src.canal ? `<p class="co-credit small">Ejércitos de TH${state.coachTh} basados en el video del canal <a href="${esc(src.video || "#")}" target="_blank" rel="noopener"><b>${esc(src.canal)}</b></a>. Los resúmenes salen del transcript automático, pueden tener errores.</p>` : ""}
-    ${hasUnv ? '<p class="co-warn small">Los nombres con <b>≈</b> son deducidos y pueden estar mal; los marcados como «Tropa #N» aún no tienen nombre. El botón de copiar usa el enlace original y carga el ejército completo igual.</p>' : ""}
+    ${hasUnv ? '<p class="co-warn small">Los nombres con <b>≈</b> son deducidos y pueden estar mal; los marcados como «Nombre por confirmar (ID N)» aún no tienen nombre. El botón de copiar usa el enlace original y carga el ejército completo igual.</p>' : ""}
     <div class="co-list">${shown.length ? shown.map(card).join("") : '<div class="empty">No hay ejércitos con ese filtro.</div>'}</div>`;
 }
 document.addEventListener("click", async e => {
