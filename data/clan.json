@@ -118,6 +118,19 @@
    "league": "Titan League I"
   },
   {
+   "tag": "#QCPVC0GU0",
+   "name": "Abusamadres",
+   "role": "coLeader",
+   "th": 17,
+   "exp": 176,
+   "trophies": 35,
+   "bb_trophies": 3123,
+   "rank": 5,
+   "donations": 813,
+   "received": 366,
+   "league": "Unranked"
+  },
+  {
    "tag": "#GCG2PYY2R",
    "name": "Greeyhawk",
    "role": "coLeader",
@@ -125,23 +138,10 @@
    "exp": 175,
    "trophies": 31,
    "bb_trophies": 3018,
-   "rank": 5,
+   "rank": 6,
    "donations": 2141,
    "received": 4296,
    "league": "Gold League II"
-  },
-  {
-   "tag": "#QCPVC0GU0",
-   "name": "Abusamadres",
-   "role": "coLeader",
-   "th": 17,
-   "exp": 176,
-   "trophies": 8,
-   "bb_trophies": 3123,
-   "rank": 6,
-   "donations": 813,
-   "received": 366,
-   "league": "Unranked"
   },
   {
    "tag": "#QUC2L8QRP",
@@ -200,8 +200,8 @@
    "name": "martin",
    "role": "admin",
    "th": 16,
-   "exp": 150,
-   "trophies": 167,
+   "exp": 151,
+   "trophies": 176,
    "bb_trophies": 2518,
    "rank": 11,
    "donations": 137,
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-21T00:56:32Z"
+ "fetched": "2026-11-21T04:14:30Z"
 }
