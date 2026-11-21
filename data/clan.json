@@ -8,8 +8,8 @@
  "bb_points": 29510,
  "capital_points": 2819,
  "war_frequency": "always",
- "war_win_streak": 13,
- "war_wins": 65,
+ "war_win_streak": 14,
+ "war_wins": 66,
  "war_ties": 17,
  "war_losses": 30,
  "war_log_public": true,
@@ -71,7 +71,7 @@
    "role": "coLeader",
    "th": 19,
    "exp": 222,
-   "trophies": 137,
+   "trophies": 147,
    "bb_trophies": 3972,
    "rank": 1,
    "donations": 5965,
@@ -100,7 +100,7 @@
    "trophies": 714,
    "bb_trophies": 2486,
    "rank": 3,
-   "donations": 7159,
+   "donations": 7213,
    "received": 3999,
    "league": "Unranked"
   },
@@ -113,7 +113,7 @@
    "trophies": 866,
    "bb_trophies": 4791,
    "rank": 4,
-   "donations": 3576,
+   "donations": 3611,
    "received": 2094,
    "league": "Titan League I"
   },
@@ -127,7 +127,7 @@
    "bb_trophies": 3123,
    "rank": 5,
    "donations": 813,
-   "received": 509,
+   "received": 564,
    "league": "Unranked"
   },
   {
@@ -148,7 +148,7 @@
    "name": "pipemono",
    "role": "coLeader",
    "th": 17,
-   "exp": 180,
+   "exp": 181,
    "trophies": 557,
    "bb_trophies": 3618,
    "rank": 7,
@@ -162,11 +162,11 @@
    "role": "member",
    "th": 18,
    "exp": 230,
-   "trophies": 344,
+   "trophies": 372,
    "bb_trophies": 3411,
    "rank": 8,
-   "donations": 1613,
-   "received": 882,
+   "donations": 1648,
+   "received": 971,
    "league": "Unranked"
   },
   {
@@ -201,7 +201,7 @@
    "role": "admin",
    "th": 16,
    "exp": 151,
-   "trophies": 241,
+   "trophies": 254,
    "bb_trophies": 2518,
    "rank": 11,
    "donations": 137,
@@ -230,7 +230,7 @@
    "trophies": 248,
    "bb_trophies": 3028,
    "rank": 13,
-   "donations": 312,
+   "donations": 332,
    "received": 0,
    "league": "Unranked"
   },
@@ -547,5 +547,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-21T16:24:07Z"
+ "fetched": "2026-11-21T20:02:08Z"
 }
