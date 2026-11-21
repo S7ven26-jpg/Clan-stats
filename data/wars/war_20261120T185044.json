@@ -4,7 +4,7 @@
  "season": "2026-11",
  "round": null,
  "war_tag": null,
- "state": "inWar",
+ "state": "warEnded",
  "start": "2026-11-20T18:50:44Z",
  "end": "2026-11-21T18:50:44Z",
  "team_size": 15,
@@ -189,7 +189,22 @@
     "name": "Andrewx0202",
     "th": 18,
     "pos": 4,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 44,
+      "defender": "#2YJ8LPP22",
+      "stars": 1,
+      "destruction": 68,
+      "duration": 93
+     },
+     {
+      "order": 45,
+      "defender": "#90CYUYGVJ",
+      "stars": 2,
+      "destruction": 87,
+      "duration": 150
+     }
+    ]
    },
    {
     "tag": "#R2C8PUVQJ",
@@ -292,8 +307,8 @@
  "opponent": {
   "tag": "#VU8V0R9C",
   "name": "les 2 roues",
-  "stars": 33,
-  "destruction": 81.53,
+  "stars": 36,
+  "destruction": 88.2,
   "members": [
    {
     "tag": "#G9RLVP90R",
@@ -424,7 +439,22 @@
     "name": "roro⚔️",
     "th": 17,
     "pos": 9,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 42,
+      "defender": "#GLVJLU020",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 155
+     },
+     {
+      "order": 43,
+      "defender": "#GVYPV8PJG",
+      "stars": 2,
+      "destruction": 89,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#99U9R2202",
