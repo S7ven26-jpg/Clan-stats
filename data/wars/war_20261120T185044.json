@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 36,
-  "destruction": 85.6,
+  "stars": 45,
+  "destruction": 100.0,
   "members": [
    {
     "tag": "#QV82CU9RV",
@@ -115,7 +115,22 @@
     "name": "lamb",
     "th": 17,
     "pos": 10,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 32,
+      "defender": "#LPLYJ9QPG",
+      "stars": 2,
+      "destruction": 96,
+      "duration": 163
+     },
+     {
+      "order": 33,
+      "defender": "#G9RLVP90R",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 118
+     }
+    ]
    },
    {
     "tag": "#R0GVRJ00C",
@@ -129,6 +144,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 131
+     },
+     {
+      "order": 36,
+      "defender": "#PYY88J9P",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 99
      }
     ]
    },
@@ -151,6 +173,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 121
+     },
+     {
+      "order": 35,
+      "defender": "#LPLYJ9QPG",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 176
      }
     ]
    },
@@ -203,6 +232,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 120
+     },
+     {
+      "order": 34,
+      "defender": "#LYLPQCU8G",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 116
      }
     ]
    },

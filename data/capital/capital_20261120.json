@@ -3,10 +3,10 @@
  "state": "ongoing",
  "start": "2026-11-20T07:00:00Z",
  "end": "2026-11-23T07:00:00Z",
- "total_loot": 147130,
+ "total_loot": 165119,
  "raids_completed": 2,
- "total_attacks": 38,
- "districts_destroyed": 17,
+ "total_attacks": 44,
+ "districts_destroyed": 19,
  "offensive_reward": 0,
  "defensive_reward": 0,
  "members": [
@@ -41,6 +41,14 @@
    "attack_limit": 5,
    "bonus_attack_limit": 1,
    "looted": 20604
+  },
+  {
+   "tag": "#GVYPV8PJG",
+   "name": "lamb",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 17989
   },
   {
    "tag": "#LCUVG0202",
