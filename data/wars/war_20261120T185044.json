@@ -165,8 +165,8 @@
  "opponent": {
   "tag": "#VU8V0R9C",
   "name": "les 2 roues",
-  "stars": 20,
-  "destruction": 53.47,
+  "stars": 23,
+  "destruction": 60.13,
   "members": [
    {
     "tag": "#G9RLVP90R",
@@ -376,6 +376,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 153
+     },
+     {
+      "order": 20,
+      "defender": "#R2C8PUVQJ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 138
      }
     ]
    }
