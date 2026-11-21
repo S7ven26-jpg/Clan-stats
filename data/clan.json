@@ -70,12 +70,12 @@
    "name": "S7ven26",
    "role": "coLeader",
    "th": 19,
-   "exp": 221,
+   "exp": 222,
    "trophies": 137,
    "bb_trophies": 3972,
    "rank": 1,
    "donations": 5965,
-   "received": 3387,
+   "received": 3479,
    "league": "Unranked"
   },
   {
@@ -87,7 +87,7 @@
    "trophies": 813,
    "bb_trophies": 3800,
    "rank": 2,
-   "donations": 6169,
+   "donations": 6257,
    "received": 3907,
    "league": "Titan League I"
   },
@@ -96,12 +96,12 @@
    "name": "8A",
    "role": "coLeader",
    "th": 18,
-   "exp": 174,
+   "exp": 175,
    "trophies": 714,
    "bb_trophies": 2486,
    "rank": 3,
-   "donations": 7157,
-   "received": 3914,
+   "donations": 7159,
+   "received": 3999,
    "league": "Unranked"
   },
   {
@@ -113,7 +113,7 @@
    "trophies": 866,
    "bb_trophies": 4791,
    "rank": 4,
-   "donations": 3486,
+   "donations": 3576,
    "received": 2094,
    "league": "Titan League I"
   },
@@ -179,7 +179,7 @@
    "bb_trophies": 1970,
    "rank": 9,
    "donations": 1085,
-   "received": 3564,
+   "received": 3647,
    "league": "Unranked"
   },
   {
@@ -191,7 +191,7 @@
    "trophies": 562,
    "bb_trophies": 3951,
    "rank": 10,
-   "donations": 623,
+   "donations": 655,
    "received": 196,
    "league": "Unranked"
   },
@@ -201,7 +201,7 @@
    "role": "admin",
    "th": 16,
    "exp": 151,
-   "trophies": 176,
+   "trophies": 241,
    "bb_trophies": 2518,
    "rank": 11,
    "donations": 137,
@@ -266,11 +266,11 @@
    "role": "admin",
    "th": 17,
    "exp": 152,
-   "trophies": 427,
+   "trophies": 453,
    "bb_trophies": 1818,
    "rank": 16,
    "donations": 927,
-   "received": 377,
+   "received": 465,
    "league": "Unranked"
   },
   {
@@ -344,10 +344,10 @@
    "role": "admin",
    "th": 16,
    "exp": 171,
-   "trophies": 332,
-   "bb_trophies": 2697,
+   "trophies": 372,
+   "bb_trophies": 2698,
    "rank": 22,
-   "donations": 1256,
+   "donations": 1392,
    "received": 0,
    "league": "Unranked"
   },
@@ -383,7 +383,7 @@
    "role": "member",
    "th": 16,
    "exp": 117,
-   "trophies": 555,
+   "trophies": 566,
    "bb_trophies": 2146,
    "rank": 25,
    "donations": 325,
@@ -482,6 +482,19 @@
    "league": "Unranked"
   },
   {
+   "tag": "#GJ92LJP0Y",
+   "name": "kojiro_PK",
+   "role": "member",
+   "th": 13,
+   "exp": 102,
+   "trophies": 0,
+   "bb_trophies": 2276,
+   "rank": 33,
+   "donations": 0,
+   "received": 0,
+   "league": "Unranked"
+  },
+  {
    "tag": "#LGVGYRY9Y",
    "name": "Andrewx0206",
    "role": "member",
@@ -489,7 +502,7 @@
    "exp": 72,
    "trophies": 0,
    "bb_trophies": 2060,
-   "rank": 33,
+   "rank": 34,
    "donations": 0,
    "received": 0,
    "league": "Unranked"
@@ -502,7 +515,7 @@
    "exp": 130,
    "trophies": 0,
    "bb_trophies": 1621,
-   "rank": 34,
+   "rank": 35,
    "donations": 0,
    "received": 0,
    "league": "Unranked"
@@ -515,7 +528,7 @@
    "exp": 133,
    "trophies": 0,
    "bb_trophies": 2727,
-   "rank": 35,
+   "rank": 36,
    "donations": 0,
    "received": 0,
    "league": "Unranked"
@@ -528,24 +541,11 @@
    "exp": 138,
    "trophies": 0,
    "bb_trophies": 2213,
-   "rank": 36,
-   "donations": 0,
-   "received": 0,
-   "league": "Unranked"
-  },
-  {
-   "tag": "#GJ92LJP0Y",
-   "name": "kojiro_PK",
-   "role": "member",
-   "th": 13,
-   "exp": 102,
-   "trophies": 0,
-   "bb_trophies": 2276,
    "rank": 37,
    "donations": 0,
    "received": 0,
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-21T14:31:50Z"
+ "fetched": "2026-11-21T16:24:07Z"
 }

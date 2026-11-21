@@ -42,7 +42,22 @@
     "name": "×{•KAISER•}×",
     "th": 17,
     "pos": 9,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 37,
+      "defender": "#LPLYJ9QPG",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 178
+     },
+     {
+      "order": 38,
+      "defender": "#C9YL8GUG",
+      "stars": 2,
+      "destruction": 92,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#8CQQG8J88",
@@ -262,8 +277,8 @@
  "opponent": {
   "tag": "#VU8V0R9C",
   "name": "les 2 roues",
-  "stars": 30,
-  "destruction": 74.87,
+  "stars": 33,
+  "destruction": 81.53,
   "members": [
    {
     "tag": "#G9RLVP90R",
@@ -321,6 +336,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 151
+     },
+     {
+      "order": 39,
+      "defender": "#QRUR00J0P",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 158
      }
     ]
    },
