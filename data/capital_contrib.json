@@ -1,5 +1,5 @@
 {
- "clan_members": 37,
+ "clan_members": 35,
  "members": [
   {
    "tag": "#2Q0V908P",
@@ -60,11 +60,6 @@
    "tag": "#GQQ90LY0V",
    "name": "Daark1",
    "contributed": 548345
-  },
-  {
-   "tag": "#GRG9V2YCG",
-   "name": "Siegfried",
-   "contributed": 386324
   },
   {
    "tag": "#GRGPG228C",
@@ -167,11 +162,6 @@
    "contributed": 984782
   },
   {
-   "tag": "#R8U0YL9LL",
-   "name": "Kelsier",
-   "contributed": 132560
-  },
-  {
    "tag": "#Y8UQPVYQ",
    "name": "Mucio_Avepa",
    "contributed": 606987
@@ -187,5 +177,5 @@
    "contributed": 1293160
   }
  ],
- "fetched": "2026-11-21T19:14:37Z"
+ "fetched": "2026-11-21T21:00:16Z"
 }
