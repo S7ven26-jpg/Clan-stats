@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 32,
-  "destruction": 73.2,
+  "stars": 36,
+  "destruction": 85.6,
   "members": [
    {
     "tag": "#QV82CU9RV",
@@ -56,6 +56,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 136
+     },
+     {
+      "order": 31,
+      "defender": "#90CYUYGVJ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 113
      }
     ]
    },
@@ -86,7 +93,15 @@
     "name": "Siegfried",
     "th": 16,
     "pos": 13,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 29,
+      "defender": "#G9RLVP90R",
+      "stars": 1,
+      "destruction": 86,
+      "duration": 107
+     }
+    ]
    },
    {
     "tag": "#GCG2PYY2R",
@@ -211,8 +226,8 @@
  "opponent": {
   "tag": "#VU8V0R9C",
   "name": "les 2 roues",
-  "stars": 27,
-  "destruction": 68.2,
+  "stars": 30,
+  "destruction": 74.87,
   "members": [
    {
     "tag": "#G9RLVP90R",
@@ -263,7 +278,15 @@
     "name": "AyRoN",
     "th": 17,
     "pos": 7,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 30,
+      "defender": "#QUC2L8QRP",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 151
+     }
+    ]
    },
    {
     "tag": "#8Q9GQP0J0",
