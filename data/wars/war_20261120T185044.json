@@ -181,8 +181,8 @@
  "opponent": {
   "tag": "#VU8V0R9C",
   "name": "les 2 roues",
-  "stars": 23,
-  "destruction": 60.13,
+  "stars": 25,
+  "destruction": 62.0,
   "members": [
    {
     "tag": "#G9RLVP90R",
@@ -364,7 +364,15 @@
     "name": "RA Kezzz",
     "th": 16,
     "pos": 11,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 23,
+      "defender": "#R0GVRJ00C",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 139
+     }
+    ]
    },
    {
     "tag": "#2Q2QPCG2U",
