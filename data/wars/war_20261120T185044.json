@@ -123,7 +123,22 @@
     "name": "Greeyhawk",
     "th": 18,
     "pos": 5,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 40,
+      "defender": "#90CYUYGVJ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 121
+     },
+     {
+      "order": 41,
+      "defender": "#LG99VPRPJ",
+      "stars": 2,
+      "destruction": 98,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#GVYPV8PJG",
