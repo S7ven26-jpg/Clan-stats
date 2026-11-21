@@ -165,22 +165,52 @@
  "opponent": {
   "tag": "#VU8V0R9C",
   "name": "les 2 roues",
-  "stars": 7,
-  "destruction": 26.33,
+  "stars": 20,
+  "destruction": 53.47,
   "members": [
    {
     "tag": "#G9RLVP90R",
     "name": "baygonix",
     "th": 16,
     "pos": 12,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 15,
+      "defender": "#QV82CU9RV",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 141
+     },
+     {
+      "order": 16,
+      "defender": "#R8U0YL9LL",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 129
+     }
+    ]
    },
    {
     "tag": "#PYY88J9P",
     "name": "Codex",
     "th": 16,
     "pos": 13,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 14,
+      "defender": "#GG2GGQ80V",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 128
+     },
+     {
+      "order": 19,
+      "defender": "#GRG9V2YCG",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 91
+     }
+    ]
    },
    {
     "tag": "#2PYVJQPVG",
@@ -230,7 +260,22 @@
     "name": "AyRoNN",
     "th": 14,
     "pos": 14,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 17,
+      "defender": "#GRG9V2YCG",
+      "stars": 2,
+      "destruction": 86,
+      "duration": 110
+     },
+     {
+      "order": 18,
+      "defender": "#R0GVRJ00C",
+      "stars": 1,
+      "destruction": 72,
+      "duration": 91
+     }
+    ]
    },
    {
     "tag": "#LYLPQCU8G",
