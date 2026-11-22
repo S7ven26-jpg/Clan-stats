@@ -71,7 +71,7 @@
    "role": "coLeader",
    "th": 19,
    "exp": 222,
-   "trophies": 717,
+   "trophies": 729,
    "bb_trophies": 3972,
    "rank": 1,
    "donations": 6138,
@@ -83,7 +83,7 @@
    "name": "kevin daniel",
    "role": "member",
    "th": 19,
-   "exp": 220,
+   "exp": 221,
    "trophies": 813,
    "bb_trophies": 3800,
    "rank": 2,
@@ -100,7 +100,7 @@
    "trophies": 714,
    "bb_trophies": 2486,
    "rank": 3,
-   "donations": 7213,
+   "donations": 7294,
    "received": 4086,
    "league": "Unranked"
   },
@@ -110,7 +110,7 @@
    "role": "member",
    "th": 18,
    "exp": 232,
-   "trophies": 884,
+   "trophies": 913,
    "bb_trophies": 4791,
    "rank": 4,
    "donations": 3611,
@@ -123,7 +123,7 @@
    "role": "coLeader",
    "th": 17,
    "exp": 176,
-   "trophies": 421,
+   "trophies": 440,
    "bb_trophies": 3123,
    "rank": 5,
    "donations": 813,
@@ -179,7 +179,7 @@
    "bb_trophies": 1970,
    "rank": 9,
    "donations": 1085,
-   "received": 3647,
+   "received": 3728,
    "league": "Unranked"
   },
   {
@@ -201,7 +201,7 @@
    "role": "admin",
    "th": 16,
    "exp": 151,
-   "trophies": 264,
+   "trophies": 374,
    "bb_trophies": 2518,
    "rank": 11,
    "donations": 137,
@@ -282,7 +282,7 @@
    "trophies": 249,
    "bb_trophies": 3761,
    "rank": 17,
-   "donations": 2426,
+   "donations": 2509,
    "received": 3920,
    "league": "Unranked"
   },
@@ -322,7 +322,7 @@
    "bb_trophies": 3489,
    "rank": 20,
    "donations": 2929,
-   "received": 3188,
+   "received": 3271,
    "league": "Unranked"
   },
   {
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-22T19:16:53Z"
+ "fetched": "2026-11-22T23:00:44Z"
 }

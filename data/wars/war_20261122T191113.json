@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 15,
-  "destruction": 37.8,
+  "stars": 16,
+  "destruction": 43.27,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -62,7 +62,15 @@
     "name": "JTRC",
     "th": 17,
     "pos": 14,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 11,
+      "defender": "#QGCJ8GL0C",
+      "stars": 1,
+      "destruction": 82,
+      "duration": 106
+     }
+    ]
    },
    {
     "tag": "#R0GVRJ00C",
