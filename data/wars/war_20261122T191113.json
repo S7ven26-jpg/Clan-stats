@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 10,
-  "destruction": 25.27,
+  "stars": 15,
+  "destruction": 37.8,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -135,7 +135,15 @@
     "name": "kevin daniel",
     "th": 19,
     "pos": 2,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 7,
+      "defender": "#YUQR0GUJC",
+      "stars": 2,
+      "destruction": 88,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#QCPVC0GU0",
@@ -149,15 +157,23 @@
     "name": "8A3",
     "th": 13,
     "pos": 15,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 8,
+      "defender": "#GJ9LP0QVY",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 103
+     }
+    ]
    }
   ]
  },
  "opponent": {
   "tag": "#2LLLYUC9C",
   "name": "The last empire",
-  "stars": 5,
-  "destruction": 11.93,
+  "stars": 10,
+  "destruction": 24.67,
   "members": [
    {
     "tag": "#LGU0GJYGU",
@@ -192,7 +208,22 @@
     "name": "Ebram",
     "th": 17,
     "pos": 9,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 9,
+      "defender": "#QRUR00J0P",
+      "stars": 2,
+      "destruction": 91,
+      "duration": 172
+     },
+     {
+      "order": 10,
+      "defender": "#GCQRV9U0R",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 76
+     }
+    ]
    },
    {
     "tag": "#YUQR0GUJC",
