@@ -12,15 +12,23 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 16,
-  "destruction": 43.27,
+  "stars": 19,
+  "destruction": 49.93,
   "members": [
    {
     "tag": "#QRUR00J0P",
     "name": "lucas",
     "th": 17,
     "pos": 9,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 12,
+      "defender": "#LRLYP00RY",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 86
+     }
+    ]
    },
    {
     "tag": "#GLVJLU020",
