@@ -5,7 +5,7 @@
  "end": "2026-11-23T07:00:00Z",
  "total_loot": 257492,
  "raids_completed": 4,
- "total_attacks": 70,
+ "total_attacks": 71,
  "districts_destroyed": 29,
  "offensive_reward": 0,
  "defensive_reward": 0,
@@ -21,7 +21,7 @@
   {
    "tag": "#GLVJLU020",
    "name": "×{•KAISER•}×",
-   "attacks": 2,
+   "attacks": 3,
    "attack_limit": 5,
    "bonus_attack_limit": 1,
    "looted": 7507
