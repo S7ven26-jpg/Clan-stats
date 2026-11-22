@@ -3,10 +3,10 @@
  "state": "ongoing",
  "start": "2026-11-20T07:00:00Z",
  "end": "2026-11-23T07:00:00Z",
- "total_loot": 232455,
+ "total_loot": 257492,
  "raids_completed": 4,
- "total_attacks": 64,
- "districts_destroyed": 27,
+ "total_attacks": 70,
+ "districts_destroyed": 29,
  "offensive_reward": 0,
  "defensive_reward": 0,
  "members": [
@@ -97,6 +97,14 @@
    "attack_limit": 5,
    "bonus_attack_limit": 1,
    "looted": 23564
+  },
+  {
+   "tag": "#GCQRV9U0R",
+   "name": "martin",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 25037
   },
   {
    "tag": "#2U8JYG9V8",

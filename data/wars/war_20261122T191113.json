@@ -1,0 +1,238 @@
+{
+ "id": "war_20261122T191113",
+ "type": "war",
+ "season": "2026-11",
+ "round": null,
+ "war_tag": null,
+ "state": "inWar",
+ "start": "2026-11-22T19:11:13Z",
+ "end": "2026-11-23T19:11:13Z",
+ "team_size": 15,
+ "attacks_per_member": 2,
+ "clan": {
+  "tag": "#2RP29GPCG",
+  "name": "Arepa con queso",
+  "stars": 0,
+  "destruction": 0,
+  "members": [
+   {
+    "tag": "#QRUR00J0P",
+    "name": "lucas",
+    "th": 17,
+    "pos": 9,
+    "attacks": []
+   },
+   {
+    "tag": "#GLVJLU020",
+    "name": "×{•KAISER•}×",
+    "th": 17,
+    "pos": 10,
+    "attacks": []
+   },
+   {
+    "tag": "#8CQQG8J88",
+    "name": "ZOM3R",
+    "th": 18,
+    "pos": 3,
+    "attacks": []
+   },
+   {
+    "tag": "#P0YRJCV",
+    "name": "S7ven26",
+    "th": 19,
+    "pos": 1,
+    "attacks": []
+   },
+   {
+    "tag": "#GCG2PYY2R",
+    "name": "Greeyhawk",
+    "th": 18,
+    "pos": 6,
+    "attacks": []
+   },
+   {
+    "tag": "#GVYPV8PJG",
+    "name": "lamb",
+    "th": 17,
+    "pos": 11,
+    "attacks": []
+   },
+   {
+    "tag": "#LCUVG0202",
+    "name": "JTRC",
+    "th": 17,
+    "pos": 14,
+    "attacks": []
+   },
+   {
+    "tag": "#R0GVRJ00C",
+    "name": "8A2",
+    "th": 16,
+    "pos": 13,
+    "attacks": []
+   },
+   {
+    "tag": "#8LR9GY8V9",
+    "name": "Andrewx0202",
+    "th": 18,
+    "pos": 4,
+    "attacks": []
+   },
+   {
+    "tag": "#R2C8PUVQJ",
+    "name": "8A",
+    "th": 18,
+    "pos": 5,
+    "attacks": []
+   },
+   {
+    "tag": "#QUC2L8QRP",
+    "name": "pipemono",
+    "th": 17,
+    "pos": 7,
+    "attacks": []
+   },
+   {
+    "tag": "#GCQRV9U0R",
+    "name": "martin",
+    "th": 16,
+    "pos": 12,
+    "attacks": []
+   },
+   {
+    "tag": "#2U8JYG9V8",
+    "name": "kevin daniel",
+    "th": 19,
+    "pos": 2,
+    "attacks": []
+   },
+   {
+    "tag": "#QCPVC0GU0",
+    "name": "Abusamadres",
+    "th": 17,
+    "pos": 8,
+    "attacks": []
+   },
+   {
+    "tag": "#GG2GGQ80V",
+    "name": "8A3",
+    "th": 13,
+    "pos": 15,
+    "attacks": []
+   }
+  ]
+ },
+ "opponent": {
+  "tag": "#2LLLYUC9C",
+  "name": "The last empire",
+  "stars": 0,
+  "destruction": 0,
+  "members": [
+   {
+    "tag": "#LGU0GJYGU",
+    "name": "گل.آقا",
+    "th": 18,
+    "pos": 4,
+    "attacks": []
+   },
+   {
+    "tag": "#QGCJ8GL0C",
+    "name": "MATRIX",
+    "th": 18,
+    "pos": 14,
+    "attacks": []
+   },
+   {
+    "tag": "#G920J0GRY",
+    "name": "♣️شبح سیاه♣️",
+    "th": 17,
+    "pos": 12,
+    "attacks": []
+   },
+   {
+    "tag": "#Q0VYCLVRY",
+    "name": "F⃠A⃠R⃠S⃠H⃠I⃠D⃠",
+    "th": 18,
+    "pos": 6,
+    "attacks": []
+   },
+   {
+    "tag": "#LRLYP00RY",
+    "name": "Ebram",
+    "th": 17,
+    "pos": 9,
+    "attacks": []
+   },
+   {
+    "tag": "#YUQR0GUJC",
+    "name": "EMP⚡️GHOST",
+    "th": 19,
+    "pos": 2,
+    "attacks": []
+   },
+   {
+    "tag": "#QCQ0C2PQV",
+    "name": "iliya47",
+    "th": 19,
+    "pos": 7,
+    "attacks": []
+   },
+   {
+    "tag": "#QJ89QJQ2Y",
+    "name": "Mohammad Taha",
+    "th": 18,
+    "pos": 8,
+    "attacks": []
+   },
+   {
+    "tag": "#G0PYQVCCL",
+    "name": "EMP⚡️HUNTER",
+    "th": 17,
+    "pos": 10,
+    "attacks": []
+   },
+   {
+    "tag": "#G9U80LCY0",
+    "name": "Persian Wolf",
+    "th": 18,
+    "pos": 3,
+    "attacks": []
+   },
+   {
+    "tag": "#GU228LL80",
+    "name": "l. Messi. 10",
+    "th": 17,
+    "pos": 13,
+    "attacks": []
+   },
+   {
+    "tag": "#PGJLVCGV0",
+    "name": "Warrior",
+    "th": 17,
+    "pos": 11,
+    "attacks": []
+   },
+   {
+    "tag": "#Q9YGRLPCC",
+    "name": "A M I R",
+    "th": 18,
+    "pos": 5,
+    "attacks": []
+   },
+   {
+    "tag": "#GJ9LP0QVY",
+    "name": "امپراطور",
+    "th": 11,
+    "pos": 15,
+    "attacks": []
+   },
+   {
+    "tag": "#8YGVQVQL9",
+    "name": "aryix",
+    "th": 19,
+    "pos": 1,
+    "attacks": []
+   }
+  ]
+ }
+}

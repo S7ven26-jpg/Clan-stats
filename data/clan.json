@@ -5,7 +5,7 @@
  "type": "inviteOnly",
  "level": 14,
  "points": 87200,
- "bb_points": 29093,
+ "bb_points": 29109,
  "capital_points": 2819,
  "war_frequency": "always",
  "war_win_streak": 14,
@@ -71,7 +71,7 @@
    "role": "coLeader",
    "th": 19,
    "exp": 222,
-   "trophies": 620,
+   "trophies": 717,
    "bb_trophies": 3972,
    "rank": 1,
    "donations": 6138,
@@ -87,7 +87,7 @@
    "trophies": 813,
    "bb_trophies": 3800,
    "rank": 2,
-   "donations": 6257,
+   "donations": 6481,
    "received": 3907,
    "league": "Titan League I"
   },
@@ -135,8 +135,8 @@
    "name": "Greeyhawk",
    "role": "coLeader",
    "th": 18,
-   "exp": 175,
-   "trophies": 45,
+   "exp": 176,
+   "trophies": 71,
    "bb_trophies": 3018,
    "rank": 6,
    "donations": 2141,
@@ -149,7 +149,7 @@
    "role": "coLeader",
    "th": 17,
    "exp": 181,
-   "trophies": 602,
+   "trophies": 737,
    "bb_trophies": 3618,
    "rank": 7,
    "donations": 1839,
@@ -166,7 +166,7 @@
    "bb_trophies": 3411,
    "rank": 8,
    "donations": 1736,
-   "received": 1060,
+   "received": 1149,
    "league": "Unranked"
   },
   {
@@ -257,7 +257,7 @@
    "bb_trophies": 1818,
    "rank": 15,
    "donations": 927,
-   "received": 465,
+   "received": 553,
    "league": "Unranked"
   },
   {
@@ -280,7 +280,7 @@
    "th": 15,
    "exp": 209,
    "trophies": 249,
-   "bb_trophies": 3776,
+   "bb_trophies": 3761,
    "rank": 17,
    "donations": 2426,
    "received": 3920,
@@ -384,10 +384,10 @@
    "th": 14,
    "exp": 135,
    "trophies": 274,
-   "bb_trophies": 2271,
+   "bb_trophies": 2470,
    "rank": 25,
    "donations": 250,
-   "received": 282,
+   "received": 329,
    "league": "Unranked"
   },
   {
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-22T15:26:14Z"
+ "fetched": "2026-11-22T19:16:53Z"
 }
