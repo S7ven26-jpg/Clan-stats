@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 0,
-  "destruction": 0,
+  "stars": 5,
+  "destruction": 12.0,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -90,7 +90,22 @@
     "name": "pipemono",
     "th": 17,
     "pos": 7,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 2,
+      "defender": "#QCQ0C2PQV",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 161
+     },
+     {
+      "order": 3,
+      "defender": "#8YGVQVQL9",
+      "stars": 2,
+      "destruction": 80,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#GCQRV9U0R",
@@ -125,8 +140,8 @@
  "opponent": {
   "tag": "#2LLLYUC9C",
   "name": "The last empire",
-  "stars": 0,
-  "destruction": 0,
+  "stars": 3,
+  "destruction": 6.67,
   "members": [
    {
     "tag": "#LGU0GJYGU",
@@ -203,7 +218,15 @@
     "name": "l. Messi. 10",
     "th": 17,
     "pos": 13,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 1,
+      "defender": "#R0GVRJ00C",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 124
+     }
+    ]
    },
    {
     "tag": "#PGJLVCGV0",
