@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 22,
-  "destruction": 51.2,
+  "stars": 25,
+  "destruction": 61.33,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -77,6 +77,13 @@
       "stars": 1,
       "destruction": 82,
       "duration": 106
+     },
+     {
+      "order": 28,
+      "defender": "#G920J0GRY",
+      "stars": 1,
+      "destruction": 70,
+      "duration": 95
      }
     ]
    },
@@ -107,7 +114,15 @@
     "name": "Andrewx0202",
     "th": 18,
     "pos": 4,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 27,
+      "defender": "#LGU0GJYGU",
+      "stars": 2,
+      "destruction": 82,
+      "duration": 147
+     }
+    ]
    },
    {
     "tag": "#R2C8PUVQJ",
@@ -209,8 +224,8 @@
  "opponent": {
   "tag": "#2LLLYUC9C",
   "name": "The last empire",
-  "stars": 32,
-  "destruction": 77.87,
+  "stars": 35,
+  "destruction": 84.53,
   "members": [
    {
     "tag": "#LGU0GJYGU",
@@ -304,6 +319,13 @@
       "stars": 2,
       "destruction": 79,
       "duration": 180
+     },
+     {
+      "order": 26,
+      "defender": "#R2C8PUVQJ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 168
      }
     ]
    },

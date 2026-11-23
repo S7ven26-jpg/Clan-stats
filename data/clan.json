@@ -4,9 +4,9 @@
  "description": "Clan Activo y amigable. Buscamos gente activa para guerra y subir de rango en liga de clanes . Si sos respetuoso , buena onda y competivo no dudes en unirte 💪🏽💪🏽",
  "type": "inviteOnly",
  "level": 14,
- "points": 88000,
+ "points": 88200,
  "bb_points": 29107,
- "capital_points": 2819,
+ "capital_points": 2854,
  "war_frequency": "always",
  "war_win_streak": 14,
  "war_wins": 66,
@@ -126,7 +126,7 @@
    "trophies": 0,
    "bb_trophies": 3123,
    "rank": 5,
-   "donations": 813,
+   "donations": 843,
    "received": 622,
    "league": "Unranked"
   },
@@ -165,7 +165,7 @@
    "trophies": 0,
    "bb_trophies": 3618,
    "rank": 8,
-   "donations": 1839,
+   "donations": 1842,
    "received": 2888,
    "league": "Unranked"
   },
@@ -291,11 +291,11 @@
    "name": "DESTROYERS",
    "role": "member",
    "th": 15,
-   "exp": 209,
+   "exp": 210,
    "trophies": 0,
    "bb_trophies": 3761,
    "rank": 18,
-   "donations": 2509,
+   "donations": 2592,
    "received": 3920,
    "league": "Unranked"
   },
@@ -309,7 +309,7 @@
    "bb_trophies": 3489,
    "rank": 19,
    "donations": 2929,
-   "received": 3271,
+   "received": 3354,
    "league": "Unranked"
   },
   {
@@ -383,11 +383,11 @@
    "role": "admin",
    "th": 14,
    "exp": 135,
-   "trophies": 460,
+   "trophies": 0,
    "bb_trophies": 2470,
    "rank": 25,
    "donations": 250,
-   "received": 329,
+   "received": 362,
    "league": "Unranked"
   },
   {
@@ -422,7 +422,7 @@
    "role": "member",
    "th": 13,
    "exp": 100,
-   "trophies": 402,
+   "trophies": 0,
    "bb_trophies": 2126,
    "rank": 28,
    "donations": 269,
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-23T05:59:28Z"
+ "fetched": "2026-11-23T08:59:31Z"
 }
