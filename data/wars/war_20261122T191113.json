@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 25,
-  "destruction": 61.33,
+  "stars": 29,
+  "destruction": 69.2,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -42,7 +42,22 @@
     "name": "ZOM3R",
     "th": 18,
     "pos": 3,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 29,
+      "defender": "#G9U80LCY0",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 135
+     },
+     {
+      "order": 30,
+      "defender": "#LGU0GJYGU",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 123
+     }
+    ]
    },
    {
     "tag": "#P0YRJCV",
