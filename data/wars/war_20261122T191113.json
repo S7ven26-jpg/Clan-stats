@@ -210,7 +210,7 @@
   "tag": "#2LLLYUC9C",
   "name": "The last empire",
   "stars": 22,
-  "destruction": 56.27,
+  "destruction": 56.47,
   "members": [
    {
     "tag": "#LGU0GJYGU",
@@ -340,6 +340,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 124
+     },
+     {
+      "order": 21,
+      "defender": "#QRUR00J0P",
+      "stars": 2,
+      "destruction": 94,
+      "duration": 156
      }
     ]
    },
