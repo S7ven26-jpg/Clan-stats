@@ -8,10 +8,10 @@
  "bb_points": 28935,
  "capital_points": 2854,
  "war_frequency": "always",
- "war_win_streak": 14,
+ "war_win_streak": 0,
  "war_wins": 66,
  "war_ties": 17,
- "war_losses": 30,
+ "war_losses": 31,
  "war_log_public": true,
  "location": "International",
  "chat_language": "Español",
@@ -150,7 +150,7 @@
    "th": 18,
    "exp": 176,
    "trophies": 0,
-   "bb_trophies": 3018,
+   "bb_trophies": 3016,
    "rank": 7,
    "donations": 2141,
    "received": 4351,
@@ -391,6 +391,19 @@
    "league": "Unranked"
   },
   {
+   "tag": "#GRGPG228C",
+   "name": "diego29",
+   "role": "member",
+   "th": 14,
+   "exp": 126,
+   "trophies": 40,
+   "bb_trophies": 2281,
+   "rank": 26,
+   "donations": 32,
+   "received": 0,
+   "league": "Unranked"
+  },
+  {
    "tag": "#GLJYP0JP0",
    "name": "AGUA DE COCO",
    "role": "member",
@@ -398,21 +411,8 @@
    "exp": 99,
    "trophies": 0,
    "bb_trophies": 2128,
-   "rank": 26,
-   "donations": 0,
-   "received": 0,
-   "league": "Unranked"
-  },
-  {
-   "tag": "#GRGPG228C",
-   "name": "diego29",
-   "role": "member",
-   "th": 14,
-   "exp": 126,
-   "trophies": 0,
-   "bb_trophies": 2281,
    "rank": 27,
-   "donations": 32,
+   "donations": 0,
    "received": 0,
    "league": "Unranked"
   },
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-23T18:54:13Z"
+ "fetched": "2026-11-23T20:52:27Z"
 }
