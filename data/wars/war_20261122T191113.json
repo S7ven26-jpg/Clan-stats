@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 20,
-  "destruction": 50.0,
+  "stars": 22,
+  "destruction": 51.2,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -92,6 +92,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 133
+     },
+     {
+      "order": 17,
+      "defender": "#QGCJ8GL0C",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 156
      }
     ]
    },
@@ -113,6 +120,13 @@
       "defender": "#Q9YGRLPCC",
       "stars": 2,
       "destruction": 99,
+      "duration": 180
+     },
+     {
+      "order": 16,
+      "defender": "#YUQR0GUJC",
+      "stars": 1,
+      "destruction": 87,
       "duration": 180
      }
     ]
@@ -195,8 +209,8 @@
  "opponent": {
   "tag": "#2LLLYUC9C",
   "name": "The last empire",
-  "stars": 15,
-  "destruction": 37.87,
+  "stars": 19,
+  "destruction": 49.6,
   "members": [
    {
     "tag": "#LGU0GJYGU",
@@ -289,7 +303,22 @@
     "name": "Persian Wolf",
     "th": 18,
     "pos": 3,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 18,
+      "defender": "#GG2GGQ80V",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 79
+     },
+     {
+      "order": 19,
+      "defender": "#LCUVG0202",
+      "stars": 1,
+      "destruction": 76,
+      "duration": 106
+     }
+    ]
    },
    {
     "tag": "#GU228LL80",
