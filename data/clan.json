@@ -5,7 +5,7 @@
  "type": "inviteOnly",
  "level": 14,
  "points": 88200,
- "bb_points": 28961,
+ "bb_points": 28935,
  "capital_points": 2854,
  "war_frequency": "always",
  "war_win_streak": 14,
@@ -74,7 +74,7 @@
    "trophies": 0,
    "bb_trophies": 3972,
    "rank": 1,
-   "donations": 6196,
+   "donations": 6274,
    "received": 3483,
    "league": "Unranked"
   },
@@ -123,11 +123,24 @@
    "role": "coLeader",
    "th": 17,
    "exp": 176,
-   "trophies": 0,
+   "trophies": 11,
    "bb_trophies": 3123,
    "rank": 5,
    "donations": 843,
-   "received": 622,
+   "received": 740,
+   "league": "Unranked"
+  },
+  {
+   "tag": "#8LR9GY8V9",
+   "name": "Andrewx0202",
+   "role": "member",
+   "th": 18,
+   "exp": 230,
+   "trophies": 10,
+   "bb_trophies": 3411,
+   "rank": 6,
+   "donations": 1831,
+   "received": 1207,
    "league": "Unranked"
   },
   {
@@ -138,23 +151,10 @@
    "exp": 176,
    "trophies": 0,
    "bb_trophies": 3018,
-   "rank": 6,
+   "rank": 7,
    "donations": 2141,
    "received": 4351,
    "league": "Gold League II"
-  },
-  {
-   "tag": "#8LR9GY8V9",
-   "name": "Andrewx0202",
-   "role": "member",
-   "th": 18,
-   "exp": 230,
-   "trophies": 0,
-   "bb_trophies": 3411,
-   "rank": 7,
-   "donations": 1736,
-   "received": 1149,
-   "league": "Unranked"
   },
   {
    "tag": "#QUC2L8QRP",
@@ -188,7 +188,7 @@
    "role": "admin",
    "th": 17,
    "exp": 157,
-   "trophies": 0,
+   "trophies": 15,
    "bb_trophies": 3951,
    "rank": 10,
    "donations": 655,
@@ -240,7 +240,7 @@
    "role": "admin",
    "th": 17,
    "exp": 180,
-   "trophies": 0,
+   "trophies": 8,
    "bb_trophies": 3028,
    "rank": 14,
    "donations": 332,
@@ -254,7 +254,7 @@
    "th": 17,
    "exp": 152,
    "trophies": 0,
-   "bb_trophies": 1818,
+   "bb_trophies": 1883,
    "rank": 15,
    "donations": 927,
    "received": 608,
@@ -293,9 +293,9 @@
    "th": 15,
    "exp": 210,
    "trophies": 0,
-   "bb_trophies": 3771,
+   "bb_trophies": 3704,
    "rank": 18,
-   "donations": 2675,
+   "donations": 2678,
    "received": 3920,
    "league": "Unranked"
   },
@@ -305,7 +305,7 @@
    "role": "member",
    "th": 17,
    "exp": 182,
-   "trophies": 0,
+   "trophies": 11,
    "bb_trophies": 3173,
    "rank": 19,
    "donations": 2929,
@@ -326,29 +326,29 @@
    "league": "Unranked"
   },
   {
-   "tag": "#YLL22GQRQ",
-   "name": "josephe",
-   "role": "admin",
-   "th": 16,
-   "exp": 172,
-   "trophies": 0,
-   "bb_trophies": 2729,
-   "rank": 21,
-   "donations": 1396,
-   "received": 0,
-   "league": "Unranked"
-  },
-  {
    "tag": "#Q228U9LY2",
    "name": "J.ENP21",
    "role": "admin",
    "th": 15,
    "exp": 142,
-   "trophies": 0,
+   "trophies": 29,
    "bb_trophies": 2557,
-   "rank": 22,
+   "rank": 21,
    "donations": 0,
    "received": 81,
+   "league": "Unranked"
+  },
+  {
+   "tag": "#YLL22GQRQ",
+   "name": "josephe",
+   "role": "admin",
+   "th": 16,
+   "exp": 172,
+   "trophies": 25,
+   "bb_trophies": 2729,
+   "rank": 22,
+   "donations": 1396,
+   "received": 0,
    "league": "Unranked"
   },
   {
@@ -443,6 +443,19 @@
    "league": "Master League III"
   },
   {
+   "tag": "#GJ92LJP0Y",
+   "name": "kojiro_PK",
+   "role": "member",
+   "th": 13,
+   "exp": 102,
+   "trophies": 26,
+   "bb_trophies": 2276,
+   "rank": 30,
+   "donations": 55,
+   "received": 0,
+   "league": "Unranked"
+  },
+  {
    "tag": "#QGCV09UU9",
    "name": "LDPM",
    "role": "coLeader",
@@ -450,21 +463,8 @@
    "exp": 113,
    "trophies": 0,
    "bb_trophies": 2400,
-   "rank": 30,
-   "donations": 0,
-   "received": 0,
-   "league": "Unranked"
-  },
-  {
-   "tag": "#GJ92LJP0Y",
-   "name": "kojiro_PK",
-   "role": "member",
-   "th": 13,
-   "exp": 102,
-   "trophies": 0,
-   "bb_trophies": 2276,
    "rank": 31,
-   "donations": 55,
+   "donations": 0,
    "received": 0,
    "league": "Unranked"
   },
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-23T15:43:15Z"
+ "fetched": "2026-11-23T18:54:13Z"
 }
