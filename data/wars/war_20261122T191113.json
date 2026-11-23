@@ -292,7 +292,22 @@
     "name": "گل.آقا",
     "th": 18,
     "pos": 4,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 45,
+      "defender": "#GCG2PYY2R",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 136
+     },
+     {
+      "order": 46,
+      "defender": "#R2C8PUVQJ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 154
+     }
+    ]
    },
    {
     "tag": "#QGCJ8GL0C",
