@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 29,
-  "destruction": 69.2,
+  "stars": 30,
+  "destruction": 70.53,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -64,7 +64,22 @@
     "name": "S7ven26",
     "th": 19,
     "pos": 1,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 39,
+      "defender": "#8YGVQVQL9",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 91
+     },
+     {
+      "order": 40,
+      "defender": "#YUQR0GUJC",
+      "stars": 1,
+      "destruction": 66,
+      "duration": 94
+     }
+    ]
    },
    {
     "tag": "#GCG2PYY2R",
