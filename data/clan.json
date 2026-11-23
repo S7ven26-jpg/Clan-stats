@@ -136,11 +136,24 @@
    "role": "member",
    "th": 18,
    "exp": 230,
-   "trophies": 10,
+   "trophies": 77,
    "bb_trophies": 3411,
    "rank": 6,
    "donations": 1831,
    "received": 1207,
+   "league": "Unranked"
+  },
+  {
+   "tag": "#QUC2L8QRP",
+   "name": "pipemono",
+   "role": "coLeader",
+   "th": 17,
+   "exp": 181,
+   "trophies": 70,
+   "bb_trophies": 3618,
+   "rank": 7,
+   "donations": 1901,
+   "received": 2888,
    "league": "Unranked"
   },
   {
@@ -151,23 +164,10 @@
    "exp": 176,
    "trophies": 0,
    "bb_trophies": 3016,
-   "rank": 7,
-   "donations": 2141,
-   "received": 4351,
-   "league": "Gold League II"
-  },
-  {
-   "tag": "#QUC2L8QRP",
-   "name": "pipemono",
-   "role": "coLeader",
-   "th": 17,
-   "exp": 181,
-   "trophies": 0,
-   "bb_trophies": 3618,
    "rank": 8,
-   "donations": 1842,
-   "received": 2888,
-   "league": "Unranked"
+   "donations": 2141,
+   "received": 4410,
+   "league": "Gold League II"
   },
   {
    "tag": "#R0GVRJ00C",
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-23T20:52:27Z"
+ "fetched": "2026-11-23T22:47:28Z"
 }
