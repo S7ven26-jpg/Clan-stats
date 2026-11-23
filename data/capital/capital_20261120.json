@@ -1,14 +1,14 @@
 {
  "id": "capital_20261120",
- "state": "ongoing",
+ "state": "ended",
  "start": "2026-11-20T07:00:00Z",
  "end": "2026-11-23T07:00:00Z",
  "total_loot": 396799,
  "raids_completed": 6,
  "total_attacks": 106,
  "districts_destroyed": 45,
- "offensive_reward": 0,
- "defensive_reward": 0,
+ "offensive_reward": 192,
+ "defensive_reward": 134,
  "members": [
   {
    "tag": "#QRUR00J0P",

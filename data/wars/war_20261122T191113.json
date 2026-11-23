@@ -209,8 +209,8 @@
  "opponent": {
   "tag": "#2LLLYUC9C",
   "name": "The last empire",
-  "stars": 22,
-  "destruction": 56.47,
+  "stars": 32,
+  "destruction": 77.87,
   "members": [
    {
     "tag": "#LGU0GJYGU",
@@ -246,7 +246,22 @@
     "name": "F⃠A⃠R⃠S⃠H⃠I⃠D⃠",
     "th": 18,
     "pos": 6,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 22,
+      "defender": "#GCG2PYY2R",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 162
+     },
+     {
+      "order": 23,
+      "defender": "#8CQQG8J88",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 160
+     }
+    ]
    },
    {
     "tag": "#LRLYP00RY",
@@ -297,7 +312,15 @@
     "name": "Mohammad Taha",
     "th": 18,
     "pos": 8,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 25,
+      "defender": "#QCPVC0GU0",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 158
+     }
+    ]
    },
    {
     "tag": "#G0PYQVCCL",
@@ -391,7 +414,15 @@
     "name": "aryix",
     "th": 19,
     "pos": 1,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 24,
+      "defender": "#P0YRJCV",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 156
+     }
+    ]
    }
   ]
  }
