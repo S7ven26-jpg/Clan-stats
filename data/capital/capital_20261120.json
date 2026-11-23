@@ -3,10 +3,10 @@
  "state": "ongoing",
  "start": "2026-11-20T07:00:00Z",
  "end": "2026-11-23T07:00:00Z",
- "total_loot": 341876,
- "raids_completed": 5,
- "total_attacks": 93,
- "districts_destroyed": 39,
+ "total_loot": 396799,
+ "raids_completed": 6,
+ "total_attacks": 106,
+ "districts_destroyed": 45,
  "offensive_reward": 0,
  "defensive_reward": 0,
  "members": [
@@ -67,6 +67,14 @@
    "looted": 22002
   },
   {
+   "tag": "#GCG2PYY2R",
+   "name": "Greeyhawk",
+   "attacks": 2,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 9692
+  },
+  {
    "tag": "#GVYPV8PJG",
    "name": "lamb",
    "attacks": 6,
@@ -107,6 +115,14 @@
    "looted": 23564
   },
   {
+   "tag": "#GJ92LJP0Y",
+   "name": "kojiro_PK",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 24156
+  },
+  {
    "tag": "#R20CGVRQQ",
    "name": "shinra xz11",
    "attacks": 2,
@@ -141,10 +157,10 @@
   {
    "tag": "#GG2GGQ80V",
    "name": "8A3",
-   "attacks": 1,
+   "attacks": 6,
    "attack_limit": 5,
-   "bonus_attack_limit": 0,
-   "looted": 5125
+   "bonus_attack_limit": 1,
+   "looted": 26200
   }
  ]
 }

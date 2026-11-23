@@ -209,8 +209,8 @@
  "opponent": {
   "tag": "#2LLLYUC9C",
   "name": "The last empire",
-  "stars": 19,
-  "destruction": 49.6,
+  "stars": 22,
+  "destruction": 56.27,
   "members": [
    {
     "tag": "#LGU0GJYGU",
@@ -231,7 +231,15 @@
     "name": "♣️شبح سیاه♣️",
     "th": 17,
     "pos": 12,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 20,
+      "defender": "#GVYPV8PJG",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 142
+     }
+    ]
    },
    {
     "tag": "#Q0VYCLVRY",
