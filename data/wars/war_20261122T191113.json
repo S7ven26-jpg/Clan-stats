@@ -239,8 +239,8 @@
  "opponent": {
   "tag": "#2LLLYUC9C",
   "name": "The last empire",
-  "stars": 35,
-  "destruction": 84.53,
+  "stars": 45,
+  "destruction": 100.0,
   "members": [
    {
     "tag": "#LGU0GJYGU",
@@ -320,7 +320,22 @@
     "name": "EMP⚡️GHOST",
     "th": 19,
     "pos": 2,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 32,
+      "defender": "#8LR9GY8V9",
+      "stars": 2,
+      "destruction": 96,
+      "duration": 180
+     },
+     {
+      "order": 33,
+      "defender": "#QUC2L8QRP",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 139
+     }
+    ]
    },
    {
     "tag": "#QCQ0C2PQV",
@@ -364,7 +379,22 @@
     "name": "EMP⚡️HUNTER",
     "th": 17,
     "pos": 10,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 31,
+      "defender": "#2U8JYG9V8",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 138
+     },
+     {
+      "order": 34,
+      "defender": "#8LR9GY8V9",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 155
+     }
+    ]
    },
    {
     "tag": "#G9U80LCY0",
@@ -437,7 +467,22 @@
     "name": "A M I R",
     "th": 18,
     "pos": 5,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 36,
+      "defender": "#LCUVG0202",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 118
+     },
+     {
+      "order": 37,
+      "defender": "#P0YRJCV",
+      "stars": 2,
+      "destruction": 55,
+      "duration": 66
+     }
+    ]
    },
    {
     "tag": "#GJ9LP0QVY",
@@ -458,6 +503,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 156
+     },
+     {
+      "order": 35,
+      "defender": "#QRUR00J0P",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 102
      }
     ]
    }
