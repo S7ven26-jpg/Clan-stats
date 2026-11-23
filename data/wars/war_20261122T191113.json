@@ -371,6 +371,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 158
+     },
+     {
+      "order": 38,
+      "defender": "#R2C8PUVQJ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 113
      }
     ]
    },

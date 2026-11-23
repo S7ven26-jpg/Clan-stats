@@ -5,7 +5,7 @@
  "type": "inviteOnly",
  "level": 14,
  "points": 88200,
- "bb_points": 29107,
+ "bb_points": 28961,
  "capital_points": 2854,
  "war_frequency": "always",
  "war_win_streak": 14,
@@ -75,7 +75,7 @@
    "bb_trophies": 3972,
    "rank": 1,
    "donations": 6196,
-   "received": 3479,
+   "received": 3483,
    "league": "Unranked"
   },
   {
@@ -280,7 +280,7 @@
    "th": 17,
    "exp": 186,
    "trophies": 0,
-   "bb_trophies": 2829,
+   "bb_trophies": 2858,
    "rank": 17,
    "donations": 293,
    "received": 0,
@@ -293,9 +293,9 @@
    "th": 15,
    "exp": 210,
    "trophies": 0,
-   "bb_trophies": 3761,
+   "bb_trophies": 3771,
    "rank": 18,
-   "donations": 2592,
+   "donations": 2675,
    "received": 3920,
    "league": "Unranked"
   },
@@ -306,10 +306,10 @@
    "th": 17,
    "exp": 182,
    "trophies": 0,
-   "bb_trophies": 3489,
+   "bb_trophies": 3173,
    "rank": 19,
    "donations": 2929,
-   "received": 3354,
+   "received": 3437,
    "league": "Unranked"
   },
   {
@@ -334,7 +334,7 @@
    "trophies": 0,
    "bb_trophies": 2729,
    "rank": 21,
-   "donations": 1392,
+   "donations": 1396,
    "received": 0,
    "league": "Unranked"
   },
@@ -343,7 +343,7 @@
    "name": "J.ENP21",
    "role": "admin",
    "th": 15,
-   "exp": 141,
+   "exp": 142,
    "trophies": 0,
    "bb_trophies": 2557,
    "rank": 22,
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-23T08:59:31Z"
+ "fetched": "2026-11-23T12:40:55Z"
 }
