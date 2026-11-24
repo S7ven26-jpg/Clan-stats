@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 0,
-  "destruction": 0,
+  "stars": 9,
+  "destruction": 30.0,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -48,7 +48,15 @@
     "name": "8A2",
     "th": 16,
     "pos": 10,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 6,
+      "defender": "#GYUJ282R0",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 78
+     }
+    ]
    },
    {
     "tag": "#8LR9GY8V9",
@@ -76,7 +84,22 @@
     "name": "kevin daniel",
     "th": 19,
     "pos": 2,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 4,
+      "defender": "#QR2PQGUJL",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 139
+     },
+     {
+      "order": 5,
+      "defender": "#G2Y0VJRCU",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 175
+     }
+    ]
    },
    {
     "tag": "#QCPVC0GU0",
@@ -90,8 +113,8 @@
  "opponent": {
   "tag": "#2JLCYQGJ2",
   "name": "المغامرون",
-  "stars": 1,
-  "destruction": 5.5,
+  "stars": 4,
+  "destruction": 16.0,
   "members": [
    {
     "tag": "#GYUJ282R0",
@@ -134,7 +157,22 @@
     "name": "mando",
     "th": 17,
     "pos": 7,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 2,
+      "defender": "#QUC2L8QRP",
+      "stars": 2,
+      "destruction": 67,
+      "duration": 107
+     },
+     {
+      "order": 3,
+      "defender": "#R0GVRJ00C",
+      "stars": 2,
+      "destruction": 93,
+      "duration": 133
+     }
+    ]
    },
    {
     "tag": "#GP9LQVQ28",
