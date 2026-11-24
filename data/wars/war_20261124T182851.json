@@ -1,0 +1,176 @@
+{
+ "id": "war_20261124T182851",
+ "type": "war",
+ "season": "2026-11",
+ "round": null,
+ "war_tag": null,
+ "state": "inWar",
+ "start": "2026-11-24T18:28:51Z",
+ "end": "2026-11-25T18:28:51Z",
+ "team_size": 10,
+ "attacks_per_member": 2,
+ "clan": {
+  "tag": "#2RP29GPCG",
+  "name": "Arepa con queso",
+  "stars": 0,
+  "destruction": 0,
+  "members": [
+   {
+    "tag": "#QRUR00J0P",
+    "name": "lucas",
+    "th": 17,
+    "pos": 9,
+    "attacks": []
+   },
+   {
+    "tag": "#8CQQG8J88",
+    "name": "ZOM3R",
+    "th": 18,
+    "pos": 3,
+    "attacks": []
+   },
+   {
+    "tag": "#P0YRJCV",
+    "name": "S7ven26",
+    "th": 19,
+    "pos": 1,
+    "attacks": []
+   },
+   {
+    "tag": "#GCG2PYY2R",
+    "name": "Greeyhawk",
+    "th": 18,
+    "pos": 6,
+    "attacks": []
+   },
+   {
+    "tag": "#R0GVRJ00C",
+    "name": "8A2",
+    "th": 16,
+    "pos": 10,
+    "attacks": []
+   },
+   {
+    "tag": "#8LR9GY8V9",
+    "name": "Andrewx0202",
+    "th": 18,
+    "pos": 4,
+    "attacks": []
+   },
+   {
+    "tag": "#R2C8PUVQJ",
+    "name": "8A",
+    "th": 18,
+    "pos": 5,
+    "attacks": []
+   },
+   {
+    "tag": "#QUC2L8QRP",
+    "name": "pipemono",
+    "th": 17,
+    "pos": 7,
+    "attacks": []
+   },
+   {
+    "tag": "#2U8JYG9V8",
+    "name": "kevin daniel",
+    "th": 19,
+    "pos": 2,
+    "attacks": []
+   },
+   {
+    "tag": "#QCPVC0GU0",
+    "name": "Abusamadres",
+    "th": 17,
+    "pos": 8,
+    "attacks": []
+   }
+  ]
+ },
+ "opponent": {
+  "tag": "#2JLCYQGJ2",
+  "name": "المغامرون",
+  "stars": 1,
+  "destruction": 5.5,
+  "members": [
+   {
+    "tag": "#GYUJ282R0",
+    "name": "البرق",
+    "th": 14,
+    "pos": 10,
+    "attacks": [
+     {
+      "order": 1,
+      "defender": "#R0GVRJ00C",
+      "stars": 1,
+      "destruction": 55,
+      "duration": 83
+     }
+    ]
+   },
+   {
+    "tag": "#G9G8Q02UG",
+    "name": "بوب",
+    "th": 16,
+    "pos": 9,
+    "attacks": []
+   },
+   {
+    "tag": "#G9YLUPVC8",
+    "name": "القائد",
+    "th": 18,
+    "pos": 6,
+    "attacks": []
+   },
+   {
+    "tag": "#QR2PQGUJL",
+    "name": "بربروس",
+    "th": 19,
+    "pos": 2,
+    "attacks": []
+   },
+   {
+    "tag": "#2P088J8C2",
+    "name": "mando",
+    "th": 17,
+    "pos": 7,
+    "attacks": []
+   },
+   {
+    "tag": "#GP9LQVQ28",
+    "name": "برهوووم",
+    "th": 17,
+    "pos": 8,
+    "attacks": []
+   },
+   {
+    "tag": "#Y809PUUJ2",
+    "name": "A moulla",
+    "th": 19,
+    "pos": 1,
+    "attacks": []
+   },
+   {
+    "tag": "#QC0C9VQP2",
+    "name": "yahya Mohammed",
+    "th": 18,
+    "pos": 4,
+    "attacks": []
+   },
+   {
+    "tag": "#QG9JV0CRY",
+    "name": "مغترب$",
+    "th": 18,
+    "pos": 3,
+    "attacks": []
+   },
+   {
+    "tag": "#G2Y0VJRCU",
+    "name": "Yahya",
+    "th": 18,
+    "pos": 5,
+    "attacks": []
+   }
+  ]
+ }
+}
