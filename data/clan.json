@@ -5,7 +5,7 @@
  "type": "inviteOnly",
  "level": 14,
  "points": 88200,
- "bb_points": 28920,
+ "bb_points": 28815,
  "capital_points": 2854,
  "war_frequency": "always",
  "war_win_streak": 0,
@@ -113,7 +113,7 @@
    "trophies": 0,
    "bb_trophies": 2486,
    "rank": 4,
-   "donations": 7672,
+   "donations": 7705,
    "received": 4264,
    "league": "Unranked"
   },
@@ -175,11 +175,11 @@
    "role": "admin",
    "th": 16,
    "exp": 134,
-   "trophies": 107,
+   "trophies": 258,
    "bb_trophies": 1970,
    "rank": 9,
    "donations": 1085,
-   "received": 4220,
+   "received": 4303,
    "league": "Unranked"
   },
   {
@@ -188,7 +188,7 @@
    "role": "admin",
    "th": 17,
    "exp": 157,
-   "trophies": 37,
+   "trophies": 243,
    "bb_trophies": 3951,
    "rank": 10,
    "donations": 655,
@@ -240,7 +240,7 @@
    "role": "admin",
    "th": 17,
    "exp": 180,
-   "trophies": 95,
+   "trophies": 114,
    "bb_trophies": 2983,
    "rank": 14,
    "donations": 332,
@@ -279,11 +279,11 @@
    "role": "member",
    "th": 15,
    "exp": 210,
-   "trophies": 12,
-   "bb_trophies": 3704,
+   "trophies": 32,
+   "bb_trophies": 3489,
    "rank": 17,
-   "donations": 2678,
-   "received": 3920,
+   "donations": 2761,
+   "received": 4000,
    "league": "Unranked"
   },
   {
@@ -306,10 +306,10 @@
    "th": 17,
    "exp": 182,
    "trophies": 63,
-   "bb_trophies": 3173,
+   "bb_trophies": 3178,
    "rank": 19,
-   "donations": 2929,
-   "received": 3437,
+   "donations": 3009,
+   "received": 3520,
    "league": "Unranked"
   },
   {
@@ -344,7 +344,7 @@
    "role": "admin",
    "th": 15,
    "exp": 142,
-   "trophies": 29,
+   "trophies": 43,
    "bb_trophies": 2557,
    "rank": 22,
    "donations": 0,
@@ -399,7 +399,7 @@
    "trophies": 380,
    "bb_trophies": 2126,
    "rank": 26,
-   "donations": 269,
+   "donations": 319,
    "received": 2216,
    "league": "Unranked"
   },
@@ -421,7 +421,7 @@
    "name": "AGUA DE COCO",
    "role": "member",
    "th": 15,
-   "exp": 99,
+   "exp": 100,
    "trophies": 0,
    "bb_trophies": 2128,
    "rank": 28,
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-24T19:57:47Z"
+ "fetched": "2026-11-24T23:44:18Z"
 }
