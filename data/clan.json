@@ -97,7 +97,7 @@
    "role": "member",
    "th": 18,
    "exp": 232,
-   "trophies": 0,
+   "trophies": 375,
    "bb_trophies": 4791,
    "rank": 3,
    "donations": 3611,
@@ -196,6 +196,19 @@
    "league": "Unranked"
   },
   {
+   "tag": "#GCQRV9U0R",
+   "name": "martin",
+   "role": "admin",
+   "th": 16,
+   "exp": 151,
+   "trophies": 19,
+   "bb_trophies": 2470,
+   "rank": 11,
+   "donations": 137,
+   "received": 0,
+   "league": "Unranked"
+  },
+  {
    "tag": "#R2RV2RRV0",
    "name": "Greeyhawk_Jr",
    "role": "member",
@@ -203,22 +216,9 @@
    "exp": 137,
    "trophies": 0,
    "bb_trophies": 2706,
-   "rank": 11,
+   "rank": 12,
    "donations": 558,
    "received": 1533,
-   "league": "Unranked"
-  },
-  {
-   "tag": "#GCQRV9U0R",
-   "name": "martin",
-   "role": "admin",
-   "th": 16,
-   "exp": 151,
-   "trophies": 0,
-   "bb_trophies": 2470,
-   "rank": 12,
-   "donations": 137,
-   "received": 0,
    "league": "Unranked"
   },
   {
@@ -240,7 +240,7 @@
    "role": "admin",
    "th": 17,
    "exp": 180,
-   "trophies": 66,
+   "trophies": 95,
    "bb_trophies": 2983,
    "rank": 14,
    "donations": 332,
@@ -291,7 +291,7 @@
    "name": "lucas",
    "role": "admin",
    "th": 17,
-   "exp": 186,
+   "exp": 187,
    "trophies": 0,
    "bb_trophies": 2858,
    "rank": 18,
@@ -396,11 +396,24 @@
    "role": "member",
    "th": 14,
    "exp": 126,
-   "trophies": 40,
+   "trophies": 67,
    "bb_trophies": 2281,
    "rank": 26,
    "donations": 32,
    "received": 0,
+   "league": "Unranked"
+  },
+  {
+   "tag": "#GG2GGQ80V",
+   "name": "8A3",
+   "role": "member",
+   "th": 13,
+   "exp": 100,
+   "trophies": 30,
+   "bb_trophies": 2126,
+   "rank": 27,
+   "donations": 269,
+   "received": 1756,
    "league": "Unranked"
   },
   {
@@ -411,22 +424,9 @@
    "exp": 99,
    "trophies": 0,
    "bb_trophies": 2128,
-   "rank": 27,
+   "rank": 28,
    "donations": 0,
    "received": 0,
-   "league": "Unranked"
-  },
-  {
-   "tag": "#GG2GGQ80V",
-   "name": "8A3",
-   "role": "member",
-   "th": 13,
-   "exp": 100,
-   "trophies": 0,
-   "bb_trophies": 2126,
-   "rank": 28,
-   "donations": 269,
-   "received": 1756,
    "league": "Unranked"
   },
   {
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-24T06:37:25Z"
+ "fetched": "2026-11-24T09:32:39Z"
 }
