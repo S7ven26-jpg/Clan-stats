@@ -87,7 +87,7 @@
    "trophies": 0,
    "bb_trophies": 3800,
    "rank": 2,
-   "donations": 6650,
+   "donations": 6879,
    "received": 3996,
    "league": "Titan League I"
   },
@@ -136,7 +136,7 @@
    "role": "member",
    "th": 18,
    "exp": 230,
-   "trophies": 96,
+   "trophies": 108,
    "bb_trophies": 3411,
    "rank": 6,
    "donations": 1831,
@@ -305,7 +305,7 @@
    "role": "member",
    "th": 17,
    "exp": 182,
-   "trophies": 11,
+   "trophies": 23,
    "bb_trophies": 3173,
    "rank": 19,
    "donations": 2929,
@@ -391,6 +391,19 @@
    "league": "Unranked"
   },
   {
+   "tag": "#GG2GGQ80V",
+   "name": "8A3",
+   "role": "member",
+   "th": 13,
+   "exp": 100,
+   "trophies": 242,
+   "bb_trophies": 2126,
+   "rank": 26,
+   "donations": 269,
+   "received": 1985,
+   "league": "Unranked"
+  },
+  {
    "tag": "#GRGPG228C",
    "name": "diego29",
    "role": "member",
@@ -398,22 +411,9 @@
    "exp": 126,
    "trophies": 67,
    "bb_trophies": 2281,
-   "rank": 26,
+   "rank": 27,
    "donations": 32,
    "received": 0,
-   "league": "Unranked"
-  },
-  {
-   "tag": "#GG2GGQ80V",
-   "name": "8A3",
-   "role": "member",
-   "th": 13,
-   "exp": 100,
-   "trophies": 30,
-   "bb_trophies": 2126,
-   "rank": 27,
-   "donations": 269,
-   "received": 1756,
    "league": "Unranked"
   },
   {
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-24T12:42:02Z"
+ "fetched": "2026-11-24T16:42:19Z"
 }
