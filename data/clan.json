@@ -101,7 +101,7 @@
    "bb_trophies": 4791,
    "rank": 3,
    "donations": 3611,
-   "received": 2094,
+   "received": 2153,
    "league": "Titan League I"
   },
   {
@@ -331,10 +331,10 @@
    "role": "admin",
    "th": 16,
    "exp": 172,
-   "trophies": 72,
+   "trophies": 96,
    "bb_trophies": 2729,
    "rank": 21,
-   "donations": 1396,
+   "donations": 1455,
    "received": 0,
    "league": "Unranked"
   },
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-24T09:32:39Z"
+ "fetched": "2026-11-24T12:42:02Z"
 }
