@@ -113,8 +113,8 @@
  "opponent": {
   "tag": "#2JLCYQGJ2",
   "name": "المغامرون",
-  "stars": 4,
-  "destruction": 16.0,
+  "stars": 6,
+  "destruction": 33.1,
   "members": [
    {
     "tag": "#GYUJ282R0",
@@ -179,7 +179,22 @@
     "name": "برهوووم",
     "th": 17,
     "pos": 8,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 7,
+      "defender": "#QCPVC0GU0",
+      "stars": 1,
+      "destruction": 87,
+      "duration": 137
+     },
+     {
+      "order": 8,
+      "defender": "#QRUR00J0P",
+      "stars": 1,
+      "destruction": 84,
+      "duration": 128
+     }
+    ]
    },
    {
     "tag": "#Y809PUUJ2",
