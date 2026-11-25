@@ -122,6 +122,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 153
+     },
+     {
+      "order": 29,
+      "defender": "#Y809PUUJ2",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 144
      }
     ]
    },
@@ -190,7 +197,15 @@
     "name": "بوب",
     "th": 16,
     "pos": 9,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 28,
+      "defender": "#R0GVRJ00C",
+      "stars": 2,
+      "destruction": 93,
+      "duration": 131
+     }
+    ]
    },
    {
     "tag": "#G9YLUPVC8",
