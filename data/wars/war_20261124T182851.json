@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 18,
-  "destruction": 60.0,
+  "stars": 30,
+  "destruction": 100.0,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -35,14 +35,44 @@
     "name": "ZOM3R",
     "th": 18,
     "pos": 3,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 26,
+      "defender": "#QC0C9VQP2",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 112
+     },
+     {
+      "order": 27,
+      "defender": "#G9YLUPVC8",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 98
+     }
+    ]
    },
    {
     "tag": "#P0YRJCV",
     "name": "S7ven26",
     "th": 19,
     "pos": 1,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 24,
+      "defender": "#Y809PUUJ2",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 140
+     },
+     {
+      "order": 25,
+      "defender": "#QG9JV0CRY",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 118
+     }
+    ]
    },
    {
     "tag": "#GCG2PYY2R",
@@ -137,8 +167,8 @@
  "opponent": {
   "tag": "#2JLCYQGJ2",
   "name": "المغامرون",
-  "stars": 27,
-  "destruction": 97.7,
+  "stars": 28,
+  "destruction": 98.8,
   "members": [
    {
     "tag": "#GYUJ282R0",
@@ -299,7 +329,22 @@
     "name": "مغترب$",
     "th": 18,
     "pos": 3,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 22,
+      "defender": "#QRUR00J0P",
+      "stars": 2,
+      "destruction": 93,
+      "duration": 144
+     },
+     {
+      "order": 23,
+      "defender": "#R0GVRJ00C",
+      "stars": 2,
+      "destruction": 95,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#G2Y0VJRCU",
