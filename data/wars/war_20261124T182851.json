@@ -129,8 +129,8 @@
  "opponent": {
   "tag": "#2JLCYQGJ2",
   "name": "المغامرون",
-  "stars": 6,
-  "destruction": 33.1,
+  "stars": 27,
+  "destruction": 97.7,
   "members": [
    {
     "tag": "#GYUJ282R0",
@@ -159,14 +159,44 @@
     "name": "القائد",
     "th": 18,
     "pos": 6,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 19,
+      "defender": "#QUC2L8QRP",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 114
+     },
+     {
+      "order": 20,
+      "defender": "#QCPVC0GU0",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 132
+     }
+    ]
    },
    {
     "tag": "#QR2PQGUJL",
     "name": "بربروس",
     "th": 19,
     "pos": 2,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 13,
+      "defender": "#P0YRJCV",
+      "stars": 2,
+      "destruction": 91,
+      "duration": 153
+     },
+     {
+      "order": 14,
+      "defender": "#8CQQG8J88",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 136
+     }
+    ]
    },
    {
     "tag": "#2P088J8C2",
@@ -217,14 +247,44 @@
     "name": "A moulla",
     "th": 19,
     "pos": 1,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 11,
+      "defender": "#P0YRJCV",
+      "stars": 2,
+      "destruction": 88,
+      "duration": 163
+     },
+     {
+      "order": 12,
+      "defender": "#2U8JYG9V8",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 151
+     }
+    ]
    },
    {
     "tag": "#QC0C9VQP2",
     "name": "yahya Mohammed",
     "th": 18,
     "pos": 4,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 15,
+      "defender": "#P0YRJCV",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 152
+     },
+     {
+      "order": 16,
+      "defender": "#8LR9GY8V9",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 118
+     }
+    ]
    },
    {
     "tag": "#QG9JV0CRY",
@@ -238,7 +298,22 @@
     "name": "Yahya",
     "th": 18,
     "pos": 5,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 17,
+      "defender": "#R2C8PUVQJ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 121
+     },
+     {
+      "order": 18,
+      "defender": "#GCG2PYY2R",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 102
+     }
+    ]
    }
   ]
  }

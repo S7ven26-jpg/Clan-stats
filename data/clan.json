@@ -47,7 +47,7 @@
   },
   {
    "name": "Golem Quarry",
-   "hall": 3
+   "hall": 4
   },
   {
    "name": "Skeleton Park",
@@ -123,7 +123,7 @@
    "role": "coLeader",
    "th": 17,
    "exp": 176,
-   "trophies": 51,
+   "trophies": 62,
    "bb_trophies": 3123,
    "rank": 5,
    "donations": 843,
@@ -136,7 +136,7 @@
    "role": "coLeader",
    "th": 17,
    "exp": 181,
-   "trophies": 161,
+   "trophies": 353,
    "bb_trophies": 3618,
    "rank": 6,
    "donations": 1905,
@@ -149,7 +149,7 @@
    "role": "member",
    "th": 18,
    "exp": 230,
-   "trophies": 108,
+   "trophies": 137,
    "bb_trophies": 3411,
    "rank": 7,
    "donations": 1831,
@@ -331,7 +331,7 @@
    "role": "admin",
    "th": 16,
    "exp": 172,
-   "trophies": 96,
+   "trophies": 125,
    "bb_trophies": 2729,
    "rank": 21,
    "donations": 1455,
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-25T00:59:00Z"
+ "fetched": "2026-11-25T04:48:44Z"
 }
