@@ -5,7 +5,7 @@
  "type": "inviteOnly",
  "level": 14,
  "points": 88200,
- "bb_points": 28815,
+ "bb_points": 28823,
  "capital_points": 2854,
  "war_frequency": "always",
  "war_win_streak": 0,
@@ -72,9 +72,9 @@
    "th": 19,
    "exp": 222,
    "trophies": 0,
-   "bb_trophies": 3972,
+   "bb_trophies": 3988,
    "rank": 1,
-   "donations": 6274,
+   "donations": 6329,
    "received": 3483,
    "league": "Unranked"
   },
@@ -123,11 +123,24 @@
    "role": "coLeader",
    "th": 17,
    "exp": 176,
-   "trophies": 11,
+   "trophies": 51,
    "bb_trophies": 3123,
    "rank": 5,
    "donations": 843,
    "received": 740,
+   "league": "Unranked"
+  },
+  {
+   "tag": "#QUC2L8QRP",
+   "name": "pipemono",
+   "role": "coLeader",
+   "th": 17,
+   "exp": 181,
+   "trophies": 161,
+   "bb_trophies": 3618,
+   "rank": 6,
+   "donations": 1905,
+   "received": 2888,
    "league": "Unranked"
   },
   {
@@ -138,22 +151,9 @@
    "exp": 230,
    "trophies": 108,
    "bb_trophies": 3411,
-   "rank": 6,
-   "donations": 1831,
-   "received": 1207,
-   "league": "Unranked"
-  },
-  {
-   "tag": "#QUC2L8QRP",
-   "name": "pipemono",
-   "role": "coLeader",
-   "th": 17,
-   "exp": 181,
-   "trophies": 81,
-   "bb_trophies": 3618,
    "rank": 7,
-   "donations": 1901,
-   "received": 2888,
+   "donations": 1831,
+   "received": 1266,
    "league": "Unranked"
   },
   {
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-24T23:44:18Z"
+ "fetched": "2026-11-25T00:59:00Z"
 }
