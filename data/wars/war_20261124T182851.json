@@ -101,7 +101,22 @@
     "name": "Andrewx0202",
     "th": 18,
     "pos": 4,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 31,
+      "defender": "#QC0C9VQP2",
+      "stars": 2,
+      "destruction": 96,
+      "duration": 180
+     },
+     {
+      "order": 32,
+      "defender": "#G2Y0VJRCU",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 128
+     }
+    ]
    },
    {
     "tag": "#R2C8PUVQJ",
@@ -189,6 +204,13 @@
       "stars": 1,
       "destruction": 55,
       "duration": 83
+     },
+     {
+      "order": 33,
+      "defender": "#QRUR00J0P",
+      "stars": 1,
+      "destruction": 50,
+      "duration": 60
      }
     ]
    },
@@ -204,6 +226,13 @@
       "stars": 2,
       "destruction": 93,
       "duration": 131
+     },
+     {
+      "order": 30,
+      "defender": "#QRUR00J0P",
+      "stars": 2,
+      "destruction": 75,
+      "duration": 99
      }
     ]
    },
