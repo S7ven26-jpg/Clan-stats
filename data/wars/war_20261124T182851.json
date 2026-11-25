@@ -4,7 +4,7 @@
  "season": "2026-11",
  "round": null,
  "war_tag": null,
- "state": "inWar",
+ "state": "warEnded",
  "start": "2026-11-24T18:28:51Z",
  "end": "2026-11-25T18:28:51Z",
  "team_size": 10,
@@ -413,5 +413,6 @@
     ]
    }
   ]
- }
+ },
+ "closed_by": "warlog"
 }
