@@ -1,0 +1,270 @@
+{
+ "id": "war_20261126T174404",
+ "type": "war",
+ "season": "2026-11",
+ "round": null,
+ "war_tag": null,
+ "state": "inWar",
+ "start": "2026-11-26T17:44:04Z",
+ "end": "2026-11-27T17:44:04Z",
+ "team_size": 15,
+ "attacks_per_member": 2,
+ "clan": {
+  "tag": "#2RP29GPCG",
+  "name": "Arepa con queso",
+  "stars": 5,
+  "destruction": 12.13,
+  "members": [
+   {
+    "tag": "#QRUR00J0P",
+    "name": "lucas",
+    "th": 17,
+    "pos": 9,
+    "attacks": []
+   },
+   {
+    "tag": "#GLVJLU020",
+    "name": "×{•KAISER•}×",
+    "th": 17,
+    "pos": 10,
+    "attacks": []
+   },
+   {
+    "tag": "#8CQQG8J88",
+    "name": "ZOM3R",
+    "th": 18,
+    "pos": 3,
+    "attacks": []
+   },
+   {
+    "tag": "#P0YRJCV",
+    "name": "S7ven26",
+    "th": 19,
+    "pos": 1,
+    "attacks": []
+   },
+   {
+    "tag": "#GCG2PYY2R",
+    "name": "Greeyhawk",
+    "th": 18,
+    "pos": 6,
+    "attacks": []
+   },
+   {
+    "tag": "#GVYPV8PJG",
+    "name": "lamb",
+    "th": 17,
+    "pos": 11,
+    "attacks": []
+   },
+   {
+    "tag": "#R0GVRJ00C",
+    "name": "8A2",
+    "th": 16,
+    "pos": 13,
+    "attacks": []
+   },
+   {
+    "tag": "#8LR9GY8V9",
+    "name": "Andrewx0202",
+    "th": 18,
+    "pos": 4,
+    "attacks": [
+     {
+      "order": 4,
+      "defender": "#YCQ0JU9YL",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 101
+     }
+    ]
+   },
+   {
+    "tag": "#R2C8PUVQJ",
+    "name": "8A",
+    "th": 18,
+    "pos": 5,
+    "attacks": []
+   },
+   {
+    "tag": "#R20CGVRQQ",
+    "name": "shinra xz11",
+    "th": 14,
+    "pos": 14,
+    "attacks": [
+     {
+      "order": 1,
+      "defender": "#GQ208V2LQ",
+      "stars": 2,
+      "destruction": 82,
+      "duration": 131
+     }
+    ]
+   },
+   {
+    "tag": "#QUC2L8QRP",
+    "name": "pipemono",
+    "th": 17,
+    "pos": 7,
+    "attacks": []
+   },
+   {
+    "tag": "#GCQRV9U0R",
+    "name": "martin",
+    "th": 16,
+    "pos": 12,
+    "attacks": []
+   },
+   {
+    "tag": "#2U8JYG9V8",
+    "name": "kevin daniel",
+    "th": 19,
+    "pos": 2,
+    "attacks": []
+   },
+   {
+    "tag": "#QCPVC0GU0",
+    "name": "Abusamadres",
+    "th": 17,
+    "pos": 8,
+    "attacks": []
+   },
+   {
+    "tag": "#GG2GGQ80V",
+    "name": "8A3",
+    "th": 13,
+    "pos": 15,
+    "attacks": []
+   }
+  ]
+ },
+ "opponent": {
+  "tag": "#2CYUP0Q99",
+  "name": "Hrekima",
+  "stars": 5,
+  "destruction": 12.13,
+  "members": [
+   {
+    "tag": "#2QVP2LVQJ",
+    "name": "AlexMwAn寂",
+    "th": 18,
+    "pos": 5,
+    "attacks": []
+   },
+   {
+    "tag": "#LYL98C2JU",
+    "name": "müähçhäx×Vz",
+    "th": 17,
+    "pos": 8,
+    "attacks": []
+   },
+   {
+    "tag": "#QPRC90LQ8",
+    "name": "AlexMwanbot",
+    "th": 16,
+    "pos": 11,
+    "attacks": []
+   },
+   {
+    "tag": "#22QQ09PR2",
+    "name": "jaredKhaute",
+    "th": 17,
+    "pos": 10,
+    "attacks": []
+   },
+   {
+    "tag": "#YCQ0JU9YL",
+    "name": "Riordan",
+    "th": 18,
+    "pos": 4,
+    "attacks": []
+   },
+   {
+    "tag": "#8QULCLGL9",
+    "name": "GWITE",
+    "th": 17,
+    "pos": 6,
+    "attacks": []
+   },
+   {
+    "tag": "#QJJGJQG2",
+    "name": "Sawm Bawi",
+    "th": 19,
+    "pos": 2,
+    "attacks": []
+   },
+   {
+    "tag": "#CGVG0LY8",
+    "name": "Rurouni_見神",
+    "th": 17,
+    "pos": 7,
+    "attacks": []
+   },
+   {
+    "tag": "#QLPYLUR0Y",
+    "name": "EL CUCUMBER",
+    "th": 15,
+    "pos": 15,
+    "attacks": [
+     {
+      "order": 2,
+      "defender": "#GG2GGQ80V",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 107
+     }
+    ]
+   },
+   {
+    "tag": "#9V99L0LGP",
+    "name": "KyLo ReN",
+    "th": 18,
+    "pos": 3,
+    "attacks": []
+   },
+   {
+    "tag": "#LLL2UL9JQ",
+    "name": "TomYum",
+    "th": 17,
+    "pos": 13,
+    "attacks": []
+   },
+   {
+    "tag": "#88J0L98VU",
+    "name": "Lembawi Vaiphei",
+    "th": 17,
+    "pos": 9,
+    "attacks": []
+   },
+   {
+    "tag": "#8PG2PGRJQ",
+    "name": "VungTzy",
+    "th": 19,
+    "pos": 1,
+    "attacks": [
+     {
+      "order": 3,
+      "defender": "#P0YRJCV",
+      "stars": 2,
+      "destruction": 82,
+      "duration": 180
+     }
+    ]
+   },
+   {
+    "tag": "#GQ208V2LQ",
+    "name": "BLACK HAND",
+    "th": 17,
+    "pos": 14,
+    "attacks": []
+   },
+   {
+    "tag": "#G98P8200Y",
+    "name": "SlimNeuu",
+    "th": 16,
+    "pos": 12,
+    "attacks": []
+   }
+  ]
+ }
+}
