@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 8,
-  "destruction": 18.8,
+  "stars": 12,
+  "destruction": 26.67,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -69,6 +69,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 129
+     },
+     {
+      "order": 7,
+      "defender": "#GQ208V2LQ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 132
      }
     ]
    },
@@ -92,7 +99,15 @@
     "name": "8A",
     "th": 18,
     "pos": 5,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 6,
+      "defender": "#2QVP2LVQJ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 155
+     }
+    ]
    },
    {
     "tag": "#R20CGVRQQ",
