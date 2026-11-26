@@ -66,6 +66,19 @@
  "badge": "https://api-assets.clashofclans.com/badges/512/sEiLZQky9y4R3v0rto43wGlCS0WozskVavSdJR8GUq8.png",
  "members": [
   {
+   "tag": "#2U8JYG9V8",
+   "name": "kevin daniel",
+   "role": "member",
+   "th": 19,
+   "exp": 221,
+   "trophies": 9,
+   "bb_trophies": 3800,
+   "rank": 1,
+   "donations": 7528,
+   "received": 4202,
+   "league": "Titan League I"
+  },
+  {
    "tag": "#P0YRJCV",
    "name": "S7ven26",
    "role": "coLeader",
@@ -73,23 +86,10 @@
    "exp": 222,
    "trophies": 0,
    "bb_trophies": 3988,
-   "rank": 1,
+   "rank": 2,
    "donations": 6329,
    "received": 3577,
    "league": "Unranked"
-  },
-  {
-   "tag": "#2U8JYG9V8",
-   "name": "kevin daniel",
-   "role": "member",
-   "th": 19,
-   "exp": 221,
-   "trophies": 0,
-   "bb_trophies": 3800,
-   "rank": 2,
-   "donations": 7528,
-   "received": 4202,
-   "league": "Titan League I"
   },
   {
    "tag": "#8CQQG8J88",
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-26T02:54:53Z"
+ "fetched": "2026-11-26T03:52:58Z"
 }
