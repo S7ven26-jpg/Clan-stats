@@ -71,7 +71,7 @@
    "role": "member",
    "th": 19,
    "exp": 221,
-   "trophies": 9,
+   "trophies": 34,
    "bb_trophies": 3800,
    "rank": 1,
    "donations": 7528,
@@ -175,7 +175,7 @@
    "role": "admin",
    "th": 16,
    "exp": 134,
-   "trophies": 439,
+   "trophies": 464,
    "bb_trophies": 1970,
    "rank": 9,
    "donations": 1085,
@@ -344,7 +344,7 @@
    "role": "admin",
    "th": 15,
    "exp": 142,
-   "trophies": 83,
+   "trophies": 113,
    "bb_trophies": 2557,
    "rank": 22,
    "donations": 0,
@@ -499,7 +499,7 @@
    "name": "Daniel",
    "role": "member",
    "th": 15,
-   "exp": 133,
+   "exp": 134,
    "trophies": 0,
    "bb_trophies": 2727,
    "rank": 34,
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-26T03:52:58Z"
+ "fetched": "2026-11-26T07:47:13Z"
 }
