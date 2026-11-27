@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 22,
-  "destruction": 53.13,
+  "stars": 24,
+  "destruction": 59.0,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -35,7 +35,15 @@
     "name": "×{•KAISER•}×",
     "th": 17,
     "pos": 10,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 12,
+      "defender": "#22QQ09PR2",
+      "stars": 2,
+      "destruction": 88,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#8CQQG8J88",
