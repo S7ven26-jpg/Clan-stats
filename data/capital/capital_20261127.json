@@ -3,9 +3,9 @@
  "state": "ongoing",
  "start": "2026-11-27T07:00:00Z",
  "end": "2026-11-30T07:00:00Z",
- "total_loot": 136307,
+ "total_loot": 139362,
  "raids_completed": 1,
- "total_attacks": 36,
+ "total_attacks": 37,
  "districts_destroyed": 16,
  "offensive_reward": 0,
  "defensive_reward": 0,
@@ -25,6 +25,14 @@
    "attack_limit": 5,
    "bonus_attack_limit": 1,
    "looted": 10629
+  },
+  {
+   "tag": "#LCUVG0202",
+   "name": "JTRC",
+   "attacks": 1,
+   "attack_limit": 5,
+   "bonus_attack_limit": 0,
+   "looted": 3055
   },
   {
    "tag": "#R0GVRJ00C",
