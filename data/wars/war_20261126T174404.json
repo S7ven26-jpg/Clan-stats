@@ -218,8 +218,8 @@
  "opponent": {
   "tag": "#2CYUP0Q99",
   "name": "Hrekima",
-  "stars": 13,
-  "destruction": 31.8,
+  "stars": 19,
+  "destruction": 45.13,
   "members": [
    {
     "tag": "#2QVP2LVQJ",
@@ -297,6 +297,13 @@
       "stars": 2,
       "destruction": 95,
       "duration": 180
+     },
+     {
+      "order": 18,
+      "defender": "#QCPVC0GU0",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 152
      }
     ]
    },
@@ -334,7 +341,15 @@
     "name": "Lembawi Vaiphei",
     "th": 17,
     "pos": 9,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 19,
+      "defender": "#QRUR00J0P",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 126
+     }
+    ]
    },
    {
     "tag": "#8PG2PGRJQ",
