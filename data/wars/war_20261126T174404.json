@@ -218,8 +218,8 @@
  "opponent": {
   "tag": "#2CYUP0Q99",
   "name": "Hrekima",
-  "stars": 28,
-  "destruction": 66.87,
+  "stars": 33,
+  "destruction": 80.0,
   "members": [
    {
     "tag": "#2QVP2LVQJ",
@@ -284,7 +284,15 @@
     "name": "Riordan",
     "th": 18,
     "pos": 4,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 26,
+      "defender": "#8LR9GY8V9",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 145
+     }
+    ]
    },
    {
     "tag": "#8QULCLGL9",
@@ -365,7 +373,22 @@
     "name": "KyLo ReN",
     "th": 18,
     "pos": 3,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 27,
+      "defender": "#8CQQG8J88",
+      "stars": 2,
+      "destruction": 97,
+      "duration": 180
+     },
+     {
+      "order": 28,
+      "defender": "#P0YRJCV",
+      "stars": 2,
+      "destruction": 72,
+      "duration": 147
+     }
+    ]
    },
    {
     "tag": "#LLL2UL9JQ",
