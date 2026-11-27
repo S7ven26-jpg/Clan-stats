@@ -100,7 +100,7 @@
    "trophies": 711,
    "bb_trophies": 4791,
    "rank": 3,
-   "donations": 4140,
+   "donations": 4228,
    "received": 2318,
    "league": "Titan League I"
   },
@@ -110,7 +110,7 @@
    "role": "coLeader",
    "th": 18,
    "exp": 176,
-   "trophies": 659,
+   "trophies": 671,
    "bb_trophies": 2486,
    "rank": 4,
    "donations": 8621,
@@ -140,7 +140,7 @@
    "bb_trophies": 3618,
    "rank": 6,
    "donations": 1909,
-   "received": 3209,
+   "received": 3297,
    "league": "Unranked"
   },
   {
@@ -149,7 +149,7 @@
    "role": "member",
    "th": 18,
    "exp": 230,
-   "trophies": 268,
+   "trophies": 300,
    "bb_trophies": 3411,
    "rank": 7,
    "donations": 2041,
@@ -200,8 +200,8 @@
    "name": "martin",
    "role": "admin",
    "th": 16,
-   "exp": 151,
-   "trophies": 19,
+   "exp": 152,
+   "trophies": 33,
    "bb_trophies": 2470,
    "rank": 11,
    "donations": 137,
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-27T08:02:12Z"
+ "fetched": "2026-11-27T11:31:48Z"
 }
