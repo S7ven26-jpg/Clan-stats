@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 39,
-  "destruction": 89.0,
+  "stars": 41,
+  "destruction": 96.67,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -167,6 +167,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 155
+     },
+     {
+      "order": 39,
+      "defender": "#9V99L0LGP",
+      "stars": 2,
+      "destruction": 72,
+      "duration": 162
      }
     ]
    },
@@ -219,7 +226,22 @@
     "name": "kevin daniel",
     "th": 19,
     "pos": 2,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 37,
+      "defender": "#QJJGJQG2",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 139
+     },
+     {
+      "order": 38,
+      "defender": "#8PG2PGRJQ",
+      "stars": 2,
+      "destruction": 99,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#QCPVC0GU0",
@@ -248,15 +270,23 @@
     "name": "8A3",
     "th": 13,
     "pos": 15,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 40,
+      "defender": "#QLPYLUR0Y",
+      "stars": 1,
+      "destruction": 77,
+      "duration": 151
+     }
+    ]
    }
   ]
  },
  "opponent": {
   "tag": "#2CYUP0Q99",
   "name": "Hrekima",
-  "stars": 34,
-  "destruction": 83.13,
+  "stars": 39,
+  "destruction": 92.47,
   "members": [
    {
     "tag": "#2QVP2LVQJ",
@@ -492,7 +522,22 @@
     "name": "SlimNeuu",
     "th": 16,
     "pos": 12,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 35,
+      "defender": "#R0GVRJ00C",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 154
+     },
+     {
+      "order": 36,
+      "defender": "#GCQRV9U0R",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 154
+     }
+    ]
    }
   ]
  }
