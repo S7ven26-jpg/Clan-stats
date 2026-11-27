@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 24,
-  "destruction": 59.0,
+  "stars": 30,
+  "destruction": 72.33,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -168,7 +168,22 @@
     "name": "pipemono",
     "th": 17,
     "pos": 7,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 15,
+      "defender": "#CGVG0LY8",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 117
+     },
+     {
+      "order": 16,
+      "defender": "#8QULCLGL9",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 129
+     }
+    ]
    },
    {
     "tag": "#GCQRV9U0R",
@@ -203,8 +218,8 @@
  "opponent": {
   "tag": "#2CYUP0Q99",
   "name": "Hrekima",
-  "stars": 11,
-  "destruction": 25.47,
+  "stars": 13,
+  "destruction": 31.8,
   "members": [
    {
     "tag": "#2QVP2LVQJ",
@@ -275,7 +290,15 @@
     "name": "Rurouni_見神",
     "th": 17,
     "pos": 7,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 17,
+      "defender": "#QUC2L8QRP",
+      "stars": 2,
+      "destruction": 95,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#QLPYLUR0Y",
