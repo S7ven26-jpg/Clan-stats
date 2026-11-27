@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 41,
-  "destruction": 96.67,
+  "stars": 42,
+  "destruction": 98.4,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -94,7 +94,22 @@
     "name": "Greeyhawk",
     "th": 18,
     "pos": 6,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 41,
+      "defender": "#9V99L0LGP",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 140
+     },
+     {
+      "order": 42,
+      "defender": "#8PG2PGRJQ",
+      "stars": 2,
+      "destruction": 76,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#GVYPV8PJG",
@@ -330,7 +345,15 @@
     "name": "AlexMwanbot",
     "th": 16,
     "pos": 11,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 43,
+      "defender": "#QUC2L8QRP",
+      "stars": 2,
+      "destruction": 90,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#22QQ09PR2",

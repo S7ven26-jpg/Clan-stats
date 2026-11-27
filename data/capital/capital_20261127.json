@@ -3,10 +3,10 @@
  "state": "ongoing",
  "start": "2026-11-27T07:00:00Z",
  "end": "2026-11-30T07:00:00Z",
- "total_loot": 10629,
+ "total_loot": 59972,
  "raids_completed": 0,
- "total_attacks": 3,
- "districts_destroyed": 1,
+ "total_attacks": 15,
+ "districts_destroyed": 6,
  "offensive_reward": 0,
  "defensive_reward": 0,
  "members": [
@@ -17,6 +17,30 @@
    "attack_limit": 5,
    "bonus_attack_limit": 1,
    "looted": 10629
+  },
+  {
+   "tag": "#R0GVRJ00C",
+   "name": "8A2",
+   "attacks": 0,
+   "attack_limit": 5,
+   "bonus_attack_limit": 0,
+   "looted": 0
+  },
+  {
+   "tag": "#R2C8PUVQJ",
+   "name": "8A",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 23733
+  },
+  {
+   "tag": "#2U8JYG9V8",
+   "name": "kevin daniel",
+   "attacks": 6,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 25610
   }
  ]
 }
