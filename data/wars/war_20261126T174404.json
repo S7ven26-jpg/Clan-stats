@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 35,
-  "destruction": 83.93,
+  "stars": 39,
+  "destruction": 89.0,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -78,6 +78,13 @@
       "defender": "#8PG2PGRJQ",
       "stars": 1,
       "destruction": 97,
+      "duration": 180
+     },
+     {
+      "order": 32,
+      "defender": "#QJJGJQG2",
+      "stars": 2,
+      "destruction": 88,
       "duration": 180
      }
     ]
@@ -219,7 +226,22 @@
     "name": "Abusamadres",
     "th": 17,
     "pos": 8,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 33,
+      "defender": "#22QQ09PR2",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 143
+     },
+     {
+      "order": 34,
+      "defender": "#8PG2PGRJQ",
+      "stars": 2,
+      "destruction": 73,
+      "duration": 144
+     }
+    ]
    },
    {
     "tag": "#GG2GGQ80V",
