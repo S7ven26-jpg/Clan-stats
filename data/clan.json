@@ -5,7 +5,7 @@
  "type": "open",
  "level": 14,
  "points": 88200,
- "bb_points": 28602,
+ "bb_points": 28644,
  "capital_points": 2854,
  "war_frequency": "always",
  "war_win_streak": 2,
@@ -71,7 +71,7 @@
    "role": "coLeader",
    "th": 19,
    "exp": 222,
-   "trophies": 408,
+   "trophies": 421,
    "bb_trophies": 3988,
    "rank": 1,
    "donations": 6329,
@@ -84,10 +84,10 @@
    "role": "member",
    "th": 19,
    "exp": 221,
-   "trophies": 79,
+   "trophies": 203,
    "bb_trophies": 3800,
    "rank": 2,
-   "donations": 8831,
+   "donations": 8909,
    "received": 4202,
    "league": "Titan League I"
   },
@@ -122,7 +122,7 @@
    "name": "Abusamadres",
    "role": "coLeader",
    "th": 17,
-   "exp": 176,
+   "exp": 177,
    "trophies": 289,
    "bb_trophies": 3123,
    "rank": 5,
@@ -149,7 +149,7 @@
    "role": "member",
    "th": 18,
    "exp": 230,
-   "trophies": 300,
+   "trophies": 420,
    "bb_trophies": 3411,
    "rank": 7,
    "donations": 2042,
@@ -175,7 +175,7 @@
    "role": "admin",
    "th": 16,
    "exp": 134,
-   "trophies": 478,
+   "trophies": 486,
    "bb_trophies": 1970,
    "rank": 9,
    "donations": 1085,
@@ -279,10 +279,10 @@
    "role": "member",
    "th": 15,
    "exp": 210,
-   "trophies": 234,
-   "bb_trophies": 3185,
+   "trophies": 302,
+   "bb_trophies": 3196,
    "rank": 17,
-   "donations": 2817,
+   "donations": 3232,
    "received": 4331,
    "league": "Unranked"
   },
@@ -305,11 +305,11 @@
    "role": "member",
    "th": 17,
    "exp": 183,
-   "trophies": 250,
-   "bb_trophies": 3130,
+   "trophies": 377,
+   "bb_trophies": 3203,
    "rank": 19,
    "donations": 3425,
-   "received": 3559,
+   "received": 3974,
    "league": "Unranked"
   },
   {
@@ -331,7 +331,7 @@
    "role": "admin",
    "th": 16,
    "exp": 172,
-   "trophies": 174,
+   "trophies": 178,
    "bb_trophies": 2729,
    "rank": 21,
    "donations": 1455,
@@ -387,7 +387,7 @@
    "bb_trophies": 2470,
    "rank": 25,
    "donations": 250,
-   "received": 440,
+   "received": 518,
    "league": "Unranked"
   },
   {
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-27T18:51:14Z"
+ "fetched": "2026-11-27T22:51:36Z"
 }
