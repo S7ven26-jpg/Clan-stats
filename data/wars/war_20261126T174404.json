@@ -218,8 +218,8 @@
  "opponent": {
   "tag": "#2CYUP0Q99",
   "name": "Hrekima",
-  "stars": 19,
-  "destruction": 45.13,
+  "stars": 28,
+  "destruction": 66.87,
   "members": [
    {
     "tag": "#2QVP2LVQJ",
@@ -262,7 +262,22 @@
     "name": "jaredKhaute",
     "th": 17,
     "pos": 10,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 24,
+      "defender": "#GVYPV8PJG",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 168
+     },
+     {
+      "order": 25,
+      "defender": "#GCQRV9U0R",
+      "stars": 0,
+      "destruction": 13,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#YCQ0JU9YL",
@@ -276,14 +291,37 @@
     "name": "GWITE",
     "th": 17,
     "pos": 6,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 20,
+      "defender": "#QUC2L8QRP",
+      "stars": 2,
+      "destruction": 98,
+      "duration": 180
+     },
+     {
+      "order": 21,
+      "defender": "#GLVJLU020",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 134
+     }
+    ]
    },
    {
     "tag": "#QJJGJQG2",
     "name": "Sawm Bawi",
     "th": 19,
     "pos": 2,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 23,
+      "defender": "#P0YRJCV",
+      "stars": 2,
+      "destruction": 92,
+      "duration": 180
+     }
+    ]
    },
    {
     "tag": "#CGVG0LY8",
@@ -371,7 +409,15 @@
     "name": "BLACK HAND",
     "th": 17,
     "pos": 14,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 22,
+      "defender": "#R20CGVRQQ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 124
+     }
+    ]
    },
    {
     "tag": "#G98P8200Y",
