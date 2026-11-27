@@ -5,7 +5,7 @@
  "type": "inviteOnly",
  "level": 14,
  "points": 88200,
- "bb_points": 28647,
+ "bb_points": 28602,
  "capital_points": 2854,
  "war_frequency": "always",
  "war_win_streak": 1,
@@ -123,7 +123,7 @@
    "role": "coLeader",
    "th": 17,
    "exp": 176,
-   "trophies": 249,
+   "trophies": 289,
    "bb_trophies": 3123,
    "rank": 5,
    "donations": 900,
@@ -188,8 +188,8 @@
    "role": "admin",
    "th": 17,
    "exp": 158,
-   "trophies": 310,
-   "bb_trophies": 3951,
+   "trophies": 430,
+   "bb_trophies": 3860,
    "rank": 10,
    "donations": 655,
    "received": 196,
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-27T00:33:55Z"
+ "fetched": "2026-11-27T03:59:14Z"
 }

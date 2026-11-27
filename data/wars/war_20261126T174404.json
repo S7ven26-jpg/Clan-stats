@@ -203,15 +203,30 @@
  "opponent": {
   "tag": "#2CYUP0Q99",
   "name": "Hrekima",
-  "stars": 5,
-  "destruction": 12.13,
+  "stars": 11,
+  "destruction": 25.47,
   "members": [
    {
     "tag": "#2QVP2LVQJ",
     "name": "AlexMwAn寂",
     "th": 18,
     "pos": 5,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 13,
+      "defender": "#R2C8PUVQJ",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 174
+     },
+     {
+      "order": 14,
+      "defender": "#GCG2PYY2R",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 155
+     }
+    ]
    },
    {
     "tag": "#LYL98C2JU",
