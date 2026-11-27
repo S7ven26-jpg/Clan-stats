@@ -3,13 +3,21 @@
  "state": "ongoing",
  "start": "2026-11-27T07:00:00Z",
  "end": "2026-11-30T07:00:00Z",
- "total_loot": 122816,
+ "total_loot": 136307,
  "raids_completed": 1,
- "total_attacks": 33,
- "districts_destroyed": 14,
+ "total_attacks": 36,
+ "districts_destroyed": 16,
  "offensive_reward": 0,
  "defensive_reward": 0,
  "members": [
+  {
+   "tag": "#QRUR00J0P",
+   "name": "lucas",
+   "attacks": 3,
+   "attack_limit": 5,
+   "bonus_attack_limit": 1,
+   "looted": 13491
+  },
   {
    "tag": "#P0YRJCV",
    "name": "S7ven26",
