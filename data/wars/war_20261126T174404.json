@@ -4,7 +4,7 @@
  "season": "2026-11",
  "round": null,
  "war_tag": null,
- "state": "inWar",
+ "state": "warEnded",
  "start": "2026-11-26T17:44:04Z",
  "end": "2026-11-27T17:44:04Z",
  "team_size": 15,
@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 42,
-  "destruction": 98.4,
+  "stars": 44,
+  "destruction": 99.93,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -167,6 +167,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 101
+     },
+     {
+      "order": 48,
+      "defender": "#8PG2PGRJQ",
+      "stars": 2,
+      "destruction": 97,
+      "duration": 177
      }
     ]
    },
@@ -203,6 +210,13 @@
       "defender": "#GQ208V2LQ",
       "stars": 2,
       "destruction": 82,
+      "duration": 131
+     },
+     {
+      "order": 47,
+      "defender": "#QLPYLUR0Y",
+      "stars": 3,
+      "destruction": 100,
       "duration": 131
      }
     ]
@@ -300,8 +314,8 @@
  "opponent": {
   "tag": "#2CYUP0Q99",
   "name": "Hrekima",
-  "stars": 39,
-  "destruction": 92.47,
+  "stars": 44,
+  "destruction": 99.6,
   "members": [
    {
     "tag": "#2QVP2LVQJ",
@@ -389,6 +403,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 145
+     },
+     {
+      "order": 51,
+      "defender": "#P0YRJCV",
+      "stars": 2,
+      "destruction": 94,
+      "duration": 180
      }
     ]
    },
@@ -426,6 +447,13 @@
       "stars": 2,
       "destruction": 92,
       "duration": 180
+     },
+     {
+      "order": 45,
+      "defender": "#2U8JYG9V8",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 165
      }
     ]
    },
@@ -463,6 +491,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 107
+     },
+     {
+      "order": 46,
+      "defender": "#QUC2L8QRP",
+      "stars": 2,
+      "destruction": 79,
+      "duration": 169
      }
     ]
    },
@@ -507,6 +542,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 126
+     },
+     {
+      "order": 50,
+      "defender": "#8CQQG8J88",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 154
      }
     ]
    },
@@ -522,6 +564,13 @@
       "stars": 2,
       "destruction": 82,
       "duration": 180
+     },
+     {
+      "order": 44,
+      "defender": "#2U8JYG9V8",
+      "stars": 1,
+      "destruction": 58,
+      "duration": 111
      }
     ]
    },
@@ -537,6 +586,13 @@
       "stars": 3,
       "destruction": 100,
       "duration": 124
+     },
+     {
+      "order": 49,
+      "defender": "#QUC2L8QRP",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 130
      }
     ]
    },
