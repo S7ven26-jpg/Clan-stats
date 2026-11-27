@@ -12,8 +12,8 @@
  "clan": {
   "tag": "#2RP29GPCG",
   "name": "Arepa con queso",
-  "stars": 32,
-  "destruction": 77.27,
+  "stars": 35,
+  "destruction": 83.93,
   "members": [
    {
     "tag": "#QRUR00J0P",
@@ -57,6 +57,13 @@
       "stars": 2,
       "destruction": 74,
       "duration": 180
+     },
+     {
+      "order": 30,
+      "defender": "#LYL98C2JU",
+      "stars": 3,
+      "destruction": 100,
+      "duration": 124
      }
     ]
    },
@@ -226,8 +233,8 @@
  "opponent": {
   "tag": "#2CYUP0Q99",
   "name": "Hrekima",
-  "stars": 33,
-  "destruction": 80.0,
+  "stars": 34,
+  "destruction": 83.13,
   "members": [
    {
     "tag": "#2QVP2LVQJ",
@@ -256,7 +263,15 @@
     "name": "müähçhäx×Vz",
     "th": 17,
     "pos": 8,
-    "attacks": []
+    "attacks": [
+     {
+      "order": 31,
+      "defender": "#GCQRV9U0R",
+      "stars": 1,
+      "destruction": 60,
+      "duration": 159
+     }
+    ]
    },
    {
     "tag": "#QPRC90LQ8",
