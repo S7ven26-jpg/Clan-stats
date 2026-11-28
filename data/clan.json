@@ -5,7 +5,7 @@
  "type": "open",
  "level": 14,
  "points": 88200,
- "bb_points": 28665,
+ "bb_points": 28682,
  "capital_points": 2854,
  "war_frequency": "always",
  "war_win_streak": 2,
@@ -71,10 +71,10 @@
    "role": "coLeader",
    "th": 19,
    "exp": 222,
-   "trophies": 458,
+   "trophies": 533,
    "bb_trophies": 3988,
    "rank": 1,
-   "donations": 6447,
+   "donations": 6467,
    "received": 3855,
    "league": "Unranked"
   },
@@ -127,7 +127,7 @@
    "bb_trophies": 3123,
    "rank": 5,
    "donations": 1041,
-   "received": 926,
+   "received": 946,
    "league": "Unranked"
   },
   {
@@ -188,7 +188,7 @@
    "role": "admin",
    "th": 17,
    "exp": 158,
-   "trophies": 430,
+   "trophies": 584,
    "bb_trophies": 3860,
    "rank": 10,
    "donations": 655,
@@ -279,7 +279,7 @@
    "role": "member",
    "th": 15,
    "exp": 210,
-   "trophies": 379,
+   "trophies": 392,
    "bb_trophies": 3196,
    "rank": 17,
    "donations": 3232,
@@ -345,7 +345,7 @@
    "th": 16,
    "exp": 172,
    "trophies": 178,
-   "bb_trophies": 2729,
+   "bb_trophies": 2797,
    "rank": 22,
    "donations": 1455,
    "received": 0,
@@ -383,7 +383,7 @@
    "role": "admin",
    "th": 14,
    "exp": 135,
-   "trophies": 112,
+   "trophies": 130,
    "bb_trophies": 2470,
    "rank": 25,
    "donations": 250,
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-28T11:43:42Z"
+ "fetched": "2026-11-28T14:49:02Z"
 }
