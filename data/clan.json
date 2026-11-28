@@ -326,6 +326,19 @@
    "league": "Unranked"
   },
   {
+   "tag": "#Q228U9LY2",
+   "name": "J.ENP21",
+   "role": "admin",
+   "th": 15,
+   "exp": 142,
+   "trophies": 188,
+   "bb_trophies": 2557,
+   "rank": 21,
+   "donations": 0,
+   "received": 81,
+   "league": "Unranked"
+  },
+  {
    "tag": "#YLL22GQRQ",
    "name": "josephe",
    "role": "admin",
@@ -333,22 +346,9 @@
    "exp": 172,
    "trophies": 178,
    "bb_trophies": 2729,
-   "rank": 21,
+   "rank": 22,
    "donations": 1455,
    "received": 0,
-   "league": "Unranked"
-  },
-  {
-   "tag": "#Q228U9LY2",
-   "name": "J.ENP21",
-   "role": "admin",
-   "th": 15,
-   "exp": 142,
-   "trophies": 172,
-   "bb_trophies": 2557,
-   "rank": 22,
-   "donations": 0,
-   "received": 81,
    "league": "Unranked"
   },
   {
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-28T05:35:45Z"
+ "fetched": "2026-11-28T07:56:05Z"
 }
