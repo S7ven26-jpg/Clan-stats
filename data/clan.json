@@ -71,7 +71,7 @@
    "role": "coLeader",
    "th": 19,
    "exp": 222,
-   "trophies": 435,
+   "trophies": 458,
    "bb_trophies": 3988,
    "rank": 1,
    "donations": 6447,
@@ -279,11 +279,11 @@
    "role": "member",
    "th": 15,
    "exp": 210,
-   "trophies": 302,
+   "trophies": 379,
    "bb_trophies": 3196,
    "rank": 17,
    "donations": 3232,
-   "received": 4331,
+   "received": 4414,
    "league": "Unranked"
   },
   {
@@ -308,7 +308,7 @@
    "trophies": 377,
    "bb_trophies": 3203,
    "rank": 19,
-   "donations": 3425,
+   "donations": 3508,
    "received": 3974,
    "league": "Unranked"
   },
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-28T07:56:05Z"
+ "fetched": "2026-11-28T11:43:42Z"
 }
