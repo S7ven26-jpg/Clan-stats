@@ -5,7 +5,7 @@
  "type": "open",
  "level": 14,
  "points": 88200,
- "bb_points": 28682,
+ "bb_points": 28716,
  "capital_points": 2854,
  "war_frequency": "always",
  "war_win_streak": 2,
@@ -71,11 +71,11 @@
    "role": "coLeader",
    "th": 19,
    "exp": 222,
-   "trophies": 533,
+   "trophies": 546,
    "bb_trophies": 3988,
    "rank": 1,
    "donations": 6467,
-   "received": 3855,
+   "received": 3953,
    "league": "Unranked"
   },
   {
@@ -126,7 +126,7 @@
    "trophies": 329,
    "bb_trophies": 3123,
    "rank": 5,
-   "donations": 1041,
+   "donations": 1109,
    "received": 946,
    "league": "Unranked"
   },
@@ -139,7 +139,7 @@
    "trophies": 653,
    "bb_trophies": 3645,
    "rank": 6,
-   "donations": 2167,
+   "donations": 2197,
    "received": 3385,
    "league": "Unranked"
   },
@@ -174,8 +174,8 @@
    "name": "8A2",
    "role": "admin",
    "th": 16,
-   "exp": 134,
-   "trophies": 486,
+   "exp": 135,
+   "trophies": 498,
    "bb_trophies": 1970,
    "rank": 9,
    "donations": 1085,
@@ -280,10 +280,10 @@
    "th": 15,
    "exp": 210,
    "trophies": 392,
-   "bb_trophies": 3196,
+   "bb_trophies": 3197,
    "rank": 17,
    "donations": 3232,
-   "received": 4414,
+   "received": 4497,
    "league": "Unranked"
   },
   {
@@ -306,9 +306,9 @@
    "th": 17,
    "exp": 183,
    "trophies": 377,
-   "bb_trophies": 3203,
+   "bb_trophies": 3270,
    "rank": 19,
-   "donations": 3508,
+   "donations": 3591,
    "received": 3974,
    "league": "Unranked"
   },
@@ -521,5 +521,5 @@
    "league": "Unranked"
   }
  ],
- "fetched": "2026-11-28T14:49:02Z"
+ "fetched": "2026-11-28T18:25:10Z"
 }
